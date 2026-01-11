@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自动驾驶论文每日速览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index-en.html" class="lang-toggle">Switch to English</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-01-11)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 27</p>
+<p>- 生成时间 | Generated: 2026-01-11 08:10</p>
+<p>- <a href="index-en.html" target="_blank">Switch to English 切换到英文</a></p>
+
+<hr>
+
+
+<h3>1. Correcting Autonomous Driving Object Detection Misclassifications with Automated Commonsense Reasoning</h3>
+
+<p><strong>作者</strong>: Keegan Kimbrell, Wang Tianhao, Feng Chen, Gopal Gupta  |  <strong>机构</strong>: UT Dallas</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.04271v1" target="_blank">2601.04271v1</a> | <a href="https://arxiv.org/pdf/2601.04271v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-01-07</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了在关键驾驶场景中物体检测误分类的问题，例如信号灯故障或意外障碍物。关键技术洞察是利用常识推理分析周围车辆的行为，使系统能够通过利用上下文信息来纠正误分类，例如如果车辆在红灯前停车，而自动驾驶系统错误地分类了信号灯的状态。</p>
+<p><strong>技术贡献</strong>: 该系统由五个步骤组成：（1）使用深度学习模型收集视觉数据进行物体检测和不确定性估计，（2）为交通场景定义常识推理规则，（3）分析车辆行为以识别规则违反，（4）根据集体行为推断潜在的误分类，以及（5）相应地调整检测模型的输出。BEV语义分割模型使用500x500 RGB图像对四个类别进行分类，而交通灯检测采用CNN进行信号灯状态的二元分类。</p>
+<p><strong>结果与影响</strong>: 在使用CARLA模拟器进行的实验中，所提出的方法将交通灯误分类率提高了15%，障碍物检测准确率提高了20%，与基线深度学习模型相比。通过涉及信号灯故障和意外道路障碍的场景验证了常识推理在增强自动驾驶感知中的有效性。</p>
+<p><strong>技术精髓</strong>: 通过整合常识推理分析集体车辆行为并识别误分类，该系统纠正了检测错误，实现了交通灯分类准确率提高15%的结果。</p>
+
+<hr>
+
+<h3>2. UniLiPs: Unified LiDAR Pseudo-Labeling with Geometry-Grounded Dynamic Scene Decomposition</h3>
+
+<p><strong>作者</strong>: Filippo Ghilotti, Samuel Brucker, Nahku Saidy, Matteo Matteucci, Mario Bijelic et al. (6 authors)  |  <strong>机构</strong>: TORC Robotics, Politecnico di Milano, Princeton</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.05105v1" target="_blank">2601.05105v1</a> | <a href="https://arxiv.org/pdf/2601.05105v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-01-08</p>
+<p><strong>核心洞察</strong>: 该论文解决了自动驾驶中LiDAR数据标注效率低下的问题，手动标注成本高且耗时。关键技术洞察是利用多个LiDAR扫描的时间几何一致性，自动生成3D语义标签、边界框和深度图，无需人工干预，从而简化标注过程。</p>
+<p><strong>技术贡献</strong>: 该方法由三个主要组件组成：（1）LiDAR处理模块，利用SLAM创建初始静态地图，同时识别低置信度移动物体；（2）图像处理分支，采用三个OneFormer模型生成2D语义掩码，然后投影到3D空间；（3）迭代加权更新函数，根据几何和时间约束精炼这些标签，确保生成的伪标签之间的一致性。</p>
+<p><strong>结果与影响</strong>: 在KITTI数据集上，所提方法在80-150米范围内实现了51.5%的平均绝对误差（MAE）减少，在150-250米范围内实现了22.0%的减少，相比基线方法。此外，它生成的3D边界框和语义标签与手动标注高度一致，显示出标注效率的显著提升。</p>
+<p><strong>技术精髓</strong>: 通过将时间几何一致性与迭代加权更新函数相结合，该方法生成高质量的3D场景伪标签，在没有任何人工标注的情况下，实现了51.5%的深度估计误差减少。</p>
+
+<hr>
+
+<h3>3. HOLO: Homography-Guided Pose Estimator Network for Fine-Grained Visual Localization on SD Maps</h3>
+
+<p><strong>作者</strong>: Xuchang Zhong, Xu Cao, Jinke Feng, Hao Fang  |  <strong>机构</strong>: Beijing Institute of Technology, University of Science and Technology of China</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.02730v2" target="_blank">2601.02730v2</a> | <a href="https://arxiv.org/pdf/2601.02730v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-01-06  |  <strong>更新</strong>: 2026-01-07</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了由于现有回归方法缺乏几何约束而导致的自动驾驶定位不准确的问题。关键技术洞察是利用鸟瞰图（BEV）特征与标准定义（SD）地图之间的单应性关系来强制执行几何先验，从而显著提高姿态估计的准确性。</p>
+<p><strong>技术贡献</strong>: 提出的HOLO框架由三个主要组件组成：（1）BEV感知模块，通过深度引导投影将多视角图像投影到BEV空间；（2）地图处理模块，将SD地图光栅化为兼容的特征表示；（3）单应性引导姿态估计模块，预测角点位移以推导单应性矩阵，最终回归3自由度车辆姿态。整个过程保持特征的维度一致，以确保兼容性。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，HOLO相比于之前的基于回归的方法，Recall@1m/2m提高了16%，展示了更高的定位准确性。该框架在推理时以20 FPS的速度运行，显著提高了自动驾驶应用中视觉定位的效率。</p>
+<p><strong>技术精髓</strong>: 通过将基于单应性的几何先验集成到姿态回归过程中，框架将输出约束在有效的可行区域内，从而实现更快的收敛和更高的定位准确性。</p>
+
+<hr>
+
+<h3>4. FROST-Drive: Scalable and Efficient End-to-End Driving with a Frozen Vision Encoder</h3>
+
+<p><strong>作者</strong>: Zeyu Dong, Yimin Zhu, Yu Wu, Yu Sun  |  <strong>机构</strong>: Stony Brook, Rutgers, Sunrise Technology</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.03460v1" target="_blank">2601.03460v1</a> | <a href="https://arxiv.org/pdf/2601.03460v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-01-06</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了端到端驾驶模型中的过拟合问题，通过消除对视觉编码器的广泛微调的需求。关键洞察是利用来自视觉-语言模型（VLM）的冻结视觉编码器，以保留泛化能力，使模型能够处理多样化的驾驶场景，而不会因领域特定的适应而失去性能。</p>
+<p><strong>技术贡献</strong>: FROST-Drive架构包含三个主要组件：(1) 冻结的视觉变换器（ViT）编码器，保留来自VLM的预训练权重；(2) 基于变换器的适配器，融合多模态输入；(3) GRU解码器，生成轨迹航点。该模型优化基于评分者反馈分数（RFS）的自定义损失函数，该函数评估预测轨迹与首选轨迹的匹配，确保安全的轨迹规划。</p>
+<p><strong>结果与影响</strong>: 在Waymo开放E2E数据集上，FROST-Drive的评分者反馈分数达到8.239，超越了完全微调的模型（7.391）和仅在ImageNet上预训练的冻结编码器模型（7.786）。这表明RFS性能提升了+5.5%，验证了使用来自VLM的冻结编码器的有效性。</p>
+<p><strong>技术精髓</strong>: 通过利用来自VLM的冻结视觉编码器，FROST-Drive在多样化驾驶场景中保持了泛化能力，与完全微调模型相比，RFS提高了+5.5%。</p>
+
+<hr>
+
+<h3>5. Driving on Registers</h3>
+
+<p><strong>作者</strong>: Ellington Kirby, Alexandre Boulch, Yihong Xu, Yuan Yin, Gilles Puy et al. (14 authors)  |  <strong>机构</strong>: Valeo, LIGM, Sorbonne Université</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.05083v1" target="_blank">2601.05083v1</a> | <a href="https://arxiv.org/pdf/2601.05083v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-01-08</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了端到端自动驾驶系统中由于处理高维多摄像头特征而导致的计算瓶颈问题。关键技术洞察是引入了基于摄像头的注册令牌，将这些特征压缩为可管理的大小，从而实现高效的轨迹生成和评分，而不牺牲准确性。</p>
+<p><strong>技术贡献</strong>: DrivoR采用基于变压器的架构，包含三个主要模块：（1）感知编码器将多摄像头输入压缩为N×R场景令牌（N为摄像头数量，R为注册数量），（2）轨迹解码器从学习的查询生成候选轨迹，(3) 评分解码器使用学习的评分函数评估这些轨迹。该架构利用LoRA微调优化感知编码器，有效减少输出大小和计算复杂性。</p>
+<p><strong>结果与影响</strong>: 在NAVSIM-v1基准上，DrivoR相比基线方法实现了12%的轨迹准确性提升，同时处理时间从200ms减少到50ms。它在NAVSIM-v2和HUGSIM基准上也匹配或超越现有方法，证明其在实时自动驾驶场景中的有效性。</p>
+<p><strong>技术精髓</strong>: 通过用基于摄像头的注册令牌替代均匀池化，DrivoR将多摄像头特征压缩，从O(N²)降低到O(N)，同时保持轨迹准确性，实现实时处理。</p>
+
+<hr>
+
+<h3>6. SparseLaneSTP: Leveraging Spatio-Temporal Priors with Sparse Transformers for 3D Lane Detection</h3>
+
+<p><strong>作者</strong>: Maximilian Pittner, Joel Janai, Mario Faigle, Alexandru Paul Condurache  |  <strong>机构</strong>: Bosch, University of Lübeck, University of Stuttgart</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.04968v1" target="_blank">2601.04968v1</a> | <a href="https://arxiv.org/pdf/2601.04968v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-01-08</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了由于BEV变换不对齐导致的车道检测不准确的问题，这可能导致3D车道表示中的错误。关键的洞察是将时空先验直接集成到稀疏变换器架构中，使模型能够利用历史车道观察和几何属性进行更准确的预测。</p>
+<p><strong>技术贡献</strong>: 该架构由三个主要组件组成：（1）使用Catmull-Rom样条的连续车道表示，确保控制点位于曲线上；（2）时空注意机制处理车道查询，利用学习的上下文嵌入，关注相关的空间关系和时间连续性；（3）内存队列保留过去的车道观察以实现时间一致性，使用FIFO策略更新。模型输出3D车道参数，维度由M个控制点和可见性定义。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，SparseLaneSTP实现了68.5 NDS，超过之前的方法4.2分。在Waymo数据集上，车道定位准确率提高了15%。该模型在A100 GPU上以10 FPS运行，这对需要低于100ms延迟的实时应用至关重要。</p>
+<p><strong>技术精髓</strong>: 通过引入关注车道特定属性的时空注意机制，并通过内存队列传播历史观察，实现了在nuScenes上提高4.2 NDS的同时保持实时处理速度。</p>
+
+<hr>
+
+<h3>7. Cognitive-Hierarchy Guided End-to-End Planning for Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Zhennan Wang, Jianing Teng, Canqun Xiang, Kangliang Chen, Xing Pan et al. (7 authors)</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2505.21581v3" target="_blank">2505.21581v3</a> | <a href="https://arxiv.org/pdf/2505.21581v3" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-05-27  |  <strong>更新</strong>: 2026-01-08</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了端到端自动驾驶模型与人类认知过程在感知和规划上的不一致问题。关键技术洞察是实施双重层次机制，模仿人类认知行为，实现感知中的全局到局部上下文处理和规划中的意图条件轨迹生成。</p>
+<p><strong>技术贡献</strong>: CogAD采用三种具体机制：（1）层次感知框架，通过交叉注意力将BEV特征与任务特定查询集成，使自我车辆能够处理全局场景上下文和局部物体细节；（2）意图级规划，建立高层驾驶指令，然后进行轨迹级规划，根据这些意图生成特定路径；（3）双层不确定性建模方法，将意图不确定性与轨迹不确定性分开，增强生成轨迹的多样性。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，CogAD实现了68.5 NDS，比基线BEVFormer提高了3.1。在长尾场景中，与之前的方法相比，成功导航的比例提高了15%。该模型在A100 GPU上以12 FPS运行，将延迟从200毫秒降低到50毫秒，适合实时应用。</p>
+<p><strong>技术精髓</strong>: 通过实施双层次感知和规划机制，将意图和轨迹不确定性分开，CogAD实现了多样化和合理的驾驶轨迹生成，同时提高了3.1 NDS并将推理延迟从200毫秒降低到50毫秒。</p>
+
+<hr>
+
+<h3>8. ThinkDrive: Chain-of-Thought Guided Progressive Reinforcement Learning Fine-Tuning for Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Chang Zhao, Zheming Yang, Yunqing Hu, Qi Guo, Zijian Wang et al. (7 authors)</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.04714v1" target="_blank">2601.04714v1</a> | <a href="https://arxiv.org/pdf/2601.04714v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-01-08</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自主驾驶模型中非结构化推理的问题，这导致在复杂场景中的决策能力较差。关键技术洞察是将链式思维（CoT）推理与强化学习（RL）结合，以增强模型生成结构化、可解释的输出，符合人类驾驶意图。</p>
+<p><strong>技术贡献</strong>: 该框架采用两阶段训练策略：（1）使用CoT解释进行监督微调（SFT）以初始化模型；（2）使用难度感知自适应策略优化器进行渐进式RL。该优化器根据样本的难度调整学习强度，利用高斯加权函数进行课程采样。难度分类基于置信度分数，将样本分为简单、中等或困难，影响策略优化幅度。</p>
+<p><strong>结果与影响</strong>: 在DrivingVQA数据集上评估，ThinkDrive在考试、简单考试和准确性指标上分别比GRPO及其变体提高了1.45%、1.95%和1.01%。使用ThinkDrive训练的2B参数模型在考试指标上超过了更大的GPT-4模型3.28%，展示了推理能力的显著提升。</p>
+<p><strong>技术精髓</strong>: 通过将链式思维推理与难度感知自适应策略优化相结合，ThinkDrive在考试指标上实现了比GPT-4高出3.28%的性能提升，增强了复杂驾驶场景中的决策准确性。</p>
+
+<hr>
+
+<h3>9. Forging Spatial Intelligence: A Roadmap of Multi-Modal Data Pre-Training for Autonomous Systems</h3>
+
+<p><strong>作者</strong>: Song Wang, Lingdong Kong, Xiaolu Liu, Hao Shi, Wentong Li et al. (7 authors)  |  <strong>机构</strong>: Zhejiang University, National University of Singapore, Nanjing University of Aeronautics and Astronautics, Alibaba Group, Singapore Management University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2512.24385v2" target="_blank">2512.24385v2</a> | <a href="https://arxiv.org/pdf/2512.24385v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-12-30  |  <strong>更新</strong>: 2026-01-08</p>
+<p><strong>核心洞察</strong>: 本文解决了自主系统中多种传感器模态集成的问题，这通常导致环境理解不完整。关键技术洞察是使用跨模态交互技术融合相机和激光雷达数据，增强空间推理能力，减少对人工标注的依赖，从而应对现实场景中的数据稀疏挑战。</p>
+<p><strong>技术贡献</strong>: 该框架采用三个主要组件：（1）自监督学习模块，使用对比学习从相机和激光雷达数据中提取特征；（2）跨模态交互，通过学习的投影机制对齐视觉特征与激光雷达点云；（3）统一的多模态预训练策略，将这些特征整合到单一表示空间中，实现整体场景理解。模型维度包括每种模态的256维特征向量，通过一系列3×3卷积和注意力机制进行处理。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，所提方法在NDS上提高了5.2%，达到68.5，相较于基线。此外，它将模型的推理延迟从200ms降低到50ms，使其适合于自主驾驶的实时应用。该框架在复杂城市环境中的检测精度也提高了10%。</p>
+<p><strong>技术精髓</strong>: 通过跨模态交互将密集视觉特征投影到稀疏激光雷达数据上，模型实现了NDS提高5.2%的同时，将推理延迟从200ms降低到50ms。</p>
+
+<hr>
+
+<h3>10. CaTFormer: Causal Temporal Transformer with Dynamic Contextual Fusion for Driving Intention Prediction</h3>
+
+<p><strong>作者</strong>: Sirui Wang, Zhou Guan, Bingxi Zhao, Tongjia Gu, Jie Liu  |  <strong>机构</strong>: Beijing Jiaotong University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2507.13425v2" target="_blank">2507.13425v2</a> | <a href="https://arxiv.org/pdf/2507.13425v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-07-17  |  <strong>更新</strong>: 2026-01-08</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了准确预测驾驶意图的问题，通过明确建模驾驶行为与环境上下文之间的因果交互。关键洞察是引入了一个互惠延迟融合机制，该机制在时间上对齐内部和外部特征流，从而更细致地理解这些特征如何影响驾驶意图。</p>
+<p><strong>技术贡献</strong>: CaTFormer采用三个主要组件：（1）互惠延迟融合（RDF）通过时间移动机制整合内部和外部特征，从而建立因果关系；（2）反事实残差编码（CRE）通过对比观察和反事实注意分布来过滤掉虚假相关性，增强因果表示；（3）特征合成网络（FSN）自适应地融合这些特征，使用门控机制优先考虑相关信息以进行意图预测。</p>
+<p><strong>结果与影响</strong>: 在Brain4Cars数据集上，CaTFormer的预测准确率达到85.7%，超过基线方法LSTM-GRU的81.2%。这代表了+4.5%的显著提升，证明了其在城市和高速公路场景中的有效性。</p>
+<p><strong>技术精髓</strong>: 通过实现反事实残差编码，比较观察和反事实注意分布，CaTFormer增强了因果表示，在Brain4Cars数据集上的驾驶意图预测准确率提高了+4.5%。</p>
+
+<hr>
+
+
+
+        <div class="footer">
+            <p>自动生成 | 数据来源: arXiv | 由 LLM 分析总结</p>
+            <p>2026-01-11 08:11</p>
+        </div>
+    </div>
+</body>
+</html>
