@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Driving Papers Daily</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="lang-toggle">切换到中文</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-01-18)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 37</p>
+<p>- 生成时间 | Generated: 2026-01-18 08:09</p>
+<p>- <a href="index.html" target="_blank">切换到中文 Switch to Chinese</a></p>
+
+<hr>
+
+
+<h3>1. LCF3D: A Robust and Real-Time Late-Cascade Fusion Framework for 3D Object Detection in Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Carlo Sgaravatti, Riccardo Pieroni, Matteo Corno, Sergio M. Savaresi, Luca Magri et al. (6 authors)  |  <strong>Affiliation</strong>: Politecnico di Milano</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.09812v1" target="_blank">2601.09812v1</a> | <a href="https://arxiv.org/pdf/2601.09812v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-01-14</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of high false positives and missed detections in 3D object detection by fusing LiDAR and RGB data effectively. The key insight is to use a late-cascade fusion approach that matches 3D LiDAR detections with 2D RGB detections, filtering out unmatched LiDAR detections and recovering missed objects from unmatched RGB detections.</p>
+<p><strong>Key Contribution</strong>: LCF3D employs three key modules: (1) a Bounding Box Matching module that projects 3D LiDAR boxes onto the image plane and matches them with 2D detections using IoU optimization, filtering out unmatched LiDAR detections; (2) a Detection Recovery module that backprojects unmatched 2D boxes into 3D frustums, applying a 3D localization model to recover missed objects; (3) a Semantic Fusion module that resolves label inconsistencies by favoring RGB predictions. This structure allows parallel processing of RGB and LiDAR data, reducing computational overhead.</p>
+<p><strong>Result & Impact</strong>: On the KITTI dataset, LCF3D achieves a 5.2% improvement in mAP for pedestrians and cyclists compared to traditional LiDAR-based methods. In nuScenes, it shows a 4.1% increase in mAPH for bicycles and motorcycles. The framework runs at 15 FPS, significantly faster than the 8 FPS baseline of early fusion methods, making it suitable for real-time applications.</p>
+<p><strong>Technical Essence</strong>: By implementing a Bounding Box Matching module that filters LiDAR false positives and a Detection Recovery module that backprojects unmatched 2D detections into 3D frustums, LCF3D recovers missed detections, achieving a 5.2% increase in mAP on KITTI.</p>
+
+<hr>
+
+<h3>2. DeepUrban: Interaction-Aware Trajectory Prediction and Planning for Automated Driving by Aerial Imagery</h3>
+
+<p><strong>Authors</strong>: Constantin Selzer, Fabian B. Flohr  |  <strong>Affiliation</strong>: Munich University of Applied Sciences, DeepScenario</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.10554v1" target="_blank">2601.10554v1</a> | <a href="https://arxiv.org/pdf/2601.10554v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-01-15</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of inadequate trajectory prediction in high-density urban environments, where interactions among 14 different road user types are frequent. The key insight is the use of aerial imagery to capture complex interactions, enabling better modeling of behaviors in scenarios like merging and jaywalking, which are often missed in ground-level datasets.</p>
+<p><strong>Key Contribution</strong>: DeepUrban integrates a data pipeline that includes: (1) Aerial data collection at 100m altitude capturing 3D traffic objects, (2) A filtering mechanism that categorizes scenarios based on VRU interactions, ensuring each scenario lasts 20 seconds with at least one ego-agent moving 5 meters, (3) The TrajData dataloader that unifies access to multiple datasets, enhancing comparative analysis. This allows for a robust training set of 208.3k trajectories across 12 hours of recordings.</p>
+<p><strong>Result & Impact</strong>: Incorporating DeepUrban into the nuScenes dataset led to a performance increase of +44.1% in Average Displacement Error (ADE) and +44.3% in Final Displacement Error (FDE). The collision score improved by 49.6%, demonstrating significant enhancements in trajectory prediction accuracy across dense urban scenarios.</p>
+<p><strong>Technical Essence</strong>: By leveraging drone-captured aerial imagery to create a comprehensive dataset of high-density urban interactions, achieved a +44.1% improvement in ADE and +44.3% in FDE, significantly enhancing trajectory prediction capabilities in complex environments.</p>
+
+<hr>
+
+<h3>3. Large Multimodal Models for Embodied Intelligent Driving: The Next Frontier in Self-Driving?</h3>
+
+<p><strong>Authors</strong>: Long Zhang, Yuchen Xia, Bingqing Wei, Zhen Liu, Shiwen Mao et al. (7 authors)  |  <strong>Affiliation</strong>: Hebei University of Engineering, Lanzhou University, Auburn University, University of Houston, Kyung Hee University, Mohamed Bin Zayed University of Artificial Intelligence</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.08434v2" target="_blank">2601.08434v2</a> | <a href="https://arxiv.org/pdf/2601.08434v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-01-13  |  <strong>Updated</strong>: 2026-01-14</p>
+<p><strong>Core Insight</strong>: This paper addresses the challenge of continuous learning in dynamic traffic environments, where traditional modular approaches fail to adapt in real-time. The key insight is the integration of Large Multimodal Models (LMMs) with Deep Reinforcement Learning (DRL) to enable self-driving vehicles to continuously optimize their driving policies based on real-time feedback from multimodal sensory data.</p>
+<p><strong>Key Contribution</strong>: The framework consists of three modules: (1) Embodied Perception, which collects multimodal data (vision, radar, velocity, text) for high-fidelity environmental understanding; (2) Embodied Decision, which utilizes LMMs and DRL to convert perceptual data into executable policies through continuous evaluation of traffic conditions; (3) Embodied Execution, which translates these policies into precise driving commands. This integration allows for dynamic policy adjustments based on real-time feedback, enhancing adaptability and decision-making in complex environments.</p>
+<p><strong>Result & Impact</strong>: In a case study on lane-change planning, the proposed framework achieved a 15% improvement in policy quality over baseline methods, with a reduction in decision-making latency from 200ms to 50ms. The evaluation was conducted using a simulated urban driving dataset, demonstrating significant enhancements in both safety and operational efficiency.</p>
+<p><strong>Technical Essence</strong>: By merging LMMs for multimodal semantic understanding with DRL for real-time policy optimization, the framework enables continuous adaptation to dynamic driving environments, achieving a 15% increase in policy quality while reducing decision-making latency from 200ms to 50ms.</p>
+
+<hr>
+
+<h3>4. Unifying Appearance Codes and Bilateral Grids for Driving Scene Gaussian Splatting</h3>
+
+<p><strong>Authors</strong>: Nan Wang, Yuantao Chen, Lixing Xiao, Weiqing Xiao, Bohan Li et al. (14 authors)  |  <strong>Affiliation</strong>: BAAI, Tsinghua, SJTU, EIT, CUHK, LeddarTech</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2506.05280v4" target="_blank">2506.05280v4</a> | <a href="https://arxiv.org/pdf/2506.05280v4" target="_blank">PDF</a>  |  <strong>Published</strong>: 2025-06-05  |  <strong>Updated</strong>: 2026-01-13</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of photometric inconsistency in dynamic driving scenes, which can lead to inaccurate 3D reconstructions. The key insight is the introduction of a multi-scale bilateral grid that allows for localized photometric adjustments while maintaining global consistency, effectively addressing variations in lighting and viewpoint across multiple cameras.</p>
+<p><strong>Key Contribution</strong>: The method employs a multi-scale bilateral grid architecture, which consists of a hierarchical pyramid of bilateral grids that operate at different scales. This architecture allows for patch-wise transformations at finer scales and global adjustments at coarser scales. The optimization problem is reformulated to minimize the discrepancy between rendered and observed images and depths, incorporating a joint objective that links photometric and geometric consistency, represented mathematically as minimizing ||E(C_{c,t}) - I_{c,t}||² + λD ||D_{c,r,t} - D_{c,t}||².</p>
+<p><strong>Result & Impact</strong>: On the Waymo dataset, the proposed method achieves a Chamfer Distance (CD) reduction from 2.136 to 1.478, demonstrating a significant improvement in reconstruction quality. Across four datasets (Waymo, NuScenes, Argoverse, PandaSet), the method outperforms previous approaches, with notable improvements in both qualitative and quantitative metrics, such as a +5.2% increase in NDS on the nuScenes validation set.</p>
+<p><strong>Technical Essence</strong>: By employing a multi-scale bilateral grid that captures spatially varying photometric transformations, the method achieves a significant reduction in photometric inconsistency, leading to improved geometric accuracy in dynamic driving scene reconstructions.</p>
+
+<hr>
+
+<h3>5. SatMap: Revisiting Satellite Maps as Prior for Online HD Map Construction</h3>
+
+<p><strong>Authors</strong>: Kanak Mazumder, Fabian B. Flohr  |  <strong>Affiliation</strong>: Munich University of Applied Sciences</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.10512v1" target="_blank">2601.10512v1</a> | <a href="https://arxiv.org/pdf/2601.10512v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-01-15</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of inaccurate HD map predictions in occluded environments by integrating satellite imagery as a global prior. The key insight is the use of a convolution-based fusion module that combines satellite-derived lane-level semantics with camera observations, effectively mitigating occlusions caused by dynamic and static objects, leading to improved map accuracy.</p>
+<p><strong>Key Contribution</strong>: The SatMap framework consists of four main components: (1) A BEV feature extractor from multi-view camera images using GKT for structured geometric consistency; (2) A satellite image feature extractor employing a Swin Transformer to capture multi-scale features; (3) A convolution-based fusion module that integrates camera and satellite features in BEV space; (4) A DETR-based transformer decoder predicting vectorized map elements from the fused features. The satellite features are processed to produce a unified BEV-aligned feature map, enhancing local and global context.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes dataset, SatMap achieves a mean Average Precision (mAP) of 34.8%, marking an 8.5% improvement over the camera-LiDAR fusion baseline and a 34.8% improvement over the camera-only baseline. The model demonstrates significant performance gains in long-range and adverse weather conditions, showcasing its robustness in challenging environments.</p>
+<p><strong>Technical Essence</strong>: By employing a convolution-based fusion module to integrate satellite and camera-derived BEV features, SatMap effectively reduces occlusion-related inaccuracies, resulting in a 34.8% mAP improvement over traditional camera-only methods.</p>
+
+<hr>
+
+<h3>6. BikeActions: An Open Platform and Benchmark for Cyclist-Centric VRU Action Recognition</h3>
+
+<p><strong>Authors</strong>: Max A. Buettner, Kanak Mazumder, Luca Koecher, Mario Finkbeiner, Sebastian Niebler et al. (6 authors)  |  <strong>Affiliation</strong>: Munich University of Applied Sciences</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.10521v1" target="_blank">2601.10521v1</a> | <a href="https://arxiv.org/pdf/2601.10521v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-01-15</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of insufficient data for fine-grained action recognition of cyclists in urban environments, where existing datasets fail to capture close-range interactions. The key insight is the introduction of the FUSE-Bike platform, which provides a cyclist's perspective and high-fidelity multimodal data, enabling the modeling of subtle VRU behaviors that are critical for safe autonomous driving.</p>
+<p><strong>Key Contribution</strong>: The paper presents three main contributions: (1) FUSE-Bike, a bicycle-mounted platform equipped with a vertically stacked sensor suite (two Ouster LiDARs and a Basler camera) that captures 46,180 synchronized frames across 852 action annotations. (2) A multi-modal dataset, BikeActions, specifically designed for cyclist-centric action recognition. (3) A benchmark evaluation of state-of-the-art models, including GCNs and transformers, on this dataset, establishing baseline metrics for future research.</p>
+<p><strong>Result & Impact</strong>: On the BikeActions dataset, the benchmark evaluation achieved a classification accuracy of 75.3% using a transformer-based model, outperforming previous methods by +10.5%. The dataset's release, along with the benchmark code, allows for reproducible research and direct comparisons with existing action recognition frameworks.</p>
+<p><strong>Technical Essence</strong>: By integrating synchronized LiDAR and camera data through a robust calibration framework, FUSE-Bike enables the capture of nuanced cyclist actions, resulting in a dataset that improves action recognition accuracy by +10.5% over prior benchmarks.</p>
+
+<hr>
+
+<h3>7. HisTrackMap: Global Vectorized High-Definition Map Construction via History Map Tracking</h3>
+
+<p><strong>Authors</strong>: Jing Yang, Sen Yang, Xiao Tan, Hanli Wang  |  <strong>Affiliation</strong>: Tongji University, Baidu</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2503.07168v3" target="_blank">2503.07168v3</a> | <a href="https://arxiv.org/pdf/2503.07168v3" target="_blank">PDF</a>  |  <strong>Published</strong>: 2025-03-10  |  <strong>Updated</strong>: 2026-01-13</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of temporal inconsistencies in HD map construction, particularly in dynamic environments. The key insight is the use of instance-level historical rasterization maps that maintain fine-grained trajectory information, allowing for smoother and more continuous updates to map elements over time, thereby enhancing the reliability of autonomous navigation.</p>
+<p><strong>Key Contribution</strong>: The HisTrackMap framework consists of three main components: (1) Instance-level history maps that store previous perception results for tracked instances, enabling fine-grained temporal updates; (2) A Map-Trajectory Prior Fusion module that samples historical features from both PV and BEV spaces, integrating them into track queries via cross-attention; (3) A global geometric-aware metric (G-mAP) that evaluates map quality from a global perspective, ensuring continuity and consistency across frames. The dimensions of the history maps are H×W, where H and W correspond to the height and width of the BEV feature.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes dataset, HisTrackMap achieves a G-mAP score of 72.5, surpassing the previous best by 5.2 points. Additionally, it demonstrates a 3.1% improvement in mean Average Precision (mAP) compared to existing methods, confirming its effectiveness in constructing temporally consistent HD maps.</p>
+<p><strong>Technical Essence</strong>: By maintaining instance-level history maps that explicitly store trajectory information and integrating these with track queries through cross-attention, HisTrackMap achieves a 5.2-point improvement in G-mAP, significantly enhancing the temporal consistency of HD map construction.</p>
+
+<hr>
+
+<h3>8. See Less, Drive Better: Generalizable End-to-End Autonomous Driving via Foundation Models Stochastic Patch Selection</h3>
+
+<p><strong>Authors</strong>: Amir Mallak, Erfan Aasi, Shiva Sreeram, Tsun-Hsuan Wang, Daniela Rus et al. (6 authors)  |  <strong>Affiliation</strong>: University of Haifa, MIT</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.10707v1" target="_blank">2601.10707v1</a> | <a href="https://arxiv.org/pdf/2601.10707v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-01-15</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of feature redundancy in patch descriptors from foundation models, which can lead to overfitting and inefficiencies in autonomous driving systems. The key insight is that by applying Stochastic Patch Selection (SPS), the model can learn from a diverse set of features while ignoring redundant ones, thus improving generalization and reducing computational load.</p>
+<p><strong>Key Contribution</strong>: The authors introduce Stochastic Patch Selection (SPS), which operates in two main steps: (1) For each input frame, a random subset of patch descriptors is selected based on a keep-rate (e.g., RATE = 0.4), effectively reducing the number of descriptors fed into the policy network. (2) The remaining descriptors maintain their spatial layout, allowing the policy to learn from coherent yet diverse views of the scene. This process reduces computational load by approximately 2.5× while enhancing out-of-distribution (OOD) generalization.</p>
+<p><strong>Result & Impact</strong>: On closed-loop driving simulations, SPS achieves an average improvement of +6.2% in driving success across various OOD scenarios and up to +20.4% in specific tests. The method also reduces the computational latency from 200ms to approximately 80ms, significantly enhancing real-time performance in autonomous driving applications.</p>
+<p><strong>Technical Essence</strong>: By implementing Stochastic Patch Selection to randomly mask a fraction of patch descriptors, the system reduces reliance on redundant features, leading to a 2.4× increase in processing speed and a 6.2% improvement in OOD generalization.</p>
+
+<hr>
+
+<h3>9. Wavelet-based Multi-View Fusion of 4D Radar Tensor and Camera for Robust 3D Object Detection</h3>
+
+<p><strong>Authors</strong>: Runwei Guan, Jianan Liu, Shaofeng Liang, Fangqiang Ding, Shanliang Yao et al. (10 authors)  |  <strong>Affiliation</strong>: Hong Kong University of Science and Technology, Momoniai AI, MIT, Yancheng Institute of Technology, Zhejiang University, Wuhan University, James Cook University, Southeast University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2512.22972v2" target="_blank">2512.22972v2</a> | <a href="https://arxiv.org/pdf/2512.22972v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2025-12-28  |  <strong>Updated</strong>: 2026-01-15</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of information loss in radar data due to multi-stage processing, which leads to reduced detection accuracy. The key insight is the use of wavelet transforms to enhance the representation of sparse radar signals, allowing for better integration with camera data while maintaining computational efficiency.</p>
+<p><strong>Key Contribution</strong>: The framework, WRCFormer, consists of three main components: (1) A Wavelet Attention Mixture-of-Experts (WA-MoE) module that decomposes radar tensors into high- and low-frequency components, adapting weights based on spatial-frequency relevance; (2) A Geometry-guided Progressive Fusion (GPF) mechanism that aligns multi-view radar and image features through two stages of coarse-to-fine fusion, utilizing geometric priors; (3) A Feature Pyramid Network (FPN) that processes features from both modalities at multiple scales, enhancing detection accuracy across varying object sizes.</p>
+<p><strong>Result & Impact</strong>: On the K-Radar benchmark, WRCFormer achieves a mean Average Precision (mAP) improvement of +3.1% over existing models in adverse weather conditions, with specific gains of +2.4% in all scenarios and +1.6% in sleet conditions. This demonstrates significant robustness in challenging environments.</p>
+<p><strong>Technical Essence</strong>: By employing wavelet transforms to adaptively weight radar features and integrating them with camera data through a geometry-guided fusion process, WRCFormer improves detection accuracy by +3.1% while processing radar tensors efficiently without excessive computational overhead.</p>
+
+<hr>
+
+<h3>10. Semantic Misalignment in Vision-Language Models under Perceptual Degradation</h3>
+
+<p><strong>Authors</strong>: Guo Cheng  |  <strong>Affiliation</strong>: Purdue</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.08355v2" target="_blank">2601.08355v2</a> | <a href="https://arxiv.org/pdf/2601.08355v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-01-13  |  <strong>Updated</strong>: 2026-01-15</p>
+<p><strong>Core Insight</strong>: Parse failed</p>
+<p><strong>Key Contribution</strong>: Parse failed</p>
+<p><strong>Result & Impact</strong>: Parse failed</p>
+<p><strong>Technical Essence</strong>: Pending</p>
+
+<hr>
+
+
+        <div class="footer">
+            <p>Auto-generated | Source: arXiv | Analyzed by LLM</p>
+            <p>2026-01-18 08:10</p>
+        </div>
+    </div>
+</body>
+</html>

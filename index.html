@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自动驾驶论文每日速览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index-en.html" class="lang-toggle">Switch to English</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-01-18)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 37</p>
+<p>- 生成时间 | Generated: 2026-01-18 08:09</p>
+<p>- <a href="index-en.html" target="_blank">Switch to English 切换到英文</a></p>
+
+<hr>
+
+
+<h3>1. LCF3D: A Robust and Real-Time Late-Cascade Fusion Framework for 3D Object Detection in Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Carlo Sgaravatti, Riccardo Pieroni, Matteo Corno, Sergio M. Savaresi, Luca Magri et al. (6 authors)  |  <strong>机构</strong>: Politecnico di Milano</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.09812v1" target="_blank">2601.09812v1</a> | <a href="https://arxiv.org/pdf/2601.09812v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-01-14</p>
+<p><strong>核心洞察</strong>: 本文解决了3D目标检测中高假阳性和漏检的问题，通过有效融合LiDAR和RGB数据。关键技术洞察是使用晚级级联融合方法，将3D LiDAR检测与2D RGB检测匹配，过滤掉未匹配的LiDAR检测，并从未匹配的RGB检测中恢复漏检目标。</p>
+<p><strong>技术贡献</strong>: LCF3D采用三个关键模块：（1）边界框匹配模块，将3D LiDAR框投影到图像平面，并使用IoU优化与2D检测匹配，过滤掉未匹配的LiDAR检测；（2）检测恢复模块，将未匹配的2D框反投影到3D棱柱中，应用3D定位模型恢复漏检目标；（3）语义融合模块，通过优先考虑RGB预测来解决标签不一致性。该结构允许RGB和LiDAR数据的并行处理，减少计算开销。</p>
+<p><strong>结果与影响</strong>: 在KITTI数据集上，LCF3D在行人和骑自行车者的mAP上比传统LiDAR方法提高了5.2%。在nuScenes中，对于自行车和摩托车，其mAPH提高了4.1%。该框架以15 FPS运行，显著快于早期融合方法的8 FPS基线，适合实时应用。</p>
+<p><strong>技术精髓</strong>: 通过实现一个边界框匹配模块来过滤LiDAR假阳性和一个检测恢复模块来将未匹配的2D检测反投影到3D棱柱中，LCF3D恢复漏检目标，在KITTI上实现了5.2%的mAP提升。</p>
+
+<hr>
+
+<h3>2. DeepUrban: Interaction-Aware Trajectory Prediction and Planning for Automated Driving by Aerial Imagery</h3>
+
+<p><strong>作者</strong>: Constantin Selzer, Fabian B. Flohr  |  <strong>机构</strong>: Munich University of Applied Sciences, DeepScenario</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.10554v1" target="_blank">2601.10554v1</a> | <a href="https://arxiv.org/pdf/2601.10554v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-01-15</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了在高密度城市环境中轨迹预测不足的问题，在这些环境中，14种不同道路用户类型之间的互动频繁。关键技术洞察是利用空中影像捕捉复杂互动，从而更好地建模在合并和乱穿马路等场景中的行为，这些行为在地面数据集中常常被忽视。</p>
+<p><strong>技术贡献</strong>: DeepUrban集成了一个数据管道，包括：（1）在100米高度收集的空中数据，捕捉3D交通对象；（2）一种过滤机制，根据VRU互动对场景进行分类，确保每个场景持续20秒，且至少有一个自我代理移动5米；（3）TrajData数据加载器统一访问多个数据集，增强比较分析。这使得208,300条轨迹的强大训练集在12小时的录制中得以实现。</p>
+<p><strong>结果与影响</strong>: 将DeepUrban纳入nuScenes数据集后，平均位移误差（ADE）提高了44.1%，最终位移误差（FDE）提高了44.3%。碰撞评分提高了49.6%，在复杂城市场景中显著提升了轨迹预测的准确性。</p>
+<p><strong>技术精髓</strong>: 通过利用无人机捕获的空中影像创建高密度城市互动的综合数据集，实现了ADE提高44.1%和FDE提高44.3%的效果，显著增强了复杂环境中的轨迹预测能力。</p>
+
+<hr>
+
+<h3>3. Large Multimodal Models for Embodied Intelligent Driving: The Next Frontier in Self-Driving?</h3>
+
+<p><strong>作者</strong>: Long Zhang, Yuchen Xia, Bingqing Wei, Zhen Liu, Shiwen Mao et al. (7 authors)  |  <strong>机构</strong>: Hebei University of Engineering, Lanzhou University, Auburn University, University of Houston, Kyung Hee University, Mohamed Bin Zayed University of Artificial Intelligence</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.08434v2" target="_blank">2601.08434v2</a> | <a href="https://arxiv.org/pdf/2601.08434v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-01-13  |  <strong>更新</strong>: 2026-01-14</p>
+<p><strong>核心洞察</strong>: 本文解决了动态交通环境中持续学习的挑战，传统模块化方法无法实时适应。关键技术洞察是将大型多模态模型（LMMs）与深度强化学习（DRL）结合，使自动驾驶车辆能够根据来自多模态传感器数据的实时反馈持续优化其驾驶策略。</p>
+<p><strong>技术贡献</strong>: 该框架由三个模块组成：（1）具身感知，收集多模态数据（视觉、雷达、速度、文本），实现高保真环境理解；（2）具身决策，利用LMMs和DRL将感知数据转换为可执行策略，通过持续评估交通状况；（3）具身执行，将这些策略转化为精确的驾驶指令。这种集成允许基于实时反馈动态调整策略，提高复杂环境中的适应性和决策能力。</p>
+<p><strong>结果与影响</strong>: 在车道变换规划的案例研究中，所提出的框架在策略质量上比基线方法提高了15%，决策延迟从200毫秒降低到50毫秒。评估使用了模拟城市驾驶数据集，显示出在安全性和操作效率方面的显著提升。</p>
+<p><strong>技术精髓</strong>: 通过将LMMs用于多模态语义理解与DRL用于实时策略优化相结合，该框架实现了对动态驾驶环境的持续适应，策略质量提高了15%，同时将决策延迟从200毫秒降低到50毫秒。</p>
+
+<hr>
+
+<h3>4. Unifying Appearance Codes and Bilateral Grids for Driving Scene Gaussian Splatting</h3>
+
+<p><strong>作者</strong>: Nan Wang, Yuantao Chen, Lixing Xiao, Weiqing Xiao, Bohan Li et al. (14 authors)  |  <strong>机构</strong>: BAAI, Tsinghua, SJTU, EIT, CUHK, LeddarTech</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2506.05280v4" target="_blank">2506.05280v4</a> | <a href="https://arxiv.org/pdf/2506.05280v4" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-06-05  |  <strong>更新</strong>: 2026-01-13</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了动态驾驶场景中的光度不一致性问题，这可能导致3D重建不准确。关键技术洞察是引入多尺度双边网格，允许局部光度调整，同时保持全局一致性，有效应对多个摄像头之间的光照和视角变化。</p>
+<p><strong>技术贡献</strong>: 该方法采用多尺度双边网格架构，包含在不同尺度上操作的双边网格的层次金字塔。该架构允许在较细尺度上进行补丁级变换，而在较粗尺度上进行全局调整。优化问题被重新表述为最小化渲染图像和观察图像及深度之间的差异，结合一个链接光度和几何一致性的联合目标，数学表示为最小化||E(C_{c,t}) - I_{c,t}||² + λD ||D_{c,r,t} - D_{c,t}||²。</p>
+<p><strong>结果与影响</strong>: 在Waymo数据集上，所提出的方法将Chamfer距离（CD）从2.136降低到1.478，显示出重建质量的显著改善。在四个数据集（Waymo、NuScenes、Argoverse、PandaSet）上，该方法优于先前的方法，在定性和定量指标上都有显著改善，例如在nuScenes验证集上提高了5.2%的NDS。</p>
+<p><strong>技术精髓</strong>: 通过采用多尺度双边网格捕捉空间变化的光度变换，该方法显著减少了光度不一致性，从而提高了动态驾驶场景重建的几何准确性。</p>
+
+<hr>
+
+<h3>5. SatMap: Revisiting Satellite Maps as Prior for Online HD Map Construction</h3>
+
+<p><strong>作者</strong>: Kanak Mazumder, Fabian B. Flohr  |  <strong>机构</strong>: Munich University of Applied Sciences</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.10512v1" target="_blank">2601.10512v1</a> | <a href="https://arxiv.org/pdf/2601.10512v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-01-15</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了在遮挡环境中HD地图预测不准确的问题，通过整合卫星图像作为全局先验。关键技术洞察是使用卷积融合模块，将卫星导出的车道级语义与相机观测结合，有效减轻动态和静态物体造成的遮挡，从而提高地图准确性。</p>
+<p><strong>技术贡献</strong>: SatMap框架由四个主要组件组成：（1）使用GKT从多视角相机图像提取BEV特征，确保结构化几何一致性；（2）采用Swin Transformer的卫星图像特征提取器，捕捉多尺度特征；（3）在BEV空间中集成相机和卫星特征的卷积融合模块；（4）基于DETR的变换器解码器，从融合特征中预测向量化地图元素。卫星特征经过处理，生成统一的BEV对齐特征图，增强局部和全局上下文。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，SatMap实现了34.8%的平均精度（mAP），比相机-激光雷达融合基线提高了8.5%，比仅相机基线提高了34.8%。该模型在长距离和恶劣天气条件下表现出显著的性能提升，展示了其在挑战性环境中的鲁棒性。</p>
+<p><strong>技术精髓</strong>: 通过采用卷积融合模块集成卫星和相机导出的BEV特征，SatMap有效减少了与遮挡相关的不准确性，从而实现了相较于传统仅相机方法34.8%的mAP提升。</p>
+
+<hr>
+
+<h3>6. BikeActions: An Open Platform and Benchmark for Cyclist-Centric VRU Action Recognition</h3>
+
+<p><strong>作者</strong>: Max A. Buettner, Kanak Mazumder, Luca Koecher, Mario Finkbeiner, Sebastian Niebler et al. (6 authors)  |  <strong>机构</strong>: Munich University of Applied Sciences</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.10521v1" target="_blank">2601.10521v1</a> | <a href="https://arxiv.org/pdf/2601.10521v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-01-15</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了城市环境中对骑自行车者细粒度动作识别数据不足的问题，现有数据集未能捕捉近距离互动。关键技术洞察是引入FUSE-Bike平台，提供骑行者视角和高保真多模态数据，使得对微妙的VRU行为建模成为可能，这对安全的自主驾驶至关重要。</p>
+<p><strong>技术贡献</strong>: 论文提出了三项主要贡献：（1）FUSE-Bike，一个配备垂直堆叠传感器套件（两台Ouster LiDAR和一台Basler相机）的自行车平台，捕获了852个动作注释的46,180个同步帧；（2）BikeActions，一个专为骑自行车者中心的动作识别设计的多模态数据集；（3）对该数据集的基准评估，评估了包括GCN和变换器在内的最先进模型，建立了未来研究的基线指标。</p>
+<p><strong>结果与影响</strong>: 在BikeActions数据集上，基准评估使用变换器模型达到了75.3%的分类准确率，较之前的方法提高了10.5%。该数据集的发布以及基准代码的提供，允许可重复的研究和与现有动作识别框架的直接比较。</p>
+<p><strong>技术精髓</strong>: 通过将同步的LiDAR和相机数据集成到一个强大的校准框架中，FUSE-Bike能够捕获细微的骑自行车者动作，从而使数据集的动作识别准确率提高了10.5%。</p>
+
+<hr>
+
+<h3>7. HisTrackMap: Global Vectorized High-Definition Map Construction via History Map Tracking</h3>
+
+<p><strong>作者</strong>: Jing Yang, Sen Yang, Xiao Tan, Hanli Wang  |  <strong>机构</strong>: Tongji University, Baidu</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2503.07168v3" target="_blank">2503.07168v3</a> | <a href="https://arxiv.org/pdf/2503.07168v3" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-03-10  |  <strong>更新</strong>: 2026-01-13</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了高精度地图构建中的时间不一致性问题，特别是在动态环境中。关键技术洞察是使用实例级历史光栅化地图来维护细粒度的轨迹信息，从而实现对地图元素的更平滑和连续的更新，增强了自动导航的可靠性。</p>
+<p><strong>技术贡献</strong>: HisTrackMap框架由三个主要组件组成：（1）实例级历史地图，用于存储跟踪实例的先前感知结果，实现细粒度的时间更新；（2）地图轨迹先验融合模块，从PV和BEV空间中采样历史特征，通过交叉注意力将其集成到跟踪查询中；（3）全局几何感知指标（G-mAP），从全局角度评估地图质量，确保跨帧的连续性和一致性。历史地图的维度为H×W，其中H和W对应于BEV特征的高度和宽度。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，HisTrackMap的G-mAP得分为72.5，超过了之前最佳结果5.2分。此外，与现有方法相比，平均精度（mAP）提高了3.1%，确认了其在构建时间一致性高精度地图方面的有效性。</p>
+<p><strong>技术精髓</strong>: 通过维护实例级历史地图，明确存储轨迹信息，并通过交叉注意力将这些信息与跟踪查询集成，HisTrackMap实现了G-mAP提高5.2分，显著增强了高精度地图构建的时间一致性。</p>
+
+<hr>
+
+<h3>8. See Less, Drive Better: Generalizable End-to-End Autonomous Driving via Foundation Models Stochastic Patch Selection</h3>
+
+<p><strong>作者</strong>: Amir Mallak, Erfan Aasi, Shiva Sreeram, Tsun-Hsuan Wang, Daniela Rus et al. (6 authors)  |  <strong>机构</strong>: University of Haifa, MIT</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.10707v1" target="_blank">2601.10707v1</a> | <a href="https://arxiv.org/pdf/2601.10707v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-01-15</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了基础模型中补丁描述符的特征冗余问题，这可能导致自主驾驶系统的过拟合和低效。关键洞察是，通过应用随机补丁选择（SPS），模型可以从多样的特征中学习，同时忽略冗余特征，从而提高泛化能力并减少计算负担。</p>
+<p><strong>技术贡献</strong>: 作者引入了随机补丁选择（SPS），其主要操作分为两步：（1）对于每个输入帧，基于保持率（例如，RATE = 0.4）随机选择补丁描述符的子集，有效减少输入到策略网络的描述符数量。（2）剩余描述符保持其空间布局，使策略能够从一致但多样的场景视图中学习。此过程将计算负担减少约2.5倍，同时增强了对分布外（OOD）情况的泛化能力。</p>
+<p><strong>结果与影响</strong>: 在闭环驾驶模拟中，SPS在各种OOD场景下实现了平均+6.2%的驾驶成功率提升，特定测试中最高可达+20.4%。该方法还将计算延迟从200毫秒减少到约80毫秒，显著提升了自主驾驶应用中的实时性能。</p>
+<p><strong>技术精髓</strong>: 通过实施随机补丁选择随机屏蔽一部分补丁描述符，系统减少了对冗余特征的依赖，从而实现了2.4倍的处理速度提升和6.2%的OOD泛化改进。</p>
+
+<hr>
+
+<h3>9. Wavelet-based Multi-View Fusion of 4D Radar Tensor and Camera for Robust 3D Object Detection</h3>
+
+<p><strong>作者</strong>: Runwei Guan, Jianan Liu, Shaofeng Liang, Fangqiang Ding, Shanliang Yao et al. (10 authors)  |  <strong>机构</strong>: Hong Kong University of Science and Technology, Momoniai AI, MIT, Yancheng Institute of Technology, Zhejiang University, Wuhan University, James Cook University, Southeast University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2512.22972v2" target="_blank">2512.22972v2</a> | <a href="https://arxiv.org/pdf/2512.22972v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-12-28  |  <strong>更新</strong>: 2026-01-15</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了由于多阶段处理导致的雷达数据中信息丢失问题，这会降低检测精度。关键技术洞察是使用小波变换增强稀疏雷达信号的表示，从而更好地与相机数据集成，同时保持计算效率。</p>
+<p><strong>技术贡献</strong>: 该框架WRCFormer由三个主要组件组成：（1）小波注意力专家混合（WA-MoE）模块，将雷达张量分解为高频和低频分量，根据空间频率相关性自适应调整权重；（2）几何引导的渐进融合（GPF）机制，通过两阶段粗到细的融合对齐多视角雷达和图像特征，利用几何先验；（3）特征金字塔网络（FPN），在多个尺度上处理来自两种模态的特征，提高不同大小物体的检测精度。</p>
+<p><strong>结果与影响</strong>: 在K-Radar基准测试中，WRCFormer在恶劣天气条件下实现了+3.1%的平均精度（mAP）提升，相较于现有模型在所有场景中提高了+2.4%，在雨夹雪条件下提高了+1.6%。这表明在具有挑战性的环境中具有显著的鲁棒性。</p>
+<p><strong>技术精髓</strong>: 通过采用小波变换自适应加权雷达特征，并通过几何引导的融合过程将其与相机数据集成，WRCFormer在提高检测精度方面实现了+3.1%的提升，同时在不增加过多计算开销的情况下高效处理雷达张量。</p>
+
+<hr>
+
+<h3>10. Semantic Misalignment in Vision-Language Models under Perceptual Degradation</h3>
+
+<p><strong>作者</strong>: Guo Cheng  |  <strong>机构</strong>: Purdue</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.08355v2" target="_blank">2601.08355v2</a> | <a href="https://arxiv.org/pdf/2601.08355v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-01-13  |  <strong>更新</strong>: 2026-01-15</p>
+<p><strong>核心洞察</strong>: 解析失败</p>
+<p><strong>技术贡献</strong>: 解析失败</p>
+<p><strong>结果与影响</strong>: 解析失败</p>
+<p><strong>技术精髓</strong>: 待生成</p>
+
+<hr>
+
+
+
+        <div class="footer">
+            <p>自动生成 | 数据来源: arXiv | 由 LLM 分析总结</p>
+            <p>2026-01-18 08:10</p>
+        </div>
+    </div>
+</body>
+</html>
