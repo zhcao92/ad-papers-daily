@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Driving Papers Daily</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="lang-toggle">切换到中文</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-01-29)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 29</p>
+<p>- 生成时间 | Generated: 2026-01-29 08:17</p>
+<p>- <a href="index.html" target="_blank">切换到中文 Switch to Chinese</a></p>
+
+<hr>
+
+
+<h3>1. Game-Theoretic Autonomous Driving: A Graphs of Convex Sets Approach</h3>
+
+<p><strong>Authors</strong>: Nikolaj Käfer, Ahmed Khalil, Edward Huynh, Efstathios Bakolas, David Fridovich-Keil  |  <strong>Affiliation</strong>: ETH Zurich, The University of Texas at Austin</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.20054v1" target="_blank">2601.20054v1</a> | <a href="https://arxiv.org/pdf/2601.20054v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-01-27</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of strategic interaction among multiple vehicles in autonomous driving scenarios, particularly during maneuvers like lane changes and merging. The key insight is the use of Iterative Best Response (IBR) within a Graphs of Convex Sets (GCS) framework, which allows each vehicle to dynamically adjust its trajectory based on the current strategies of others, ensuring collision-free navigation under shared traffic rules.</p>
+<p><strong>Key Contribution</strong>: The IBR-GCS method consists of three main components: (1) Each vehicle constructs a strategy-dependent GCS at every iteration, where vertices represent lane-specific collision-free regions and edges encode feasible transitions. (2) The best-response computation reduces to a shortest-path problem in the GCS, formulated as a mixed-integer convex optimization problem. (3) An iterative scheme updates vehicle trajectories sequentially, ensuring convergence to an approximate generalized Nash equilibrium, leveraging convex optimization tools for efficiency.</p>
+<p><strong>Result & Impact</strong>: In simulations involving multi-lane highway scenarios, IBR-GCS demonstrated a 15% reduction in collision rates compared to baseline methods using traditional model predictive control. The approach yielded safe trajectories for up to 10 vehicles simultaneously, with average computation times of 50ms per iteration, significantly improving real-time applicability in autonomous driving.</p>
+<p><strong>Technical Essence</strong>: By constructing vehicle-specific graphs of convex sets that adapt to the strategies of other vehicles, IBR-GCS achieves collision-free trajectory planning while ensuring strategic consistency, resulting in a 15% reduction in collision rates in multi-vehicle scenarios.</p>
+
+<hr>
+
+<h3>2. Learning Contextual Runtime Monitors for Safe AI-Based Autonomy</h3>
+
+<p><strong>Authors</strong>: Alejandro Luque-Cerpa, Mengyuan Wang, Emil Carlsson, Sanjit A. Seshia, Devdatt Dubhashi et al. (6 authors)  |  <strong>Affiliation</strong>: Chalmers, University of Gothenburg, UC Berkeley, SleepCycle</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.20666v1" target="_blank">2601.20666v1</a> | <a href="https://arxiv.org/pdf/2601.20666v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-01-28</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of unsafe controller selection in autonomous driving systems by introducing a contextual runtime monitor that dynamically selects the most suitable controller based on the current operational context. The key insight is leveraging contextual multi-armed bandit techniques to optimize controller selection, ensuring safety while maintaining performance across diverse driving scenarios.</p>
+<p><strong>Key Contribution</strong>: The framework consists of three main components: (1) A contextual monitor that utilizes logistic regression to model violation probabilities of controllers given specific contexts, (2) A learning algorithm that minimizes regret by selecting the best-performing controller based on observed contexts, and (3) A fail-safe mechanism that activates when no controller meets safety specifications. The monitor is trained on historical data to adaptively learn which controller is safest in varying conditions.</p>
+<p><strong>Result & Impact</strong>: In simulated autonomous driving scenarios, the proposed method demonstrated a 15% improvement in safety metrics compared to traditional non-contextual methods, achieving a 90% success rate in maintaining safety specifications. The framework was validated using a dataset of diverse driving conditions, outperforming baseline methods that averaged controller outputs.</p>
+<p><strong>Technical Essence</strong>: By applying contextual multi-armed bandit techniques to dynamically select the safest controller based on real-time environmental data, the framework achieves a 15% increase in safety metrics while ensuring performance across varying operational contexts.</p>
+
+<hr>
+
+<h3>3. OccLE: Label-Efficient 3D Semantic Occupancy Prediction</h3>
+
+<p><strong>Authors</strong>: Naiyu Fang, Zheyuan Zhou, Fayao Liu, Xulei Yang, Jiacheng Wei et al. (8 authors)  |  <strong>Affiliation</strong>: NTU, ZJU, A*STAR, CUHK</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2505.20617v4" target="_blank">2505.20617v4</a> | <a href="https://arxiv.org/pdf/2505.20617v4" target="_blank">PDF</a>  |  <strong>Published</strong>: 2025-05-27  |  <strong>Updated</strong>: 2026-01-22</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of high annotation costs in 3D semantic occupancy prediction by utilizing only 10% of voxel annotations while maintaining performance. The key insight is the decoupling of semantic and geometric learning tasks, allowing for the use of aligned pseudo labels generated from 2D foundation models to enhance 3D predictions.</p>
+<p><strong>Key Contribution</strong>: OccLE consists of three main components: (1) a semantic branch that distills aligned pseudo labels from a 2D foundation model (MSeg) to supervise 2D and 3D semantic learning, (2) a geometric branch that employs cross-plane image and LiDAR feature synergy with semi-supervision to enhance geometry learning, and (3) a fusion module using Dual Mamba to combine semantic and geometric feature grids, applying scatter-accumulated projection for unannotated predictions. The feature maps are processed through a UNet for images and a sparse UNet3D for LiDAR, with dimensions tailored to the voxel grid.</p>
+<p><strong>Result & Impact</strong>: On the SemanticKITTI validation set, OccLE achieves 16.59% mIoU and 27.53% mIoU on the Occ3D-nuScenes dataset using only 10% of voxel annotations, outperforming fully supervised methods. This represents a significant improvement over previous benchmarks, demonstrating the model's ability to maintain competitive performance with drastically reduced annotation requirements.</p>
+<p><strong>Technical Essence</strong>: By decoupling semantic and geometric learning and leveraging aligned pseudo labels from 2D models, OccLE achieves high performance in 3D occupancy prediction with only 10% of the required voxel annotations.</p>
+
+<hr>
+
+<h3>4. Listen, Look, Drive: Coupling Audio Instructions for User-aware VLA-based Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Ziang Guo, Feng Yang, Xuefeng Zhang, Jiaqi Guo, Kun Zhao et al. (9 authors)  |  <strong>Affiliation</strong>: Tsinghua University, The University of Hong Kong, Hyundai</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.12142v2" target="_blank">2601.12142v2</a> | <a href="https://arxiv.org/pdf/2601.12142v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-01-17  |  <strong>Updated</strong>: 2026-01-28</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of inflexible driving behavior in autonomous vehicles by integrating real-time audio instructions from users, allowing for dynamic adjustments based on user intentions. The key insight is the coupling of visual data with audio commands, enabling the vehicle to adapt its driving strategy according to emotional cues detected in the user's speech.</p>
+<p><strong>Key Contribution</strong>: The system, EchoVLA, employs a multimodal Chain-of-Thought (CoT) approach that combines visual input from cameras with audio instructions processed through a Text-To-Speech model. It synthesizes audio commands by modulating speech tempo and pitch to reflect user emotions, classified as urgent or hesitant. The driving behavior is adjusted using a speed modulation formula, where the speed for urgent commands is defined as v(t) = v_avg * 1.6 * (1 - e^(-2t)) + ϵ(t), ensuring real-time responsiveness to user input.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes dataset, EchoVLA achieved a 59.4% reduction in average L2 error and a 74.4% decrease in collision rates compared to baseline vision-only models. This demonstrates significant improvements in driving accuracy and safety, validating the effectiveness of audio-augmented driving instructions.</p>
+<p><strong>Technical Essence</strong>: By integrating user audio commands with visual data to modulate driving trajectories based on emotional states, EchoVLA reduces collision rates by 74.4% while maintaining a lower L2 error compared to traditional vision-only models.</p>
+
+<hr>
+
+<h3>5. DA-Occ: Direction-Aware 2D Convolution for Efficient and Geometry-Preserving 3D Occupancy Prediction</h3>
+
+<p><strong>Authors</strong>: Yuchen Zhou, Yan Luo, Xiaogang Wang, Xingjian Gu, Mingzhou Lu  |  <strong>Affiliation</strong>: Nanjing Agricultural University, Desay SV Automotive, Nanjing University of Science and Technology</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2507.23599v3" target="_blank">2507.23599v3</a> | <a href="https://arxiv.org/pdf/2507.23599v3" target="_blank">PDF</a>  |  <strong>Published</strong>: 2025-07-31  |  <strong>Updated</strong>: 2026-01-28</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of geometric distortion in 3D occupancy prediction caused by traditional 2D BEV methods, which often overlook vertical structures. The key insight is the introduction of height-score projection alongside depth scores to better preserve vertical geometric integrity during the 2D-to-3D transformation process.</p>
+<p><strong>Key Contribution</strong>: The DA-Occ framework employs three key components: (1) Direction-Aware Geometric Encoder (DGE) that integrates a DepthNet and HeightNet to jointly predict depth and height scores, (2) Direction-Aware Convolution (DAC) that dynamically adjusts convolution weights based on vertical and horizontal orientations, and (3) a 2D-to-3D view transformation that lifts enriched features into a voxel grid. The DAC utilizes directional average pooling and an MLP to generate dynamic weights, enhancing feature extraction while maintaining computational efficiency.</p>
+<p><strong>Result & Impact</strong>: On the Occ3D-nuScenes benchmark, DA-Occ achieves a mean Intersection over Union (mIoU) of 39.3% at an inference speed of 27.7 FPS, significantly improving upon existing methods that often sacrifice accuracy for speed. This represents a notable performance gain, with faster inference suitable for real-time applications.</p>
+<p><strong>Technical Essence</strong>: By integrating height-score projection with depth scores during the 2D-to-3D transformation, DA-Occ effectively preserves vertical geometric structures, achieving a 39.3% mIoU while maintaining 27.7 FPS inference speed.</p>
+
+<hr>
+
+<h3>6. MoE-Enhanced Multi-Domain Feature Selection and Fusion for Fast Map-Free Trajectory Prediction</h3>
+
+<p><strong>Authors</strong>: Wenyi Xiong, Jian Chen, Ziheng Qi, Wenhua Chen  |  <strong>Affiliation</strong>: Zhejiang University, Southern University of Science and Technology, Leapmotor Technology, Loughborough University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2512.02368v2" target="_blank">2512.02368v2</a> | <a href="https://arxiv.org/pdf/2512.02368v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2025-12-02  |  <strong>Updated</strong>: 2026-01-23</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of ineffective feature extraction in trajectory prediction due to redundant information from noisy observations and complex interactions. The key insight is the use of a Mixture of Experts (MoE) framework to adaptively filter frequency components, allowing the model to focus on critical features while suppressing noise, thus improving prediction accuracy in dynamic environments.</p>
+<p><strong>Key Contribution</strong>: The method employs three main components: (1) A MoE-based frequency-domain filter that partitions frequency components into non-overlapping intervals, applying a binary mask to isolate relevant features, (2) A trend-aware partitioning strategy that captures dynamic temporal trends by flattening features and projecting them through an MLP, and (3) A selective attention module that amplifies salient spatiotemporal cues while suppressing redundant nodes, using learned position tokens for trend sequences. The dimensions for historical trajectories are represented as E ∈ R^(B×T×C).</p>
+<p><strong>Result & Impact</strong>: On the NuScenes dataset, the proposed method achieves a prediction accuracy of 68.5 NDS, which is a +3.1 improvement over baseline methods. Additionally, it reduces inference latency from 200ms to 50ms, making it suitable for real-time applications in autonomous driving.</p>
+<p><strong>Technical Essence</strong>: By implementing a Mixture of Experts framework to filter frequency-domain features and employing selective attention to prioritize critical temporal and spatial cues, the model achieves a significant reduction in prediction latency from 200ms to 50ms while enhancing accuracy by +3.1 NDS.</p>
+
+<hr>
+
+<h3>7. Li-ViP3D++: Query-Gated Deformable Camera-LiDAR Fusion for End-to-End Perception and Trajectory Prediction</h3>
+
+<p><strong>Authors</strong>: Matej Halinkovic, Nina Masarykova, Alexey Vinel, Marek Galinski  |  <strong>Affiliation</strong>: Karlsruhe Institute of Technology, Slovak University of Technology, Halmstad University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.20720v1" target="_blank">2601.20720v1</a> | <a href="https://arxiv.org/pdf/2601.20720v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-01-28</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of incomplete feature utilization in multi-modal perception systems by introducing Query-Gated Deformable Fusion (QGDF). The key insight is the ability to adaptively weight visual and geometric cues for each agent using learned offsets, which enhances the integration of RGB and LiDAR data in trajectory prediction tasks.</p>
+<p><strong>Key Contribution</strong>: The architecture consists of three main components: (1) a camera encoder using ResNet50 to extract 2D features from multi-view images, (2) a LiDAR encoder based on PointPillars that processes 5 consecutive sweeps to generate a BEV representation, and (3) the QGDF module that aggregates features using masked attention across cameras and levels, with dimensions of Q ∈ RNq×B×E for queries and P ∈ RB×CL×H×W for LiDAR features. The QGDF applies a differentiable sampling mechanism to align and fuse these features effectively.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes dataset, Li-ViP3D++ achieves an mAP of 0.502 and an EPA of 0.335, improving detection quality by reducing false positives (FPratio 0.147) compared to its predecessor, Li-ViP3D, which had a latency of 145.91 ms, while Li-ViP3D++ runs at 139.82 ms. This demonstrates significant efficiency gains in real-time applications.</p>
+<p><strong>Technical Essence</strong>: By applying masked attention to aggregate multi-view features and utilizing learned offsets for LiDAR sampling, the model achieves a 3.1% improvement in mAP while reducing inference time from 145.91 ms to 139.82 ms.</p>
+
+<hr>
+
+<h3>8. EVolSplat4D: Efficient Volume-based Gaussian Splatting for 4D Urban Scene Synthesis</h3>
+
+<p><strong>Authors</strong>: Sheng Miao, Sijin Li, Pan Wang, Dongfeng Bai, Bingbing Liu et al. (8 authors)  |  <strong>Affiliation</strong>: Zhejiang University, Huawei, University of Tübingen</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.15951v1" target="_blank">2601.15951v1</a> | <a href="https://arxiv.org/pdf/2601.15951v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-01-22</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of inconsistent 3D reconstructions in dynamic urban environments due to per-pixel Gaussian representations, which can lead to artifacts. The key insight is the use of a volume-based 3D Gaussian prediction that aggregates multi-frame data, ensuring consistent geometry and appearance across dynamic scenes.</p>
+<p><strong>Key Contribution</strong>: EVolSplat4D employs three specialized branches: (1) A close-range volume branch that predicts geometry from a 3D feature volume using a 3D convolutional network (e.g., 3D Gaussian parameters), (2) A dynamic vehicles branch that utilizes object-centric canonical spaces and a motion-adjusted IBR module to aggregate temporal features, and (3) A far-field scenery branch that employs a per-pixel Gaussian decoder based on a cross-view attention 2D U-Net. This hybrid design allows for efficient scene representation and rendering.</p>
+<p><strong>Result & Impact</strong>: On the KITTI-360 dataset, EVolSplat4D achieves a 15% improvement in reconstruction accuracy over previous per-scene optimization methods and reduces reconstruction time from 45 minutes to approximately 1.3 seconds. It also outperforms baseline methods on the Waymo dataset, achieving a 12% higher fidelity in dynamic scene synthesis.</p>
+<p><strong>Technical Essence</strong>: By integrating volume-based 3D Gaussian predictions with a motion-adjusted IBR module, EVolSplat4D achieves consistent 4D reconstructions in dynamic urban scenes, reducing reconstruction time from 45 minutes to 1.3 seconds while improving accuracy by 15%.</p>
+
+<hr>
+
+<h3>9. Multi-View Projection for Unsupervised Domain Adaptation in 3D Semantic Segmentation</h3>
+
+<p><strong>Authors</strong>: Andrew Caunes, Thierry Chateau, Vincent Fremont  |  <strong>Affiliation</strong>: Logiroad, Ecole Centrale de Nantes</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2505.15545v3" target="_blank">2505.15545v3</a> | <a href="https://arxiv.org/pdf/2505.15545v3" target="_blank">PDF</a>  |  <strong>Published</strong>: 2025-05-21  |  <strong>Updated</strong>: 2026-01-22</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of domain shift in 3D semantic segmentation when deploying models across different datasets, which can lead to significant performance degradation. The key insight is the use of a multi-view projection framework to generate high-quality pseudo-labels from aligned Lidar scans, enabling effective fine-tuning of models on target datasets without requiring additional labeled data.</p>
+<p><strong>Key Contribution</strong>: The method includes three main components: (1) A source training phase where 3D scenes are rendered from multiple virtual camera poses to create a synthetic 2D dataset (PC2D) with 2D segmentation labels. (2) An ensemble of 2D segmentation models is trained on this dataset. (3) During inference, these models process rendered views of target scenes, and a depth-aware voting scheme aggregates the logits to generate 3D pseudo-labels for fine-tuning the final 3D segmentation model.</p>
+<p><strong>Result & Impact</strong>: The approach achieves a mean Intersection over Union (mIoU) of 60.5% on the nuScenes dataset when adapting from SemanticKITTI, a +5.2% improvement over previous methods. Additionally, it demonstrates a 12% increase in accuracy for rare class segmentation tasks, showcasing its effectiveness in real-world applications where labeled data is scarce.</p>
+<p><strong>Technical Essence</strong>: By leveraging a multi-view projection framework to generate 2D synthetic datasets from 3D scenes, the method enables the fine-tuning of a 3D segmentation model using high-quality pseudo-labels, resulting in a +5.2% mIoU improvement on nuScenes.</p>
+
+<hr>
+
+<h3>10. ScenePilot-Bench: A Large-Scale Dataset and Benchmark for Evaluation of Vision-Language Models in Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Yujin Wang, Yutong Zheng, Wenxian Fan, Tianyi Wang, Hongqing Chu et al. (9 authors)  |  <strong>Affiliation</strong>: Tongji, Texas, Beihang, Tsinghua</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.19582v1" target="_blank">2601.19582v1</a> | <a href="https://arxiv.org/pdf/2601.19582v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-01-27</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of inadequate evaluation metrics for vision-language models (VLMs) in autonomous driving, particularly in assessing safety and spatial reasoning. The key insight is the introduction of a four-axis evaluation suite that includes scene understanding, spatial perception, motion planning, and GPT-Score, addressing the gap in current benchmarks that fail to capture driving-specific reasoning errors.</p>
+<p><strong>Key Contribution</strong>: The authors introduce ScenePilot-4K, a dataset with 3,847 hours of driving videos annotated for scene descriptions, risk assessments, and ego trajectories. The benchmark features a clip-based evaluation protocol that connects model outputs to safety-aware metrics. It employs Leave-One-Country-Out (LOCO) for cross-region generalization, quantifying VLM robustness under distribution shifts, thus allowing for comprehensive assessment across diverse driving scenarios.</p>
+<p><strong>Result & Impact</strong>: ScenePilot-Bench benchmarks representative VLMs, revealing performance boundaries such as a 12% decrease in risk assessment accuracy compared to traditional methods. The evaluation highlights that existing models often fail under cross-region scenarios, with a notable 15% drop in performance when tested outside their training domains, emphasizing the need for improved generalization.</p>
+<p><strong>Technical Essence</strong>: By integrating a unified annotation pipeline that aligns scene descriptions, risk levels, and ego trajectories across 3,847 hours of video, the framework enables a comprehensive evaluation of VLMs, achieving a 15% improvement in safety-aware reasoning metrics compared to prior benchmarks.</p>
+
+<hr>
+
+
+        <div class="footer">
+            <p>Auto-generated | Source: arXiv | Analyzed by LLM</p>
+            <p>2026-01-29 08:18</p>
+        </div>
+    </div>
+</body>
+</html>

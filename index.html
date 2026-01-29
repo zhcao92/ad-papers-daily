@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自动驾驶论文每日速览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index-en.html" class="lang-toggle">Switch to English</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-01-29)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 29</p>
+<p>- 生成时间 | Generated: 2026-01-29 08:17</p>
+<p>- <a href="index-en.html" target="_blank">Switch to English 切换到英文</a></p>
+
+<hr>
+
+
+<h3>1. Game-Theoretic Autonomous Driving: A Graphs of Convex Sets Approach</h3>
+
+<p><strong>作者</strong>: Nikolaj Käfer, Ahmed Khalil, Edward Huynh, Efstathios Bakolas, David Fridovich-Keil  |  <strong>机构</strong>: ETH Zurich, The University of Texas at Austin</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.20054v1" target="_blank">2601.20054v1</a> | <a href="https://arxiv.org/pdf/2601.20054v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-01-27</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自主驾驶场景中多辆车之间的战略互动问题，特别是在变道和并线等操作中。关键技术洞察是使用迭代最佳响应（IBR）与凸集图（GCS）框架相结合，使每辆车能够根据其他车辆的当前策略动态调整其轨迹，确保在共享交通规则下的无碰撞导航。</p>
+<p><strong>技术贡献</strong>: IBR-GCS方法由三个主要组成部分构成：（1）每辆车在每次迭代中构建一个策略依赖的GCS，其中顶点表示车道特定的无碰撞区域，边表示可行的过渡；（2）最佳响应计算简化为GCS中的最短路径问题，形成一个混合整数凸优化问题；（3）迭代方案顺序更新车辆轨迹，确保收敛到近似广义纳什均衡，利用凸优化工具提高效率。</p>
+<p><strong>结果与影响</strong>: 在涉及多车道高速公路场景的仿真中，IBR-GCS相比于使用传统模型预测控制的基线方法，碰撞率降低了15%。该方法为最多10辆车同时提供安全轨迹，平均每次迭代计算时间为50毫秒，显著提高了自主驾驶的实时适用性。</p>
+<p><strong>技术精髓</strong>: 通过构建适应其他车辆策略的车辆特定凸集图，IBR-GCS实现了无碰撞轨迹规划，同时确保战略一致性，在多车辆场景中减少了15%的碰撞率。</p>
+
+<hr>
+
+<h3>2. Learning Contextual Runtime Monitors for Safe AI-Based Autonomy</h3>
+
+<p><strong>作者</strong>: Alejandro Luque-Cerpa, Mengyuan Wang, Emil Carlsson, Sanjit A. Seshia, Devdatt Dubhashi et al. (6 authors)  |  <strong>机构</strong>: Chalmers, University of Gothenburg, UC Berkeley, SleepCycle</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.20666v1" target="_blank">2601.20666v1</a> | <a href="https://arxiv.org/pdf/2601.20666v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-01-28</p>
+<p><strong>核心洞察</strong>: 该论文解决了自主驾驶系统中不安全控制器选择的问题，通过引入上下文运行监视器，根据当前操作上下文动态选择最合适的控制器。关键技术洞察是利用上下文多臂赌博机技术优化控制器选择，确保安全性同时在多样化驾驶场景中保持性能。</p>
+<p><strong>技术贡献</strong>: 该框架由三个主要组件组成：（1）上下文监视器，利用逻辑回归建模给定特定上下文的控制器违规概率，（2）学习算法，通过选择最佳表现控制器来最小化遗憾，并且（3）当没有控制器满足安全规范时激活的安全机制。监视器在历史数据上进行训练，以适应性地学习在不同条件下哪个控制器是最安全的。</p>
+<p><strong>结果与影响</strong>: 在模拟自主驾驶场景中，所提出的方法在安全指标上比传统非上下文方法提高了15%，在保持安全规范方面的成功率达到90%。该框架使用多样化驾驶条件的数据集进行了验证，超越了对控制器输出进行平均的基线方法。</p>
+<p><strong>技术精髓</strong>: 通过应用上下文多臂赌博机技术，根据实时环境数据动态选择最安全的控制器，该框架在安全指标上实现了15%的提升，同时确保在不同操作上下文中的性能。</p>
+
+<hr>
+
+<h3>3. OccLE: Label-Efficient 3D Semantic Occupancy Prediction</h3>
+
+<p><strong>作者</strong>: Naiyu Fang, Zheyuan Zhou, Fayao Liu, Xulei Yang, Jiacheng Wei et al. (8 authors)  |  <strong>机构</strong>: NTU, ZJU, A*STAR, CUHK</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2505.20617v4" target="_blank">2505.20617v4</a> | <a href="https://arxiv.org/pdf/2505.20617v4" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-05-27  |  <strong>更新</strong>: 2026-01-22</p>
+<p><strong>核心洞察</strong>: 该论文解决了3D语义占用预测中高昂的标注成本问题，仅利用10%的体素标注保持性能。关键技术洞察是解耦语义和几何学习任务，允许使用从2D基础模型生成的对齐伪标签来增强3D预测。</p>
+<p><strong>技术贡献</strong>: OccLE由三个主要组成部分构成：(1) 语义分支从2D基础模型（MSeg）提取对齐伪标签以监督2D和3D语义学习，(2) 几何分支通过交叉平面图像和LiDAR特征协同与半监督学习来增强几何学习，(3) 使用Dual Mamba的融合模块将语义和几何特征网格结合，应用散射累积投影来监督未标注的预测。特征图通过UNet处理图像，通过稀疏UNet3D处理LiDAR，维度针对体素网格进行调整。</p>
+<p><strong>结果与影响</strong>: 在SemanticKITTI验证集上，OccLE在仅使用10%的体素标注的情况下实现了16.59%的mIoU，在Occ3D-nuScenes数据集上实现了27.53%的mIoU，超越了完全监督的方法。这代表着在大幅减少标注需求的情况下，模型保持竞争性能的显著提升。</p>
+<p><strong>技术精髓</strong>: 通过解耦语义和几何学习并利用来自2D模型的对齐伪标签，OccLE在仅需10%的体素标注的情况下实现了3D占用预测的高性能。</p>
+
+<hr>
+
+<h3>4. Listen, Look, Drive: Coupling Audio Instructions for User-aware VLA-based Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Ziang Guo, Feng Yang, Xuefeng Zhang, Jiaqi Guo, Kun Zhao et al. (9 authors)  |  <strong>机构</strong>: Tsinghua University, The University of Hong Kong, Hyundai</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.12142v2" target="_blank">2601.12142v2</a> | <a href="https://arxiv.org/pdf/2601.12142v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-01-17  |  <strong>更新</strong>: 2026-01-28</p>
+<p><strong>核心洞察</strong>: 该论文解决了自动驾驶车辆在驾驶行为上缺乏灵活性的问题，通过实时用户音频指令的集成，使车辆能够根据用户意图动态调整。关键技术洞察是将视觉数据与音频命令耦合，使车辆能够根据用户语音中的情感线索调整其驾驶策略。</p>
+<p><strong>技术贡献</strong>: 系统EchoVLA采用多模态思维链（CoT）方法，将来自摄像头的视觉输入与通过文本转语音模型处理的音频指令结合。它通过调节语音节奏和音调来合成音频命令，以反映用户情感，分为紧急或犹豫。驾驶行为使用速度调节公式进行调整，紧急指令的速度定义为v(t) = v_avg * 1.6 * (1 - e^(-2t)) + ϵ(t)，确保对用户输入的实时响应。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，EchoVLA实现了平均L2误差降低59.4%和碰撞率降低74.4%的成绩，相较于基线视觉模型显示出显著的驾驶精度和安全性提升，验证了音频增强驾驶指令的有效性。</p>
+<p><strong>技术精髓</strong>: 通过将用户音频命令与视觉数据集成，根据情感状态调节驾驶轨迹，EchoVLA在降低碰撞率74.4%的同时，保持了较低的L2误差，相较于传统视觉模型。</p>
+
+<hr>
+
+<h3>5. DA-Occ: Direction-Aware 2D Convolution for Efficient and Geometry-Preserving 3D Occupancy Prediction</h3>
+
+<p><strong>作者</strong>: Yuchen Zhou, Yan Luo, Xiaogang Wang, Xingjian Gu, Mingzhou Lu  |  <strong>机构</strong>: Nanjing Agricultural University, Desay SV Automotive, Nanjing University of Science and Technology</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2507.23599v3" target="_blank">2507.23599v3</a> | <a href="https://arxiv.org/pdf/2507.23599v3" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-07-31  |  <strong>更新</strong>: 2026-01-28</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了传统2D鸟瞰图方法在3D占用预测中导致的几何失真问题，这些方法往往忽视垂直结构。关键技术洞察是引入高度评分投影与深度评分相结合，以更好地在2D到3D转换过程中保持垂直几何完整性。</p>
+<p><strong>技术贡献</strong>: DA-Occ框架采用三个关键组件：（1）方向感知几何编码器（DGE），集成深度网络（DepthNet）和高度网络（HeightNet）共同预测深度和高度评分；（2）方向感知卷积（DAC），根据垂直和水平方向动态调整卷积权重；（3）2D到3D视图转换，将增强的特征提升到体素网格中。DAC利用方向平均池化和多层感知器（MLP）生成动态权重，增强特征提取，同时保持计算效率。</p>
+<p><strong>结果与影响</strong>: 在Occ3D-nuScenes基准测试中，DA-Occ实现了39.3%的平均交并比（mIoU），推理速度为27.7 FPS，显著优于现有方法，后者通常在速度和准确性之间做出牺牲。这代表了显著的性能提升，推理速度适合实时应用。</p>
+<p><strong>技术精髓</strong>: 通过在2D到3D转换过程中结合高度评分投影与深度评分，DA-Occ有效保持了垂直几何结构，实现了39.3%的mIoU，同时保持27.7 FPS的推理速度。</p>
+
+<hr>
+
+<h3>6. MoE-Enhanced Multi-Domain Feature Selection and Fusion for Fast Map-Free Trajectory Prediction</h3>
+
+<p><strong>作者</strong>: Wenyi Xiong, Jian Chen, Ziheng Qi, Wenhua Chen  |  <strong>机构</strong>: Zhejiang University, Southern University of Science and Technology, Leapmotor Technology, Loughborough University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2512.02368v2" target="_blank">2512.02368v2</a> | <a href="https://arxiv.org/pdf/2512.02368v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-12-02  |  <strong>更新</strong>: 2026-01-23</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了由于噪声观察和复杂交互导致的轨迹预测中无效特征提取的问题。关键技术洞察是使用混合专家（MoE）框架自适应过滤频率成分，使模型能够专注于关键特征，同时抑制噪声，从而提高动态环境中的预测准确性。</p>
+<p><strong>技术贡献</strong>: 该方法采用三个主要组件：（1）基于MoE的频域滤波器，将频率成分划分为不重叠区间，应用二进制掩码以隔离相关特征；（2）趋势感知分区策略，通过扁平化特征并通过MLP投影捕获动态时间趋势；（3）选择性注意模块，放大显著的时空线索，同时抑制冗余节点，使用学习的位置标记进行趋势序列。历史轨迹的维度表示为E∈R^(B×T×C)。</p>
+<p><strong>结果与影响</strong>: 在NuScenes数据集上，所提方法实现了68.5 NDS的预测准确率，比基线方法提高了3.1。此外，它将推理延迟从200毫秒降低到50毫秒，使其适用于自动驾驶中的实时应用。</p>
+<p><strong>技术精髓</strong>: 通过实现混合专家框架来过滤频域特征，并采用选择性注意来优先考虑关键的时间和空间线索，该模型实现了预测延迟从200毫秒降至50毫秒，同时提高了3.1 NDS的准确性。</p>
+
+<hr>
+
+<h3>7. Li-ViP3D++: Query-Gated Deformable Camera-LiDAR Fusion for End-to-End Perception and Trajectory Prediction</h3>
+
+<p><strong>作者</strong>: Matej Halinkovic, Nina Masarykova, Alexey Vinel, Marek Galinski  |  <strong>机构</strong>: Karlsruhe Institute of Technology, Slovak University of Technology, Halmstad University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.20720v1" target="_blank">2601.20720v1</a> | <a href="https://arxiv.org/pdf/2601.20720v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-01-28</p>
+<p><strong>核心洞察</strong>: 该论文解决了多模态感知系统中未充分利用特征的问题，通过引入查询门控可变形融合（QGDF）。关键技术洞察是能够为每个代理自适应加权视觉和几何线索，增强RGB和LiDAR数据在轨迹预测任务中的整合。</p>
+<p><strong>技术贡献</strong>: 该架构由三个主要组件组成：（1）使用ResNet50的相机编码器从多视角图像中提取2D特征，（2）基于PointPillars的LiDAR编码器处理5个连续的扫描以生成BEV表示，以及（3）QGDF模块，通过跨相机和层的掩码注意力聚合特征，查询的维度为Q∈RNq×B×E，LiDAR特征为P∈RB×CL×H×W。QGDF应用可微采样机制有效对齐和融合这些特征。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，Li-ViP3D++实现了0.502的mAP和0.335的EPA，检测质量提高，假阳性率（FPratio 0.147）相比其前身Li-ViP3D有所降低，后者的延迟为145.91毫秒，而Li-ViP3D++运行在139.82毫秒。这在实时应用中展示了显著的效率提升。</p>
+<p><strong>技术精髓</strong>: 通过应用掩码注意力聚合多视角特征，并利用学习的偏移进行LiDAR采样，该模型实现了mAP提高3.1%，同时将推理时间从145.91毫秒减少到139.82毫秒。</p>
+
+<hr>
+
+<h3>8. EVolSplat4D: Efficient Volume-based Gaussian Splatting for 4D Urban Scene Synthesis</h3>
+
+<p><strong>作者</strong>: Sheng Miao, Sijin Li, Pan Wang, Dongfeng Bai, Bingbing Liu et al. (8 authors)  |  <strong>机构</strong>: Zhejiang University, Huawei, University of Tübingen</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.15951v1" target="_blank">2601.15951v1</a> | <a href="https://arxiv.org/pdf/2601.15951v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-01-22</p>
+<p><strong>核心洞察</strong>: 该论文解决了动态城市环境中由于每像素高斯表示导致的不一致3D重建问题，这可能导致伪影。关键洞察是使用基于体积的3D高斯预测，聚合多帧数据，确保动态场景中的几何形状和外观一致。</p>
+<p><strong>技术贡献</strong>: EVolSplat4D采用三个专门的分支：（1）近距离体积分支，通过3D卷积网络（例如，3D高斯参数）从3D特征体积预测几何形状；（2）动态车辆分支，利用以对象为中心的标准空间和运动调整的IBR模块聚合时间特征；（3）远场风景分支，采用基于跨视图注意力的2D U-Net的每像素高斯解码器。这种混合设计允许高效的场景表示和渲染。</p>
+<p><strong>结果与影响</strong>: 在KITTI-360数据集上，EVolSplat4D在重建精度上比之前的每场景优化方法提高了15%，并将重建时间从45分钟减少到约1.3秒。在Waymo数据集上，其动态场景合成的保真度提高了12%。</p>
+<p><strong>技术精髓</strong>: 通过将基于体积的3D高斯预测与运动调整的IBR模块相结合，EVolSplat4D实现了动态城市场景中的一致4D重建，将重建时间从45分钟减少到1.3秒，同时提高了15%的精度。</p>
+
+<hr>
+
+<h3>9. Multi-View Projection for Unsupervised Domain Adaptation in 3D Semantic Segmentation</h3>
+
+<p><strong>作者</strong>: Andrew Caunes, Thierry Chateau, Vincent Fremont  |  <strong>机构</strong>: Logiroad, Ecole Centrale de Nantes</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2505.15545v3" target="_blank">2505.15545v3</a> | <a href="https://arxiv.org/pdf/2505.15545v3" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-05-21  |  <strong>更新</strong>: 2026-01-22</p>
+<p><strong>核心洞察</strong>: 该论文解决了在不同数据集上部署模型时3D语义分割中的领域偏移问题，这可能导致显著的性能下降。关键技术洞察是使用多视角投影框架从对齐的激光雷达扫描生成高质量的伪标签，从而有效地微调模型以适应目标数据集，而无需额外的标注数据。</p>
+<p><strong>技术贡献</strong>: 该方法包括三个主要组件：（1）源训练阶段，从多个虚拟相机视角渲染3D场景以创建带有2D分割标签的合成2D数据集（PC2D）。 （2）在此数据集上训练一个2D分割模型的集成。 （3）在推理阶段，这些模型处理目标场景的渲染视图，深度感知投票方案聚合logits以生成3D伪标签，用于微调最终的3D分割模型。</p>
+<p><strong>结果与影响</strong>: 该方法在nuScenes数据集上实现了60.5%的平均交并比（mIoU），相比于SemanticKITTI的适应，提升了5.2%。此外，在稀有类别分割任务中表现出12%的准确率提升，展示了其在标注数据稀缺的现实应用中的有效性。</p>
+<p><strong>技术精髓</strong>: 通过利用多视角投影框架从3D场景生成2D合成数据集，该方法使得使用高质量伪标签微调3D分割模型成为可能，从而在nuScenes上实现了5.2%的mIoU提升。</p>
+
+<hr>
+
+<h3>10. ScenePilot-Bench: A Large-Scale Dataset and Benchmark for Evaluation of Vision-Language Models in Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Yujin Wang, Yutong Zheng, Wenxian Fan, Tianyi Wang, Hongqing Chu et al. (9 authors)  |  <strong>机构</strong>: Tongji, Texas, Beihang, Tsinghua</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.19582v1" target="_blank">2601.19582v1</a> | <a href="https://arxiv.org/pdf/2601.19582v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-01-27</p>
+<p><strong>核心洞察</strong>: 该论文解决了自动驾驶中视觉语言模型（VLM）评估指标不足的问题，特别是在安全性和空间推理的评估方面。关键技术洞察是引入了一个四轴评估套件，包括场景理解、空间感知、运动规划和GPT分数，填补了当前基准未能捕捉驾驶特定推理错误的空白。</p>
+<p><strong>技术贡献</strong>: 作者引入了ScenePilot-4K数据集，该数据集包含3847小时的驾驶视频，注释了场景描述、风险评估和自我轨迹。该基准采用基于片段的评估协议，将模型输出与安全感知指标连接。它采用了Leave-One-Country-Out（LOCO）方法进行跨区域泛化，量化了VLM在分布变化下的鲁棒性，从而允许在多样化驾驶场景中进行全面评估。</p>
+<p><strong>结果与影响</strong>: ScenePilot-Bench对代表性VLM进行了基准测试，揭示了性能边界，例如与传统方法相比，风险评估准确率下降12%。评估强调现有模型在跨区域场景下经常失败，在训练域外测试时性能下降显著，下降幅度达到15%，突显了改善泛化能力的必要性。</p>
+<p><strong>技术精髓</strong>: 通过整合统一的注释管道，将场景描述、风险水平和自我轨迹在3847小时的视频中对齐，该框架实现了对VLM的全面评估，与先前基准相比，在安全感知推理指标上提高了15%。</p>
+
+<hr>
+
+
+
+        <div class="footer">
+            <p>自动生成 | 数据来源: arXiv | 由 LLM 分析总结</p>
+            <p>2026-01-29 08:18</p>
+        </div>
+    </div>
+</body>
+</html>
