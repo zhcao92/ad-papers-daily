@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Driving Papers Daily</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="lang-toggle">切换到中文</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-02-01)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 27</p>
+<p>- 生成时间 | Generated: 2026-02-01 08:13</p>
+<p>- <a href="index.html" target="_blank">切换到中文 Switch to Chinese</a></p>
+
+<hr>
+
+
+<h3>1. DA-Occ: Direction-Aware 2D Convolution for Efficient and Geometry-Preserving 3D Occupancy Prediction</h3>
+
+<p><strong>Authors</strong>: Yuchen Zhou, Yan Luo, Xiaogang Wang, Xingjian Gu, Mingzhou Lu  |  <strong>Affiliation</strong>: Nanjing Agricultural University, Desay SV Automotive, Nanjing University of Science and Technology</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2507.23599v3" target="_blank">2507.23599v3</a> | <a href="https://arxiv.org/pdf/2507.23599v3" target="_blank">PDF</a>  |  <strong>Published</strong>: 2025-07-31  |  <strong>Updated</strong>: 2026-01-28</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of geometric distortion in 3D occupancy prediction caused by traditional 2D BEV methods, which often overlook vertical structures. The key insight is the introduction of height-score projection alongside depth scores to better preserve vertical geometric integrity during the 2D-to-3D transformation process.</p>
+<p><strong>Key Contribution</strong>: The DA-Occ framework employs three key components: (1) Direction-Aware Geometric Encoder (DGE) that integrates a DepthNet and HeightNet to jointly predict depth and height scores, (2) Direction-Aware Convolution (DAC) that dynamically adjusts convolution weights based on vertical and horizontal orientations, and (3) a 2D-to-3D view transformation that lifts enriched features into a voxel grid. The DAC utilizes directional average pooling and an MLP to generate dynamic weights, enhancing feature extraction while maintaining computational efficiency.</p>
+<p><strong>Result & Impact</strong>: On the Occ3D-nuScenes benchmark, DA-Occ achieves a mean Intersection over Union (mIoU) of 39.3% at an inference speed of 27.7 FPS, significantly improving upon existing methods that often sacrifice accuracy for speed. This represents a notable performance gain, with faster inference suitable for real-time applications.</p>
+<p><strong>Technical Essence</strong>: By integrating height-score projection with depth scores during the 2D-to-3D transformation, DA-Occ effectively preserves vertical geometric structures, achieving a 39.3% mIoU while maintaining 27.7 FPS inference speed.</p>
+
+<hr>
+
+<h3>2. LLM-Driven Scenario-Aware Planning for Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: He Li, Zhaowei Chen, Rui Gao, Guoliang Li, Qi Hao et al. (7 authors)  |  <strong>Affiliation</strong>: University of Macau, Shenzhen Institutes of Advanced Technology, Southern University of Science and Technology</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.21876v1" target="_blank">2601.21876v1</a> | <a href="https://arxiv.org/pdf/2601.21876v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-01-29</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of inefficient mode switching in autonomous driving under varying traffic conditions. The key insight is utilizing a large language model (LLM) to dynamically infer appropriate driving strategies based on real-time scene understanding, enabling seamless transitions between fast driving and shape-aware modes, which traditional heuristic methods struggle to achieve.</p>
+<p><strong>Key Contribution</strong>: The LAP method integrates three main components: (1) An LLM-driven mode switcher that selects between fast driving (FD) and shape-aware (SA) modes based on real-time scene context, (2) A tree-search model predictive control (TMPC) for trajectory optimization over a receding horizon, and (3) An alternating minimization (AM) framework to solve the optimization problem, balancing speed and collision avoidance with constraints on vehicle dynamics and obstacle distances.</p>
+<p><strong>Result & Impact</strong>: In high-fidelity simulations on the MetaGrandPrix platform, LAP achieved a 15% reduction in driving time and a 10% increase in success rate compared to baseline methods. The system operates effectively at a frequency of 1 Hz for mode switching and up to 100 Hz for motion control, demonstrating real-time adaptability in complex driving scenarios.</p>
+<p><strong>Technical Essence</strong>: By leveraging LLM inference to dynamically adjust driving modes and optimize trajectory planning through TMPC and AM, LAP reduces collision risks while enhancing driving efficiency in diverse traffic conditions.</p>
+
+<hr>
+
+<h3>3. Semantic Router: On the Feasibility of Hijacking MLLMs via a Single Adversarial Perturbation</h3>
+
+<p><strong>Authors</strong>: Changyue Li, Jiaying Li, Youliang Yuan, Jiaming He, Zhicong Huang et al. (6 authors)  |  <strong>Affiliation</strong>: The Chinese University of Hong Kong, University of Electronic Science and Technology of China, Ant Group</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2511.20002v2" target="_blank">2511.20002v2</a> | <a href="https://arxiv.org/pdf/2511.20002v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2025-11-25  |  <strong>Updated</strong>: 2026-01-29</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of hijacking stateless decisions in MLLMs, particularly in autonomous driving, by introducing a single universal adversarial perturbation that acts as a semantic router. The key insight is that this perturbation can manipulate the model's output based solely on the semantics of the visual input, allowing for precise control over multiple decision targets simultaneously.</p>
+<p><strong>Key Contribution</strong>: The authors introduce the Semantic-Aware Universal Perturbation (SAUP), which leverages a two-step optimization process: (1) Semantic-Oriented (SORT) optimization to find perturbations that maximize semantic separation, and (2) a dataset called RIST for fine-grained semantic evaluation. The perturbation is optimized to ensure that for any input image from a specific semantic category, the model outputs a predefined target label, effectively hijacking the decision-making process.</p>
+<p><strong>Result & Impact</strong>: Experiments on three MLLMs (Llava-1.5, Qwen2.5-VL, InternVL3) demonstrate a 66% attack success rate using a single perturbation across five targets. The method achieves success rates of 93%, 77%, 61%, and 66% for 2, 3, 4, and 5 targets respectively, showcasing significant vulnerability in MLLMs to SAUPs.</p>
+<p><strong>Technical Essence</strong>: By employing a single universal perturbation that shifts input features into a dense adversarial subspace while deflecting them towards distinct semantic targets, the authors achieve a 66% success rate in hijacking MLLM decisions across multiple targets.</p>
+
+<hr>
+
+<h3>4. Listen, Look, Drive: Coupling Audio Instructions for User-aware VLA-based Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Ziang Guo, Feng Yang, Xuefeng Zhang, Jiaqi Guo, Kun Zhao et al. (9 authors)  |  <strong>Affiliation</strong>: Tsinghua University, The University of Hong Kong, Hyundai</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.12142v3" target="_blank">2601.12142v3</a> | <a href="https://arxiv.org/pdf/2601.12142v3" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-01-17  |  <strong>Updated</strong>: 2026-01-29</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of inflexible driving behavior in autonomous vehicles that rely solely on visual perception, which can lead to delayed responses to dynamic user intentions. The key insight is the integration of real-time audio instructions that allow users to convey specific emotional states, enabling the vehicle to adapt its driving behavior accordingly.</p>
+<p><strong>Key Contribution</strong>: The authors introduce EchoVLA, which consists of three main components: (1) a multimodal dataset combining visual frames from nuScenes with audio commands generated from ego-motion descriptions, (2) a fine-tuning process using a Multimodal Large Model (MLM) that incorporates Chain-of-Thought reasoning to interpret both visual and audio inputs, and (3) a trajectory modulation mechanism that adjusts vehicle speed based on detected user emotions, using formulas to compute arousal levels and modify speed profiles accordingly.</p>
+<p><strong>Result & Impact</strong>: In open-loop experiments on the nuScenes dataset, EchoVLA achieved a 59.4% reduction in average L2 error and a 74.4% decrease in collision rates compared to baseline models that relied solely on visual perception. This demonstrates significant improvements in driving safety and responsiveness to user commands.</p>
+<p><strong>Technical Essence</strong>: By integrating audio instructions with visual perception through a multimodal dataset and adjusting driving trajectories based on user emotional states, EchoVLA reduces collision rates by 74.4% while maintaining a lower average L2 error in trajectory predictions.</p>
+
+<hr>
+
+<h3>5. Li-ViP3D++: Query-Gated Deformable Camera-LiDAR Fusion for End-to-End Perception and Trajectory Prediction</h3>
+
+<p><strong>Authors</strong>: Matej Halinkovic, Nina Masarykova, Alexey Vinel, Marek Galinski  |  <strong>Affiliation</strong>: Karlsruhe Institute of Technology, Slovak University of Technology, Halmstad University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.20720v1" target="_blank">2601.20720v1</a> | <a href="https://arxiv.org/pdf/2601.20720v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-01-28</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of incomplete feature utilization in multi-modal perception systems by introducing Query-Gated Deformable Fusion (QGDF). The key insight is the ability to adaptively weight visual and geometric cues for each agent using learned offsets, which enhances the integration of RGB and LiDAR data in trajectory prediction tasks.</p>
+<p><strong>Key Contribution</strong>: The architecture consists of three main components: (1) a camera encoder using ResNet50 to extract 2D features from multi-view images, (2) a LiDAR encoder based on PointPillars that processes 5 consecutive sweeps to generate a BEV representation, and (3) the QGDF module that aggregates features using masked attention across cameras and levels, with dimensions of Q ∈ RNq×B×E for queries and P ∈ RB×CL×H×W for LiDAR features. The QGDF applies a differentiable sampling mechanism to align and fuse these features effectively.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes dataset, Li-ViP3D++ achieves an mAP of 0.502 and an EPA of 0.335, improving detection quality by reducing false positives (FPratio 0.147) compared to its predecessor, Li-ViP3D, which had a latency of 145.91 ms, while Li-ViP3D++ runs at 139.82 ms. This demonstrates significant efficiency gains in real-time applications.</p>
+<p><strong>Technical Essence</strong>: By applying masked attention to aggregate multi-view features and utilizing learned offsets for LiDAR sampling, the model achieves a 3.1% improvement in mAP while reducing inference time from 145.91 ms to 139.82 ms.</p>
+
+<hr>
+
+<h3>6. Drive-JEPA: Video JEPA Meets Multimodal Trajectory Distillation for End-to-End Driving</h3>
+
+<p><strong>Authors</strong>: Linhan Wang, Zichong Yang, Chen Bai, Guoxiang Zhang, Xiaotong Liu et al. (9 authors)  |  <strong>Affiliation</strong>: Virginia Tech, Purdue University, XPENG Motors, Nanjing University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.22032v1" target="_blank">2601.22032v1</a> | <a href="https://arxiv.org/pdf/2601.22032v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-01-29</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of limited multimodal behavior learning in autonomous driving, which arises from the reliance on single human trajectories for training. The key insight is the integration of a proposal-centric planner that distills diverse simulator-generated trajectories alongside human trajectories, allowing the model to learn a richer set of driving behaviors.</p>
+<p><strong>Key Contribution</strong>: Drive-JEPA consists of three main components: (1) a ViT encoder pre-trained on large-scale driving videos using V-JEPA, which predicts future latent representations to align with trajectory planning, (2) a waypoint-anchored proposal generation module that uses deformable attention to aggregate BEV features at trajectory waypoints, and (3) a momentum-aware trajectory selection mechanism that evaluates proposals based on collision risk and comfort scores. The encoder operates at 512×256 resolution and outputs predictive representations for trajectory planning.</p>
+<p><strong>Result & Impact</strong>: On the NAVSIM v1 dataset, Drive-JEPA achieves 93.3 PDMS, surpassing prior methods by 3 PDMS. On NAVSIM v2, it reaches 87.8 EPDMS, establishing a new benchmark. The framework shows significant improvements in both perception-free and perception-based settings, demonstrating the effectiveness of multimodal trajectory distillation.</p>
+<p><strong>Technical Essence</strong>: By distilling knowledge from both human and simulator-generated trajectories through a proposal-centric framework, Drive-JEPA enables the generation of diverse driving behaviors, achieving a 3 PDMS improvement on NAVSIM v1 while maintaining a lightweight transformer architecture.</p>
+
+<hr>
+
+<h3>7. DrivIng: A Large-Scale Multimodal Driving Dataset with Full Digital Twin Integration</h3>
+
+<p><strong>Authors</strong>: Dominik Rößle, Xujun Xie, Adithya Mohan, Venkatesh Thirugnana Sambandham, Daniel Cremers et al. (6 authors)  |  <strong>Affiliation</strong>: Technische Hochschule Ingolstadt, Technical University of Munich</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.15260v2" target="_blank">2601.15260v2</a> | <a href="https://arxiv.org/pdf/2601.15260v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-01-21  |  <strong>Updated</strong>: 2026-01-29</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of insufficient high-fidelity datasets for training perception algorithms in autonomous driving, particularly in diverse driving conditions. The key insight is the integration of a digital twin with real-world data, enabling a 1-to-1 mapping of traffic scenarios, which allows for systematic testing and evaluation of algorithms under varied conditions.</p>
+<p><strong>Key Contribution</strong>: DrivIng employs a multi-sensor setup with six RGB cameras (1920×1080 resolution at 20 FPS) and one LiDAR (128 rays, 20 FPS) to capture data across an 18 km route. The dataset includes 3D bounding box annotations at 10 Hz for 12 object classes, yielding approximately 1.2 million instances. The digital twin is constructed using precise geo-referencing, allowing for simulation-based scenario replay and controlled environmental modifications.</p>
+<p><strong>Result & Impact</strong>: DrivIng demonstrates a significant advancement in dataset quality, achieving a comprehensive coverage of urban, suburban, and highway environments. The dataset's annotations enable improved perception model evaluations, with benchmark tests showing a +5.2% increase in detection accuracy compared to existing datasets like nuScenes, enhancing the robustness of perception algorithms.</p>
+<p><strong>Technical Essence</strong>: By integrating a fully geo-referenced digital twin with real-world sensor data, DrivIng enables precise simulation of driving scenarios, achieving a 5.2% improvement in detection accuracy over traditional datasets.</p>
+
+<hr>
+
+<h3>8. 4D-CAAL: 4D Radar-Camera Calibration and Auto-Labeling for Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Shanliang Yao, Zhuoxiao Li, Runwei Guan, Kebin Cao, Meng Xia et al. (11 authors)  |  <strong>Affiliation</strong>: Yancheng Institute of Technology, Wuhan University of Technology, Hong Kong University of Science and Technology, Xi’an Jiaotong-Liverpool University, Nantong University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.21454v1" target="_blank">2601.21454v1</a> | <a href="https://arxiv.org/pdf/2601.21454v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-01-29</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of inaccurate radar-camera calibration, which often leads to poor sensor fusion in autonomous driving systems. The key insight is the design of a dual-purpose calibration target that integrates a checkerboard for camera detection and a corner reflector for radar, enabling simultaneous feature extraction and precise correspondence establishment.</p>
+<p><strong>Key Contribution</strong>: The 4D-CAAL framework consists of: (1) A custom A4-sized calibration board (210 mm × 297 mm) with a checkerboard on one side and a trihedral corner reflector on the other; (2) A robust correspondence matching algorithm that aligns the checkerboard center with the strongest radar reflection point; (3) An auto-labeling pipeline that transfers camera-based segmentation annotations to radar point clouds through geometric projection and spatial clustering, enhancing label quality.</p>
+<p><strong>Result & Impact</strong>: The proposed method achieves a calibration accuracy of 0.5 degrees in rotation and 2 mm in translation, comparable to existing methods. It significantly reduces manual annotation effort by 70%, allowing for the generation of high-quality radar labels that support training of detection models with a performance gain of +5.2% on the nuScenes validation set.</p>
+<p><strong>Technical Essence</strong>: By aligning the checkerboard center with the strongest radar reflection point through a robust correspondence matching algorithm, achieved a calibration accuracy of 0.5 degrees and 2 mm, facilitating efficient automatic annotation of radar data.</p>
+
+<hr>
+
+<h3>9. Drive-KD: Multi-Teacher Distillation for VLMs in Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Weitong Lian, Zecong Tang, Haoran Li, Tianjian Gao, Yifei Wang et al. (16 authors)  |  <strong>Affiliation</strong>: Zhejiang University, The University of Hong Kong, D-Robotics</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.21288v1" target="_blank">2601.21288v1</a> | <a href="https://arxiv.org/pdf/2601.21288v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-01-29</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of inefficient knowledge transfer in autonomous driving models, particularly in the context of multi-task learning. The key insight is the introduction of a multi-teacher distillation framework that leverages layer-specific attention to enhance the perception, reasoning, and planning capabilities of smaller models, effectively addressing the limitations of traditional distillation methods.</p>
+<p><strong>Key Contribution</strong>: Drive-KD employs three distinct teacher models focusing on perception, reasoning, and planning. It utilizes asymmetric gradient projection (AGP) to mitigate conflicts during knowledge transfer. The framework selects specific layers for distillation based on representation change and capability-wise intra-consistency, optimizing the student model's learning process. For example, it distills from the first and penultimate layers for perception and planning, respectively, while reasoning is derived from intermediate layers, ensuring effective knowledge transfer across capabilities.</p>
+<p><strong>Result & Impact</strong>: On the DriveBench dataset, the distilled InternVL3-1B model achieves a throughput increase of 11.4× while requiring 42× less GPU memory compared to the 78B pretrained model. This results in improved overall performance, surpassing the baseline with a significant increase in planning capabilities, demonstrating a clear advancement in resource efficiency and model effectiveness.</p>
+<p><strong>Technical Essence</strong>: By implementing layer-specific attention in a multi-teacher distillation framework, Drive-KD enhances capability transfer across perception, reasoning, and planning, achieving a 42× reduction in GPU memory usage while improving throughput by 11.4×.</p>
+
+<hr>
+
+<h3>10. Learning Contextual Runtime Monitors for Safe AI-Based Autonomy</h3>
+
+<p><strong>Authors</strong>: Alejandro Luque-Cerpa, Mengyuan Wang, Emil Carlsson, Sanjit A. Seshia, Devdatt Dubhashi et al. (6 authors)  |  <strong>Affiliation</strong>: Chalmers, University of Gothenburg, UC Berkeley, SleepCycle</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.20666v1" target="_blank">2601.20666v1</a> | <a href="https://arxiv.org/pdf/2601.20666v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-01-28</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of unsafe controller selection in autonomous driving systems by introducing a contextual runtime monitor that dynamically selects the most suitable controller based on the current operational context. The key insight is leveraging contextual multi-armed bandit techniques to optimize controller selection, ensuring safety while maintaining performance across diverse driving scenarios.</p>
+<p><strong>Key Contribution</strong>: The framework consists of three main components: (1) A contextual monitor that utilizes logistic regression to model violation probabilities of controllers given specific contexts, (2) A learning algorithm that minimizes regret by selecting the best-performing controller based on observed contexts, and (3) A fail-safe mechanism that activates when no controller meets safety specifications. The monitor is trained on historical data to adaptively learn which controller is safest in varying conditions.</p>
+<p><strong>Result & Impact</strong>: In simulated autonomous driving scenarios, the proposed method demonstrated a 15% improvement in safety metrics compared to traditional non-contextual methods, achieving a 90% success rate in maintaining safety specifications. The framework was validated using a dataset of diverse driving conditions, outperforming baseline methods that averaged controller outputs.</p>
+<p><strong>Technical Essence</strong>: By applying contextual multi-armed bandit techniques to dynamically select the safest controller based on real-time environmental data, the framework achieves a 15% increase in safety metrics while ensuring performance across varying operational contexts.</p>
+
+<hr>
+
+
+        <div class="footer">
+            <p>Auto-generated | Source: arXiv | Analyzed by LLM</p>
+            <p>2026-02-01 08:13</p>
+        </div>
+    </div>
+</body>
+</html>

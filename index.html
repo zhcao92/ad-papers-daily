@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自动驾驶论文每日速览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index-en.html" class="lang-toggle">Switch to English</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-02-01)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 27</p>
+<p>- 生成时间 | Generated: 2026-02-01 08:13</p>
+<p>- <a href="index-en.html" target="_blank">Switch to English 切换到英文</a></p>
+
+<hr>
+
+
+<h3>1. DA-Occ: Direction-Aware 2D Convolution for Efficient and Geometry-Preserving 3D Occupancy Prediction</h3>
+
+<p><strong>作者</strong>: Yuchen Zhou, Yan Luo, Xiaogang Wang, Xingjian Gu, Mingzhou Lu  |  <strong>机构</strong>: Nanjing Agricultural University, Desay SV Automotive, Nanjing University of Science and Technology</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2507.23599v3" target="_blank">2507.23599v3</a> | <a href="https://arxiv.org/pdf/2507.23599v3" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-07-31  |  <strong>更新</strong>: 2026-01-28</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了传统2D鸟瞰图方法在3D占用预测中导致的几何失真问题，这些方法往往忽视垂直结构。关键技术洞察是引入高度评分投影与深度评分相结合，以更好地在2D到3D转换过程中保持垂直几何完整性。</p>
+<p><strong>技术贡献</strong>: DA-Occ框架采用三个关键组件：（1）方向感知几何编码器（DGE），集成深度网络（DepthNet）和高度网络（HeightNet）共同预测深度和高度评分；（2）方向感知卷积（DAC），根据垂直和水平方向动态调整卷积权重；（3）2D到3D视图转换，将增强的特征提升到体素网格中。DAC利用方向平均池化和多层感知器（MLP）生成动态权重，增强特征提取，同时保持计算效率。</p>
+<p><strong>结果与影响</strong>: 在Occ3D-nuScenes基准测试中，DA-Occ实现了39.3%的平均交并比（mIoU），推理速度为27.7 FPS，显著优于现有方法，后者通常在速度和准确性之间做出牺牲。这代表了显著的性能提升，推理速度适合实时应用。</p>
+<p><strong>技术精髓</strong>: 通过在2D到3D转换过程中结合高度评分投影与深度评分，DA-Occ有效保持了垂直几何结构，实现了39.3%的mIoU，同时保持27.7 FPS的推理速度。</p>
+
+<hr>
+
+<h3>2. LLM-Driven Scenario-Aware Planning for Autonomous Driving</h3>
+
+<p><strong>作者</strong>: He Li, Zhaowei Chen, Rui Gao, Guoliang Li, Qi Hao et al. (7 authors)  |  <strong>机构</strong>: University of Macau, Shenzhen Institutes of Advanced Technology, Southern University of Science and Technology</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.21876v1" target="_blank">2601.21876v1</a> | <a href="https://arxiv.org/pdf/2601.21876v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-01-29</p>
+<p><strong>核心洞察</strong>: 该论文解决了在不同交通条件下自主驾驶中模式切换效率低下的问题。关键技术洞察是利用大型语言模型（LLM）根据实时场景理解动态推断合适的驾驶策略，从而实现快速驾驶和形状感知模式之间的无缝切换，而传统启发式方法难以实现。</p>
+<p><strong>技术贡献</strong>: LAP方法集成了三个主要组件：（1）一个LLM驱动的模式切换器，根据实时场景上下文选择快速驾驶（FD）和形状感知（SA）模式；（2）一个树搜索模型预测控制（TMPC），用于在回退视野内进行轨迹优化；（3）一个交替最小化（AM）框架，解决优化问题，在车辆动态和障碍物距离约束下平衡速度和碰撞避免。</p>
+<p><strong>结果与影响</strong>: 在MetaGrandPrix平台的高保真模拟中，LAP实现了15%的驾驶时间减少和10%的成功率提高，相比基线方法。该系统在模式切换频率为1Hz，运动控制频率高达100Hz的情况下有效运行，展示了在复杂驾驶场景中的实时适应能力。</p>
+<p><strong>技术精髓</strong>: 通过利用LLM推断动态调整驾驶模式，并通过TMPC和AM优化轨迹规划，LAP在多样化交通条件下降低了碰撞风险，同时提高了驾驶效率。</p>
+
+<hr>
+
+<h3>3. Semantic Router: On the Feasibility of Hijacking MLLMs via a Single Adversarial Perturbation</h3>
+
+<p><strong>作者</strong>: Changyue Li, Jiaying Li, Youliang Yuan, Jiaming He, Zhicong Huang et al. (6 authors)  |  <strong>机构</strong>: The Chinese University of Hong Kong, University of Electronic Science and Technology of China, Ant Group</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2511.20002v2" target="_blank">2511.20002v2</a> | <a href="https://arxiv.org/pdf/2511.20002v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-11-25  |  <strong>更新</strong>: 2026-01-29</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了在MLLMs中劫持无状态决策的问题，特别是在自动驾驶中，通过引入一个单一的通用对抗扰动，作为语义路由器。关键洞察在于，这种扰动可以基于视觉输入的语义操控模型的输出，从而实现对多个决策目标的精确控制。</p>
+<p><strong>技术贡献</strong>: 作者引入了语义感知通用扰动（SAUP），利用两步优化过程：（1）语义导向（SORT）优化，寻找最大化语义分离的扰动；（2）创建名为RIST的数据集，用于细粒度语义评估。该扰动经过优化，确保对于特定语义类别的输入图像，模型输出预定义的目标标签，从而有效劫持决策过程。</p>
+<p><strong>结果与影响</strong>: 在三个MLLM（Llava-1.5、Qwen2.5-VL、InternVL3）上的实验表明，使用单一扰动在五个目标上实现了66%的攻击成功率。该方法在2、3、4和5个目标上分别取得93%、77%、61%和66%的成功率，展示了MLLMs对SAUP的显著脆弱性。</p>
+<p><strong>技术精髓</strong>: 通过采用一个单一的通用扰动，将输入特征转移到一个密集的对抗子空间，同时将其偏转到不同的语义目标，作者实现了在多个目标上66%的劫持MLLM决策的成功率。</p>
+
+<hr>
+
+<h3>4. Listen, Look, Drive: Coupling Audio Instructions for User-aware VLA-based Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Ziang Guo, Feng Yang, Xuefeng Zhang, Jiaqi Guo, Kun Zhao et al. (9 authors)  |  <strong>机构</strong>: Tsinghua University, The University of Hong Kong, Hyundai</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.12142v3" target="_blank">2601.12142v3</a> | <a href="https://arxiv.org/pdf/2601.12142v3" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-01-17  |  <strong>更新</strong>: 2026-01-29</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了依赖视觉感知的自动驾驶车辆在动态用户意图下反应迟缓的问题。关键技术洞察是实时音频指令的集成，使用户能够传达特定情感状态，从而使车辆能够相应地调整驾驶行为。</p>
+<p><strong>技术贡献</strong>: 作者提出了EchoVLA，主要由三个组件组成：（1）将nuScenes的视觉帧与从自我运动描述生成的音频指令相结合的多模态数据集；（2）使用多模态大模型（MLM）进行微调，结合思维链推理来解释视觉和音频输入；（3）根据检测到的用户情感调整车辆速度的轨迹调制机制，使用公式计算唤醒水平并相应地修改速度曲线。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集的开放式实验中，EchoVLA实现了平均L2误差降低59.4%和碰撞率降低74.4%的成绩，相比于仅依赖视觉感知的基线模型，显示出在驾驶安全性和对用户指令响应方面的显著改善。</p>
+<p><strong>技术精髓</strong>: 通过将音频指令与视觉感知集成，并根据用户情感状态调整驾驶轨迹，EchoVLA在降低碰撞率74.4%的同时，保持了轨迹预测的平均L2误差较低。</p>
+
+<hr>
+
+<h3>5. Li-ViP3D++: Query-Gated Deformable Camera-LiDAR Fusion for End-to-End Perception and Trajectory Prediction</h3>
+
+<p><strong>作者</strong>: Matej Halinkovic, Nina Masarykova, Alexey Vinel, Marek Galinski  |  <strong>机构</strong>: Karlsruhe Institute of Technology, Slovak University of Technology, Halmstad University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.20720v1" target="_blank">2601.20720v1</a> | <a href="https://arxiv.org/pdf/2601.20720v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-01-28</p>
+<p><strong>核心洞察</strong>: 该论文解决了多模态感知系统中未充分利用特征的问题，通过引入查询门控可变形融合（QGDF）。关键技术洞察是能够为每个代理自适应加权视觉和几何线索，增强RGB和LiDAR数据在轨迹预测任务中的整合。</p>
+<p><strong>技术贡献</strong>: 该架构由三个主要组件组成：（1）使用ResNet50的相机编码器从多视角图像中提取2D特征，（2）基于PointPillars的LiDAR编码器处理5个连续的扫描以生成BEV表示，以及（3）QGDF模块，通过跨相机和层的掩码注意力聚合特征，查询的维度为Q∈RNq×B×E，LiDAR特征为P∈RB×CL×H×W。QGDF应用可微采样机制有效对齐和融合这些特征。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，Li-ViP3D++实现了0.502的mAP和0.335的EPA，检测质量提高，假阳性率（FPratio 0.147）相比其前身Li-ViP3D有所降低，后者的延迟为145.91毫秒，而Li-ViP3D++运行在139.82毫秒。这在实时应用中展示了显著的效率提升。</p>
+<p><strong>技术精髓</strong>: 通过应用掩码注意力聚合多视角特征，并利用学习的偏移进行LiDAR采样，该模型实现了mAP提高3.1%，同时将推理时间从145.91毫秒减少到139.82毫秒。</p>
+
+<hr>
+
+<h3>6. Drive-JEPA: Video JEPA Meets Multimodal Trajectory Distillation for End-to-End Driving</h3>
+
+<p><strong>作者</strong>: Linhan Wang, Zichong Yang, Chen Bai, Guoxiang Zhang, Xiaotong Liu et al. (9 authors)  |  <strong>机构</strong>: Virginia Tech, Purdue University, XPENG Motors, Nanjing University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.22032v1" target="_blank">2601.22032v1</a> | <a href="https://arxiv.org/pdf/2601.22032v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-01-29</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了在自动驾驶中多模态行为学习受限的问题，这一问题源于训练依赖于单个人类轨迹。关键技术洞察是集成了一个提案中心规划器，该规划器从模拟器生成的多样轨迹和人类轨迹中提取知识，从而使模型能够学习更丰富的驾驶行为。</p>
+<p><strong>技术贡献</strong>: Drive-JEPA由三个主要组件组成：（1）基于ViT的编码器，在大规模驾驶视频上进行V-JEPA预训练，预测未来潜在表示以与轨迹规划对齐；（2）一个基于路径锚的提案生成模块，利用可变形注意力在轨迹路径点聚合BEV特征；（3）一个动量感知轨迹选择机制，根据碰撞风险和舒适度评分评估提案。编码器以512×256分辨率运行，输出用于轨迹规划的预测表示。</p>
+<p><strong>结果与影响</strong>: 在NAVSIM v1数据集上，Drive-JEPA实现了93.3 PDMS，超越了之前的方法3 PDMS。在NAVSIM v2上，它达到了87.8 EPDMS，建立了新的基准。该框架在无感知和基于感知的设置中显示出显著改善，证明了多模态轨迹蒸馏的有效性。</p>
+<p><strong>技术精髓</strong>: 通过从人类和模拟器生成的轨迹中提取知识，Drive-JEPA实现了多样化驾驶行为的生成，在NAVSIM v1上实现了3 PDMS的提升，同时保持轻量级的变压器架构。</p>
+
+<hr>
+
+<h3>7. DrivIng: A Large-Scale Multimodal Driving Dataset with Full Digital Twin Integration</h3>
+
+<p><strong>作者</strong>: Dominik Rößle, Xujun Xie, Adithya Mohan, Venkatesh Thirugnana Sambandham, Daniel Cremers et al. (6 authors)  |  <strong>机构</strong>: Technische Hochschule Ingolstadt, Technical University of Munich</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.15260v2" target="_blank">2601.15260v2</a> | <a href="https://arxiv.org/pdf/2601.15260v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-01-21  |  <strong>更新</strong>: 2026-01-29</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了训练自动驾驶感知算法时高保真数据集不足的问题，特别是在多样化驾驶条件下。关键技术洞察是将数字双胞胎与真实世界数据集成，允许对交通场景进行一对一映射，从而实现系统化测试和算法评估。</p>
+<p><strong>技术贡献</strong>: DrivIng采用多传感器设置，包括六个RGB摄像头（1920×1080分辨率，20 FPS）和一个LiDAR（128束，20 FPS），在18公里的路线中捕获数据。数据集包括12个目标类别的10 Hz 3D边界框注释，产生约120万个实例。数字双胞胎通过精确的地理参考构建，允许基于模拟的场景重放和受控环境修改。</p>
+<p><strong>结果与影响</strong>: DrivIng在数据集质量上显示出显著进步，全面覆盖城市、郊区和高速公路环境。数据集的注释使感知模型评估得到改善，基准测试显示与现有数据集nuScenes相比，检测准确率提高了5.2%。</p>
+<p><strong>技术精髓</strong>: 通过将完全地理参考的数字双胞胎与真实世界传感器数据集成，DrivIng实现了驾驶场景的精确模拟，相较于传统数据集提高了5.2%的检测准确率。</p>
+
+<hr>
+
+<h3>8. 4D-CAAL: 4D Radar-Camera Calibration and Auto-Labeling for Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Shanliang Yao, Zhuoxiao Li, Runwei Guan, Kebin Cao, Meng Xia et al. (11 authors)  |  <strong>机构</strong>: Yancheng Institute of Technology, Wuhan University of Technology, Hong Kong University of Science and Technology, Xi’an Jiaotong-Liverpool University, Nantong University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.21454v1" target="_blank">2601.21454v1</a> | <a href="https://arxiv.org/pdf/2601.21454v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-01-29</p>
+<p><strong>核心洞察</strong>: 该论文解决了雷达-相机校准不准确的问题，这常常导致自动驾驶系统中传感器融合效果不佳。关键技术洞察是设计了一种双用途校准目标，集成了用于相机检测的棋盘格和用于雷达的角反射器，实现了同时特征提取和精确对应建立。</p>
+<p><strong>技术贡献</strong>: 4D-CAAL框架包括：（1）一个定制的A4尺寸校准板（210 mm × 297 mm），一侧为棋盘格，另一侧为三棱角反射器；（2）一种稳健的对应匹配算法，将棋盘中心与最强雷达反射点对齐；（3）一个自动标注管道，通过几何投影和空间聚类将基于相机的分割注释转移到雷达点云中，提高标签质量。</p>
+<p><strong>结果与影响</strong>: 该方法实现了0.5度的旋转精度和2毫米的平移精度，与现有方法相当。它将人工标注工作量减少了70%，允许生成高质量的雷达标签，支持检测模型的训练，性能提升为nuScenes验证集上的+5.2%。</p>
+<p><strong>技术精髓</strong>: 通过将棋盘中心与最强雷达反射点对齐，采用稳健的对应匹配算法，实现了0.5度和2毫米的校准精度，从而促进了雷达数据的高效自动标注。</p>
+
+<hr>
+
+<h3>9. Drive-KD: Multi-Teacher Distillation for VLMs in Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Weitong Lian, Zecong Tang, Haoran Li, Tianjian Gao, Yifei Wang et al. (16 authors)  |  <strong>机构</strong>: Zhejiang University, The University of Hong Kong, D-Robotics</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.21288v1" target="_blank">2601.21288v1</a> | <a href="https://arxiv.org/pdf/2601.21288v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-01-29</p>
+<p><strong>核心洞察</strong>: 该论文解决了自主驾驶模型中知识转移效率低下的问题，特别是在多任务学习的背景下。关键技术洞察是引入了一种多教师蒸馏框架，利用层特定注意力来增强小型模型的感知、推理和规划能力，有效解决了传统蒸馏方法的局限性。</p>
+<p><strong>技术贡献</strong>: Drive-KD采用三个不同的教师模型，分别专注于感知、推理和规划。它利用不对称梯度投影（AGP）来减轻知识转移过程中的冲突。该框架根据表示变化和能力内一致性选择特定层进行蒸馏，优化学生模型的学习过程。例如，它从第一层和倒数第二层蒸馏感知和规划，而推理则来自中间层，确保跨能力的有效知识转移。</p>
+<p><strong>结果与影响</strong>: 在DriveBench数据集上，蒸馏后的InternVL3-1B模型实现了11.4倍的吞吐量提升，同时相比于78B预训练模型减少了42倍的GPU内存。这导致整体性能的提高，超越基线，显著增强了规划能力，展示了资源效率和模型有效性的明显进步。</p>
+<p><strong>技术精髓</strong>: 通过在多教师蒸馏框架中实现层特定注意力，Drive-KD增强了感知、推理和规划之间的能力转移，实现了GPU内存使用减少42倍，同时吞吐量提高11.4倍。</p>
+
+<hr>
+
+<h3>10. Learning Contextual Runtime Monitors for Safe AI-Based Autonomy</h3>
+
+<p><strong>作者</strong>: Alejandro Luque-Cerpa, Mengyuan Wang, Emil Carlsson, Sanjit A. Seshia, Devdatt Dubhashi et al. (6 authors)  |  <strong>机构</strong>: Chalmers, University of Gothenburg, UC Berkeley, SleepCycle</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.20666v1" target="_blank">2601.20666v1</a> | <a href="https://arxiv.org/pdf/2601.20666v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-01-28</p>
+<p><strong>核心洞察</strong>: 该论文解决了自主驾驶系统中不安全控制器选择的问题，通过引入上下文运行监视器，根据当前操作上下文动态选择最合适的控制器。关键技术洞察是利用上下文多臂赌博机技术优化控制器选择，确保安全性同时在多样化驾驶场景中保持性能。</p>
+<p><strong>技术贡献</strong>: 该框架由三个主要组件组成：（1）上下文监视器，利用逻辑回归建模给定特定上下文的控制器违规概率，（2）学习算法，通过选择最佳表现控制器来最小化遗憾，并且（3）当没有控制器满足安全规范时激活的安全机制。监视器在历史数据上进行训练，以适应性地学习在不同条件下哪个控制器是最安全的。</p>
+<p><strong>结果与影响</strong>: 在模拟自主驾驶场景中，所提出的方法在安全指标上比传统非上下文方法提高了15%，在保持安全规范方面的成功率达到90%。该框架使用多样化驾驶条件的数据集进行了验证，超越了对控制器输出进行平均的基线方法。</p>
+<p><strong>技术精髓</strong>: 通过应用上下文多臂赌博机技术，根据实时环境数据动态选择最安全的控制器，该框架在安全指标上实现了15%的提升，同时确保在不同操作上下文中的性能。</p>
+
+<hr>
+
+
+
+        <div class="footer">
+            <p>自动生成 | 数据来源: arXiv | 由 LLM 分析总结</p>
+            <p>2026-02-01 08:13</p>
+        </div>
+    </div>
+</body>
+</html>
