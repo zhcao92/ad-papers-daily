@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自动驾驶论文每日速览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index-en.html" class="lang-toggle">Switch to English</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-02-08)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 48</p>
+<p>- 生成时间 | Generated: 2026-02-08 08:13</p>
+<p>- <a href="index-en.html" target="_blank">Switch to English 切换到英文</a></p>
+
+<hr>
+
+
+<h3>1. LSA: Localized Semantic Alignment for Enhancing Temporal Consistency in Traffic Video Generation</h3>
+
+<p><strong>作者</strong>: Mirlan Karimov, Teodora Spasojevic, Markus Braun, Julian Wiederer, Vasileios Belagiannis et al. (6 authors)  |  <strong>机构</strong>: Mercedes-Benz, ETH Zurich, Friedrich-Alexander University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.05966v1" target="_blank">2602.05966v1</a> | <a href="https://arxiv.org/pdf/2602.05966v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-02-05</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了生成交通视频中的时间不一致性问题，这些视频通常会出现闪烁和不现实的运动轨迹。关键技术洞察是引入局部语义对齐（LSA），它通过对动态对象之间的语义特征进行对齐，增强了帧之间的一致性。</p>
+<p><strong>技术贡献</strong>: LSA采用三个主要组件：（1）使用DINOv2从真实和生成的帧中提取特征，生成大小为H/p × W/p × d的特征图，其中p是补丁大小，d是特征维度。（2）计算语义特征一致性损失，定义为L_feat = E[∥(f(i,j)−f(i,j))⊙m(i,j)∥²]，强调动态对象区域的掩码。（3）通过将此损失与标准扩散损失结合，微调稳定视频扩散模型，优化模型以学习一致的运动模式，仅在一个epoch内完成。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，微调的LSA模型相比基线SVD模型在mAP和mIoU指标上提高了+5.2%。定性结果显示减少了闪烁现象，并改善了物体运动的一致性，证明了LSA在增强生成视频时间一致性方面的有效性。</p>
+<p><strong>技术精髓</strong>: 通过在训练过程中应用动态对象掩码进行局部语义对齐，LSA显著减少了生成视频中的时间不一致性，从而改善了物体运动和外观的一致性，而无需增加额外的推理时间复杂性。</p>
+
+<hr>
+
+<h3>2. ROMAN: Reward-Orchestrated Multi-Head Attention Network for Autonomous Driving System Testing</h3>
+
+<p><strong>作者</strong>: Jianlei Chi, Yuzhen Wu, Jiaxuan Hou, Xiaodong Zhang, Ming Fan et al. (10 authors)  |  <strong>机构</strong>: Hangzhou Institute of Technology, Qingdao Port International Co., Ltd., Shandong Port Qingdao Port Group Co., Ltd., University of Science and Technology of China, Xi'an Jiaotong University, Singapore Management University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.05629v1" target="_blank">2602.05629v1</a> | <a href="https://arxiv.org/pdf/2602.05629v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-02-05</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自主驾驶系统（ADS）测试中场景生成不足的问题，特别是在复杂环境中产生高风险交通法律违规的困难。关键技术洞察是整合多头注意力网络，建模车辆、交通信号和环境因素之间的交互，以创建更有可能触发违规的多样化场景，例如在交叉口未让行。</p>
+<p><strong>技术贡献</strong>: ROMAN采用四个主要组件：（1）场景编码将原始交通场景转换为标准化的动作序列；（2）交通法律加权使用大型语言模型（LLM）根据严重性和发生率评估违规风险；（3）场景生成利用这些加权序列创建复杂场景；（4）场景测试在CARLA模拟器中评估ADS。该算法将场景编码为动作序列，计算风险权重并附加结果，确保关注高优先级违规。</p>
+<p><strong>结果与影响</strong>: 在使用CARLA模拟平台的实验中，ROMAN的平均违规计数为6.41，超过ABLE 7.91%和LawBreaker 55.96%。它成功生成了中国交通法律81条款的违规场景，显示出18.25%的高风险违规率，而ABLE为15.5%，LawBreaker为1.75%，表明场景多样性和法律覆盖的显著改善。</p>
+<p><strong>技术精髓</strong>: 通过利用多头注意力网络建模交通元素之间的复杂交互，并结合基于LLM的风险加权，ROMAN增加了生成高风险违规场景的可能性，与现有方法相比，违规计数提高了55.96%。</p>
+
+<hr>
+
+<h3>3. Visual Implicit Geometry Transformer for Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Arsenii Shirokov, Mikhail Kuznetsov, Danila Stepochkin, Egor Evdokimov, Daniil Glazkov et al. (8 authors)  |  <strong>机构</strong>: Lomonosov Moscow State University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.05573v1" target="_blank">2602.05573v1</a> | <a href="https://arxiv.org/pdf/2602.05573v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-02-05</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了从全景图像中整合3D占用估计的问题，而无需相机标定，这对需要在各种传感器设置下运行的自动驾驶系统至关重要。关键洞察是使用无标定的隐式BEV投影，直接将图像特征映射到统一的鸟瞰图表示，从而有效理解场景。</p>
+<p><strong>技术贡献</strong>: 视觉隐式几何变换器（ViGT）由三个主要组件组成：（1）图像编码器（ViT-L）独立处理每张图像，从四层中提取特征令牌，每张图像生成4个令牌序列；（2）无标定的隐式BEV投影使用两个交叉注意力模块将这些令牌投影到BEV空间，生成四个层特定的表示并进行聚合和上采样；（3）隐式解码器使用卷积占用网络根据最终的BEV特征预测3D点的占用概率。该架构允许无几何偏见的数据驱动场景建模。</p>
+<p><strong>结果与影响</strong>: ViGT在Occ3D-nuScenes基准测试中实现了0.2062的Chamfer距离，显著超越现有方法。在五个大规模数据集（NuScenes、Waymo、NuPlan、ONCE、Argoverse）中排名第一，展示了卓越的可扩展性和泛化能力。该模型在不需要人工标注的情况下显示出与监督方法相当的性能，验证了其在现实场景中的有效性。</p>
+<p><strong>技术精髓</strong>: 通过采用无标定的隐式BEV投影，利用图像补丁与BEV查询之间的交叉注意力，ViGT实现了统一的场景表示，从而提高了在多样化传感器配置下的占用估计精度。</p>
+
+<hr>
+
+<h3>4. Reinforcement Learning Enhancement Using Vector Semantic Representation and Symbolic Reasoning for Human-Centered Autonomous Emergency Braking</h3>
+
+<p><strong>作者</strong>: Vinal Asodia, Iman Sharifi, Saber Fallah  |  <strong>机构</strong>: University of Surrey, George Washington University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.05079v1" target="_blank">2602.05079v1</a> | <a href="https://arxiv.org/pdf/2602.05079v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-02-04</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自主驾驶中强化学习的刚性奖励函数问题，这些函数无法适应复杂的驾驶场景。关键技术洞察是集成了一个软一阶逻辑（SFOL）奖励函数，该函数根据从场景中提取的语义和空间谓词动态调整奖励权重，从而增强了在细微情况下的决策能力。</p>
+<p><strong>技术贡献</strong>: 该机制由三个主要部分组成：（1）向量语义表示（VSR），将静态和动态实体编码为超向量，保持关系结构，维度为2048；（2）空间语义信息（SSI），捕捉语义类别和空间关系，使用绑定和捆绑操作创建复合超向量；（3）SFOL奖励函数，利用这些超向量推导上下文感知的奖励权重，从而实现灵活的决策。</p>
+<p><strong>结果与影响</strong>: 在CARLA模拟中，所提方法相比使用固定奖励函数的基线方法在安全相关性能指标上提高了12%。评估显示，在不同交通密度和遮挡水平下，策略的鲁棒性得到了改善，具体指标表明在高密度场景中碰撞率降低了15%。</p>
+<p><strong>技术精髓</strong>: 通过将符号推理集成到奖励函数中，利用软一阶逻辑实现了基于实时语义和空间上下文动态调整奖励权重，从而在安全指标上提高了12%。</p>
+
+<hr>
+
+<h3>5. Unified Sensor Simulation for Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Nikolay Patakin, Arsenii Shirokov, Anton Konushin, Dmitry Senushkin  |  <strong>机构</strong>: Lomonosov Moscow State University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.05617v1" target="_blank">2602.05617v1</a> | <a href="https://arxiv.org/pdf/2602.05617v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-02-05</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自主驾驶中由于滚动快门效应导致的传感器数据表示不准确的问题，特别是在LiDAR和摄像头系统中。关键技术洞察是引入了相位建模机制，减轻了方位边界的时间和形状不连续性，确保准确的粒子投影和改进的渲染质量。</p>
+<p><strong>技术贡献</strong>: XSIM框架由三个主要组件组成：（1）扩展的3D高斯表示，每个高斯具有两个不透明度参数，以解决颜色和几何不匹配；（2）通用滚动快门模型，捕捉传感器数据采集的顺序特性；（3）相位建模机制，通过投影粒子±π偏移来调整方位边界不连续性。这使得动态场景的体积集成和渲染更加准确。</p>
+<p><strong>结果与影响</strong>: 在Waymo开放数据集上，XSIM在场景表示准确性上比SplatAD和OmniRE提高了5.2%，指标显示几何一致性和真实感外观增强。该框架在标准GPU上以30 FPS运行，保持高保真度，同时将模拟与真实之间的差距减少了15%。</p>
+<p><strong>技术精髓</strong>: 通过实现考虑滚动快门相机方位边界效应的相位建模机制，XSIM实现了准确的粒子投影，从而在场景表示准确性上提高了5.2%。</p>
+
+<hr>
+
+<h3>6. EgoFSD: Ego-Centric Fully Sparse Paradigm with Uncertainty Denoising and Iterative Refinement for Efficient End-to-End Self-Driving</h3>
+
+<p><strong>作者</strong>: Haisheng Su, Wei Wu, Zhenjie Yang, Isabel Guan</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2409.09777v5" target="_blank">2409.09777v5</a> | <a href="https://arxiv.org/pdf/2409.09777v5" target="_blank">PDF</a>  |  <strong>发表</strong>: 2024-09-15  |  <strong>更新</strong>: 2026-02-02</p>
+<p><strong>核心洞察</strong>: 解析失败</p>
+<p><strong>技术贡献</strong>: 解析失败</p>
+<p><strong>结果与影响</strong>: 解析失败</p>
+<p><strong>技术精髓</strong>: 待生成</p>
+
+<hr>
+
+<h3>7. InstaDrive: Instance-Aware Driving World Models for Realistic and Consistent Video Generation</h3>
+
+<p><strong>作者</strong>: Zhuoran Yang, Xi Guo, Chenjing Ding, Chiyu Wang, Wei Wu et al. (6 authors)</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.03242v1" target="_blank">2602.03242v1</a> | <a href="https://arxiv.org/pdf/2602.03242v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-02-03</p>
+<p><strong>核心洞察</strong>: 解析失败</p>
+<p><strong>技术贡献</strong>: 解析失败</p>
+<p><strong>结果与影响</strong>: 解析失败</p>
+<p><strong>技术精髓</strong>: 待生成</p>
+
+<hr>
+
+<h3>8. AppleVLM: End-to-end Autonomous Driving with Advanced Perception and Planning-Enhanced Vision-Language Models</h3>
+
+<p><strong>作者</strong>: Yuxuan Han, Kunyuan Wu, Qianyi Shao, Renxiang Xiao, Zilu Wang et al. (9 authors)</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.04256v1" target="_blank">2602.04256v1</a> | <a href="https://arxiv.org/pdf/2602.04256v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-02-04</p>
+<p><strong>核心洞察</strong>: 解析失败</p>
+<p><strong>技术贡献</strong>: 解析失败</p>
+<p><strong>结果与影响</strong>: 解析失败</p>
+<p><strong>技术精髓</strong>: 待生成</p>
+
+<hr>
+
+<h3>9. Driving on Registers</h3>
+
+<p><strong>作者</strong>: Ellington Kirby, Alexandre Boulch, Yihong Xu, Yuan Yin, Gilles Puy et al. (14 authors)</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.05083v2" target="_blank">2601.05083v2</a> | <a href="https://arxiv.org/pdf/2601.05083v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-01-08  |  <strong>更新</strong>: 2026-02-03</p>
+<p><strong>核心洞察</strong>: 解析失败</p>
+<p><strong>技术贡献</strong>: 解析失败</p>
+<p><strong>结果与影响</strong>: 解析失败</p>
+<p><strong>技术精髓</strong>: 待生成</p>
+
+<hr>
+
+<h3>10. Natural Language Instructions for Scene-Responsive Human-in-the-Loop Motion Planning in Autonomous Driving using Vision-Language-Action Models</h3>
+
+<p><strong>作者</strong>: Angel Martinez-Sanchez, Parthib Roy, Ross Greer</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.04184v1" target="_blank">2602.04184v1</a> | <a href="https://arxiv.org/pdf/2602.04184v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-02-04</p>
+<p><strong>核心洞察</strong>: 解析失败</p>
+<p><strong>技术贡献</strong>: 解析失败</p>
+<p><strong>结果与影响</strong>: 解析失败</p>
+<p><strong>技术精髓</strong>: 待生成</p>
+
+<hr>
+
+
+
+        <div class="footer">
+            <p>自动生成 | 数据来源: arXiv | 由 LLM 分析总结</p>
+            <p>2026-02-08 08:13</p>
+        </div>
+    </div>
+</body>
+</html>

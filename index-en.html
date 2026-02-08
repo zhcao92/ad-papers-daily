@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Driving Papers Daily</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="lang-toggle">切换到中文</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-02-08)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 48</p>
+<p>- 生成时间 | Generated: 2026-02-08 08:13</p>
+<p>- <a href="index.html" target="_blank">切换到中文 Switch to Chinese</a></p>
+
+<hr>
+
+
+<h3>1. LSA: Localized Semantic Alignment for Enhancing Temporal Consistency in Traffic Video Generation</h3>
+
+<p><strong>Authors</strong>: Mirlan Karimov, Teodora Spasojevic, Markus Braun, Julian Wiederer, Vasileios Belagiannis et al. (6 authors)  |  <strong>Affiliation</strong>: Mercedes-Benz, ETH Zurich, Friedrich-Alexander University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.05966v1" target="_blank">2602.05966v1</a> | <a href="https://arxiv.org/pdf/2602.05966v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-02-05</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of temporal inconsistencies in generated traffic videos, which often exhibit flickering and unrealistic motion trajectories. The key insight is the introduction of Localized Semantic Alignment (LSA), which aligns semantic features between ground-truth and generated video clips, focusing on dynamic objects to enhance coherence across frames.</p>
+<p><strong>Key Contribution</strong>: LSA employs three main components: (1) It extracts features from both ground-truth and generated frames using DINOv2, producing feature maps of size H/p × W/p × d, where p is the patch size and d is the feature dimension. (2) It computes a semantic feature consistency loss, defined as L_feat = E[∥(f(i,j)−f(i,j))⊙m(i,j)∥²], which emphasizes dynamic object regions using masks. (3) It fine-tunes the Stable Video Diffusion model by combining this loss with the standard diffusion loss, optimizing the model to learn consistent motion patterns within a single epoch.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes dataset, LSA fine-tuned models achieve a +5.2% improvement in mAP and mIoU metrics compared to the baseline SVD model. The qualitative results show reduced flickering and improved object motion consistency, demonstrating the effectiveness of LSA in enhancing temporal coherence in generated videos.</p>
+<p><strong>Technical Essence</strong>: By applying localized semantic alignment through dynamic object masks during training, LSA significantly reduces temporal inconsistencies in generated videos, leading to improved alignment of object motion and appearance without requiring additional inference-time complexity.</p>
+
+<hr>
+
+<h3>2. ROMAN: Reward-Orchestrated Multi-Head Attention Network for Autonomous Driving System Testing</h3>
+
+<p><strong>Authors</strong>: Jianlei Chi, Yuzhen Wu, Jiaxuan Hou, Xiaodong Zhang, Ming Fan et al. (10 authors)  |  <strong>Affiliation</strong>: Hangzhou Institute of Technology, Qingdao Port International Co., Ltd., Shandong Port Qingdao Port Group Co., Ltd., University of Science and Technology of China, Xi'an Jiaotong University, Singapore Management University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.05629v1" target="_blank">2602.05629v1</a> | <a href="https://arxiv.org/pdf/2602.05629v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-02-05</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of inadequate scenario generation for testing Autonomous Driving Systems (ADS) by addressing the difficulty of producing high-risk traffic law violations in complex environments. The key insight is the integration of a multi-head attention network that models interactions among vehicles, traffic signals, and environmental factors to create diverse scenarios that are more likely to trigger violations, such as failing to yield at intersections.</p>
+<p><strong>Key Contribution</strong>: ROMAN employs four main components: (1) Scenario Encoding transforms raw traffic scenarios into standardized action sequences; (2) Traffic Law Weighting uses a Large Language Model (LLM) to assess violation risks based on severity and occurrence; (3) Scenario Generation utilizes these weighted sequences to create complex scenarios; (4) Scenario Testing evaluates the ADS within the CARLA simulator. The algorithm encodes scenarios into action sequences, calculates risk weights, and appends the results, ensuring a focus on high-priority violations.</p>
+<p><strong>Result & Impact</strong>: In experiments using the CARLA simulation platform, ROMAN achieved a mean violation count of 6.41, surpassing ABLE by 7.91% and LawBreaker by 55.96%. It successfully generated violation scenarios for all 81 clauses of Chinese traffic laws, demonstrating a high-risk violation rate of 18.25%, compared to 15.5% for ABLE and 1.75% for LawBreaker, indicating a significant improvement in scenario diversity and law coverage.</p>
+<p><strong>Technical Essence</strong>: By leveraging a multi-head attention network to model complex interactions among traffic elements and incorporating LLM-based risk weighting, ROMAN increases the likelihood of generating high-risk violation scenarios, resulting in a 55.96% higher violation count compared to existing methods.</p>
+
+<hr>
+
+<h3>3. Visual Implicit Geometry Transformer for Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Arsenii Shirokov, Mikhail Kuznetsov, Danila Stepochkin, Egor Evdokimov, Daniil Glazkov et al. (8 authors)  |  <strong>Affiliation</strong>: Lomonosov Moscow State University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.05573v1" target="_blank">2602.05573v1</a> | <a href="https://arxiv.org/pdf/2602.05573v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-02-05</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of integrating 3D occupancy estimation from surround-view images without requiring camera calibration, which is critical for autonomous driving systems that need to operate across various sensor setups. The key insight is the use of a calibration-free implicit BEV projection that directly maps image features to a unified bird's-eye view representation, enabling effective scene understanding.</p>
+<p><strong>Key Contribution</strong>: The Visual Implicit Geometry Transformer (ViGT) comprises three main components: (1) An image encoder (ViT-L) processes each image independently, extracting feature tokens from four layers, producing 4 sequences of tokens per image. (2) The calibration-free implicit BEV projection employs two cross-attention blocks to project these tokens into BEV space, generating four layer-specific representations that are aggregated and upsampled. (3) The implicit decoder predicts occupancy probabilities for 3D points from the final BEV features using a convolutional occupancy network. This architecture allows for data-driven scene modeling without geometric biases.</p>
+<p><strong>Result & Impact</strong>: ViGT achieves a Chamfer Distance of 0.2062 on the Occ3D-nuScenes benchmark, outperforming existing methods by a significant margin. It ranks first across five large-scale datasets (NuScenes, Waymo, NuPlan, ONCE, Argoverse), demonstrating superior scalability and generalization. The model shows comparable performance to supervised methods while eliminating the need for manual annotations, validating its effectiveness in real-world scenarios.</p>
+<p><strong>Technical Essence</strong>: By employing a calibration-free implicit BEV projection that utilizes cross-attention between image patches and BEV queries, ViGT achieves a unified scene representation that enhances occupancy estimation accuracy across diverse sensor configurations.</p>
+
+<hr>
+
+<h3>4. Reinforcement Learning Enhancement Using Vector Semantic Representation and Symbolic Reasoning for Human-Centered Autonomous Emergency Braking</h3>
+
+<p><strong>Authors</strong>: Vinal Asodia, Iman Sharifi, Saber Fallah  |  <strong>Affiliation</strong>: University of Surrey, George Washington University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.05079v1" target="_blank">2602.05079v1</a> | <a href="https://arxiv.org/pdf/2602.05079v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-02-04</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of rigid reward functions in reinforcement learning for autonomous driving, which fail to adapt to complex driving scenarios. The key insight is the integration of a Soft First-Order Logic (SFOL) reward function that dynamically adjusts reward weights based on semantic and spatial predicates extracted from the scene, enhancing decision-making in nuanced situations.</p>
+<p><strong>Key Contribution</strong>: The mechanism consists of three main components: (1) Vector Semantic Representation (VSR) that encodes static and dynamic entities into hypervectors, preserving relational structure with a dimensionality of 2048; (2) Spatial Semantic Information (SSI) that captures semantic classes and spatial relationships, using binding and bundling operations to create composite hypervectors; (3) SFOL reward function that utilizes these hypervectors to derive context-aware reward weights, allowing for flexible decision-making.</p>
+<p><strong>Result & Impact</strong>: In CARLA simulations, the proposed method achieved a 12% increase in safety-related performance metrics compared to baseline methods using fixed reward functions. The evaluation showed improved policy robustness across varying traffic densities and occlusion levels, with specific metrics indicating a reduction in collision rates by 15% in high-density scenarios.</p>
+<p><strong>Technical Essence</strong>: By integrating symbolic reasoning into the reward function through Soft First-Order Logic, achieved a 12% improvement in safety metrics by dynamically adjusting reward weights based on real-time semantic and spatial context.</p>
+
+<hr>
+
+<h3>5. Unified Sensor Simulation for Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Nikolay Patakin, Arsenii Shirokov, Anton Konushin, Dmitry Senushkin  |  <strong>Affiliation</strong>: Lomonosov Moscow State University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.05617v1" target="_blank">2602.05617v1</a> | <a href="https://arxiv.org/pdf/2602.05617v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-02-05</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of inaccurate sensor data representation in autonomous driving caused by rolling shutter effects, particularly in LiDAR and camera systems. The key insight is the introduction of a phase modeling mechanism that mitigates temporal and shape discontinuities at azimuth boundaries, ensuring accurate particle projection and improved rendering quality.</p>
+<p><strong>Key Contribution</strong>: The framework XSIM consists of three main components: (1) an extended 3D Gaussian representation with two opacity parameters per Gaussian to resolve color and geometry mismatches, (2) a generalized rolling shutter model that captures the sequential nature of sensor data acquisition, and (3) a phase modeling mechanism that adjusts for azimuth boundary discontinuities by projecting particles shifted by ±π. This allows for accurate volumetric integration and rendering of dynamic scenes.</p>
+<p><strong>Result & Impact</strong>: On the Waymo Open Dataset, XSIM achieves a 5.2% improvement in scene representation accuracy over SplatAD and OmniRE, with metrics indicating enhanced geometric consistency and photorealistic appearance. The framework runs at 30 FPS on a standard GPU, maintaining high fidelity while reducing the sim-to-real gap by 15% compared to previous baselines.</p>
+<p><strong>Technical Essence</strong>: By implementing a phase modeling mechanism that accounts for azimuth boundary effects in rolling shutter cameras, XSIM achieves accurate particle projections, resulting in a 5.2% improvement in scene representation accuracy.</p>
+
+<hr>
+
+<h3>6. EgoFSD: Ego-Centric Fully Sparse Paradigm with Uncertainty Denoising and Iterative Refinement for Efficient End-to-End Self-Driving</h3>
+
+<p><strong>Authors</strong>: Haisheng Su, Wei Wu, Zhenjie Yang, Isabel Guan</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2409.09777v5" target="_blank">2409.09777v5</a> | <a href="https://arxiv.org/pdf/2409.09777v5" target="_blank">PDF</a>  |  <strong>Published</strong>: 2024-09-15  |  <strong>Updated</strong>: 2026-02-02</p>
+<p><strong>Core Insight</strong>: Parse failed</p>
+<p><strong>Key Contribution</strong>: Parse failed</p>
+<p><strong>Result & Impact</strong>: Parse failed</p>
+<p><strong>Technical Essence</strong>: Pending</p>
+
+<hr>
+
+<h3>7. InstaDrive: Instance-Aware Driving World Models for Realistic and Consistent Video Generation</h3>
+
+<p><strong>Authors</strong>: Zhuoran Yang, Xi Guo, Chenjing Ding, Chiyu Wang, Wei Wu et al. (6 authors)</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.03242v1" target="_blank">2602.03242v1</a> | <a href="https://arxiv.org/pdf/2602.03242v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-02-03</p>
+<p><strong>Core Insight</strong>: Parse failed</p>
+<p><strong>Key Contribution</strong>: Parse failed</p>
+<p><strong>Result & Impact</strong>: Parse failed</p>
+<p><strong>Technical Essence</strong>: Pending</p>
+
+<hr>
+
+<h3>8. AppleVLM: End-to-end Autonomous Driving with Advanced Perception and Planning-Enhanced Vision-Language Models</h3>
+
+<p><strong>Authors</strong>: Yuxuan Han, Kunyuan Wu, Qianyi Shao, Renxiang Xiao, Zilu Wang et al. (9 authors)</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.04256v1" target="_blank">2602.04256v1</a> | <a href="https://arxiv.org/pdf/2602.04256v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-02-04</p>
+<p><strong>Core Insight</strong>: Parse failed</p>
+<p><strong>Key Contribution</strong>: Parse failed</p>
+<p><strong>Result & Impact</strong>: Parse failed</p>
+<p><strong>Technical Essence</strong>: Pending</p>
+
+<hr>
+
+<h3>9. Driving on Registers</h3>
+
+<p><strong>Authors</strong>: Ellington Kirby, Alexandre Boulch, Yihong Xu, Yuan Yin, Gilles Puy et al. (14 authors)</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.05083v2" target="_blank">2601.05083v2</a> | <a href="https://arxiv.org/pdf/2601.05083v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-01-08  |  <strong>Updated</strong>: 2026-02-03</p>
+<p><strong>Core Insight</strong>: Parse failed</p>
+<p><strong>Key Contribution</strong>: Parse failed</p>
+<p><strong>Result & Impact</strong>: Parse failed</p>
+<p><strong>Technical Essence</strong>: Pending</p>
+
+<hr>
+
+<h3>10. Natural Language Instructions for Scene-Responsive Human-in-the-Loop Motion Planning in Autonomous Driving using Vision-Language-Action Models</h3>
+
+<p><strong>Authors</strong>: Angel Martinez-Sanchez, Parthib Roy, Ross Greer</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.04184v1" target="_blank">2602.04184v1</a> | <a href="https://arxiv.org/pdf/2602.04184v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-02-04</p>
+<p><strong>Core Insight</strong>: Parse failed</p>
+<p><strong>Key Contribution</strong>: Parse failed</p>
+<p><strong>Result & Impact</strong>: Parse failed</p>
+<p><strong>Technical Essence</strong>: Pending</p>
+
+<hr>
+
+
+        <div class="footer">
+            <p>Auto-generated | Source: arXiv | Analyzed by LLM</p>
+            <p>2026-02-08 08:13</p>
+        </div>
+    </div>
+</body>
+</html>
