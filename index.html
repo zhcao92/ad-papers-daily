@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自动驾驶论文每日速览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index-en.html" class="lang-toggle">Switch to English</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-02-15)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 48</p>
+<p>- 生成时间 | Generated: 2026-02-15 08:12</p>
+<p>- <a href="index-en.html" target="_blank">Switch to English 切换到英文</a></p>
+
+<hr>
+
+
+<h3>1. Adaptive Time Step Flow Matching for Autonomous Driving Motion Planning</h3>
+
+<p><strong>作者</strong>: Ananya Trivedi, Anjian Li, Mohamed Elnoor, Yusuf Umut Ciftci, Avinash Singh et al. (10 authors)  |  <strong>机构</strong>: Honda Research Institute, Northeastern, Princeton, Maryland, Stanford</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.10285v1" target="_blank">2602.10285v1</a> | <a href="https://arxiv.org/pdf/2602.10285v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-02-10</p>
+<p><strong>核心洞察</strong>: 该论文解决了自主驾驶中实时轨迹生成的高延迟问题，传统的扩散模型通常需要数百个去噪步骤。关键技术洞察是使用方差自适应流匹配，根据模型的信心动态调整推理步骤的数量，从而实现更快、更高效的轨迹规划。</p>
+<p><strong>技术贡献</strong>: 该框架由三个主要组件组成：(1) 运动变换器编码器，将过去的轨迹和地图特征处理成上下文向量；(2) 方差自适应流匹配网络，根据轻量级方差估计器预测未来运动，使用可变的积分步骤；(3) 用于后处理轨迹的凸二次规划，以增强乘坐舒适性并强制动态可行性。流匹配在U-Net架构上运行，方差头输出标量方差估计，用于调节积分步骤大小。</p>
+<p><strong>结果与影响</strong>: 在Waymo Open Motion数据集上评估，所提出的方法在轨迹平滑度上比变换器和扩散模型基线提高了20%，并保持20 Hz的实时更新率。方差引导的推理机制通过适应模型的信心显著降低了函数评估的数量，将延迟从200 ms降低到50 ms。</p>
+<p><strong>技术精髓</strong>: 通过实现一种方差自适应流匹配机制，根据预测的不确定性调整神经网络评估的数量，该框架实现了20 Hz的实时轨迹规划，同时将延迟从200 ms降低到50 ms。</p>
+
+<hr>
+
+<h3>2. SteerVLA: Steering Vision-Language-Action Models in Long-Tail Driving Scenarios</h3>
+
+<p><strong>作者</strong>: Tian Gao, Celine Tan, Catherine Glossop, Timothy Gao, Jiankai Sun et al. (11 authors)  |  <strong>机构</strong>: Stanford, University of California, Berkeley, Microsoft</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.08440v1" target="_blank">2602.08440v1</a> | <a href="https://arxiv.org/pdf/2602.08440v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-02-09</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了在长尾驾驶场景中语言监督不足的问题，这些场景中的稀有事件在训练数据中表现不足。关键洞察是利用视觉-语言模型（VLM）生成细粒度的语言注释，以指导驾驶策略，使系统能够有效地推理复杂情况，如交通事故或施工区域。</p>
+<p><strong>技术贡献</strong>: SteerVLA由两个主要组件组成：（1）高层策略，利用微调的VLM根据摄像头图像和导航命令生成元动作，输出指定驾驶意图的推理轨迹；（2）低层策略，将这些元动作映射到精确的控制命令（例如，转向角度和速度调整）。高层策略生成详细的命令，如“谨慎减速以避免事故”，而低层策略则根据车辆状态实时执行这些命令。</p>
+<p><strong>结果与影响</strong>: 在Bench2Drive基准测试中，SteerVLA的整体驾驶得分比最先进的方法高出4.77分，在长尾子集上高出8.04分。这一表现表明，在处理稀有驾驶场景方面有显著改善，确认了来自VLM的有根据的推理增强了在复杂环境中的泛化能力。</p>
+<p><strong>技术精髓</strong>: 通过将VLM的高层推理集成到生成详细元动作中，SteerVLA使低层策略能够执行精确的驾驶命令，从而在Bench2Drive基准测试的长尾驾驶场景中实现了8.04分的提升。</p>
+
+<hr>
+
+<h3>3. MambaFusion: Adaptive State-Space Fusion for Multimodal 3D Object Detection</h3>
+
+<p><strong>作者</strong>: Venkatraman Narayanan, Bala Sai, Rahul Ahuja, Pratik Likhar, Varun Ravi Kumar et al. (6 authors)  |  <strong>机构</strong>: Qualcomm Technologies, Inc, Qualcomm India Private Limited</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.08126v2" target="_blank">2602.08126v2</a> | <a href="https://arxiv.org/pdf/2602.08126v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-02-08  |  <strong>更新</strong>: 2026-02-12</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了由于传感器校准漂移和遮挡导致的3D物体检测不可靠的问题。关键技术洞察是使用多模态令牌对齐（MTA）动态校正相机和LiDAR输入之间的校准错误，基于点密度和遮挡评分等空间可靠性指标增强特征融合。</p>
+<p><strong>技术贡献</strong>: MambaFusion由三个主要模块组成：（1）混合LiDAR编码器，将Mamba状态空间模型（SSM）与窗口注意力结合，实现全局-局部上下文建模，处理LiDAR数据的复杂度为O(N)，而不是O(N²)；（2）MTA模块学习位置偏移，以对齐相机和LiDAR BEV令牌，通过轻量级的交叉注意力网络校正校准错误；（3）自适应融合机制利用不确定性加权，根据可靠性结合两种模态的特征，使用逆方差融合来稳定预测。</p>
+<p><strong>结果与影响</strong>: 在nuScenes验证集上，MambaFusion的NDS达到68.2，比BEVFormer基线提高了3.1。它在校准噪声下表现出更强的鲁棒性，并在A100 GPU上以12 FPS运行，而之前的方法为8 FPS，使其适合于自动驾驶的实时应用。</p>
+<p><strong>技术精髓</strong>: 通过集成多模态令牌对齐，根据空间可靠性动态调整传感器贡献，MambaFusion实现了3.1的NDS提升，同时将长距离依赖的计算复杂度降低到O(N)。</p>
+
+<hr>
+
+<h3>4. AurigaNet: A Real-Time Multi-Task Network for Enhanced Urban Driving Perception</h3>
+
+<p><strong>作者</strong>: Kiarash Ghasemzadeh, Sedigheh Dehghani  |  <strong>机构</strong>: University of Alberta, Shahid Beheshti University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.10660v1" target="_blank">2602.10660v1</a> | <a href="https://arxiv.org/pdf/2602.10660v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-02-11</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自动驾驶中低效的可行区域分割问题，通过将实例分割直接集成到网络架构中。关键技术洞察是结合判别损失函数和可变形卷积，允许精确分离可行区域而无需后处理聚类方法，从而增强实时性能。</p>
+<p><strong>技术贡献</strong>: AurigaNet采用三个主要组件：（1）CSPDarknet主干用于特征提取，减少空间分辨率同时增加深度（例如，从256通道到512通道），（2）颈部网络使用空间金字塔池化融合和特征金字塔网络集成特征，以增强多尺度特征表示，以及（3）每个任务的专用解码器头，包括用于可行区域检测的二进制分割头，输出(W/4 × H/4 × 1)特征图和利用可变形卷积的特征嵌入头，输出(W/8 × H/8 × 8)嵌入以进行实例分割。</p>
+<p><strong>结果与影响</strong>: 在BDD100K数据集上，AurigaNet实现了85.2%的可行区域分割IoU，60.8%的车道检测IoU，以及47.6%的交通物体检测mAP，分别超越最近的竞争对手0.7%、30%和2.9%。它在Jetson Orin NX上展示了实时性能，这对低成本ADAS应用至关重要。</p>
+<p><strong>技术精髓</strong>: 通过将判别损失函数与可变形卷积结合用于特征嵌入，AurigaNet实现了端到端的可行区域实例分割，达到85.2%的IoU，无需后处理聚类。</p>
+
+<hr>
+
+<h3>5. ResWorld: Temporal Residual World Model for End-to-End Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Jinqing Zhang, Zehua Fu, Zelin Xu, Wenying Dai, Qingjie Liu et al. (6 authors)  |  <strong>机构</strong>: Beihang University, Zhongguancun Laboratory, Beijing Jingwei Hirain Technologies, Hangzhou Innovation Institute</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.10884v1" target="_blank">2602.10884v1</a> | <a href="https://arxiv.org/pdf/2602.10884v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-02-11</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自动驾驶中动态物体建模效率低下的问题，通过利用时间残差来增强场景理解。关键的洞察是，通过关注场景表示随时间的变化，模型能够准确预测动态物体的未来分布，而无需冗余建模静态元素。</p>
+<p><strong>技术贡献</strong>: 提出的时间残差世界模型（TR-World）分为三个步骤：（1）从时间戳t、t-1和t-k的多视角图像中提取BEV特征，得到维度为C×H×W的张量B_t、B_{t-1}、…、B_{t-k}。（2）计算时间残差R_i = S_i - S_{i-1}（i = t, t-1, …, t-k），其中S_i是通过自注意力获得的场景查询。（3）通过自注意力使用R_i预测动态物体的未来分布，得到未来BEV特征R̂ ∈ R^{Ns×C}。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，ResWorld实现了68.5 NDS的规划精度，比基线模型提高了3.1。此外，它将规划延迟从200ms降低到50ms，使其适用于自动驾驶中的实时应用。</p>
+<p><strong>技术精髓</strong>: 通过利用时间残差专注于动态物体变化，ResWorld在不冗余静态建模的情况下预测未来BEV特征，实现了3.1 NDS的提升，同时将规划延迟从200ms降低到50ms。</p>
+
+<hr>
+
+<h3>6. EgoFSD: Ego-Centric Fully Sparse Paradigm with Uncertainty Denoising and Iterative Refinement for Efficient End-to-End Self-Driving</h3>
+
+<p><strong>作者</strong>: Haisheng Su, Wei Wu, Zhenjie Yang, Isabel Guan  |  <strong>机构</strong>: Shanghai Jiao Tong University, SenseAuto, The Hong Kong University of Science and Technology</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2409.09777v6" target="_blank">2409.09777v6</a> | <a href="https://arxiv.org/pdf/2409.09777v6" target="_blank">PDF</a>  |  <strong>发表</strong>: 2024-09-15  |  <strong>更新</strong>: 2026-02-09</p>
+<p><strong>核心洞察</strong>: 该论文解决了端到端自动驾驶系统中因与无关代理过度交互而导致的低效问题。关键技术洞察是引入分层交互模块，选择关注路径中最近的车辆/静态物体（CIPV/CIPS），通过减少计算冗余和增强预测相关性来改善轨迹规划。</p>
+<p><strong>技术贡献</strong>: EgoFSD由三个主要组件组成：（1）稀疏感知模块，利用多尺度图像特征同时进行物体检测和在线地图构建；（2）分层交互模块，通过自我中心交叉注意选择CIPV/CIPS，从粗到细进行选择；（3）迭代运动规划器，通过联合运动预测和轨迹级去噪优化多模态自我轨迹，有效建模运动中的不确定性。</p>
+<p><strong>结果与影响</strong>: EgoFSD在nuScenes数据集上相比基线UniAD实现了平均L2误差降低59%和碰撞率降低92%。此外，它展示了6.9倍的运行效率提升，达成了实时应用所需的更快处理时间。</p>
+<p><strong>技术精髓</strong>: 通过实现一个分层交互模块，优先考虑路径中最近的车辆/静态物体，通过自我中心注意力，EgoFSD减少了计算开销并增强了轨迹规划的准确性，从而实现了L2误差降低59%。</p>
+
+<hr>
+
+<h3>7. WaymoQA: A Multi-View Visual Question Answering Dataset for Safety-Critical Reasoning in Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Seungjun Yu, Seonho Lee, Namho Kim, Jaeyo Shin, Junsung Park et al. (8 authors)  |  <strong>机构</strong>: KAIST, Hanyang University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2511.20022v2" target="_blank">2511.20022v2</a> | <a href="https://arxiv.org/pdf/2511.20022v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-11-25  |  <strong>更新</strong>: 2026-02-11</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了安全关键驾驶场景中推理不足的问题，现有模型在准确预测结果方面存在困难。关键洞察在于引入多视角输入方法，使模型能够全面理解场景，有效检测并响应即时风险，例如摩托车意外从遮挡视图中出现。</p>
+<p><strong>技术贡献</strong>: WaymoQA采用两阶段推理框架：（1）第一阶段使用来自八个同步摄像头的多视角输入识别安全关键物体，预测其轨迹并确定最安全的行动；（2）第二阶段评估第一阶段行动引入的次要风险，选择最佳响应。数据集包含35,000个人工标注的问题-答案对，其中28,585用于训练，6,415用于测试，确保正常和安全关键场景的平衡表示。</p>
+<p><strong>结果与影响</strong>: 在WaymoQA训练集上进行微调后，ImageQA任务的准确率提高了16.8%，VideoQA任务提高了16.3%，显著缩小了正常场景与安全关键场景之间的性能差距。模型对安全关键场景的理解从比正常场景低20%的平均水平提高到接近一致，证明了数据集在增强推理能力方面的有效性。</p>
+<p><strong>技术精髓</strong>: 通过利用多视角输入和结构化的两阶段推理过程，WaymoQA使模型能够准确预测即时风险及其后续影响，从而在安全关键推理任务上实现了16.8%的准确率提升。</p>
+
+<hr>
+
+<h3>8. VDRive: Leveraging Reinforced VLA and Diffusion Policy for End-to-end Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Ziang Guo, Zufeng Zhang  |  <strong>机构</strong>: Suzhou Automotive Research Institute, Tsinghua</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2510.15446v2" target="_blank">2510.15446v2</a> | <a href="https://arxiv.org/pdf/2510.15446v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-10-17  |  <strong>更新</strong>: 2026-02-10</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自动驾驶中高维传感器数据与低维动作空间之间的不对齐问题，特别是在动态环境中。关键技术洞察是使用强化的视觉-语言-动作（VLA）模型结合扩散策略头生成上下文和几何对齐的动作，从而实现复杂条件下的实时决策。</p>
+<p><strong>技术贡献</strong>: VDRive框架由三个主要组件组成：（1）VLA模型，使用条件向量量化变分自编码器（CVQ-VAE）预测未来观察令牌，实现离散表示；（2）扩散策略头，通过强化学习将VLA的粗略动作精炼为可执行动作；（3）联合优化头，根据层次动作优化轨迹输出。VLA处理前视图图像（如640x480），生成动作令牌，而扩散策略在潜在空间中操作，以增强动作一致性。</p>
+<p><strong>结果与影响</strong>: 在nuScenes开放循环规划评估中，VDRive的平均L2误差为0.29米，平均碰撞率为18%。在Bench2Drive基准测试中，达到了66.25的驾驶得分和50.51%的成功率，相较于基线方法提高了5.2%的驾驶得分，并将碰撞率降低了3%。</p>
+<p><strong>技术精髓</strong>: 通过将强化的VLA模型与扩散策略头集成，VDRive实现了高维传感输入与低维动作输出的对齐，驾驶得分提高了5.2%，同时保持实时性能。</p>
+
+<hr>
+
+<h3>9. AD$^2$: Analysis and Detection of Adversarial Threats in Visual Perception for End-to-End Autonomous Driving Systems</h3>
+
+<p><strong>作者</strong>: Ishan Sahu, Somnath Hazra, Somak Aditya, Soumyajit Dey  |  <strong>机构</strong>: IIT Kharagpur, TCS Research</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.10160v1" target="_blank">2602.10160v1</a> | <a href="https://arxiv.org/pdf/2602.10160v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-02-10</p>
+<p><strong>核心洞察</strong>: 该论文解决了对端到端自动驾驶系统视觉感知的对抗攻击问题，这可能导致灾难性失败。关键洞察是间歇性扰动（如声学或电磁干扰）可以大幅降低驾驶性能，在最坏情况下驾驶得分下降99%。</p>
+<p><strong>技术贡献</strong>: 作者引入了AD2检测框架，包含三个主要组件：（1）ResNet骨干网处理多摄像头输入，生成维度为64的特征向量；（2）空间和时间变换器建模摄像头输入和时间步之间的一致性，捕捉对抗扰动造成的不规则性；（3）分类模型根据检测到的异常为输入分配标签，区分正常和三种攻击（Poltergeist、SNAL、ESIA）。该架构允许实时检测，而无需访问中间输出。</p>
+<p><strong>结果与影响</strong>: 在CARLA模拟器上的实验中，AD2框架实现了95%的检测准确率，同时每帧的计算开销仅为0.5毫秒。这优于通常需要中间输出的现有方法（准确率为85%）。该框架在对抗攻击下表现出显著的韧性，在传统模型失败的情况下保持驾驶性能。</p>
+<p><strong>技术精髓</strong>: 通过利用空间和时间一致性，AD2框架实时检测对抗扰动，实现95%的检测准确率，同时处理输入的延迟仅为0.5毫秒。</p>
+
+<hr>
+
+<h3>10. ADGaussian: Generalizable Gaussian Splatting for Autonomous Driving via Multi-modal Joint Learning</h3>
+
+<p><strong>作者</strong>: Qi Song, Chenghong Li, Haotong Lin, Sida Peng, Rui Huang  |  <strong>机构</strong>: The Chinese University of Hong Kong, Zhejiang University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2504.00437v2" target="_blank">2504.00437v2</a> | <a href="https://arxiv.org/pdf/2504.00437v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-04-01  |  <strong>更新</strong>: 2026-02-11</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了城市街景重建中深度准确性不一致的问题，这可能导致渲染质量差。关键技术洞察是将稀疏LiDAR深度数据与单目图像结合，实现视觉和几何特征的联合优化，从而显著增强高斯预测在不同街景场景中的鲁棒性。</p>
+<p><strong>技术贡献</strong>: ADGaussian采用三个主要组件：（1）多模态特征匹配，使用Siamese风格编码器处理图像和深度特征，生成对齐的多模态标记；（2）深度引导位置嵌入（DPE），将空间坐标与深度值结合以提高空间意识；（3）多尺度高斯解码，聚合不同尺度的深度线索以优化3D高斯输出。该模型处理H×W×3的图像输入和H×W×1的深度输入，通过同步优化生成高斯参数。</p>
+<p><strong>结果与影响</strong>: 在Waymo数据集上，ADGaussian的PSNR达到31.21，超越DepthSplat +5.2%和MVSplat +10.4%。它的SSIM分数提高到0.931，表明视觉质量优越。该方法展示了显著的泛化能力，在各种城市场景中保持性能，无需特定场景的微调。</p>
+<p><strong>技术精髓</strong>: 通过将稀疏LiDAR深度与单目图像结合，采用同步多模态优化框架，ADGaussian增强了几何保真度和视觉渲染质量，实现了相较于现有方法PSNR提升+5.2%。</p>
+
+<hr>
+
+
+
+        <div class="footer">
+            <p>自动生成 | 数据来源: arXiv | 由 LLM 分析总结</p>
+            <p>2026-02-15 08:13</p>
+        </div>
+    </div>
+</body>
+</html>

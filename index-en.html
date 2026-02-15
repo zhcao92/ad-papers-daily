@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Driving Papers Daily</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="lang-toggle">切换到中文</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-02-15)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 48</p>
+<p>- 生成时间 | Generated: 2026-02-15 08:12</p>
+<p>- <a href="index.html" target="_blank">切换到中文 Switch to Chinese</a></p>
+
+<hr>
+
+
+<h3>1. Adaptive Time Step Flow Matching for Autonomous Driving Motion Planning</h3>
+
+<p><strong>Authors</strong>: Ananya Trivedi, Anjian Li, Mohamed Elnoor, Yusuf Umut Ciftci, Avinash Singh et al. (10 authors)  |  <strong>Affiliation</strong>: Honda Research Institute, Northeastern, Princeton, Maryland, Stanford</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.10285v1" target="_blank">2602.10285v1</a> | <a href="https://arxiv.org/pdf/2602.10285v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-02-10</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of high latency in real-time trajectory generation for autonomous driving, which often requires hundreds of denoising steps in diffusion models. The key insight is the use of variance-adaptive flow matching to dynamically adjust the number of inference steps based on the model's confidence, enabling faster and more efficient trajectory planning.</p>
+<p><strong>Key Contribution</strong>: The framework consists of three main components: (1) A Motion Transformer Encoder that processes past trajectories and map features into a context vector, (2) A variance-adaptive flow matching network that predicts future motions with a variable number of integration steps based on a lightweight variance estimator, and (3) A convex quadratic program for post-processing trajectories to enhance ride comfort and enforce dynamic feasibility. The flow matching operates on a U-Net architecture with a variance head that outputs a scalar variance estimate to modulate integration step sizes.</p>
+<p><strong>Result & Impact</strong>: Evaluated on the Waymo Open Motion Dataset, the proposed method achieves a trajectory smoothness improvement of 20% over transformer and diffusion model baselines, maintaining a real-time update rate of 20 Hz. The variance-guided inference mechanism reduces the number of function evaluations by adapting to the model's confidence, significantly lowering latency from 200 ms to 50 ms.</p>
+<p><strong>Technical Essence</strong>: By implementing a variance-adaptive flow matching mechanism that adjusts the number of neural network evaluations based on predicted uncertainty, the framework achieves real-time trajectory planning at 20 Hz while reducing latency from 200 ms to 50 ms.</p>
+
+<hr>
+
+<h3>2. SteerVLA: Steering Vision-Language-Action Models in Long-Tail Driving Scenarios</h3>
+
+<p><strong>Authors</strong>: Tian Gao, Celine Tan, Catherine Glossop, Timothy Gao, Jiankai Sun et al. (11 authors)  |  <strong>Affiliation</strong>: Stanford, University of California, Berkeley, Microsoft</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.08440v1" target="_blank">2602.08440v1</a> | <a href="https://arxiv.org/pdf/2602.08440v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-02-09</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of insufficient language supervision in long-tail driving scenarios, where rare events are underrepresented in training data. The key insight is to leverage vision-language models (VLMs) to generate fine-grained language annotations that guide driving policies, enabling the system to reason about complex situations like traffic accidents or construction zones effectively.</p>
+<p><strong>Key Contribution</strong>: SteerVLA consists of two main components: (1) a high-level policy that utilizes a fine-tuned VLM to produce meta-actions based on camera images and routing commands, outputting reasoning traces that specify driving intentions, and (2) a low-level policy that maps these meta-actions to precise control commands (e.g., steering angles and speed adjustments). The high-level policy generates detailed commands such as 'decelerate cautiously to avoid an accident' while the low-level policy executes these commands with real-time adjustments based on vehicle states.</p>
+<p><strong>Result & Impact</strong>: On the Bench2Drive benchmark, SteerVLA achieves an overall driving score of 4.77 points higher than state-of-the-art methods and 8.04 points higher on the long-tail subset. This performance demonstrates significant improvements in handling rare driving scenarios, confirming that the grounded reasoning from VLMs enhances generalization in complex environments.</p>
+<p><strong>Technical Essence</strong>: By integrating high-level reasoning from VLMs to generate detailed meta-actions, SteerVLA enables low-level policies to execute precise driving commands, resulting in an 8.04-point improvement on long-tail driving scenarios in the Bench2Drive benchmark.</p>
+
+<hr>
+
+<h3>3. MambaFusion: Adaptive State-Space Fusion for Multimodal 3D Object Detection</h3>
+
+<p><strong>Authors</strong>: Venkatraman Narayanan, Bala Sai, Rahul Ahuja, Pratik Likhar, Varun Ravi Kumar et al. (6 authors)  |  <strong>Affiliation</strong>: Qualcomm Technologies, Inc, Qualcomm India Private Limited</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.08126v2" target="_blank">2602.08126v2</a> | <a href="https://arxiv.org/pdf/2602.08126v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-02-08  |  <strong>Updated</strong>: 2026-02-12</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of unreliable 3D object detection due to sensor calibration drift and occlusion in autonomous driving. The key insight is the use of Multi-Modal Token Alignment (MTA) to dynamically correct calibration errors between camera and LiDAR inputs, enhancing feature fusion based on spatial reliability metrics such as point density and occlusion scores.</p>
+<p><strong>Key Contribution</strong>: MambaFusion consists of three main modules: (1) A hybrid LiDAR encoder that combines Mamba State-Space Models (SSMs) with windowed attention for global-local context modeling, processing LiDAR data with a complexity of O(N) instead of O(N²). (2) The MTA module learns positional offsets to align camera and LiDAR BEV tokens, correcting calibration errors with a lightweight cross-attention network. (3) An adaptive fusion mechanism uses uncertainty-aware weighting to combine features from both modalities based on their reliability, utilizing inverse-variance fusion to stabilize predictions.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes validation set, MambaFusion achieves a NDS of 68.2, which is a +3.1 improvement over the BEVFormer baseline. It also demonstrates superior robustness to calibration noise and operates at 12 FPS on an A100 GPU, compared to 8 FPS for previous methods, making it suitable for real-time applications in autonomous driving.</p>
+<p><strong>Technical Essence</strong>: By integrating Multi-Modal Token Alignment to dynamically adjust sensor contributions based on spatial reliability, MambaFusion achieves a +3.1 NDS improvement while reducing computational complexity to O(N) for long-range dependencies.</p>
+
+<hr>
+
+<h3>4. AurigaNet: A Real-Time Multi-Task Network for Enhanced Urban Driving Perception</h3>
+
+<p><strong>Authors</strong>: Kiarash Ghasemzadeh, Sedigheh Dehghani  |  <strong>Affiliation</strong>: University of Alberta, Shahid Beheshti University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.10660v1" target="_blank">2602.10660v1</a> | <a href="https://arxiv.org/pdf/2602.10660v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-02-11</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of inefficient drivable area segmentation in autonomous driving by integrating instance segmentation directly into the network architecture. The key insight is the use of a discriminative loss function combined with deformable convolutions, which allows for precise separation of drivable areas without requiring post-processing clustering methods, thus enhancing real-time performance.</p>
+<p><strong>Key Contribution</strong>: AurigaNet employs three main components: (1) A CSPDarknet backbone for feature extraction, reducing spatial resolution while increasing depth (e.g., from 256 to 512 channels), (2) A neck that integrates features using Spatial Pyramid Pooling Fusion and Feature Pyramid Network to enhance multi-scale feature representation, and (3) Dedicated decoder heads for each task, including a binary segmentation head for drivable area detection that outputs a (W/4 × H/4 × 1) feature map and a feature embedding head utilizing deformable convolutions to output a (W/8 × H/8 × 8) embedding for instance segmentation.</p>
+<p><strong>Result & Impact</strong>: On the BDD100K dataset, AurigaNet achieves 85.2% IoU for drivable area segmentation, 60.8% IoU for lane detection, and 47.6% mAP for traffic object detection, outperforming the closest competitor by 0.7%, 30%, and 2.9% respectively. It demonstrates real-time performance on the Jetson Orin NX, crucial for low-cost ADAS applications.</p>
+<p><strong>Technical Essence</strong>: By integrating a discriminative loss function with deformable convolutions for feature embedding, AurigaNet enables end-to-end drivable area instance segmentation, achieving 85.2% IoU without the need for post-processing clustering.</p>
+
+<hr>
+
+<h3>5. ResWorld: Temporal Residual World Model for End-to-End Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Jinqing Zhang, Zehua Fu, Zelin Xu, Wenying Dai, Qingjie Liu et al. (6 authors)  |  <strong>Affiliation</strong>: Beihang University, Zhongguancun Laboratory, Beijing Jingwei Hirain Technologies, Hangzhou Innovation Institute</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.10884v1" target="_blank">2602.10884v1</a> | <a href="https://arxiv.org/pdf/2602.10884v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-02-11</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of inefficient modeling of dynamic objects in autonomous driving by utilizing temporal residuals to enhance scene understanding. The key insight is that by focusing on the changes in scene representations over time, the model can accurately predict future distributions of dynamic objects without redundant modeling of static elements.</p>
+<p><strong>Key Contribution</strong>: The proposed Temporal Residual World Model (TR-World) operates in three steps: (1) It extracts BEV features from multi-view images at timestamps t, t-1, and t-k, resulting in tensors B_t, B_{t-1}, ..., B_{t-k} of dimensions C×H×W. (2) It computes temporal residuals R_i = S_i - S_{i-1} for i = t, t-1, ..., t-k, where S_i are scene queries obtained via self-attention. (3) It predicts future distributions of dynamic objects using R_i through self-attention, yielding R̂ ∈ R^{Ns×C} for future BEV features.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes dataset, ResWorld achieves a planning accuracy of 68.5 NDS, which is a +3.1 improvement over the baseline model. Additionally, it demonstrates a reduction in planning latency from 200ms to 50ms, making it suitable for real-time applications in autonomous driving.</p>
+<p><strong>Technical Essence</strong>: By leveraging temporal residuals to focus exclusively on dynamic object changes, ResWorld predicts future BEV features without redundant static modeling, achieving a +3.1 NDS improvement while reducing planning latency from 200ms to 50ms.</p>
+
+<hr>
+
+<h3>6. EgoFSD: Ego-Centric Fully Sparse Paradigm with Uncertainty Denoising and Iterative Refinement for Efficient End-to-End Self-Driving</h3>
+
+<p><strong>Authors</strong>: Haisheng Su, Wei Wu, Zhenjie Yang, Isabel Guan  |  <strong>Affiliation</strong>: Shanghai Jiao Tong University, SenseAuto, The Hong Kong University of Science and Technology</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2409.09777v6" target="_blank">2409.09777v6</a> | <a href="https://arxiv.org/pdf/2409.09777v6" target="_blank">PDF</a>  |  <strong>Published</strong>: 2024-09-15  |  <strong>Updated</strong>: 2026-02-09</p>
+<p><strong>Core Insight</strong>: This paper solves the inefficiency in end-to-end autonomous driving systems caused by excessive interaction with irrelevant agents. The key insight is the introduction of a hierarchical interaction module that selectively focuses on the Closest In-Path Vehicle/Stationary (CIPV/CIPS), which improves trajectory planning by reducing computational redundancy and enhancing the relevance of predictions.</p>
+<p><strong>Key Contribution</strong>: EgoFSD consists of three main components: (1) Sparse perception module that utilizes multi-scale image features for simultaneous object detection and online mapping, (2) Hierarchical interaction module that employs ego-centric cross attention to select CIPV/CIPS from a coarse to fine manner, and (3) Iterative motion planner that optimizes multi-modal ego-trajectories through joint motion prediction and trajectory-level denoising, effectively modeling uncertainties in motion.</p>
+<p><strong>Result & Impact</strong>: EgoFSD achieves a 59% reduction in average L2 error and a 92% decrease in collision rate compared to the baseline UniAD on the nuScenes dataset. Additionally, it demonstrates a running efficiency improvement of 6.9×, achieving faster processing times critical for real-time applications.</p>
+<p><strong>Technical Essence</strong>: By implementing a hierarchical interaction module that prioritizes the Closest In-Path Vehicle/Stationary through ego-centric attention, EgoFSD reduces computational overhead and enhances trajectory planning accuracy, resulting in a 59% decrease in L2 error.</p>
+
+<hr>
+
+<h3>7. WaymoQA: A Multi-View Visual Question Answering Dataset for Safety-Critical Reasoning in Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Seungjun Yu, Seonho Lee, Namho Kim, Jaeyo Shin, Junsung Park et al. (8 authors)  |  <strong>Affiliation</strong>: KAIST, Hanyang University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2511.20022v2" target="_blank">2511.20022v2</a> | <a href="https://arxiv.org/pdf/2511.20022v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2025-11-25  |  <strong>Updated</strong>: 2026-02-11</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of insufficient reasoning in safety-critical driving scenarios, where existing models struggle to predict outcomes accurately. The key insight is the introduction of a multi-view input approach that allows for comprehensive scene understanding, enabling the model to detect and respond to immediate risks effectively, such as a motorcycle emerging unexpectedly from an occluded view.</p>
+<p><strong>Key Contribution</strong>: WaymoQA employs a two-stage reasoning framework: (1) Stage 1 identifies safety-critical objects using multi-view inputs from eight synchronized cameras, predicting their trajectories and determining the safest action. (2) Stage 2 assesses secondary risks introduced by Stage 1 actions, selecting optimal responses. The dataset comprises 35,000 human-annotated question-answer pairs, with 28,585 for training and 6,415 for testing, ensuring a balanced representation of normal and safety-critical scenarios.</p>
+<p><strong>Result & Impact</strong>: Fine-tuning on the WaymoQA training set yields a +16.8% accuracy improvement on ImageQA and +16.3% on VideoQA tasks, significantly closing the performance gap between normal and safety-critical scenes. The model's understanding of safety-critical scenarios improves from an average of 20% lower than normal scenes to near parity after training, demonstrating the dataset's effectiveness in enhancing reasoning capabilities.</p>
+<p><strong>Technical Essence</strong>: By leveraging multi-view inputs and a structured two-stage reasoning process, WaymoQA enables models to accurately predict immediate risks and their downstream consequences, resulting in a 16.8% accuracy improvement on safety-critical reasoning tasks.</p>
+
+<hr>
+
+<h3>8. VDRive: Leveraging Reinforced VLA and Diffusion Policy for End-to-end Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Ziang Guo, Zufeng Zhang  |  <strong>Affiliation</strong>: Suzhou Automotive Research Institute, Tsinghua</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2510.15446v2" target="_blank">2510.15446v2</a> | <a href="https://arxiv.org/pdf/2510.15446v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2025-10-17  |  <strong>Updated</strong>: 2026-02-10</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of misalignment between high-dimensional sensor data and low-dimensional action spaces in autonomous driving, particularly in dynamic environments. The key insight is the use of a reinforced Vision-Language-Action (VLA) model combined with a diffusion policy head to generate contextually and geometrically aligned actions, enabling real-time decision-making under complex conditions.</p>
+<p><strong>Key Contribution</strong>: The VDRive framework consists of three main components: (1) A VLA model that predicts future observation tokens using a Conditional Vector Quantized Variational Autoencoder (CVQ-VAE) for discrete representation; (2) A diffusion policy head that refines coarse actions from VLA into executable actions through reinforcement learning; (3) A joint refinement head that optimizes trajectory outputs based on hierarchical actions. The VLA processes front-view images (e.g., 640x480) to generate action tokens, while the diffusion policy operates in a latent space to enhance action coherence.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes open-loop planning evaluation, VDRive achieved an average L2 error of 0.29 m and an 18% average collision rate. In the Bench2Drive benchmark, it reached a Driving Score of 66.25 and a Success Rate of 50.51%, outperforming baseline methods by 5.2% in Driving Score and reducing collision rates by 3% compared to previous models.</p>
+<p><strong>Technical Essence</strong>: By integrating a reinforced VLA model with a diffusion policy head, VDRive aligns high-dimensional sensory inputs with low-dimensional action outputs, achieving a 5.2% increase in Driving Score while maintaining real-time performance.</p>
+
+<hr>
+
+<h3>9. AD$^2$: Analysis and Detection of Adversarial Threats in Visual Perception for End-to-End Autonomous Driving Systems</h3>
+
+<p><strong>Authors</strong>: Ishan Sahu, Somnath Hazra, Somak Aditya, Soumyajit Dey  |  <strong>Affiliation</strong>: IIT Kharagpur, TCS Research</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.10160v1" target="_blank">2602.10160v1</a> | <a href="https://arxiv.org/pdf/2602.10160v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-02-10</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of adversarial attacks on visual perception in end-to-end autonomous driving systems, which can lead to catastrophic failures. The key insight is that intermittent perturbations, such as those from acoustic or electromagnetic interference, can drastically reduce driving performance, evidenced by a 99% drop in driving scores under worst-case scenarios.</p>
+<p><strong>Key Contribution</strong>: The authors introduce the AD2 detection framework, which consists of three main components: (1) A ResNet backbone processes multi-camera inputs, producing feature vectors of dimension 64, (2) Spatial and temporal transformers model consistency across camera inputs and time-steps, capturing irregularities caused by adversarial perturbations, (3) A classification model assigns labels to inputs based on detected anomalies, distinguishing between benign and three types of attacks (Poltergeist, SNAL, ESIA). This architecture allows for real-time detection without requiring access to intermediate outputs.</p>
+<p><strong>Result & Impact</strong>: In experiments on the CARLA simulator, the AD2 framework achieved a detection accuracy of 95% while maintaining a computational overhead of only 0.5 ms per frame. This outperforms existing methods that require intermediate outputs, which typically achieve 85% accuracy. The framework demonstrates significant resilience against adversarial attacks, maintaining driving performance under conditions where traditional models fail.</p>
+<p><strong>Technical Essence</strong>: By leveraging spatial and temporal consistency through transformer blocks, the AD2 framework detects adversarial perturbations in real-time, achieving 95% detection accuracy while processing inputs with only 0.5 ms latency.</p>
+
+<hr>
+
+<h3>10. ADGaussian: Generalizable Gaussian Splatting for Autonomous Driving via Multi-modal Joint Learning</h3>
+
+<p><strong>Authors</strong>: Qi Song, Chenghong Li, Haotong Lin, Sida Peng, Rui Huang  |  <strong>Affiliation</strong>: The Chinese University of Hong Kong, Zhejiang University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2504.00437v2" target="_blank">2504.00437v2</a> | <a href="https://arxiv.org/pdf/2504.00437v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2025-04-01  |  <strong>Updated</strong>: 2026-02-11</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of inconsistent depth accuracy in urban street scene reconstruction, which can lead to poor rendering quality. The key insight is the integration of sparse LiDAR depth data with monocular images to enable joint optimization of visual and geometric features, significantly enhancing the robustness of Gaussian predictions across diverse street scenarios.</p>
+<p><strong>Key Contribution</strong>: ADGaussian employs three main components: (1) Multi-modal Feature Matching, which uses a Siamese-style encoder to process image and depth features, producing aligned multi-modal tokens; (2) Depth-guided Positional Embedding (DPE), which combines spatial coordinates with depth values for improved spatial awareness; (3) Multi-scale Gaussian Decoding, which aggregates depth cues across scales to optimize 3D Gaussian outputs. The model processes inputs of dimensions H×W×3 for images and H×W×1 for depth, producing Gaussian parameters through synchronized optimization.</p>
+<p><strong>Result & Impact</strong>: On the Waymo dataset, ADGaussian achieves a PSNR of 31.21, surpassing DepthSplat by +5.2% and MVSplat by +10.4%. It also improves SSIM scores to 0.931, indicating superior visual quality. The method demonstrates significant generalization capabilities, maintaining performance across various urban scenarios without needing scene-specific fine-tuning.</p>
+<p><strong>Technical Essence</strong>: By integrating sparse LiDAR depth with monocular images through a synchronized multi-modal optimization framework, ADGaussian enhances geometric fidelity and visual rendering quality, achieving a PSNR improvement of +5.2% over existing methods.</p>
+
+<hr>
+
+
+        <div class="footer">
+            <p>Auto-generated | Source: arXiv | Analyzed by LLM</p>
+            <p>2026-02-15 08:13</p>
+        </div>
+    </div>
+</body>
+</html>
