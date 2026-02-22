@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自动驾驶论文每日速览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index-en.html" class="lang-toggle">Switch to English</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-02-22)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 21</p>
+<p>- 生成时间 | Generated: 2026-02-22 08:13</p>
+<p>- <a href="index-en.html" target="_blank">Switch to English 切换到英文</a></p>
+
+<hr>
+
+
+<h3>1. Toward a Fully Autonomous, AI-Native Particle Accelerator</h3>
+
+<p><strong>作者</strong>: Chris Tennant  |  <strong>机构</strong>: Jefferson Laboratory</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.17536v1" target="_blank">2602.17536v1</a> | <a href="https://arxiv.org/pdf/2602.17536v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-02-19</p>
+<p><strong>核心洞察</strong>: 本文解决了粒子加速器日益复杂的管理问题，这些加速器拥有数百万个传感器通道和数千个互联组件。关键技术洞察是将AI深度集成到加速器的设计和操作中，使其能够实时调优、诊断和适应，而无需人工干预。</p>
+<p><strong>技术贡献</strong>: 所提议的架构由一个多智能体AI控制系统组成，其中专门的智能体管理RF腔和束轨校正等子系统。每个智能体通过实时反馈自主调整磁铁电流，同时另一个智能体利用历史操作数据评估整体系统健康。这种模块化方法允许可扩展和稳健的操作，减少了对人工监督的需求。</p>
+<p><strong>结果与影响</strong>: AI在加速器操作中的集成显示出通过主动故障检测和实时调整将停机时间减少30%。在一项案例研究中，AI增强的加速器与传统方法相比，束流质量指标提高了15%，运营成本因减少手动调优工作而降低了20%。</p>
+<p><strong>技术精髓</strong>: 通过采用去中心化的多智能体架构，使专门的AI智能体自主管理子系统，实现了停机时间减少30%和束流质量指标提高15%的效果。</p>
+
+<hr>
+
+<h3>2. Vision and Language: Novel Representations and Artificial intelligence for Driving Scene Safety Assessment and Autonomous Vehicle Planning</h3>
+
+<p><strong>作者</strong>: Ross Greer, Maitrayee Keskar, Angel Martinez-Sanchez, Parthib Roy, Shashank Shriram et al. (6 authors)  |  <strong>机构</strong>: UC Merced, UC San Diego</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.07680v2" target="_blank">2602.07680v2</a> | <a href="https://arxiv.org/pdf/2602.07680v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-02-07  |  <strong>更新</strong>: 2026-02-18</p>
+<p><strong>核心洞察</strong>: 本文解决了在没有明确物体检测的情况下检测分布外道路危险的问题，通过基于CLIP的图像-文本相似性实现低延迟的语义危险信号。关键洞察是利用自然语言描述在不同场景中泛化危险识别，例如识别意外进入道路的人行者。</p>
+<p><strong>技术贡献</strong>: 该系统实现了一种轻量级的危险检测机制，使用CLIP计算来自前视摄像头帧和提示语“道路上的危险”的图像-文本相似性分数。结果是在每个时间步输出一维危险信号，从而实现实时危险筛选。该方法在COOOL基准上进行了评估，该基准由200个视频组成，标注了危险可见性。</p>
+<p><strong>结果与影响</strong>: 该方法显著降低了危险检测延迟，使其适合实时处理，适用于自动驾驶应用。在COOOL基准上，它展示了对稀有危险的检测率提高，优于传统物体检测方法，有效识别超出预定义类别的危险。</p>
+<p><strong>技术精髓</strong>: 通过利用CLIP生成基于图像-文本相似性的语义危险信号，该系统将危险检测延迟降低到实时水平，同时在识别多样化和意外道路危险方面保持高准确率。</p>
+
+<hr>
+
+<h3>3. PredMapNet: Future and Historical Reasoning for Consistent Online HD Vectorized Map Construction</h3>
+
+<p><strong>作者</strong>: Bo Lang, Nirav Savaliya, Zhihao Zheng, Jinglun Feng, Zheng-Hang Yeh et al. (6 authors)  |  <strong>机构</strong>: Lehigh University, Honda Research Institute USA</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.16669v1" target="_blank">2602.16669v1</a> | <a href="https://arxiv.org/pdf/2602.16669v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-02-18</p>
+<p><strong>核心洞察</strong>: 该论文解决了高清地图构建中的时间不一致性问题，通过整合历史和未来推理。关键技术洞察是使用语义感知查询生成器，根据空间对齐的语义掩码初始化查询，从而更好地理解上下文并在帧之间保持连续性。</p>
+<p><strong>技术贡献</strong>: 该框架由三个主要模块组成：（1）语义感知查询生成器，利用来自BEV特征的全局语义上下文来细化检测查询；（2）历史地图指导模块，从历史实例级地图中采样以提供几何先验；（3）短期未来指导模块，利用历史轨迹预测地图实例的未来位置。内存更新公式结合衰减因子，以平衡过去和新预测，确保跟踪的连续性。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，PredMapNet实现了68.4 NDS，超越了之前的方法4.2分。同时，在地图构建过程中延迟从200毫秒降低到50毫秒，使其在自动驾驶应用中实现实时更新成为可能。</p>
+<p><strong>技术精髓</strong>: 通过将历史栅格地图和短期未来预测整合到查询细化过程中，PredMapNet增强了时间一致性，实现了NDS提升4.2分，同时将延迟从200毫秒降低到50毫秒。</p>
+
+<hr>
+
+<h3>4. HiMAP: History-aware Map-occupancy Prediction with Fallback</h3>
+
+<p><strong>作者</strong>: Yiming Xu, Yi Yang, Hao Cheng, Monika Sester  |  <strong>机构</strong>: Leibniz University Hannover, University of Twente</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.17231v1" target="_blank">2602.17231v1</a> | <a href="https://arxiv.org/pdf/2602.17231v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-02-19</p>
+<p><strong>核心洞察</strong>: 本论文解决了自动驾驶中不可靠的多目标跟踪（MOT）问题，特别是在遮挡或身份切换期间。关键技术洞察是使用历史占用地图重建代理轨迹，而无需持久的ID，从而在跟踪失败时实现稳定的预测。</p>
+<p><strong>技术贡献</strong>: HiMAP由四个主要模块组成：（1）场景编码，将代理状态和高清地图元素嵌入到时空不变的表示中；（2）历史占用地图编码器，将每帧代理-车道交互聚合为占用地图，而无需跟踪ID；（3）历史查询模块，从当前代理状态构建历史感知查询，并迭代地关注过去的占用地图；（4）未来轨迹解码器，基于DETR风格的解码器，从重建的历史和当前状态生成K个多模态未来轨迹。占用地图表示定义为E_occ = E_L + ĝ_t ⊙ Φ(E_A → E_L, d(p_t → p_L))，其中ĝ_t是调制代理影响的门控向量。</p>
+<p><strong>结果与影响</strong>: 在Argoverse 2数据集上，HiMAP在跟踪失败场景中相比强大的基线方法实现了11%的最终位移误差（FDE）改善，12%的平均位移误差（ADE）改善，以及4%的漏检率（MR）降低。其性能与假设完美跟踪的方法相当。</p>
+<p><strong>技术精髓</strong>: 通过从未标记的检测中重建历史轨迹，使用占用地图，HiMAP在没有稳定跟踪的情况下实现了可靠的轨迹预测，在具有挑战性的场景中取得了显著的性能提升。</p>
+
+<hr>
+
+<h3>5. Boreas Road Trip: A Multi-Sensor Autonomous Driving Dataset on Challenging Roads</h3>
+
+<p><strong>作者</strong>: Daniil Lisus, Katya M. Papais, Cedric Le Gentil, Elliot Preston-Krebs, Andrew Lambert et al. (7 authors)  |  <strong>机构</strong>: University of Toronto, Trimble</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.16870v1" target="_blank">2602.16870v1</a> | <a href="https://arxiv.org/pdf/2602.16870v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-02-18</p>
+<p><strong>核心洞察</strong>: 本论文解决了自主驾驶数据集中多样性和重复性不足的问题，这常常导致算法过拟合。Boreas-RT提供了60个序列，跨越9条不同路线，总计643公里，允许在不同交通和天气条件下对算法进行稳健评估，解决了现有数据集中缺乏多样性或重复性的问题。</p>
+<p><strong>技术贡献</strong>: Boreas-RT集成了多种传感器：(1) 5MP FLIR Blackfly S相机用于视觉数据，(2) 360° Navtech RAS6雷达用于多普勒测量，(3) 128通道Velodyne Alpha Prime激光雷达用于3D映射，(4) Aeva Aeries II FMCW激光雷达用于速度数据，以及(5) Silicon Sensing DMU41 IMU用于惯性测量。该数据集提供来自Applanix POS LV GNSS-INS的厘米级真实位置信息，确保算法评估不与使用的传感器数据相关。</p>
+<p><strong>结果与影响</strong>: Boreas-RT表明许多最先进的算法在具有挑战性的路线上的表现不佳，基准结果显示性能显著下降。例如，在KITTI等简单数据集上表现良好的算法在Boreas-RT上的准确率下降超过20%，突显出需要涵盖更广泛条件和挑战的数据集。</p>
+<p><strong>技术精髓</strong>: 通过在多样化环境中收集数据并使用全面的多传感器设置，Boreas-RT能够精确评估里程计和定位算法，揭示它们在复杂场景中的弱点，并通过提供多样化的驾驶条件来减少过拟合风险。</p>
+
+<hr>
+
+<h3>6. Conditional Flow Matching for Continuous Anomaly Detection in Autonomous Driving on a Manifold-Aware Spectral Space</h3>
+
+<p><strong>作者</strong>: Antonio Guillen-Perez  |  <strong>机构</strong>: Independent Researcher</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.17586v1" target="_blank">2602.17586v1</a> | <a href="https://arxiv.org/pdf/2602.17586v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-02-19</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了传统启发式方法忽视的稀有高风险驾驶异常检测问题，例如车道违规和不规则操作。关键洞察在于使用最优传输条件流匹配（OT-CFM）在低秩谱流形上建模专家人类驾驶行为，从而识别出与正常驾驶模式的统计稀有偏差。</p>
+<p><strong>技术贡献</strong>: Deep-Flow由三个主要组件组成：(1) 目标条件早期融合编码器，集成多模态场景数据；(2) 谱流形瓶颈，将轨迹投影到PCA导出的低维空间，确保通过过滤高频噪声来实现运动学可行性；(3) 条件流匹配头用于精确的对数似然估计，允许高效计算雅可比迹。PCA变换将维度从160降至12，捕获超过99%的方差，同时保持平滑的轨迹生成。</p>
+<p><strong>结果与影响</strong>: 在Waymo开放运动数据集上评估，Deep-Flow在安全关键事件的启发式黄金集上实现了0.766的AUC-ROC，超越了无法检测语义异常的传统方法。这在识别传统安全过滤器遗漏的分布外行为方面代表了显著改进。</p>
+<p><strong>技术精髓</strong>: 通过使用PCA将轨迹投影到低维谱流形，Deep-Flow确保了运动学平滑性并实现了精确的似然计算，从而实现了一个强大的异常检测框架，识别出关键的安全违规行为。</p>
+
+<hr>
+
+<h3>7. Hybrid System Planning using a Mixed-Integer ADMM Heuristic and Hybrid Zonotopes</h3>
+
+<p><strong>作者</strong>: Joshua A. Robbins, Andrew F. Thompson, Jonah J. Glunt, Herschel C. Pangborn  |  <strong>机构</strong>: Pennsylvania State University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.17574v1" target="_blank">2602.17574v1</a> | <a href="https://arxiv.org/pdf/2602.17574v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-02-19</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了混合系统运动规划中的计算效率问题，特别是在混合整数规划（MIP）的背景下。关键技术洞察是使用混合锥体表示可达集，与传统方法相比，这种方法允许更紧的凸松弛和更低的内存复杂度，从而在资源受限的环境中实现更快的规划。</p>
+<p><strong>技术贡献</strong>: 该框架包括两个主要组件：（1）用于分段仿射（PWA）系统的混合锥体表示，允许高效的可达性计算；（2）利用该结构解决MIP的交替方向乘子法（ADMM）启发式。ADMM启发式采用扰动和重启程序来增强可行性，与最先进的方法相比，最多实现30倍的可行解，同时保持低计算复杂度。</p>
+<p><strong>结果与影响</strong>: 在自主车辆的综合行为和运动规划实验中，所提出的框架显示出显著的性能提升，在85%的测试案例中实现了可行解，而传统MIP求解器仅为55%。该实现将规划时间从300毫秒减少到100毫秒，使其适合实时应用。</p>
+<p><strong>技术精髓</strong>: 通过利用混合锥体进行可达集表示和ADMM启发式解决MIP，该框架将规划时间从300毫秒减少到100毫秒，同时在复杂场景中使可行解的数量增加了多达30倍。</p>
+
+<hr>
+
+<h3>8. Multi-session Localization and Mapping Exploiting Topological Information</h3>
+
+<p><strong>作者</strong>: Lorenzo Montano-Olivan, Julio A. Placed, Luis Montano, Maria T. Lazaro  |  <strong>机构</strong>: Instituto Tecnológico de Aragón, Universidad de Zaragoza</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.17226v1" target="_blank">2602.17226v1</a> | <a href="https://arxiv.org/pdf/2602.17226v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-02-19</p>
+<p><strong>核心洞察</strong>: 本论文解决了在先前访问过的环境中多会话映射效率低下的问题，这通常导致冗余地图生成和高计算成本。关键技术洞察是使用拓扑信息决策机制，根据姿态图的连通性选择性触发映射和闭环，从而优化重复操作中的资源分配。</p>
+<p><strong>技术贡献</strong>: 该框架由三个主要组件组成：(1) 一个决策模块，分析姿态图的连通性以确定何时激活映射，(2) 一个多会话图定位系统，采用激光雷达惯性测量和将会话间约束集成到姿态图优化（PGO）框架中，(3) 一个强大的闭环模块，能够高效识别会话内和会话间的约束以增强全局一致性。优化问题最小化这些约束的残差，确保准确的定位和地图更新。</p>
+<p><strong>结果与影响</strong>: 所提出的方法在公共数据集的重叠序列上进行了验证，与传统SLAM方法相比，映射时间减少了15%。在真实世界实验中，系统保持了2.5厘米的定位精度，较基线方法在会话间地图一致性方面提高了10%。结果显示在矿井环境中操作效率显著提升。</p>
+<p><strong>技术精髓</strong>: 通过分析姿态图的连通性以选择性触发映射操作，系统减少了计算开销并增强了定位精度，实现了映射时间减少15%同时保持2.5厘米的均方根定位误差。</p>
+
+<hr>
+
+<h3>9. A Contrastive Learning Framework Empowered by Attention-based Feature Adaptation for Street-View Image Classification</h3>
+
+<p><strong>作者</strong>: Qi You, Yitai Cheng, Zichao Zeng, James Haworth  |  <strong>机构</strong>: University College London, 3DIMPact</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.16590v1" target="_blank">2602.16590v1</a> | <a href="https://arxiv.org/pdf/2602.16590v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-02-18</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了街景图像（SVI）中细粒度属性分类不足的问题，原因在于依赖全局嵌入，常常错过局部特征。关键技术洞察是集成了多头自注意力机制，捕捉补丁间的依赖关系，使模型能够辨别复杂城市场景中的细微属性，如反射和遮挡。</p>
+<p><strong>技术贡献</strong>: CLIP-MHAdapter采用三个主要组件：（1）一个冻结的CLIP主干网络，从图像中提取全局和补丁级特征；（2）一个瓶颈MLP，将这些特征投影到低维空间，以便高效适应；（3）一个多头自注意力模块，处理补丁嵌入，允许模型学习补丁间关系。这导致了增强的特征表示f*，在不进行广泛微调的情况下提高分类能力。</p>
+<p><strong>结果与影响</strong>: 在全球街景数据集上，CLIP-MHAdapter在八个属性分类任务上实现了比完全训练基线高出5.2%的准确率提升。它仅保持140万可训练参数，显著降低训练成本，并支持在资源受限设备上的部署。</p>
+<p><strong>技术精髓</strong>: 通过在补丁级嵌入上引入多头自注意力机制，CLIP-MHAdapter捕捉局部特征，实现了街景图像分类中5.2%的准确率提升，同时仅使用140万可训练参数。</p>
+
+<hr>
+
+<h3>10. 3D Scene Rendering with Multimodal Gaussian Splatting</h3>
+
+<p><strong>作者</strong>: Chi-Shiang Gau, Konstantinos D. Polyzos, Athanasios Bacharis, Saketh Madhuvarasu, Tara Javidi  |  <strong>机构</strong>: UC San Diego, NVIDIA</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.17124v1" target="_blank">2602.17124v1</a> | <a href="https://arxiv.org/pdf/2602.17124v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-02-19</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了在有限视觉数据下生成准确3D点云（PC）的问题，特别是在视觉线索不可靠的恶劣条件下。关键技术洞察是将射频（RF）传感与高斯点云（GS）结合，以增强深度预测，即使在传统视觉方法失效时也能实现稳健的场景渲染。</p>
+<p><strong>技术贡献</strong>: 该方法提出了三个主要组件：（1）基于RF的深度预测模块，利用雷达的稀疏深度测量构建可靠的3D PC；（2）局部高斯过程（GP）方法，将空间划分为不重叠区域，通过相关观测条件优化深度预测；（3）利用RF驱动的深度图初始化高斯函数，为GS渲染提供支持。GP复杂度通过每个区域处理相关测量T(r)减少到O(T(r)³)。</p>
+<p><strong>结果与影响</strong>: 在View-of-Delft数据集上的数值测试表明，所提方法在深度预测精度上比传统视觉方法提高了15%。RF传感的集成使得高保真3D场景渲染成为可能，PC生成的处理时间从500ms减少到200ms，适用于实时应用。</p>
+<p><strong>技术精髓</strong>: 通过采用局部高斯过程，基于空间相关的RF测量进行条件处理，该方法实现了计算复杂度的显著降低和深度预测精度的提高，从而在挑战性条件下实现可靠的3D场景渲染。</p>
+
+<hr>
+
+
+
+        <div class="footer">
+            <p>自动生成 | 数据来源: arXiv | 由 LLM 分析总结</p>
+            <p>2026-02-22 08:13</p>
+        </div>
+    </div>
+</body>
+</html>
