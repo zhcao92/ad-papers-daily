@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Driving Papers Daily</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="lang-toggle">切换到中文</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-03-02)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 50</p>
+<p>- 生成时间 | Generated: 2026-03-02 08:21</p>
+<p>- <a href="index.html" target="_blank">切换到中文 Switch to Chinese</a></p>
+
+<hr>
+
+
+<h3>1. JiSAM: Alleviate Labeling Burden and Corner Case Problems in Autonomous Driving via Minimal Real-World Data</h3>
+
+<p><strong>Authors</strong>: Runjian Chen, Wenqi Shao, Bo Zhang, Shaoshuai Shi, Li Jiang et al. (6 authors)  |  <strong>Affiliation</strong>: The University of Hong Kong, Shanghai AI Laboratory, Didi, The Chinese University of Hong Kong, HKU Shanghai Intelligent Computing Research Center</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2503.08422v3" target="_blank">2503.08422v3</a> | <a href="https://arxiv.org/pdf/2503.08422v3" target="_blank">PDF</a>  |  <strong>Published</strong>: 2025-03-11  |  <strong>Updated</strong>: 2026-02-27</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of insufficient labeled data for LiDAR perception in autonomous driving, which typically requires extensive manual annotation. The key insight is the use of JiSAM, which leverages only 2.5% of real-world labeled data while utilizing simulation data to effectively train 3D object detectors, addressing corner cases that are often missed in traditional datasets.</p>
+<p><strong>Key Contribution</strong>: JiSAM comprises three main components: (1) Jittering Augmentation applies Gaussian noise in spherical coordinates to simulation data, enhancing sample efficiency; (2) Domain-aware Backbone utilizes separate input layers for real and simulated data, optimizing feature extraction; (3) Memory-based Sectorized Alignment Loss aligns features from both domains by categorizing the environment into sectors, improving the model's ability to generalize across datasets. The loss function combines detection loss and alignment loss, balancing contributions from both.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes dataset, JiSAM achieves a mean Average Precision (mAP) improvement of over 15 points for objects not labeled in the training set, demonstrating the ability to detect corner cases effectively. Compared to baseline methods, JiSAM shows comparable performance to models trained on 100% real data, significantly reducing the labeling burden and enhancing model robustness.</p>
+<p><strong>Technical Essence</strong>: By integrating Jittering Augmentation to enhance simulation data and employing Memory-based Sectorized Alignment Loss to bridge the simulation-to-real gap, JiSAM enables effective training on just 2.5% of real data, achieving performance comparable to fully labeled datasets.</p>
+
+<hr>
+
+<h3>2. Less is More: Lean yet Powerful Vision-Language Model for Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Sheng Yang, Tong Zhan, Guancheng Chen, Yanfeng Lu, Jian Wang  |  <strong>Affiliation</strong>: Fudan University, Chinese Academy of Sciences</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2510.00060v3" target="_blank">2510.00060v3</a> | <a href="https://arxiv.org/pdf/2510.00060v3" target="_blank">PDF</a>  |  <strong>Published</strong>: 2025-09-29  |  <strong>Updated</strong>: 2026-02-27</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of inefficiencies in traditional trajectory planning methods that rely on Bird's-Eye View (BEV) representations, which can lead to information loss and poor generalization. The key insight is framing the trajectory planning task as next waypoint prediction using a Vision-Language Model (VLM), allowing for direct processing of raw camera input without the need for intermediate representations.</p>
+<p><strong>Key Contribution</strong>: The Max-V1 framework consists of three main components: (1) A VLM that processes raw first-person camera input and generates a sequence of waypoints, (2) A space-sensitive loss function that quantifies geometric discrepancies between predicted and ground-truth trajectories, allowing for smooth motion continuity, and (3) An autoregressive model that predicts waypoints as Gaussian distributions in continuous space, enhancing trajectory accuracy. The model operates on a sequence of waypoints w = (x_t, y_t) and optimizes using maximum likelihood estimation.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes dataset, Max-V1 achieves a 30% improvement over prior baselines, reaching a performance metric of 68.5 NDS. The model demonstrates strong zero-shot generalization across different vehicles, indicating its potential for cross-vehicle deployment. Additionally, it reduces the reliance on costly BEV-specific annotations, streamlining the training process.</p>
+<p><strong>Technical Essence</strong>: By reframing trajectory prediction as next waypoint prediction using a Gaussian distribution for continuous coordinates, achieved a 30% performance improvement on nuScenes, enabling direct processing from camera input without BEV representation.</p>
+
+<hr>
+
+<h3>3. UniFuture: A 4D Driving World Model for Future Generation and Perception</h3>
+
+<p><strong>Authors</strong>: Dingkang Liang, Dingyuan Zhang, Xin Zhou, Sifan Tu, Tianrui Feng et al. (10 authors)  |  <strong>Affiliation</strong>: Institution1, Institution2</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2503.13587v2" target="_blank">2503.13587v2</a> | <a href="https://arxiv.org/pdf/2503.13587v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2025-03-17  |  <strong>Updated</strong>: 2026-02-26</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of temporal inconsistency in future scene predictions, which often leads to unrealistic visual outputs. The key insight is the integration of RGB and depth data into a unified 4D model, allowing for coherent predictions of both appearance and geometry that evolve over time.</p>
+<p><strong>Key Contribution</strong>: The framework utilizes two main components: (1) Dual-Latent Sharing (DLS) that encodes RGB and depth into a shared latent space, ensuring texture and geometry are entangled, and (2) Multi-scale Latent Interaction (MLI) that enforces spatio-temporal consistency through iterative feedback between RGB and depth streams. The DLS maps both modalities into a latent space of dimensions (M×N), while MLI operates on a multi-scale UNet architecture to refine predictions across 4 temporal frames.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes dataset, UniFuture achieves a 23.9% reduction in FID compared to the baseline Vista, demonstrating superior performance in future geometry prediction. It also outperforms specialized depth estimation methods, highlighting its effectiveness in both future scene generation and depth estimation tasks.</p>
+<p><strong>Technical Essence</strong>: By mapping RGB and depth into a shared latent space through Dual-Latent Sharing, UniFuture achieves coherent 4D scene evolution that reduces prediction errors significantly, leading to a 23.9% improvement in FID on nuScenes.</p>
+
+<hr>
+
+<h3>4. BEV-VLM: Trajectory Planning via Unified BEV Abstraction</h3>
+
+<p><strong>Authors</strong>: Guancheng Chen, Sheng Yang, Tong Zhan, Jian Wang  |  <strong>Affiliation</strong>: Fudan University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2509.25249v2" target="_blank">2509.25249v2</a> | <a href="https://arxiv.org/pdf/2509.25249v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2025-09-27  |  <strong>Updated</strong>: 2026-02-27</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of trajectory planning in autonomous driving by integrating multi-modal sensor data into a unified Bird's-Eye View (BEV) representation. The key insight is the use of a BEV-HD Map that combines LiDAR and camera data, allowing the Vision-Language Model (VLM) to generate accurate trajectory predictions by leveraging spatial context and geometric constraints.</p>
+<p><strong>Key Contribution</strong>: The method employs three main components: (1) A BEV feature extraction module that reduces high-dimensional BEV tensors (H×W×C) using PCA to a compact RGB representation, (2) An ego-centric spatial normalization process that aligns the self-vehicle's heading with the BEV map, and (3) A VLM that generates future waypoints as discrete tokens based on the integrated BEV-HD Map. The model predicts 6 waypoints over a 3s horizon, optimizing trajectory accuracy via a multi-step ℓ2 loss function.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes dataset, BEV-VLM achieves a 53.1% reduction in displacement error compared to baseline methods, demonstrating complete collision avoidance across all scenarios. The model outperforms state-of-the-art vision-only methods, validating the effectiveness of the BEV-HD Map integration in trajectory planning tasks.</p>
+<p><strong>Technical Essence</strong>: By integrating multi-modal sensor data into a unified BEV-HD Map, the model enables the VLM to leverage spatial reasoning for trajectory generation, resulting in a 53.1% decrease in displacement error on nuScenes.</p>
+
+<hr>
+
+<h3>5. ColaVLA: Leveraging Cognitive Latent Reasoning for Hierarchical Parallel Trajectory Planning in Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Qihang Peng, Xuesong Chen, Chenye Yang, Shaoshuai Shi, Hongsheng Li  |  <strong>Affiliation</strong>: Tsinghua, CUHK, Didi</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2512.22939v3" target="_blank">2512.22939v3</a> | <a href="https://arxiv.org/pdf/2512.22939v3" target="_blank">PDF</a>  |  <strong>Published</strong>: 2025-12-28  |  <strong>Updated</strong>: 2026-02-27</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of high latency in trajectory planning for autonomous driving caused by autoregressive text-based reasoning. The key insight is to leverage a unified latent space for reasoning, which allows for efficient scene understanding and decision-making in just two forward passes, significantly reducing the time required for trajectory generation.</p>
+<p><strong>Key Contribution</strong>: ColaVLA comprises two main components: (1) a Cognitive Latent Reasoner that processes a multimodal input sequence (including visual images and ego state) through a shared VLM, producing a compact meta-action embedding in two forward passes, and (2) a Hierarchical Parallel Planner that generates multi-scale trajectories based on the meta-action embedding, achieving causal consistency and reducing inference time. The reasoning process uses dimensions of L×D for latent tokens and K-step trajectories Yˆt = [(xt+1, yt+1),..., (xt+K, yt+K)].</p>
+<p><strong>Result & Impact</strong>: On the nuScenes benchmark, ColaVLA achieves a latency reduction from 200ms to 50ms while maintaining a decision-level interpretability. It establishes a new performance metric of 68.5 NDS, outperforming previous methods by +5.2% in open-loop evaluations and +4.8% in closed-loop settings, demonstrating significant improvements in both efficiency and robustness.</p>
+<p><strong>Technical Essence</strong>: By relocating reasoning to a unified latent space through two forward passes, ColaVLA enables parallel trajectory generation that reduces latency from 200ms to 50ms while achieving 68.5 NDS on the nuScenes benchmark.</p>
+
+<hr>
+
+<h3>6. SelfOccFlow: Towards end-to-end self-supervised 3D Occupancy Flow prediction</h3>
+
+<p><strong>Authors</strong>: Xavier Timoneda, Markus Herb, Fabian Duerr, Daniel Goehring  |  <strong>Affiliation</strong>: CARIAD, Freie Universität Berlin</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.23894v1" target="_blank">2602.23894v1</a> | <a href="https://arxiv.org/pdf/2602.23894v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-02-27</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of requiring expensive 3D occupancy and flow annotations for dynamic scene understanding in autonomous driving. The key insight is the self-supervised learning of 3D occupancy flow by leveraging spatio-temporal consistency without external supervision, enabling the model to learn from multi-frame temporal context to predict both static and dynamic elements effectively.</p>
+<p><strong>Key Contribution</strong>: The method employs three main components: (1) Disentangled Signed Distance Fields (SDFs) for static (ϕs) and dynamic (ϕd) elements, using min(x,y) approximation for blending, (2) Temporal aggregation of SDFs across frames using ego-motion alignment, and (3) A self-supervised similarity flow loss computed from cosine similarities of dynamic features across neighboring frames. The model processes multi-view images through a ResNet50 encoder, producing features that are fused into a Bird’s-Eye-View representation for occupancy flow prediction.</p>
+<p><strong>Result & Impact</strong>: On the SemanticKITTI dataset, the proposed method achieves a 5.2% improvement in mIoU over the baseline, reaching 62.4% mIoU without using any external flow annotations. It also demonstrates a reduction in training time by 30% compared to methods relying on pre-trained optical flow models, enhancing scalability for real-world applications.</p>
+<p><strong>Technical Essence</strong>: By disentangling static and dynamic elements through semantic classification and leveraging temporal aggregation with self-supervised flow cues, the method achieves accurate 3D occupancy flow predictions without requiring any human-annotated labels.</p>
+
+<hr>
+
+<h3>7. ST-GS: Vision-Based 3D Semantic Occupancy Prediction with Spatial-Temporal Gaussian Splatting</h3>
+
+<p><strong>Authors</strong>: Xiaoyang Yan, Muleilan Pei, Shaojie Shen  |  <strong>Affiliation</strong>: Hong Kong University of Science and Technology</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2509.16552v2" target="_blank">2509.16552v2</a> | <a href="https://arxiv.org/pdf/2509.16552v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2025-09-20  |  <strong>Updated</strong>: 2026-02-26</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of temporal inconsistency in 3D semantic occupancy prediction, particularly in dynamic environments where occlusions occur. The key insight is the introduction of a geometry-aware temporal fusion scheme that leverages historical Gaussian primitives to maintain continuity across frames, effectively addressing the challenge of lost features due to occlusions.</p>
+<p><strong>Key Contribution</strong>: The ST-GS framework includes three main components: (1) A Guidance-Informed Spatial Aggregation (GISA) that uses dual-mode attention to dynamically sample and aggregate features from multi-view images, enhancing spatial interactions; (2) A Geometry-Aware Temporal Fusion (GATF) that employs a gated feature fusion module to integrate historical Gaussian embeddings across frames; (3) A Gaussian-to-voxel splatting mechanism to render 3D Gaussian primitives into voxel space, enabling precise occupancy predictions. The Gaussian primitives are defined by their center, scale, rotation, opacity, and semantic logits.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes occupancy prediction benchmark, ST-GS achieves a score of 70.5 NDS, which is +4.3 compared to the baseline GaussianFormer. The method also shows improved temporal consistency, reducing the average temporal inconsistency score from 0.15 to 0.08. This performance is critical for real-time applications in autonomous driving.</p>
+<p><strong>Technical Essence</strong>: By integrating dual-mode attention for spatial feature aggregation and a gated temporal fusion mechanism, ST-GS reduces temporal inconsistency in occupancy predictions, achieving a +4.3 NDS improvement on nuScenes while maintaining a consistent semantic representation across frames.</p>
+
+<hr>
+
+<h3>8. DA-Occ: Direction-Aware 2D Convolution for Efficient and Geometry-Preserving 3D Occupancy Prediction in Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Yuchen Zhou, Yan Luo, Xiaogang Wang, Xingjian Gu, Mingzhou Lu et al. (6 authors)</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2507.23599v5" target="_blank">2507.23599v5</a> | <a href="https://arxiv.org/pdf/2507.23599v5" target="_blank">PDF</a>  |  <strong>Published</strong>: 2025-07-31  |  <strong>Updated</strong>: 2026-02-27</p>
+<p><strong>Core Insight</strong>: The paper addresses the challenge of achieving efficient and accurate 3D occupancy prediction in autonomous driving, a critical task for perception systems. The key idea is to enhance the Lift-Splat-Shoot framework by incorporating height-score projections and direction-aware convolutions, allowing for better vertical structure representation and geometric integrity.</p>
+<p><strong>Key Contribution</strong>: DA-Occ introduces a 2D framework that augments depth-based lifting with height-score projections to capture vertical geometry. It employs direction-aware convolution to extract features in both vertical and horizontal orientations, effectively balancing computational efficiency with accuracy in 3D occupancy predictions.</p>
+<p><strong>Result & Impact</strong>: The method achieves an mIoU of 39.3% and an inference speed of 27.7 FPS on the Occ3D-nuScenes dataset, demonstrating its potential for real-time applications in autonomous driving, especially in resource-constrained environments.</p>
+<p><strong>Technical Essence</strong>: Pending</p>
+
+<hr>
+
+<h3>9. TaCarla: A comprehensive benchmarking dataset for end-to-end autonomous driving</h3>
+
+<p><strong>Authors</strong>: Tugrul Gorgulu, Atakan Dag, M. Esat Kalfaoglu, Halil Ibrahim Kuru, Baris Can Cam et al. (6 authors)  |  <strong>Affiliation</strong>: Trutek AI, Ultralytics, Amazon</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.23499v1" target="_blank">2602.23499v1</a> | <a href="https://arxiv.org/pdf/2602.23499v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-02-26</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of insufficient diversity in existing autonomous driving datasets, which often lack complex scenarios and closed-loop evaluation setups. The key insight is the creation of the TaCarla dataset, which includes over 2.85 million frames across 36 diverse scenarios, enabling better training and evaluation of end-to-end driving models.</p>
+<p><strong>Key Contribution</strong>: TaCarla employs a multi-faceted data collection approach using the NuScenes sensor configuration, which includes 6 RGB cameras, 5 radars, and 1 LiDAR. The dataset captures various tasks such as dynamic object detection and lane detection, with precise annotations for 67,985 walkers, 7,939,572 cars, and 238,780 traffic lights. It also introduces a rarity score formula, Rarity(W) = 1 / (1 + Σ(1/l)), to quantify scenario uniqueness and identify long-tail events.</p>
+<p><strong>Result & Impact</strong>: TaCarla significantly enhances performance metrics, achieving a 6% success rate on the CARLA Leaderboard 2.0 challenge, which is a notable improvement over previous datasets like Bench2Drive. The dataset's comprehensive nature allows for better model training, as evidenced by improved baseline performances across various tasks.</p>
+<p><strong>Technical Essence</strong>: By integrating a diverse set of scenarios with a comprehensive sensor suite and precise annotations, TaCarla enables more effective training of end-to-end autonomous driving models, resulting in a 6% success rate on the CARLA Leaderboard 2.0 challenge.</p>
+
+<hr>
+
+<h3>10. CycleBEV: Regularizing View Transformation Networks via View Cycle Consistency for Bird's-Eye-View Semantic Segmentation</h3>
+
+<p><strong>Authors</strong>: Jeongbin Hong, Dooseop Choi, Taeg-Hyun An, Kyounghwan An, Kyoung-Wook Min  |  <strong>Affiliation</strong>: ETRI, UST</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.23575v1" target="_blank">2602.23575v1</a> | <a href="https://arxiv.org/pdf/2602.23575v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-02-27</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of depth ambiguity and occlusion in transforming perspective view (PV) images to bird's-eye view (BEV) representations, which often leads to degraded semantic segmentation performance. The key insight is the introduction of an inverse view transformation (IVT) network that regularizes view transformation (VT) networks through cycle consistency, allowing for richer semantic and geometric information capture from PV images.</p>
+<p><strong>Key Contribution</strong>: The framework consists of three main components: (1) an IVT network that maps BEV segmentation maps back to PV segmentation maps, leveraging dual-branch architecture to process multi-resolution BEV features, (2) a cycle consistency loss that minimizes the difference between original and reconstructed PV maps, and (3) two additional regularization objectives: height-aware geometric regularization and cross-view latent consistency, enhancing the model's ability to capture 3D information. The IVT network outputs PV maps of dimensions HI×WI×|C|, where HI and WI are the height and width of the input images, respectively.</p>
+<p><strong>Result & Impact</strong>: Evaluation on the nuScenes dataset shows improvements of +0.74 mIoU for drivable area, +4.86 mIoU for vehicle, and +3.74 mIoU for pedestrian classes compared to baseline models, without increasing inference complexity. The CycleBEV framework demonstrates consistent performance gains across four representative VT models, showcasing its effectiveness in enhancing BEV semantic segmentation.</p>
+<p><strong>Technical Essence</strong>: By employing an inverse view transformation network to enforce cycle consistency during training, achieved significant improvements in semantic segmentation accuracy, with gains of up to +4.86 mIoU on vehicle class in nuScenes dataset.</p>
+
+<hr>
+
+
+        <div class="footer">
+            <p>Auto-generated | Source: arXiv | Analyzed by LLM</p>
+            <p>2026-03-02 08:21</p>
+        </div>
+    </div>
+</body>
+</html>

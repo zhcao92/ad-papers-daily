@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自动驾驶论文每日速览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index-en.html" class="lang-toggle">Switch to English</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-03-02)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 50</p>
+<p>- 生成时间 | Generated: 2026-03-02 08:21</p>
+<p>- <a href="index-en.html" target="_blank">Switch to English 切换到英文</a></p>
+
+<hr>
+
+
+<h3>1. JiSAM: Alleviate Labeling Burden and Corner Case Problems in Autonomous Driving via Minimal Real-World Data</h3>
+
+<p><strong>作者</strong>: Runjian Chen, Wenqi Shao, Bo Zhang, Shaoshuai Shi, Li Jiang et al. (6 authors)  |  <strong>机构</strong>: The University of Hong Kong, Shanghai AI Laboratory, Didi, The Chinese University of Hong Kong, HKU Shanghai Intelligent Computing Research Center</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2503.08422v3" target="_blank">2503.08422v3</a> | <a href="https://arxiv.org/pdf/2503.08422v3" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-03-11  |  <strong>更新</strong>: 2026-02-27</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自动驾驶中LiDAR感知所需标注数据不足的问题，传统方法通常需要大量人工标注。关键技术洞察是使用JiSAM，仅利用2.5%的真实标注数据，同时利用模拟数据有效训练3D目标检测器，解决了传统数据集中常常遗漏的边缘案例。</p>
+<p><strong>技术贡献</strong>: JiSAM由三个主要组件组成：（1）抖动增强在球坐标中对模拟数据施加高斯噪声，提高样本效率；（2）领域感知骨干网为真实和模拟数据利用单独的输入层，优化特征提取；（3）基于记忆的分区对齐损失通过将环境划分为多个区域来对齐两个领域的特征，提高模型在不同数据集上的泛化能力。损失函数结合了检测损失和对齐损失，平衡了两者的贡献。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，JiSAM在未标注的目标上实现了超过15点的平均精度提升，展示了有效检测边缘案例的能力。与基线方法相比，JiSAM的性能与在100%真实数据上训练的模型相当，显著减少了标注负担并增强了模型的鲁棒性。</p>
+<p><strong>技术精髓</strong>: 通过整合抖动增强以增强模拟数据，并采用基于记忆的分区对齐损失来弥合模拟与真实之间的差距，JiSAM能够仅在2.5%的真实数据上有效训练，实现与完全标注数据集相当的性能。</p>
+
+<hr>
+
+<h3>2. Less is More: Lean yet Powerful Vision-Language Model for Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Sheng Yang, Tong Zhan, Guancheng Chen, Yanfeng Lu, Jian Wang  |  <strong>机构</strong>: Fudan University, Chinese Academy of Sciences</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2510.00060v3" target="_blank">2510.00060v3</a> | <a href="https://arxiv.org/pdf/2510.00060v3" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-09-29  |  <strong>更新</strong>: 2026-02-27</p>
+<p><strong>核心洞察</strong>: 本文解决了依赖鸟瞰图（BEV）表示的传统轨迹规划方法中的低效问题，这可能导致信息丢失和泛化能力差。关键技术洞察是将轨迹规划任务框定为使用视觉-语言模型（VLM）的下一个航点预测，从而允许直接处理原始相机输入，而无需中间表示。</p>
+<p><strong>技术贡献</strong>: Max-V1框架由三个主要组件组成：（1）一个处理原始第一人称相机输入并生成航点序列的VLM，（2）一个空间敏感损失函数，量化预测轨迹与真实轨迹之间的几何差异，从而实现平滑的运动连续性，以及（3）一个自回归模型，将航点预测为连续空间中的高斯分布，提高轨迹精度。该模型在航点序列w = (x_t, y_t)上运行，并使用最大似然估计进行优化。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，Max-V1相较于先前基线实现了30%的性能提升，达到了68.5 NDS的性能指标。该模型在不同车辆之间展示了强大的零样本泛化能力，表明其在跨车辆部署中的潜力。此外，它减少了对昂贵的BEV特定注释的依赖，简化了训练过程。</p>
+<p><strong>技术精髓</strong>: 通过将轨迹预测重新框定为下一个航点预测，并使用高斯分布处理连续坐标，实现了在nuScenes上30%的性能提升，允许直接从相机输入处理，无需BEV表示。</p>
+
+<hr>
+
+<h3>3. UniFuture: A 4D Driving World Model for Future Generation and Perception</h3>
+
+<p><strong>作者</strong>: Dingkang Liang, Dingyuan Zhang, Xin Zhou, Sifan Tu, Tianrui Feng et al. (10 authors)  |  <strong>机构</strong>: Institution1, Institution2</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2503.13587v2" target="_blank">2503.13587v2</a> | <a href="https://arxiv.org/pdf/2503.13587v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-03-17  |  <strong>更新</strong>: 2026-02-26</p>
+<p><strong>核心洞察</strong>: 该论文解决了未来场景预测中的时间不一致性问题，这通常导致不现实的视觉输出。关键技术洞察是将RGB和深度数据整合到统一的4D模型中，从而实现外观和几何形状的连贯预测，随时间演变。</p>
+<p><strong>技术贡献</strong>: 该框架利用两个主要组件：（1）双潜在共享（DLS），将RGB和深度编码到共享潜在空间，确保纹理和几何相互纠缠；（2）多尺度潜在交互（MLI），通过RGB和深度流之间的迭代反馈来强制时空一致性。DLS将两种模态映射到维度为（M×N）的潜在空间，而MLI在多尺度UNet架构上操作，以在4个时间帧之间细化预测。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，UniFuture相较于基线Vista实现了23.9%的FID减少，展示了在未来几何预测中的优越性能。它还优于专门的深度估计方法，突显了其在未来场景生成和深度估计任务中的有效性。</p>
+<p><strong>技术精髓</strong>: 通过将RGB和深度映射到共享潜在空间，UniFuture实现了连贯的4D场景演变，显著减少了预测误差，在nuScenes上实现了23.9%的FID改进。</p>
+
+<hr>
+
+<h3>4. BEV-VLM: Trajectory Planning via Unified BEV Abstraction</h3>
+
+<p><strong>作者</strong>: Guancheng Chen, Sheng Yang, Tong Zhan, Jian Wang  |  <strong>机构</strong>: Fudan University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2509.25249v2" target="_blank">2509.25249v2</a> | <a href="https://arxiv.org/pdf/2509.25249v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-09-27  |  <strong>更新</strong>: 2026-02-27</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自动驾驶中轨迹规划的问题，通过将多模态传感器数据整合到统一的鸟瞰视图（BEV）表示中。关键技术洞察是使用BEV-HD地图，结合LiDAR和相机数据，使视觉语言模型（VLM）能够通过利用空间上下文和几何约束生成准确的轨迹预测。</p>
+<p><strong>技术贡献</strong>: 该方法采用三个主要组件：（1）BEV特征提取模块，通过主成分分析（PCA）将高维BEV张量（H×W×C）减少为紧凑的RGB表示；（2）自我中心空间归一化过程，将自车的朝向与BEV地图对齐；（3）VLM根据集成的BEV-HD地图生成未来的离散轨迹点。该模型预测6个轨迹点，覆盖3秒的时间范围，通过多步ℓ2损失函数优化轨迹准确性。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，BEV-VLM相比基线方法实现了53.1%的位移误差减少，在所有场景中展示了完全的碰撞避免。该模型超越了最先进的仅基于视觉的方法，验证了BEV-HD地图整合在轨迹规划任务中的有效性。</p>
+<p><strong>技术精髓</strong>: 通过将多模态传感器数据整合到统一的BEV-HD地图中，该模型使VLM能够利用空间推理进行轨迹生成，从而在nuScenes上实现了53.1%的位移误差减少。</p>
+
+<hr>
+
+<h3>5. ColaVLA: Leveraging Cognitive Latent Reasoning for Hierarchical Parallel Trajectory Planning in Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Qihang Peng, Xuesong Chen, Chenye Yang, Shaoshuai Shi, Hongsheng Li  |  <strong>机构</strong>: Tsinghua, CUHK, Didi</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2512.22939v3" target="_blank">2512.22939v3</a> | <a href="https://arxiv.org/pdf/2512.22939v3" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-12-28  |  <strong>更新</strong>: 2026-02-27</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自主驾驶中由于自回归文本推理导致的轨迹规划高延迟问题。关键技术洞察是利用统一的潜在空间进行推理，使得场景理解和决策在仅仅两个前向传递中高效完成，从而显著减少轨迹生成所需的时间。</p>
+<p><strong>技术贡献</strong>: ColaVLA由两个主要组件组成：（1）认知潜在推理器，通过共享VLM处理多模态输入序列（包括视觉图像和自我状态），在两个前向传递中生成紧凑的元动作嵌入；（2）分层并行规划器基于元动作嵌入生成多尺度轨迹，实现因果一致性并减少推理时间。推理过程使用L×D维度的潜在标记和K步轨迹Yˆt = [(xt+1, yt+1),..., (xt+K, yt+K)]。</p>
+<p><strong>结果与影响</strong>: 在nuScenes基准上，ColaVLA的延迟从200ms降低到50ms，同时保持决策级可解释性。它在开放循环评估中实现了68.5 NDS的新性能指标，比之前的方法提高了+5.2%，在闭环设置中提高了+4.8%，显示出在效率和鲁棒性方面的显著改善。</p>
+<p><strong>技术精髓</strong>: 通过将推理转移到统一的潜在空间，ColaVLA实现了并行轨迹生成，将延迟从200ms降低到50ms，同时在nuScenes基准上达到68.5 NDS。</p>
+
+<hr>
+
+<h3>6. SelfOccFlow: Towards end-to-end self-supervised 3D Occupancy Flow prediction</h3>
+
+<p><strong>作者</strong>: Xavier Timoneda, Markus Herb, Fabian Duerr, Daniel Goehring  |  <strong>机构</strong>: CARIAD, Freie Universität Berlin</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.23894v1" target="_blank">2602.23894v1</a> | <a href="https://arxiv.org/pdf/2602.23894v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-02-27</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了在动态场景理解中需要昂贵的3D占用和流注释的问题。关键技术洞察是通过利用时空一致性进行自监督学习3D占用流，从而使模型能够有效地从多帧时间上下文中学习，以预测静态和动态元素。</p>
+<p><strong>技术贡献</strong>: 该方法采用三个主要组件：（1）静态（ϕs）和动态（ϕd）元素的分离签名距离场（SDF），使用min(x,y)近似进行混合；（2）通过自我运动对齐跨帧的SDF时间聚合；（3）通过相邻帧动态特征的余弦相似性计算自监督相似流损失。该模型通过ResNet50编码器处理多视图图像，生成的特征融合为鸟瞰图表示，用于占用流预测。</p>
+<p><strong>结果与影响</strong>: 在SemanticKITTI数据集上，所提方法在不使用任何外部流注释的情况下，较基线提高了5.2%的mIoU，达到62.4%的mIoU。与依赖于预训练光流模型的方法相比，训练时间减少了30%，增强了在实际应用中的可扩展性。</p>
+<p><strong>技术精髓</strong>: 通过通过语义分类分离静态和动态元素，并利用自监督流线索进行时间聚合，该方法实现了准确的3D占用流预测，而无需任何人工注释标签。</p>
+
+<hr>
+
+<h3>7. ST-GS: Vision-Based 3D Semantic Occupancy Prediction with Spatial-Temporal Gaussian Splatting</h3>
+
+<p><strong>作者</strong>: Xiaoyang Yan, Muleilan Pei, Shaojie Shen  |  <strong>机构</strong>: Hong Kong University of Science and Technology</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2509.16552v2" target="_blank">2509.16552v2</a> | <a href="https://arxiv.org/pdf/2509.16552v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-09-20  |  <strong>更新</strong>: 2026-02-26</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了动态环境中3D语义占用预测的时间不一致性问题，特别是在发生遮挡的情况下。关键技术洞察是引入几何感知时间融合方案，利用历史高斯原语在帧间保持连续性，有效应对因遮挡导致的特征丢失挑战。</p>
+<p><strong>技术贡献</strong>: ST-GS框架包括三个主要组件：（1）引导信息空间聚合（GISA），使用双模式注意力动态采样和聚合来自多视角图像的特征，增强空间交互；（2）几何感知时间融合（GATF），采用门控特征融合模块整合跨帧的历史高斯嵌入；（3）高斯到体素的喷溅机制，将3D高斯原语渲染到体素空间，实现精确的占用预测。高斯原语由其中心、尺度、旋转、透明度和语义逻辑定义。</p>
+<p><strong>结果与影响</strong>: 在nuScenes占用预测基准上，ST-GS的NDS得分为70.5，比基线GaussianFormer提高了4.3。同时，该方法还显示出改进的时间一致性，将平均时间不一致性得分从0.15降低到0.08。这一性能对于自动驾驶中的实时应用至关重要。</p>
+<p><strong>技术精髓</strong>: 通过整合双模式注意力进行空间特征聚合和门控时间融合机制，ST-GS减少了占用预测中的时间不一致性，在nuScenes上实现了4.3的NDS提升，同时在帧间保持一致的语义表示。</p>
+
+<hr>
+
+<h3>8. DA-Occ: Direction-Aware 2D Convolution for Efficient and Geometry-Preserving 3D Occupancy Prediction in Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Yuchen Zhou, Yan Luo, Xiaogang Wang, Xingjian Gu, Mingzhou Lu et al. (6 authors)</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2507.23599v5" target="_blank">2507.23599v5</a> | <a href="https://arxiv.org/pdf/2507.23599v5" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-07-31  |  <strong>更新</strong>: 2026-02-27</p>
+<p><strong>核心洞察</strong>: 本论文解决了在自动驾驶中实现高效且准确的3D占用预测的挑战，这是感知系统的关键任务。核心思想是通过引入高度评分投影和方向感知卷积来增强Lift-Splat-Shoot框架，从而更好地表示垂直结构和几何完整性。</p>
+<p><strong>技术贡献</strong>: DA-Occ提出了一种2D框架，通过高度评分投影增强基于深度的提升，以捕捉垂直几何。它采用方向感知卷积提取垂直和水平方向的特征，有效地在3D占用预测中平衡计算效率与准确性。</p>
+<p><strong>结果与影响</strong>: 该方法在Occ3D-nuScenes数据集上实现了39.3%的mIoU和27.7 FPS的推理速度，展示了其在资源受限环境中自动驾驶实时应用的潜力。</p>
+<p><strong>技术精髓</strong>: 待生成</p>
+
+<hr>
+
+<h3>9. TaCarla: A comprehensive benchmarking dataset for end-to-end autonomous driving</h3>
+
+<p><strong>作者</strong>: Tugrul Gorgulu, Atakan Dag, M. Esat Kalfaoglu, Halil Ibrahim Kuru, Baris Can Cam et al. (6 authors)  |  <strong>机构</strong>: Trutek AI, Ultralytics, Amazon</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.23499v1" target="_blank">2602.23499v1</a> | <a href="https://arxiv.org/pdf/2602.23499v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-02-26</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了现有自动驾驶数据集中缺乏多样性的问题，这些数据集通常缺少复杂场景和闭环评估设置。关键技术洞察是创建了TaCarla数据集，该数据集包含超过285万帧，涵盖36种多样化场景，从而更好地训练和评估端到端驾驶模型。</p>
+<p><strong>技术贡献</strong>: TaCarla采用多元化的数据收集方法，使用NuScenes传感器配置，包括6个RGB摄像头、5个雷达和1个激光雷达。该数据集捕获了动态物体检测和车道检测等多种任务，精确标注67,985个行人、7,939,572辆汽车和238,780个交通信号灯。它还引入了稀有度评分公式Rarity(W) = 1 / (1 + Σ(1/l))，用于量化场景的独特性并识别长尾事件。</p>
+<p><strong>结果与影响</strong>: TaCarla显著提升了性能指标，在CARLA Leaderboard 2.0挑战中达到了6%的成功率，这比之前的数据集Bench2Drive有显著改善。该数据集的全面性使得模型训练更加有效，体现在各项任务的基线性能提升上。</p>
+<p><strong>技术精髓</strong>: 通过整合多样化的场景与全面的传感器套件和精确的标注，TaCarla使得端到端自动驾驶模型的训练更加有效，从而在CARLA Leaderboard 2.0挑战中实现了6%的成功率。</p>
+
+<hr>
+
+<h3>10. CycleBEV: Regularizing View Transformation Networks via View Cycle Consistency for Bird's-Eye-View Semantic Segmentation</h3>
+
+<p><strong>作者</strong>: Jeongbin Hong, Dooseop Choi, Taeg-Hyun An, Kyounghwan An, Kyoung-Wook Min  |  <strong>机构</strong>: ETRI, UST</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.23575v1" target="_blank">2602.23575v1</a> | <a href="https://arxiv.org/pdf/2602.23575v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-02-27</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了在将透视视图（PV）图像转换为鸟瞰视图（BEV）表示时深度模糊和遮挡的问题，这通常会导致语义分割性能下降。关键技术洞察是引入了一个逆视图转换（IVT）网络，通过循环一致性来规范化视图转换（VT）网络，从而允许从PV图像中捕获更丰富的语义和几何信息。</p>
+<p><strong>技术贡献</strong>: 该框架由三个主要组件组成：（1）一个IVT网络，将BEV分割图映射回PV分割图，利用双分支架构处理多分辨率BEV特征；（2）一个循环一致性损失，最小化原始和重建PV图之间的差异；（3）两个附加正则化目标：高度感知几何正则化和跨视图潜在一致性，增强模型捕获3D信息的能力。IVT网络输出的PV图尺寸为HI×WI×|C|，其中HI和WI分别是输入图像的高度和宽度。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上的评估显示，与基线模型相比，驱动区域的mIoU提高了+0.74，车辆的mIoU提高了+4.86，行人的mIoU提高了+3.74，而不增加推理复杂性。CycleBEV框架在四个代表性的VT模型上展示了一致的性能提升，展示了其在增强BEV语义分割方面的有效性。</p>
+<p><strong>技术精髓</strong>: 通过采用逆视图转换网络在训练期间强制循环一致性，实现了语义分割精度的显著提升，在nuScenes数据集中车辆类别的mIoU提高了+4.86。</p>
+
+<hr>
+
+
+
+        <div class="footer">
+            <p>自动生成 | 数据来源: arXiv | 由 LLM 分析总结</p>
+            <p>2026-03-02 08:21</p>
+        </div>
+    </div>
+</body>
+</html>
