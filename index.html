@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自动驾驶论文每日速览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index-en.html" class="lang-toggle">Switch to English</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-03-15)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 61</p>
+<p>- 生成时间 | Generated: 2026-03-15 08:17</p>
+<p>- <a href="index-en.html" target="_blank">Switch to English 切换到英文</a></p>
+
+<hr>
+
+
+<h3>1. Risk-Controllable Multi-View Diffusion for Driving Scenario Generation</h3>
+
+<p><strong>作者</strong>: Hongyi Lin, Wenxiu Shi, Heye Huang, Dingyi Zhuang, Song Zhang et al. (8 authors)  |  <strong>机构</strong>: Tsinghua University, MIT, Z-one Technology, Singapore-MIT Alliance, Chengdu Tianfu Invo Technology</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2603.11534v1" target="_blank">2603.11534v1</a> | <a href="https://arxiv.org/pdf/2603.11534v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-03-12</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了生成在真实世界数据中稀缺的高风险驾驶场景的问题，这对于测试自动驾驶系统至关重要。关键技术洞察是将驾驶风险重新定义为主动控制信号，指导在指定风险水平下合成动态轨迹和3D边界框，从而实现有针对性的场景生成。</p>
+<p><strong>技术贡献</strong>: 该框架由两个主要组件组成：（1）风险控制模块，根据用户指定的风险水平生成结构化运动信号（轨迹和3D边界框），使用方程U=g(I, M, y, r*)，其中I是多视角历史，M是高清地图，y是附加上下文，r*是目标风险；（2）多视角扩散生成器，基于这些结构化运动信号渲染未来帧，使用ˆI=f(I, M, y, U)。几何-外观对齐模块通过注入3D先验确保视角间一致性，而区域感知直接偏好优化（RA-DPO）通过运动感知掩蔽增强时间真实感。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，所提方法将3D检测平均精度（mAP）从18.17提高到30.50（+12.33），并将Fréchet Inception距离（FID）降低到15.70，显示出与基线方法相比在视觉质量和场景多样性方面的显著提升。</p>
+<p><strong>技术精髓</strong>: 通过将驾驶风险重新定义为轨迹生成的主动控制信号，该框架实现了多样化长尾场景的合成，同时保持视角间一致性，在nuScenes数据集上实现了12.33 mAP的提升。</p>
+
+<hr>
+
+<h3>2. KnowVal: A Knowledge-Augmented and Value-Guided Autonomous Driving System</h3>
+
+<p><strong>作者</strong>: Zhongyu Xia, Wenhao Chen, Yongtao Wang, Ming-Hsuan Yang  |  <strong>机构</strong>: Peking University, UC Merced</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2512.20299v2" target="_blank">2512.20299v2</a> | <a href="https://arxiv.org/pdf/2512.20299v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-12-23  |  <strong>更新</strong>: 2026-03-12</p>
+<p><strong>核心洞察</strong>: 该论文解决了依赖数据驱动学习的自动驾驶系统推理能力有限的问题。关键技术洞察是集成了编码交通法规和防御性驾驶原则的知识图谱，使系统能够在驾驶场景中动态检索相关知识，从而改善复杂环境中的决策。</p>
+<p><strong>技术贡献</strong>: KnowVal采用三个主要组件：（1）使用VL-SAMv2和OpenAD进行检索引导的开放世界感知，以识别不常见的物体，（2）从构建的知识图谱中进行感知引导的检索，该图谱由驾驶法规和原则构成，以及（3）基于检索知识评估轨迹可取性的价值模型。知识图谱通过LLM提取实体和关系，促进实时决策。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，KnowVal的碰撞率为5.2%，比基线方法降低了2.3%。在Bench2Drive上，NDS达到72.1，超越了之前模型3.5分。该系统与现有架构兼容，同时增强了轨迹规划中的可解释性和安全性。</p>
+<p><strong>技术精髓</strong>: 通过将知识图谱与检索引导的感知相结合，KnowVal实现了与交通法规一致的实时决策，使碰撞率比传统端到端模型降低了2.3%。</p>
+
+<hr>
+
+<h3>3. An Overview about Emerging Technologies of Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Yu Huang, Yue Chen, Zijiang Yang  |  <strong>机构</strong>: Roboraction.AI, Futurewei, Synkrotron Technologies</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2306.13302v5" target="_blank">2306.13302v5</a> | <a href="https://arxiv.org/pdf/2306.13302v5" target="_blank">PDF</a>  |  <strong>发表</strong>: 2023-06-23  |  <strong>更新</strong>: 2026-03-11</p>
+<p><strong>核心洞察</strong>: 本文解决了在复杂环境中集成多种传感器模式以实现准确感知的挑战。关键技术洞察是使用鸟瞰图（BEV）表示法融合激光雷达、摄像头和雷达的数据，从而增强障碍物检测和跟踪能力，减少遮挡问题。</p>
+<p><strong>技术贡献</strong>: 作者实现了一个多模态感知系统，包括三个主要组件：（1）BEV编码器处理3D点云和图像，将其转换为统一的2D表示，通道数从64到512，（2）利用可变形注意力的时间融合模块，跨越4个连续帧捕捉动态变化，以及（3）用于检测（7参数边界框）和分割（256×256像素图）的任务特定头。该架构实现了高效的特征提取并提高了整体感知精度。</p>
+<p><strong>结果与影响</strong>: 在nuScenes验证集上，所提方法实现了68.2 NDS，比之前的BEVFormer基线提高了+3.1。此外，该系统在NVIDIA A100 GPU上以12 FPS运行，而基线为8 FPS，使其适用于自动驾驶中的实时应用。</p>
+<p><strong>技术精髓</strong>: 通过将多模态传感器数据转换为统一的BEV表示，并应用可变形注意力进行时间融合，系统减少了遮挡效应并提高了检测精度，实现了NDS提高3.1，同时将处理速度从8 FPS提升至12 FPS。</p>
+
+<hr>
+
+<h3>4. PointSlice: Accurate and Efficient Slice-Based Representation for 3D Object Detection from Point Clouds</h3>
+
+<p><strong>作者</strong>: Liu Qifeng, Zhao Dawei, Dong Yabo, Xiao Liang, Wang Juan et al. (10 authors)  |  <strong>机构</strong>: Zhejiang University, Defense Innovation Institute, Tsinghua University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2509.01487v2" target="_blank">2509.01487v2</a> | <a href="https://arxiv.org/pdf/2509.01487v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-09-01  |  <strong>更新</strong>: 2026-03-08</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了在点云中进行3D物体检测时平衡检测精度和推理速度的问题。关键技术洞察是将点云切片为2D表示，允许模型利用2D卷积网络，同时通过切片交互网络（SIN）保持3D空间关系。</p>
+<p><strong>技术贡献</strong>: PointSlice采用两个主要组件：（1）切片机制将3D点云转换为多个2D切片，将其视为批处理，从而显著减少参数数量；（2）切片交互网络（SIN）在2D主干网络中集成稀疏3D卷积，以促进切片之间的垂直几何关系学习。这种方法使得参数减少到SAFDNet的0.79倍，同时保持可比的检测精度。</p>
+<p><strong>结果与影响</strong>: 在Waymo开放数据集上，PointSlice实现了比SAFDNet快1.13倍的推理速度，以15.5 FPS处理，而使用的参数为SAFDNet的0.79倍（7.74M对9.89M），且仅导致1.2 mAP的下降。在nuScenes上，它以0.45倍的参数实现了66.7 mAP的最新结果。</p>
+<p><strong>技术精髓</strong>: 通过将3D点云转换为2D切片并集成切片交互网络以实现切片间特征交换，PointSlice在保持高检测精度的同时实现了1.13倍的推理速度提升。</p>
+
+<hr>
+
+<h3>5. Zero-Shot Cross-City Generalization in End-to-End Autonomous Driving: Self-Supervised versus Supervised Representations</h3>
+
+<p><strong>作者</strong>: Fatemeh Naeinian, Ali Hamza, Haoran Zhu, Anna Choromanska  |  <strong>机构</strong>: NYU</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2603.11417v1" target="_blank">2603.11417v1</a> | <a href="https://arxiv.org/pdf/2603.11417v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-03-12</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了端到端自动驾驶模型在不同城市间转移时泛化能力差的问题。关键技术洞察是，自监督视觉表示显著减少了泛化差距，从波士顿到新加坡的L2位移从9.77×减少到1.20×。</p>
+<p><strong>技术贡献</strong>: 该研究将三个自监督骨干网（I-JEPA、DINOv2、MAE）集成到一个统一的规划框架中，用于端到端轨迹预测。每个骨干网在nuScenes数据上进行预训练，I-JEPA预测掩码潜在表示，DINOv2采用对比学习，MAE重建掩码输入。模型在严格的地理分割下进行评估，使用L2位移和碰撞率等误差指标来量化表现退化，隔离表示学习对跨城市转移的影响。</p>
+<p><strong>结果与影响</strong>: 在开放环评估中，自监督预训练模型将L2位移从9.77×减少到1.20×，将碰撞率从19.43×减少到0.75×，当从波士顿转移到新加坡时。闭环评估显示，所有单城市训练场景中的PDMS提高了4%。实验利用nuScenes数据集进行开放环评估，NAVSIM进行闭环评估，建立了与传统监督骨干网的明确性能基准。</p>
+<p><strong>技术精髓</strong>: 通过在特定领域数据上进行自监督预训练，模型在跨城市泛化差距上取得显著减少，从波士顿到新加坡的L2位移从9.77×减少到1.20×。</p>
+
+<hr>
+
+<h3>6. Multi-model approach for autonomous driving: A comprehensive study on traffic sign-, vehicle- and lane detection and behavioral cloning</h3>
+
+<p><strong>作者</strong>: Kanishkha Jaisankar, Pranav M. Pawar, Diana Susane Joseph, Raja Muthalagu, Mithun Mukherjee  |  <strong>机构</strong>: BITS Pilani</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2603.09255v1" target="_blank">2603.09255v1</a> | <a href="https://arxiv.org/pdf/2603.09255v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-03-10</p>
+<p><strong>核心洞察</strong>: 本论文解决了在不同条件下准确检测交通标志、车辆和车道的问题，这对自动驾驶的安全导航至关重要。关键技术洞察是将预训练的CNN架构（如VGG16和MobileNet）与自定义数据增强技术相结合，从而提高了在GTSRB和Udacity模拟器数据等多样化数据集上的分类性能。</p>
+<p><strong>技术贡献</strong>: 该方法采用多模型架构，包括：（1）用于交通标志分类的VGG16，输入图像调整为32x32像素，（2）用于车辆检测的YOLOv3，在COCO数据集上达到74.2%的平均精度（mAP），以及（3）用于车道检测的自定义CNN，结合3x3卷积和最大池化层。数据增强技术包括几何变换和颜色归一化，提高了模型在不同环境条件下的泛化能力。</p>
+<p><strong>结果与影响</strong>: 在GTSRB数据集上，所提模型在交通标志分类中达到了97.5%的准确率，超过了先前方法的94.5%的基线准确率。对于车辆检测，YOLOv3实现了比传统Faster R-CNN模型提高了5.2%的平均精度（mAP）。车道检测性能在TuSimple数据集上评估，达到92.1%的交并比（IoU），显示出车道识别准确性的显著提升。</p>
+<p><strong>技术精髓</strong>: 通过将预训练的CNN与自定义数据增强技术相结合，该模型在交通标志分类中实现了+3%的准确率提升，同时保持适合自动驾驶应用的实时处理速度。</p>
+
+<hr>
+
+<h3>7. Senna-2: Aligning VLM and End-to-End Driving Policy for Consistent Decision Making and Planning</h3>
+
+<p><strong>作者</strong>: Yuehao Song, Shaoyu Chen, Hao Gao, Yifan Zhu, Weixiang Yue et al. (11 authors)  |  <strong>机构</strong>: Huazhong University of Science and Technology, Horizon Robotics</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2603.11219v1" target="_blank">2603.11219v1</a> | <a href="https://arxiv.org/pdf/2603.11219v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-03-11</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了视觉语言模型（VLM）产生的高层决策与端到端（E2E）驾驶系统的低层轨迹规划之间的不一致性问题。关键技术洞察是引入了一个决策适配器，将VLM输出转换为与E2E规划器兼容的嵌入，从而确保生成的轨迹与驾驶意图一致。</p>
+<p><strong>技术贡献</strong>: Senna-2采用三阶段训练范式：（1）驾驶预训练，VLM和E2E策略在大规模数据集上训练以建立基线决策能力；（2）开放环路对齐，通过分析运动学差异来细化VLM和E2E策略输出；（3）使用分层强化学习（HRL）进行闭环对齐，通过复合奖励优化安全性和效率。决策适配器输出VLM令牌和决策令牌，融合生成VLM条件特征用于轨迹规划。</p>
+<p><strong>结果与影响</strong>: 在大规模驾驶基准测试中，Senna-2在双系统一致性方面实现了19.3%的F1分数提升，并在开放环路设置中减少了5.7%的最终位移误差。在闭环场景中，它将责任碰撞率降低了30.6%，显示出相较于基线方法的显著增强。</p>
+<p><strong>技术精髓</strong>: 通过实现一个决策适配器，将VLM输出转换为与E2E规划器兼容的嵌入，Senna-2确保了决策制定和轨迹规划的一致性，从而在双系统一致性指标上实现了19.3%的提升。</p>
+
+<hr>
+
+<h3>8. $M^2$-Occ: Resilient 3D Semantic Occupancy Prediction for Autonomous Driving with Incomplete Camera Inputs</h3>
+
+<p><strong>作者</strong>: Kaixin Lin, Kunyu Peng, Di Wen, Yufan Chen, Ruiping Liu et al. (6 authors)  |  <strong>机构</strong>: Hunan University, Karlsruhe Institute of Technology, Sofia University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2603.09737v1" target="_blank">2603.09737v1</a> | <a href="https://arxiv.org/pdf/2603.09737v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-03-10</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了由于缺失摄像头视图导致的3D语义占用预测性能下降的问题，这种情况可能由于传感器故障或遮挡而发生。关键技术洞察是使用多视图掩蔽重建（MMR）模块，通过利用相邻摄像头的空间重叠来重建丢失的特征，从而在输入不完整的情况下保持语义一致性。</p>
+<p><strong>技术贡献</strong>: M2-Occ采用两个关键模块：（1）多视图掩蔽重建（MMR）利用基于变换器的解码器从相邻摄像头聚合特征，通过连接重叠区域重建丢失的特征；（2）特征记忆模块（FMM）使用单原型和多原型策略，通过检索类特定语义原型来细化体素表示，确保语义一致性。MMR在特征图上操作，维度为（H，W，C），其中H和W为空间维度，C为通道数。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，M2-Occ在“缺失后视图”场景下相比基线SurroundOcc实现了+4.93%的交并比（IoU）提升。在极端情况下，最多缺失5个视图时，M2-Occ保持了18.36%的IoU，而基线降至13.35%，显示出对传感器故障的显著韧性。</p>
+<p><strong>技术精髓</strong>: 通过利用相邻摄像头视图的空间重叠来重建丢失特征，M2-Occ在MMR模块中保持语义完整性，在多个缺失视图的场景中实现了+5.01%的IoU提升。</p>
+
+<hr>
+
+<h3>9. Exploring Single Domain Generalization of LiDAR-based Semantic Segmentation under Imperfect Labels</h3>
+
+<p><strong>作者</strong>: Weitong Kong, Zichao Zeng, Di Wen, Jiale Wei, Kunyu Peng et al. (8 authors)  |  <strong>机构</strong>: Karlsruhe Institute of Technology, University College London</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2510.09035v2" target="_blank">2510.09035v2</a> | <a href="https://arxiv.org/pdf/2510.09035v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-10-10  |  <strong>更新</strong>: 2026-03-10</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了由于标签噪声导致的LiDAR语义分割精度下降的问题，这种噪声可能源于传感器缺陷和人为错误。关键技术洞察是引入了一种双视图框架，利用数据的强视图和弱视图来强制特征级一致性，从而改善标签噪声条件下的分割性能。</p>
+<p><strong>技术贡献</strong>: 作者提出了DuNe，包含三个主要组件：（1）强视图使用整个增强的LiDAR扫描生成候选标签，（2）弱视图将原始和稀疏增强扫描拆分以形成配对输入，以及（3）一致性损失使两个视图的预测对齐。该双视图方法通过应用基于置信度的过滤和整合部分与负监督，增强了模型从噪声标签中学习的能力。</p>
+<p><strong>结果与影响</strong>: 在SemanticKITTI数据集上，所提方法在10%对称标签噪声下达到56.86%的mIoU，超越了基线方法（TCL、DISC、NPN），这些方法在噪声增加时表现出显著的性能下降。在10%噪声下，整体算术平均值（AM）和调和平均值（HM）分别提高了+4.6%和+4.6%，展示了双视图方法在噪声条件下的有效性。</p>
+<p><strong>技术精髓</strong>: 通过采用结合强视图和弱视图的双视图训练机制，并使用基于置信度的过滤，模型增强了特征级一致性，在10%标签噪声下实现了+4.6%的mIoU提升。</p>
+
+<hr>
+
+<h3>10. SpikeSMOKE: Spiking Neural Networks for Monocular 3D Object Detection with Cross-Scale Gated Coding</h3>
+
+<p><strong>作者</strong>: Xuemei Chen, Huamin Wang, Jing Peng, Hangchi Shen, Shukai Duan et al. (7 authors)</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2506.07737v3" target="_blank">2506.07737v3</a> | <a href="https://arxiv.org/pdf/2506.07737v3" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-06-09  |  <strong>更新</strong>: 2026-03-10</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了单目3D物体检测中高能耗的问题，通过利用脉冲神经网络（SNN）。关键洞察是引入了跨尺度门控编码机制（CSGC），通过时间和空间过滤增强特征表示，从而实现稀疏数据的高效处理。</p>
+<p><strong>技术贡献</strong>: SpikeSMOKE架构由三个主要组件组成：（1）CSGC，结合跨尺度注意力和门控过滤以增强特征表示；（2）轻量级残差块，减少计算负担同时保持深度；（3）使用漏斗积分-发射（LIF）神经元模拟生物神经元行为，优化能耗。CSGC通过注意权重融合不同尺度的特征，有效提升模型在不同上下文中的物体检测能力。</p>
+<p><strong>结果与影响</strong>: 在KITTI数据集上，SpikeSMOKE在0.7 IoU阈值下实现了11.78（+2.82，简单），10.69（+3.2，中等）和10.48（+3.17，困难）的平均精度（AP），显著超越基线SMOKE。此外，SpikeSMOKE-L将参数减少了3倍，计算量减少了10倍，突显了其在资源受限环境中的高效性。</p>
+<p><strong>技术精髓</strong>: 通过实现跨尺度门控编码机制融合不同尺度的特征，SpikeSMOKE在保持高检测精度的同时，实现了计算负担减少10倍的目标。</p>
+
+<hr>
+
+
+
+        <div class="footer">
+            <p>自动生成 | 数据来源: arXiv | 由 LLM 分析总结</p>
+            <p>2026-03-15 08:17</p>
+        </div>
+    </div>
+</body>
+</html>
