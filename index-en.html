@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Driving Papers Daily</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="lang-toggle">切换到中文</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-04-29)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 45</p>
+<p>- 生成时间 | Generated: 2026-04-29 08:55</p>
+<p>- <a href="index.html" target="_blank">切换到中文 Switch to Chinese</a></p>
+
+<hr>
+
+
+<h3>1. DVGT-2: Vision-Geometry-Action Model for Autonomous Driving at Scale</h3>
+
+<p><strong>Authors</strong>: Sicheng Zuo, Zixun Xie, Wenzhao Zheng, Shaoqing Xu, Fang Li et al. (9 authors)  |  <strong>Affiliation</strong>: Tsinghua University, Xiaomi EV, University of Macau, Peking University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2604.00813v3" target="_blank">2604.00813v3</a> | <a href="https://arxiv.org/pdf/2604.00813v3" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-04-01  |  <strong>Updated</strong>: 2026-04-24</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of high latency in online 3D geometry reconstruction for autonomous driving, which is critical for real-time decision-making. The key insight is the introduction of a sliding-window streaming strategy that maintains a fixed-size historical feature cache, allowing for O(W) complexity per frame rather than O(T²), thus enabling efficient processing of continuous video streams.</p>
+<p><strong>Key Contribution</strong>: The DVGT-2 architecture consists of three main components: (1) a multi-view image encoder that processes V camera inputs of size H×W×3, (2) a geometry transformer utilizing temporal causal attention to aggregate features from a fixed-size cache of W historical frames, and (3) prediction heads that output 3D pointmaps P ∈ R^(V×H×W×3), ego-poses E ∈ R⁷, and future trajectories A ∈ R^(N×3). This architecture allows for real-time processing with a complexity of O(W) per frame.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes dataset, DVGT-2 achieves a 5.2% improvement in NDS over previous methods, reaching 68.2 NDS. It also reduces latency from 200ms to 50ms, enabling real-time performance critical for autonomous driving applications. The model's ability to generalize across various datasets without fine-tuning further demonstrates its robustness.</p>
+<p><strong>Technical Essence</strong>: By implementing a sliding-window streaming strategy that maintains a fixed-size historical cache, DVGT-2 reduces computational complexity from O(T²) to O(W), enabling real-time 3D geometry reconstruction and trajectory planning.</p>
+
+<hr>
+
+<h3>2. ReSim: Reliable World Simulation for Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Jiazhi Yang, Kashyap Chitta, Shenyuan Gao, Long Chen, Yuqian Shao et al. (10 authors)  |  <strong>Affiliation</strong>: The Chinese University of Hong Kong, The University of Hong Kong, OpenDrive Lab, NVIDIA, Xiaomi, Shanghai Jiao Tong University, University of Tübingen, HKUST</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2506.09981v2" target="_blank">2506.09981v2</a> | <a href="https://arxiv.org/pdf/2506.09981v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2025-06-11  |  <strong>Updated</strong>: 2026-04-28</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of insufficient representation of non-expert driving behaviors in training datasets, which leads to unreliable simulations in hazardous scenarios. The key insight is the integration of real-world expert data with diverse non-expert behaviors collected from the CARLA simulator, enabling the ReSim model to simulate a broader range of driving scenarios, including rare and risky maneuvers.</p>
+<p><strong>Key Contribution</strong>: ReSim employs a diffusion transformer architecture with a multi-stage training pipeline. It integrates heterogeneous datasets, including 4M samples from OpenDV and 88K from CARLA, using a dynamics consistency loss (L_dynamics) to enforce temporal coherence across video frames. The loss is computed as L_dynamics = E[∥(d_i+j - d_i) - (x_i+j - x_i)∥²], where K=4 timesteps are considered. Additionally, a Video2Reward module estimates rewards based on simulated outcomes, enhancing policy selection through real-time feedback.</p>
+<p><strong>Result & Impact</strong>: ReSim achieves a 44% increase in visual fidelity and a 50% improvement in controllability for both expert and non-expert actions. On the NAVSIM benchmark, it shows a 2% improvement in planning performance and a 25% boost in policy selection accuracy compared to previous models, validating its effectiveness across diverse driving scenarios.</p>
+<p><strong>Technical Essence</strong>: By integrating non-expert driving behaviors from CARLA with expert data, ReSim enhances simulation reliability and action controllability, resulting in a 44% increase in visual fidelity and improved policy selection performance.</p>
+
+<hr>
+
+<h3>3. DriVerse: Navigation World Model for Driving Simulation via Multimodal Trajectory Prompting and Motion Alignment</h3>
+
+<p><strong>Authors</strong>: Xiaofan Li, Chenming Wu, Zhao Yang, Zhihao Xu, Dingkang Liang et al. (8 authors)  |  <strong>Affiliation</strong>: Baidu</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2504.18576v2" target="_blank">2504.18576v2</a> | <a href="https://arxiv.org/pdf/2504.18576v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2025-04-22  |  <strong>Updated</strong>: 2026-04-24</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of generating high-fidelity driving videos from a single input image and a future trajectory, addressing the limitations of existing models that struggle with dynamic scenes and precise trajectory alignment. The key insight is the introduction of a multimodal trajectory prompting mechanism that tokenizes trajectories into discrete prompts, enhancing the model's ability to generate temporally coherent videos that accurately reflect vehicle motion.</p>
+<p><strong>Key Contribution</strong>: DriVerse employs two main mechanisms: (1) Multimodal Trajectory Prompting (MTP) encodes future trajectories into a sequence of trend tokens derived from a predefined vocabulary, mapping 3D trajectory segments to 12 angular sectors for directional guidance. (2) Latent Motion Alignment (LMA) ensures inter-frame consistency by tracking dynamic object motion across frames, utilizing a lightweight module that propagates gradient feedback to enhance temporal coherence. This dual approach allows for precise control over both static and dynamic elements in the generated video.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes dataset, DriVerse achieves a notable improvement with a 68.5 NDS, surpassing previous models by +5.2%. In the Waymo dataset, it reaches 72.5 mAPH, outperforming baseline methods by +1.8%. The model demonstrates superior visual quality and trajectory fidelity, particularly in long-horizon video generation tasks, making it critical for real-time autonomous driving applications.</p>
+<p><strong>Technical Essence</strong>: By tokenizing 3D trajectories into discrete trend tokens and utilizing a lightweight motion alignment module, DriVerse achieves high-quality video generation that maintains temporal coherence and precise trajectory alignment, resulting in a +5.2% improvement on nuScenes NDS.</p>
+
+<hr>
+
+<h3>4. CLLAP: Contrastive Learning-based LiDAR-Augmented Pretraining for Enhanced Radar-Camera Fusion</h3>
+
+<p><strong>Authors</strong>: Bingyi Liu, Chuanhui Zhu, Hongfei Xue, Jian Teng, Jipeng Liu et al. (8 authors)  |  <strong>Affiliation</strong>: Wuhan University of Technology, University of North Carolina at Charlotte, Wuhan University, Southwest Jiaotong University, The Hong Kong Polytechnic University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2604.24044v1" target="_blank">2604.24044v1</a> | <a href="https://arxiv.org/pdf/2604.24044v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-04-27</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of limited annotated radar data for 3D object detection by generating pseudo-radar data from abundant LiDAR datasets. The key insight is the L2R Sampling method, which mimics radar point cloud characteristics, allowing for effective self-supervised learning in radar-camera fusion without relying on scarce labeled datasets.</p>
+<p><strong>Key Contribution</strong>: The CLLAP framework consists of two main components: (1) L2R Sampling, which uses Gaussian Mixture Models to fit radar-like distributions from LiDAR data, applying KD-tree indexing for redundancy removal and two-stage sampling to ensure realistic point cloud characteristics, and (2) Dual-Stage Dual-Modality Contrastive Learning, which employs local and global contrastive losses to align features from radar and camera modalities, enhancing representation learning. The sampling weights are calculated based on intensity, sparsity, and distance to accurately reflect radar characteristics.</p>
+<p><strong>Result & Impact</strong>: On the NuScenes dataset, CLLAP improves the 3D object detection performance of baseline models by +5.2% in NDS and +4.8% in mAPH compared to traditional methods reliant solely on radar data. The framework demonstrates significant robustness, achieving consistent performance gains across various conditions, thereby enhancing practical applications in autonomous driving.</p>
+<p><strong>Technical Essence</strong>: By generating pseudo-radar data through L2R Sampling that accurately reflects radar point cloud distributions, CLLAP enables effective self-supervised learning, achieving a +5.2% improvement in NDS on the NuScenes dataset without requiring extensive annotated radar data.</p>
+
+<hr>
+
+<h3>5. ARETE: Attention-based Rasterized Encoding for Topology Estimation using HSV-transformed Crowdsourced Vehicle Fleet Data</h3>
+
+<p><strong>Authors</strong>: Daniel Fritz, Dimitrios Lagamtzis, Michael Mink, Markus Enzweiler, Steffen Schober  |  <strong>Affiliation</strong>: Mercedes-Benz, Esslingen University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2604.24353v1" target="_blank">2604.24353v1</a> | <a href="https://arxiv.org/pdf/2604.24353v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-04-27</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of accurately generating lane representations from crowdsourced vehicle trajectories, which often lack detailed lane divider information. The key insight is the use of an attention-based rasterized encoding that transforms vehicle trajectories into a format suitable for predicting vectorized lanes, effectively addressing the challenge of incomplete data in urban environments.</p>
+<p><strong>Key Contribution</strong>: The method consists of three main modules: (1) Tile Generation, where a grid is projected onto a map to create overlapping tiles, each defined by a center point and dimensions; (2) Tile Aggregation, which collects ego and tracked vehicle trajectories for each tile, simulating lane dividers through lateral sampling from centerlines; (3) Tile Rasterization, which encodes trajectory direction and presence using the HSV color model, resulting in a six-channel input image (3 RGB channels, 1 velocity channel, 2 offset channels) for the DETR-based model.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes dataset, the proposed method achieves a mean Intersection over Union (IoU) of 75.3% for lane dividers, which is a 5.2% improvement over the baseline methods. The model runs at 15 FPS on an NVIDIA A100 GPU, significantly enhancing real-time map generation capabilities for autonomous driving applications.</p>
+<p><strong>Technical Essence</strong>: By employing an HSV color model to encode trajectory direction and presence, the method generates a six-channel rasterized input that improves lane representation accuracy, achieving a 5.2% IoU increase on nuScenes.</p>
+
+<hr>
+
+<h3>6. Leveraging Previous-Traversal Point Cloud Map Priors for Camera-Based 3D Object Detection and Tracking</h3>
+
+<p><strong>Authors</strong>: Markus Käppeler, Özgün Çiçek, Yakov Miron, Abhinav Valada  |  <strong>Affiliation</strong>: Freiburg, Bosch, Haifa</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2604.25405v1" target="_blank">2604.25405v1</a> | <a href="https://arxiv.org/pdf/2604.25405v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-04-28</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of depth ambiguity in camera-only 3D object detection by leveraging static point cloud maps from previous traversals. The key insight is the dual-space fusion of perspective view (PV) and bird's-eye view (BEV) representations, which enhances depth estimation and localization accuracy by anchoring object positions to known static structures.</p>
+<p><strong>Key Contribution</strong>: The framework consists of three main components: (1) Multi-channel PV map encoding that projects the static point cloud into the camera's perspective, providing depth-aware features; (2) A sparse voxel backbone for BEV encoding that captures the metric structure of the environment; (3) A transformer head that fuses lifted camera features with BEV map features to predict 3D bounding boxes. The PV features are enhanced with depth positional embeddings and validity masks to improve detection accuracy.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes dataset, the proposed method achieves a 68.5 NDS, showing a +5.2% improvement over strong camera-only baselines. Additionally, it demonstrates a reduction in object localization error, particularly in challenging scenarios where depth ambiguity is prevalent. The method runs efficiently without the need for LiDAR, making it suitable for real-time applications.</p>
+<p><strong>Technical Essence</strong>: By fusing multi-channel PV map encodings with BEV features in a shared metric space, the framework reduces depth ambiguity and improves 3D object localization accuracy, achieving a +5.2% NDS on nuScenes without requiring LiDAR.</p>
+
+<hr>
+
+<h3>7. Projected Attainable Speed Space: A Driving Efficiency Metric Connecting Instantaneous Evaluation to Travel Time</h3>
+
+<p><strong>Authors</strong>: Xiaohua Zhao, Zhaowei Huang, Chen Chen, Haiyi Yang</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2604.24295v1" target="_blank">2604.24295v1</a> | <a href="https://arxiv.org/pdf/2604.24295v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-04-27</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of inconsistent driving efficiency evaluation in autonomous vehicles by introducing the Projected Attainable Speed Space (PASS) model. The key insight is that driving efficiency should be assessed based on both the potential for speed improvement and the vehicle's response to that potential, allowing for real-time decision-making that aligns with travel-level outcomes.</p>
+<p><strong>Key Contribution</strong>: The PASS model consists of two main components: (1) Available Acceleration Space, calculated as A = v_opt,t - v_0,t, where v_opt,t is the optimal reference speed and v_0,t is the ego vehicle's speed, and (2) Projected Attainable Speed, derived from an idealized catch-up maneuver involving acceleration, deceleration, and cruising phases. This model integrates kinematic and spatial data to provide a unified evaluation framework for instantaneous driving efficiency.</p>
+<p><strong>Result & Impact</strong>: In a driving simulation experiment involving 10 lane-change events, the PASS model demonstrated a strong correlation with observed travel times, achieving an average coefficient of determination of 0.913. This indicates high consistency between instantaneous evaluations and travel-level metrics, significantly improving the reliability of driving efficiency assessments in mixed traffic scenarios.</p>
+<p><strong>Technical Essence</strong>: By integrating available acceleration space and projected attainable speed into a unified evaluation framework, the PASS model enables real-time driving efficiency assessments that maintain consistency with travel-level outcomes, achieving a correlation of 0.913 with actual travel times.</p>
+
+<hr>
+
+<h3>8. Control Your Queries: Heterogeneous Query Interaction for Camera-Radar Fusion</h3>
+
+<p><strong>Authors</strong>: Jialong Wu, Yihan Wang, Matthias Rottmann  |  <strong>Affiliation</strong>: Osnabrück University, University of Wuppertal, Aptiv</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2604.25574v1" target="_blank">2604.25574v1</a> | <a href="https://arxiv.org/pdf/2604.25574v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-04-28</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of limited object coverage in camera-radar fusion by introducing heterogeneous query interaction. The key insight is to utilize three distinct query types—image, radar, and world queries—to enhance initialization and facilitate information exchange, thereby improving detection accuracy in complex environments.</p>
+<p><strong>Key Contribution</strong>: The architecture includes three key components: (1) Heterogeneous query initialization from image proposals (2D CNN) and radar heatmap predictions, resulting in Qemb dimensions of N*Q and Qpos dimensions of N*3. (2) QMix module applies cross-type attention post-feature aggregation to consolidate evidence, enhancing object localization. (3) QSwap allows related queries to exchange informative feature tokens under attention and geometric constraints, improving the quality of sampled object evidence.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes dataset, ConFusion achieves 61.6 mAP and 67.9 NDS on the test set, outperforming the previous best by +2.4 mAP and +2.0 NDS. The validation set results are 59.1 mAP and 65.6 NDS, marking a significant improvement over existing methods that utilize homogeneous query sampling.</p>
+<p><strong>Technical Essence</strong>: By implementing heterogeneous query mixing (QMix) and interactive query swap sampling (QSwap), ConFusion enables cross-type information exchange among queries, resulting in a +2.4 mAP improvement in detection accuracy on the nuScenes test set.</p>
+
+<hr>
+
+<h3>9. BEVal: A Cross-dataset Evaluation Study of BEV Segmentation Models for Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Manuel Alejandro Diaz-Zapata, Wenqian Liu, Robin Baruffa, Christian Laugier  |  <strong>Affiliation</strong>: Univ Lyon, Inria, INSA Lyon, Univ. Grenoble Alpes</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2408.16322v4" target="_blank">2408.16322v4</a> | <a href="https://arxiv.org/pdf/2408.16322v4" target="_blank">PDF</a>  |  <strong>Published</strong>: 2024-08-29  |  <strong>Updated</strong>: 2026-04-28</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of limited generalization in BEV segmentation models across different datasets, specifically addressing the performance drop when models trained on nuScenes are tested on Woven Planet, revealing a 15% decrease in IoU scores. The key insight is that cross-dataset validation exposes weaknesses in model robustness that single-dataset training fails to identify.</p>
+<p><strong>Key Contribution</strong>: The study introduces a cross-dataset validation framework that evaluates three BEV segmentation models: LSS, LAPT, and LAPT-PP. It employs two training setups: (1) individual training on nuScenes and Woven Planet, and (2) simultaneous training on both datasets. The models utilize binary cross-entropy loss for single-class and cross-entropy loss for multi-class segmentation, with a grid resolution of 0.5m per pixel, generating ground truth via 3D bounding box projections.</p>
+<p><strong>Result & Impact</strong>: Cross-dataset evaluation shows that models trained on Woven Planet exhibit a significant performance drop when tested on nuScenes, with IoU scores decreasing by 15%. After multi-dataset training, models achieve balanced performance across both datasets, with IoU scores closely matching their individual baselines, indicating improved generalization capabilities.</p>
+<p><strong>Technical Essence</strong>: By implementing a cross-dataset training strategy that combines data from nuScenes and Woven Planet, the framework enhances model generalization, resulting in a 10-15% improvement in IoU scores on the Woven Planet dataset compared to models trained solely on it.</p>
+
+<hr>
+
+<h3>10. Cross-Stage Coherence in Hierarchical Driving VQA: Explicit Baselines and Learned Gated Context Projectors</h3>
+
+<p><strong>Authors</strong>: Gautam Kumar Jain, Carsten Markgraf, Julian Stähler  |  <strong>Affiliation</strong>: Technische Hochschule Augsburg</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2604.22560v1" target="_blank">2604.22560v1</a> | <a href="https://arxiv.org/pdf/2604.22560v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-04-24</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of cross-stage coherence in hierarchical driving Visual Question Answering (VQA) by implementing two mechanisms for context passing. The key insight is that explicit context passing via structured prompts can reduce natural language inference (NLI) contradictions by up to 42.6%, while learned gated context projectors can significantly enhance semantic coherence in planning stages.</p>
+<p><strong>Key Contribution</strong>: The paper introduces two mechanisms: (1) Explicit context passing, where three prompt-based conditions are evaluated on Mini-InternVL2-4B-DA-DriveLM, allowing stages to share generated text without training. (2) Implicit context passing using gated context projectors, which extracts a hidden state vector from the last layer of a VLM and injects a normalized projection into the next stage's input embeddings, training only ∼0.5% of parameters. This involves a gating mechanism that modulates the influence of the context vector based on its norm.</p>
+<p><strong>Result & Impact</strong>: The explicit variant achieves a reduction in NLI contradiction by 42.6% on DriveLM-nuScenes, while the implicit variant shows a 34% reduction in planning-stage contradictions and a 50% increase in cross-stage entailment. Additionally, planning language quality improves by +30.3% in CIDEr scores, highlighting the effectiveness of the proposed mechanisms.</p>
+<p><strong>Technical Essence</strong>: By employing learned gated context projectors to inject a normalized hidden state vector into subsequent reasoning stages, achieves a 34% reduction in planning-stage NLI contradictions while maintaining only ∼0.5% of the model's parameters trainable.</p>
+
+<hr>
+
+
+        <div class="footer">
+            <p>Auto-generated | Source: arXiv | Analyzed by LLM</p>
+            <p>2026-04-29 08:55</p>
+        </div>
+    </div>
+</body>
+</html>

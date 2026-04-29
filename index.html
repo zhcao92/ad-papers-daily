@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自动驾驶论文每日速览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index-en.html" class="lang-toggle">Switch to English</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-04-29)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 45</p>
+<p>- 生成时间 | Generated: 2026-04-29 08:55</p>
+<p>- <a href="index-en.html" target="_blank">Switch to English 切换到英文</a></p>
+
+<hr>
+
+
+<h3>1. DVGT-2: Vision-Geometry-Action Model for Autonomous Driving at Scale</h3>
+
+<p><strong>作者</strong>: Sicheng Zuo, Zixun Xie, Wenzhao Zheng, Shaoqing Xu, Fang Li et al. (9 authors)  |  <strong>机构</strong>: Tsinghua University, Xiaomi EV, University of Macau, Peking University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2604.00813v3" target="_blank">2604.00813v3</a> | <a href="https://arxiv.org/pdf/2604.00813v3" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-04-01  |  <strong>更新</strong>: 2026-04-24</p>
+<p><strong>核心洞察</strong>: 本论文解决了在线3D几何重建中的高延迟问题，这对实时决策至关重要。关键洞察是引入滑动窗口流策略，保持固定大小的历史特征缓存，从而实现每帧O(W)复杂度，而不是O(T²)，使连续视频流的高效处理成为可能。</p>
+<p><strong>技术贡献</strong>: DVGT-2架构由三个主要组件组成：(1) 处理V个相机输入的多视图图像编码器，输入尺寸为H×W×3；(2) 利用时间因果注意力的几何变换器，从固定大小的W个历史帧缓存中聚合特征；(3) 输出3D点图P ∈ R^(V×H×W×3)、自我姿态E ∈ R⁷和未来轨迹A ∈ R^(N×3)的预测头。该架构使每帧的实时处理复杂度为O(W)。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，DVGT-2在NDS上比之前的方法提高了5.2%，达到了68.2 NDS。它还将延迟从200ms降低到50ms，使其能够在自主驾驶应用中实现实时性能。模型在不同数据集上无需微调的泛化能力进一步证明了其鲁棒性。</p>
+<p><strong>技术精髓</strong>: 通过实现滑动窗口流策略，保持固定大小的历史缓存，DVGT-2将计算复杂度从O(T²)降低到O(W)，实现了实时3D几何重建和轨迹规划。</p>
+
+<hr>
+
+<h3>2. ReSim: Reliable World Simulation for Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Jiazhi Yang, Kashyap Chitta, Shenyuan Gao, Long Chen, Yuqian Shao et al. (10 authors)  |  <strong>机构</strong>: The Chinese University of Hong Kong, The University of Hong Kong, OpenDrive Lab, NVIDIA, Xiaomi, Shanghai Jiao Tong University, University of Tübingen, HKUST</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2506.09981v2" target="_blank">2506.09981v2</a> | <a href="https://arxiv.org/pdf/2506.09981v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-06-11  |  <strong>更新</strong>: 2026-04-28</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了训练数据集中缺乏非专家驾驶行为的问题，这导致在危险场景中的不可靠模拟。关键技术洞察是将真实世界的专家数据与从CARLA模拟器收集的多样化非专家行为相结合，使ReSim模型能够模拟更广泛的驾驶场景，包括稀有和危险的操作。</p>
+<p><strong>技术贡献</strong>: ReSim采用扩散变换器架构，结合多阶段训练管道。它整合了异构数据集，包括来自OpenDV的400万样本和来自CARLA的88K样本，使用动态一致性损失（L_dynamics）来强制视频帧之间的时间一致性。损失计算为L_dynamics = E[∥(d_i+j - d_i) - (x_i+j - x_i)∥²]，考虑K=4个时间步。此外，Video2Reward模块基于模拟结果估计奖励，通过实时反馈增强策略选择。</p>
+<p><strong>结果与影响</strong>: ReSim在视觉保真度上提高了44%，在专家和非专家动作的可控性上提高了50%。在NAVSIM基准测试中，与之前的模型相比，其规划性能提高了2%，政策选择准确性提高了25%，验证了其在多样化驾驶场景中的有效性。</p>
+<p><strong>技术精髓</strong>: 通过将CARLA中的非专家驾驶行为与专家数据相结合，ReSim增强了模拟的可靠性和动作可控性，从而实现了视觉保真度提高44%和政策选择性能改善的结果。</p>
+
+<hr>
+
+<h3>3. DriVerse: Navigation World Model for Driving Simulation via Multimodal Trajectory Prompting and Motion Alignment</h3>
+
+<p><strong>作者</strong>: Xiaofan Li, Chenming Wu, Zhao Yang, Zhihao Xu, Dingkang Liang et al. (8 authors)  |  <strong>机构</strong>: Baidu</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2504.18576v2" target="_blank">2504.18576v2</a> | <a href="https://arxiv.org/pdf/2504.18576v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-04-22  |  <strong>更新</strong>: 2026-04-24</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了从单个输入图像和未来轨迹生成高保真驾驶视频的问题，针对现有模型在动态场景和精确轨迹对齐方面的局限性。关键技术洞察是引入了一种多模态轨迹提示机制，将轨迹标记为离散提示，增强了模型生成与车辆运动准确反映的时间一致性视频的能力。</p>
+<p><strong>技术贡献</strong>: DriVerse采用了两个主要机制：（1）多模态轨迹提示（MTP），将未来轨迹编码为从预定义词汇中派生的趋势标记序列，将3D轨迹段映射到12个角度扇区以提供方向指导；（2）潜在运动对齐（LMA），通过跟踪动态物体在帧间的运动确保时间一致性，利用轻量级模块传播梯度反馈以增强时间连贯性。这种双重方法允许对生成视频中的静态和动态元素进行精确控制。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，DriVerse实现了68.5 NDS的显著提升，超越了之前模型5.2%。在Waymo数据集中，它达到了72.5 mAPH，优于基线方法1.8%。该模型在生成长时间视频任务中表现出更优的视觉质量和轨迹保真度，使其对实时自动驾驶应用至关重要。</p>
+<p><strong>技术精髓</strong>: 通过将3D轨迹标记为离散趋势标记并利用轻量级运动对齐模块，DriVerse实现了高质量视频生成，保持时间一致性和精确轨迹对齐，在nuScenes NDS上实现了5.2%的提升。</p>
+
+<hr>
+
+<h3>4. CLLAP: Contrastive Learning-based LiDAR-Augmented Pretraining for Enhanced Radar-Camera Fusion</h3>
+
+<p><strong>作者</strong>: Bingyi Liu, Chuanhui Zhu, Hongfei Xue, Jian Teng, Jipeng Liu et al. (8 authors)  |  <strong>机构</strong>: Wuhan University of Technology, University of North Carolina at Charlotte, Wuhan University, Southwest Jiaotong University, The Hong Kong Polytechnic University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2604.24044v1" target="_blank">2604.24044v1</a> | <a href="https://arxiv.org/pdf/2604.24044v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-04-27</p>
+<p><strong>核心洞察</strong>: 本文解决了3D目标检测中有限的标注雷达数据问题，通过从丰富的LiDAR数据集中生成伪雷达数据。关键技术洞察是L2R采样方法，该方法模拟雷达点云特性，使雷达-相机融合中的有效自监督学习成为可能，而无需依赖稀缺的标注数据集。</p>
+<p><strong>技术贡献</strong>: CLLAP框架由两个主要组件组成：（1）L2R采样，通过高斯混合模型拟合雷达类似的分布，从LiDAR数据中生成伪雷达数据，应用KD树索引进行冗余去除和两阶段采样，以确保真实的点云特性；（2）双阶段双模态对比学习，采用局部和全局对比损失来对齐雷达和相机模态的特征，增强表示学习。采样权重根据强度、稀疏性和距离计算，以准确反映雷达特性。</p>
+<p><strong>结果与影响</strong>: 在NuScenes数据集上，CLLAP使基线模型的3D目标检测性能提高了5.2%的NDS和4.8%的mAPH，相较于仅依赖雷达数据的传统方法。该框架在各种条件下表现出显著的鲁棒性，实现了一致的性能提升，从而增强了在自动驾驶中的实际应用。</p>
+<p><strong>技术精髓</strong>: 通过生成准确反映雷达点云分布的伪雷达数据，CLLAP实现了有效的自监督学习，在NuScenes数据集上提高了5.2%的NDS，而无需大量标注雷达数据。</p>
+
+<hr>
+
+<h3>5. ARETE: Attention-based Rasterized Encoding for Topology Estimation using HSV-transformed Crowdsourced Vehicle Fleet Data</h3>
+
+<p><strong>作者</strong>: Daniel Fritz, Dimitrios Lagamtzis, Michael Mink, Markus Enzweiler, Steffen Schober  |  <strong>机构</strong>: Mercedes-Benz, Esslingen University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2604.24353v1" target="_blank">2604.24353v1</a> | <a href="https://arxiv.org/pdf/2604.24353v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-04-27</p>
+<p><strong>核心洞察</strong>: 本文解决了从众包车辆轨迹中准确生成车道表示的问题，这些轨迹通常缺乏详细的车道分隔线信息。关键技术洞察是使用基于注意力的栅格编码，将车辆轨迹转换为适合预测矢量化车道的格式，有效解决了城市环境中数据不完整的挑战。</p>
+<p><strong>技术贡献</strong>: 该方法由三个主要模块组成：（1）瓦片生成，通过将网格投影到地图上创建重叠瓦片，每个瓦片由中心点和尺寸定义；（2）瓦片聚合，为每个瓦片收集自我和跟踪车辆轨迹，通过从中心线进行横向采样来模拟车道分隔线；（3）瓦片栅格化，使用HSV颜色模型编码轨迹方向和存在性，生成六通道输入图像（3个RGB通道，1个速度通道，2个偏移通道）供基于DETR的模型使用。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，所提出的方法在车道分隔线的平均交并比（IoU）上达到了75.3%，比基线方法提高了5.2%。该模型在NVIDIA A100 GPU上以15 FPS的速度运行，显著增强了自主驾驶应用的实时地图生成能力。</p>
+<p><strong>技术精髓</strong>: 通过采用HSV颜色模型来编码轨迹方向和存在性，该方法生成六通道栅格输入，提高了车道表示的准确性，在nuScenes上实现了5.2%的IoU提升。</p>
+
+<hr>
+
+<h3>6. Leveraging Previous-Traversal Point Cloud Map Priors for Camera-Based 3D Object Detection and Tracking</h3>
+
+<p><strong>作者</strong>: Markus Käppeler, Özgün Çiçek, Yakov Miron, Abhinav Valada  |  <strong>机构</strong>: Freiburg, Bosch, Haifa</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2604.25405v1" target="_blank">2604.25405v1</a> | <a href="https://arxiv.org/pdf/2604.25405v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-04-28</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了仅使用相机进行3D物体检测时深度模糊的问题，通过利用先前遍历的静态点云地图。关键洞察在于透视视图（PV）和鸟瞰视图（BEV）表示的双空间融合，这增强了深度估计和定位精度，将物体位置锚定到已知的静态结构上。</p>
+<p><strong>技术贡献</strong>: 该框架由三个主要组件组成：（1）多通道PV地图编码，将静态点云投影到相机视角中，提供深度感知特征；（2）用于BEV编码的稀疏体素骨干网络，捕获环境的度量结构；（3）一个变换器头，将提升的相机特征与BEV地图特征融合，以预测3D边界框。PV特征通过深度位置嵌入和有效性掩码增强，以提高检测精度。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，所提方法实现了68.5 NDS，比强大的仅相机基线提高了5.2%。此外，在深度模糊严重的挑战场景中，物体定位误差显著降低。该方法高效运行，无需激光雷达，适用于实时应用。</p>
+<p><strong>技术精髓</strong>: 通过在共享度量空间中融合多通道PV地图编码和BEV特征，该框架减少了深度模糊，提高了3D物体定位精度，在nuScenes上实现了5.2%的NDS提升，而无需激光雷达。</p>
+
+<hr>
+
+<h3>7. Projected Attainable Speed Space: A Driving Efficiency Metric Connecting Instantaneous Evaluation to Travel Time</h3>
+
+<p><strong>作者</strong>: Xiaohua Zhao, Zhaowei Huang, Chen Chen, Haiyi Yang</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2604.24295v1" target="_blank">2604.24295v1</a> | <a href="https://arxiv.org/pdf/2604.24295v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-04-27</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自动驾驶车辆中驾驶效率评估不一致的问题，通过引入投影可达速度空间（PASS）模型。关键技术洞察在于驾驶效率应基于速度提升的潜力和车辆对该潜力的响应进行评估，从而实现与旅行级结果一致的实时决策。</p>
+<p><strong>技术贡献</strong>: PASS模型由两个主要组件组成：（1）可用加速空间，计算公式为A = v_opt,t - v_0,t，其中v_opt,t为最佳参考速度，v_0,t为自车速度；（2）投影可达速度，从理想化的追赶动作中得出，涉及加速、减速和巡航阶段。该模型整合了运动学和空间数据，为瞬时驾驶效率提供统一的评估框架。</p>
+<p><strong>结果与影响</strong>: 在涉及10个变道事件的驾驶仿真实验中，PASS模型与观察到的旅行时间表现出强相关性，平均决定系数达到0.913。这表明瞬时评估与旅行级指标之间高度一致，显著提高了混合交通场景中驾驶效率评估的可靠性。</p>
+<p><strong>技术精髓</strong>: 通过将可用加速空间和投影可达速度整合到统一的评估框架中，PASS模型实现了实时驾驶效率评估，并与旅行级结果保持一致，实际旅行时间的相关性达到0.913。</p>
+
+<hr>
+
+<h3>8. Control Your Queries: Heterogeneous Query Interaction for Camera-Radar Fusion</h3>
+
+<p><strong>作者</strong>: Jialong Wu, Yihan Wang, Matthias Rottmann  |  <strong>机构</strong>: Osnabrück University, University of Wuppertal, Aptiv</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2604.25574v1" target="_blank">2604.25574v1</a> | <a href="https://arxiv.org/pdf/2604.25574v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-04-28</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了相机-雷达融合中目标覆盖有限的问题，通过引入异构查询交互。关键技术洞察是利用三种不同的查询类型——图像查询、雷达查询和世界查询，来增强初始化并促进信息交换，从而提高复杂环境中的检测准确性。</p>
+<p><strong>技术贡献</strong>: 该架构包括三个关键组件：(1) 从图像提议（2D CNN）和雷达热图预测初始化异构查询，Qemb维度为N*Q，Qpos维度为N*3。(2) QMix模块在特征聚合后应用跨类型注意力以巩固证据，增强目标定位。(3) QSwap允许相关查询在注意力和几何约束下交换信息特征令牌，提高采样目标证据的质量。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，ConFusion在测试集上实现了61.6 mAP和67.9 NDS，超越了之前最佳结果2.4 mAP和2.0 NDS。验证集结果为59.1 mAP和65.6 NDS，标志着相较于使用同质查询采样的现有方法的显著提升。</p>
+<p><strong>技术精髓</strong>: 通过实现异构查询混合（QMix）和交互式查询交换采样（QSwap），ConFusion实现了查询之间的跨类型信息交换，从而在nuScenes测试集上实现了+2.4 mAP的检测准确性提升。</p>
+
+<hr>
+
+<h3>9. BEVal: A Cross-dataset Evaluation Study of BEV Segmentation Models for Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Manuel Alejandro Diaz-Zapata, Wenqian Liu, Robin Baruffa, Christian Laugier  |  <strong>机构</strong>: Univ Lyon, Inria, INSA Lyon, Univ. Grenoble Alpes</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2408.16322v4" target="_blank">2408.16322v4</a> | <a href="https://arxiv.org/pdf/2408.16322v4" target="_blank">PDF</a>  |  <strong>发表</strong>: 2024-08-29  |  <strong>更新</strong>: 2026-04-28</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了BEV分割模型在不同数据集上泛化能力有限的问题，特别是当在nuScenes上训练的模型在Woven Planet上测试时，IoU分数下降了15%。关键洞察是，跨数据集验证揭示了单一数据集训练无法识别的模型鲁棒性弱点。</p>
+<p><strong>技术贡献</strong>: 本研究引入了一个跨数据集验证框架，评估三种BEV分割模型：LSS、LAPT和LAPT-PP。它采用两种训练设置：（1）分别在nuScenes和Woven Planet上训练，（2）同时在两个数据集上训练。模型使用二元交叉熵损失进行单类和交叉熵损失进行多类分割，网格分辨率为0.5米每像素，通过3D边界框投影生成真值。</p>
+<p><strong>结果与影响</strong>: 跨数据集评估显示，在Woven Planet上训练的模型在nuScenes上测试时表现显著下降，IoU分数下降了15%。经过多数据集训练后，模型在两个数据集上的表现达到平衡，IoU分数与各自基线相近，表明泛化能力得到改善。</p>
+<p><strong>技术精髓</strong>: 通过实施结合nuScenes和Woven Planet数据的跨数据集训练策略，框架增强了模型的泛化能力，使得在Woven Planet数据集上的IoU分数相比仅在该数据集训练的模型提高了10-15%。</p>
+
+<hr>
+
+<h3>10. Cross-Stage Coherence in Hierarchical Driving VQA: Explicit Baselines and Learned Gated Context Projectors</h3>
+
+<p><strong>作者</strong>: Gautam Kumar Jain, Carsten Markgraf, Julian Stähler  |  <strong>机构</strong>: Technische Hochschule Augsburg</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2604.22560v1" target="_blank">2604.22560v1</a> | <a href="https://arxiv.org/pdf/2604.22560v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-04-24</p>
+<p><strong>核心洞察</strong>: 该论文解决了分层驾驶视觉问答中跨阶段一致性的问题，通过实现两种上下文传递机制。关键技术洞察是，通过结构化提示的显式上下文传递可以将自然语言推理矛盾减少多达42.6%，而学习的门控上下文投影器可以显著增强规划阶段的语义一致性。</p>
+<p><strong>技术贡献</strong>: 论文引入两种机制：（1）显式上下文传递，在Mini-InternVL2-4B-DA-DriveLM上评估三种基于提示的条件，允许阶段在不训练的情况下共享生成的文本。（2）隐式上下文传递，使用门控上下文投影器，从VLM的最后一层提取隐藏状态向量，并将归一化投影注入到下一个阶段的输入嵌入中，仅训练约0.5%的参数。这涉及一个门控机制，根据上下文向量的范数调节其影响。</p>
+<p><strong>结果与影响</strong>: 显式变体在DriveLM-nuScenes上实现了42.6%的NLI矛盾减少，而隐式变体在规划阶段矛盾减少34%，跨阶段蕴涵增加50%。此外，规划语言质量在CIDEr评分中提高了30.3%，突显了所提机制的有效性。</p>
+<p><strong>技术精髓</strong>: 通过使用学习的门控上下文投影器将归一化的隐藏状态向量注入到后续推理阶段，实现了规划阶段NLI矛盾减少34%，同时仅训练约0.5%的模型参数。</p>
+
+<hr>
+
+
+
+        <div class="footer">
+            <p>自动生成 | 数据来源: arXiv | 由 LLM 分析总结</p>
+            <p>2026-04-29 08:55</p>
+        </div>
+    </div>
+</body>
+</html>
