@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自动驾驶论文每日速览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index-en.html" class="lang-toggle">Switch to English</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-05-05)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 48</p>
+<p>- 生成时间 | Generated: 2026-05-05 08:55</p>
+<p>- <a href="index-en.html" target="_blank">Switch to English 切换到英文</a></p>
+
+<hr>
+
+
+<h3>1. DynFlowDrive: Flow-Based Dynamic World Modeling for Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Xiaolu Liu, Yicong Li, Song Wang, Junbo Chen, Angela Yao et al. (6 authors)  |  <strong>机构</strong>: Zhejiang University, National University of Singapore, Udeer.AI</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2603.19675v2" target="_blank">2603.19675v2</a> | <a href="https://arxiv.org/pdf/2603.19675v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-03-20  |  <strong>更新</strong>: 2026-05-03</p>
+<p><strong>核心洞察</strong>: 该论文解决了由于静态世界模型未能考虑动态场景演变而导致的轨迹规划不准确的问题。关键技术洞察是使用基于流的动态世界模型，学习速度场以预测场景状态在各种驾驶动作下的变化，从而实现更准确的轨迹评估。</p>
+<p><strong>技术贡献</strong>: DynFlowDrive由三个主要部分组成：(1) 轨迹规划模块，根据当前观察生成多模式轨迹；(2) 动态世界模型，使用校正流公式预测基于这些轨迹的未来潜在状态；(3) 稳定性感知的多模式选择机制，根据流引起的稳定性和重建质量评估候选轨迹。流模型通过学习连续速度场来捕捉场景动态，使得状态预测逐步进行。</p>
+<p><strong>结果与影响</strong>: 在nuScenes基准测试中，DynFlowDrive将平均L位移误差从0.39m降低到0.31m，并实现了88.7%的PDMS，优于SSR等基线方法。它在不同驾驶框架中展示了一致的规划精度提升，而在推理过程中没有增加额外的计算开销。</p>
+<p><strong>技术精髓</strong>: 通过使用校正流公式建模场景演变，学习连续速度场，DynFlowDrive实现了更准确的轨迹预测，从而使平均L位移误差减少了20.5%。</p>
+
+<hr>
+
+<h3>2. ReSim: Reliable World Simulation for Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Jiazhi Yang, Kashyap Chitta, Shenyuan Gao, Long Chen, Yuqian Shao et al. (10 authors)  |  <strong>机构</strong>: The Chinese University of Hong Kong, The University of Hong Kong, OpenDrive Lab, NVIDIA, Xiaomi, Shanghai Jiao Tong University, University of Tübingen, HKUST</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2506.09981v2" target="_blank">2506.09981v2</a> | <a href="https://arxiv.org/pdf/2506.09981v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-06-11  |  <strong>更新</strong>: 2026-04-28</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了训练数据集中缺乏非专家驾驶行为的问题，这导致在危险场景中的不可靠模拟。关键技术洞察是将真实世界的专家数据与从CARLA模拟器收集的多样化非专家行为相结合，使ReSim模型能够模拟更广泛的驾驶场景，包括稀有和危险的操作。</p>
+<p><strong>技术贡献</strong>: ReSim采用扩散变换器架构，结合多阶段训练管道。它整合了异构数据集，包括来自OpenDV的400万样本和来自CARLA的88K样本，使用动态一致性损失（L_dynamics）来强制视频帧之间的时间一致性。损失计算为L_dynamics = E[∥(d_i+j - d_i) - (x_i+j - x_i)∥²]，考虑K=4个时间步。此外，Video2Reward模块基于模拟结果估计奖励，通过实时反馈增强策略选择。</p>
+<p><strong>结果与影响</strong>: ReSim在视觉保真度上提高了44%，在专家和非专家动作的可控性上提高了50%。在NAVSIM基准测试中，与之前的模型相比，其规划性能提高了2%，政策选择准确性提高了25%，验证了其在多样化驾驶场景中的有效性。</p>
+<p><strong>技术精髓</strong>: 通过将CARLA中的非专家驾驶行为与专家数据相结合，ReSim增强了模拟的可靠性和动作可控性，从而实现了视觉保真度提高44%和政策选择性能改善的结果。</p>
+
+<hr>
+
+<h3>3. GSDrive: Reinforcing Driving Policies by Multi-mode Trajectory Probing with 3D Gaussian Splatting Environment</h3>
+
+<p><strong>作者</strong>: Ziang Guo, Chen Min, Xuefeng Zhang, Yixiao Zhou, Zufeng Zhang et al. (6 authors)  |  <strong>机构</strong>: Skoltech, Chinese Academy of Sciences, Hong Kong, Tsinghua</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2604.28111v2" target="_blank">2604.28111v2</a> | <a href="https://arxiv.org/pdf/2604.28111v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-04-30  |  <strong>更新</strong>: 2026-05-01</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了强化学习中稀疏和延迟奖励信号的问题，这通常导致次优策略收敛。关键技术洞察是利用3D高斯点云环境中的多模态轨迹探测，为多个候选轨迹的模拟结果提供基于未来的密集奖励，从而对驾驶动作提供即时反馈。</p>
+<p><strong>技术贡献</strong>: GSDrive采用多模态轨迹预测器，通过模仿学习进行训练，利用流匹配目标捕捉多样化的驾驶行为。它集成了3D高斯点云（3DGS）环境，在该环境中模拟候选轨迹以评估潜在奖励。奖励塑造基于物理模拟交互，允许密集反馈。损失函数结合了光度细节、几何准确性和LiDAR数据，平衡各个组件的贡献，以有效优化策略更新。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上评估，GSDrive实现了68.5 NDS，在闭环实验中超越现有的基于模拟的强化学习方法，提升了5.2%。该方法展示了改进的训练稳定性，并允许使用未标记的真实世界数据进行持续的策略优化，减少对昂贵注释的依赖，增强了在真实世界中的部署能力。</p>
+<p><strong>技术精髓</strong>: 通过在3D高斯点云环境中实现多模态轨迹探测，GSDrive提供密集的、基于未来的奖励，增强了策略学习效率，在nuScenes数据集上实现了5.2%的NDS提升。</p>
+
+<hr>
+
+<h3>4. SimPB++: Simultaneously Detecting 2D and 3D Objects from Multiple Cameras</h3>
+
+<p><strong>作者</strong>: Yingqi Tang, Zhaotie Meng, Erkang Cheng, Haibin Ling  |  <strong>机构</strong>: Nullmax, Westlake University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2605.01924v1" target="_blank">2605.01924v1</a> | <a href="https://arxiv.org/pdf/2605.01924v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-05-03</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了多摄像头系统中2D和3D物体检测效率低下的问题，传统方法依赖于独立的管道。关键技术洞察是通过统一模型同时检测透视视图中的2D物体和鸟瞰图中的3D物体，从而增强特征共享并减少任务间的信息损失。</p>
+<p><strong>技术贡献</strong>: SimPB++整合了两个主要组件：（1）混合解码器架构，在每一层中交错2D和3D解码，允许对物体查询进行持续细化；（2）两个新模块：动态查询分配模块根据几何投影将2D查询分配给相关的3D候选，适应性查询聚合模块利用多视角2D特征细化3D表示，促进循环细化机制。</p>
+<p><strong>结果与影响</strong>: 在nuScenes基准上，SimPB++实现了68.2 NDS，比之前最佳方法BEVFormer提高了3.1。此外，它在Argoverse2数据集上表现出色，展示了150米检测能力，显著增强了多摄像头系统在自动驾驶中的实用性。</p>
+<p><strong>技术精髓</strong>: 通过采用交错2D和3D物体查询的混合解码器，SimPB++实现了检测任务的持续细化和相互增强，在nuScenes上获得了3.1 NDS的提升。</p>
+
+<hr>
+
+<h3>5. MapRF: Weakly Supervised Online HD Map Construction via NeRF-Guided Self-Training</h3>
+
+<p><strong>作者</strong>: Hongyu Lyu, Thomas Monninger, Julie Stephany Berrio Perez, Mao Shan, Zhenxing Ming et al. (6 authors)  |  <strong>机构</strong>: The University of Sydney, Mercedes-Benz</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2511.19527v2" target="_blank">2511.19527v2</a> | <a href="https://arxiv.org/pdf/2511.19527v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-11-24  |  <strong>更新</strong>: 2026-05-03</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自动驾驶中昂贵的3D地图标注问题，通过仅利用2D图像标签进行高清地图构建。关键技术洞察在于使用条件神经辐射场（MC-NeRF）生成高质量伪标签，使模型能够在没有昂贵3D真实数据的情况下迭代优化其预测。</p>
+<p><strong>技术贡献</strong>: MapRF由三个主要组件组成：（1）使用通过逆透视映射（IPM）从2D标注生成的弱标签训练初始地图模型；（2）MC-NeRF模块从邻近神经点预测体积密度、语义逻辑和实例嵌入，有效重建地图元素；（3）地图到光线匹配策略将地图预测与2D标签对齐，减轻自我训练过程中的概念漂移。这个迭代过程允许地图模型的持续改进。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，MapRF达到了完全监督方法性能的75%，显示出对3D标注依赖的显著减少。它超越了几种仅使用2D标签的现有方法，展示了其在现实场景中的有效性。该框架的可扩展性通过其以最小标注成本在线生成高清地图的能力得以突出。</p>
+<p><strong>技术精髓</strong>: 通过采用条件神经辐射场从2D图像标注生成伪标签，MapRF实现了3D地图预测的迭代优化，在不需要昂贵的3D真实数据的情况下达到了竞争性能。</p>
+
+<hr>
+
+<h3>6. Control Your Queries: Heterogeneous Query Interaction for Camera-Radar Fusion</h3>
+
+<p><strong>作者</strong>: Jialong Wu, Yihan Wang, Matthias Rottmann  |  <strong>机构</strong>: Osnabrück University, University of Wuppertal, Aptiv</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2604.25574v1" target="_blank">2604.25574v1</a> | <a href="https://arxiv.org/pdf/2604.25574v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-04-28</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了相机-雷达融合中目标覆盖有限的问题，通过引入异构查询交互。关键技术洞察是利用三种不同的查询类型——图像查询、雷达查询和世界查询，来增强初始化并促进信息交换，从而提高复杂环境中的检测准确性。</p>
+<p><strong>技术贡献</strong>: 该架构包括三个关键组件：(1) 从图像提议（2D CNN）和雷达热图预测初始化异构查询，Qemb维度为N*Q，Qpos维度为N*3。(2) QMix模块在特征聚合后应用跨类型注意力以巩固证据，增强目标定位。(3) QSwap允许相关查询在注意力和几何约束下交换信息特征令牌，提高采样目标证据的质量。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，ConFusion在测试集上实现了61.6 mAP和67.9 NDS，超越了之前最佳结果2.4 mAP和2.0 NDS。验证集结果为59.1 mAP和65.6 NDS，标志着相较于使用同质查询采样的现有方法的显著提升。</p>
+<p><strong>技术精髓</strong>: 通过实现异构查询混合（QMix）和交互式查询交换采样（QSwap），ConFusion实现了查询之间的跨类型信息交换，从而在nuScenes测试集上实现了+2.4 mAP的检测准确性提升。</p>
+
+<hr>
+
+<h3>7. Leveraging Previous-Traversal Point Cloud Map Priors for Camera-Based 3D Object Detection and Tracking</h3>
+
+<p><strong>作者</strong>: Markus Käppeler, Özgün Çiçek, Yakov Miron, Abhinav Valada  |  <strong>机构</strong>: Freiburg, Bosch, Haifa</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2604.25405v1" target="_blank">2604.25405v1</a> | <a href="https://arxiv.org/pdf/2604.25405v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-04-28</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了仅使用相机进行3D物体检测时深度模糊的问题，通过利用先前遍历的静态点云地图。关键洞察在于透视视图（PV）和鸟瞰视图（BEV）表示的双空间融合，这增强了深度估计和定位精度，将物体位置锚定到已知的静态结构上。</p>
+<p><strong>技术贡献</strong>: 该框架由三个主要组件组成：（1）多通道PV地图编码，将静态点云投影到相机视角中，提供深度感知特征；（2）用于BEV编码的稀疏体素骨干网络，捕获环境的度量结构；（3）一个变换器头，将提升的相机特征与BEV地图特征融合，以预测3D边界框。PV特征通过深度位置嵌入和有效性掩码增强，以提高检测精度。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，所提方法实现了68.5 NDS，比强大的仅相机基线提高了5.2%。此外，在深度模糊严重的挑战场景中，物体定位误差显著降低。该方法高效运行，无需激光雷达，适用于实时应用。</p>
+<p><strong>技术精髓</strong>: 通过在共享度量空间中融合多通道PV地图编码和BEV特征，该框架减少了深度模糊，提高了3D物体定位精度，在nuScenes上实现了5.2%的NDS提升，而无需激光雷达。</p>
+
+<hr>
+
+<h3>8. Unified Map Prior Encoder for Mapping and Planning</h3>
+
+<p><strong>作者</strong>: Zongzheng Zhang, Sizhe Zou, Guantian Zheng, Zhenxin Zhu, Yu Gao et al. (15 authors)  |  <strong>机构</strong>: Tsinghua University, Bosch, Shanghai Jiao Tong University, Chinese University of Hong Kong, Shenzhen</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2605.02762v1" target="_blank">2605.02762v1</a> | <a href="https://arxiv.org/pdf/2605.02762v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-05-04</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了在自动驾驶中整合异构地图先验的问题，这些先验常常受到姿态漂移和不一致可用性的影响。关键技术洞察是统一地图先验编码器（UMPE），它将高清/标准定义矢量地图、栅格化的SD地图和卫星图像无缝融合为单一的BEV表示，从而在不同条件下实现灵活和鲁棒的映射和规划。</p>
+<p><strong>技术贡献</strong>: UMPE由两个主要组件组成：（1）矢量编码器，使用SE(2)校正预对齐高清/标准定义多线段，并通过多频正弦特征编码，生成带置信度分数的多线段令牌；（2）栅格编码器，通过ResNet-18骨干网络处理栅格化的SD地图和卫星图像，应用FiLM条件和SE(2)微对齐。两个编码器的输出通过具有置信度偏置和通道加权的双重交叉注意力融合，使模型能够根据每个先验的可用性动态调整。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，UMPE将MapTRv2的mAP从61.5提高到67.4（+5.9），将MapQR从66.4提高到71.7（+5.3）。在Argoverse2中，UMPE在强基线基础上增加了+4.1 mAP。在端到端规划中，它将平均轨迹误差从0.72降至0.42米L2（平均-0.30米），将碰撞率从0.22%降至0.12%（-0.10%）。</p>
+<p><strong>技术精髓</strong>: 通过采用具有置信度偏置的双重交叉注意力和零初始化残差融合机制，UMPE有效整合了多种地图先验，在映射和规划任务中实现了显著的性能提升，而无需针对不同的先验组合进行重新训练。</p>
+
+<hr>
+
+<h3>9. LIE: LiDAR-only HD Map Construction with Intensity Enhancement via Online Knowledge Distillation</h3>
+
+<p><strong>作者</strong>: Kanak Mazumder, Fabian B. Flohr  |  <strong>机构</strong>: Munich University of Applied Sciences</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2605.01478v1" target="_blank">2605.01478v1</a> | <a href="https://arxiv.org/pdf/2605.01478v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-05-02</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了LiDAR单一高清地图构建中语义分割准确性的问题，该问题通常受到稀疏点云数据的影响。关键技术洞察是使用来自2D强度图的在线知识蒸馏来增强特征学习，使模型能够利用传统LiDAR方法中未充分利用的反射率模式。</p>
+<p><strong>技术贡献</strong>: 该方法采用三个主要组件：（1）使用PointPillars的LiDAR特征提取器进行体素化，生成柱状特征；（2）基于Swin Transformer的强度特征提取器，从2D强度图生成多尺度BEV特征；（3）在线强度到LiDAR蒸馏策略，通过位置引导的跨模态融合模块整合特征，优化整体训练损失为L = L_seg + L_seg_fusion + α*L_feature + β*L_logit。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，所提方法实现了比最佳基于摄像头的模型高出8.2%的平均交并比（mIoU），显示出分割准确性的显著提升。此外，它在Argoverse2数据集上仅需10%的微调即可适应，表明其强大的跨数据集性能。</p>
+<p><strong>技术精髓</strong>: 通过采用来自密集2D强度图的在线知识蒸馏来指导LiDAR单一框架中的特征学习，实现了在nuScenes上mIoU提高8.2%的结果，增强了分割准确性，而在推理过程中无需摄像头输入。</p>
+
+<hr>
+
+<h3>10. Parking Assistance for Trailer-Truck Transport Vehicles Using Sensor Fusion and Motion Planning</h3>
+
+<p><strong>作者</strong>: George Alenchery, Thomas Jeske, Tova Quinones, Lentz Fortune, Tristan Lindo-Slones et al. (7 authors)  |  <strong>机构</strong>: Florida Gulf Coast University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2605.02716v1" target="_blank">2605.02716v1</a> | <a href="https://arxiv.org/pdf/2605.02716v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-05-04</p>
+<p><strong>核心洞察</strong>: 本论文解决了牵引式卡车车辆精确停车的问题，这类车辆由于其运动耦合和大尺寸面临独特挑战。关键技术洞察是将Hybrid A*路径规划与牵引-挂车运动模型相结合，允许在低速机动中生成符合碰撞避免要求的轨迹。</p>
+<p><strong>技术贡献</strong>: 系统架构由几个关键模块组成：（1）感知层将LiDAR、摄像头和雷达数据融合为鸟瞰图（BEV）表示；（2）运动规划模块使用Hybrid A*，结合牵引-挂车运动模型生成可行路径；（3）控制系统利用NMPC根据实时约束优化轨迹。运动模型由ψ˙ = v sin(ψ−ψt) / Lt定义，确保在倒车时准确控制拖车运动。</p>
+<p><strong>结果与影响</strong>: 该实现展示了在固定24个停车位网格的模拟环境中成功路径规划，为牵引车辆实现无碰撞导航。概念验证利用开源A*路径规划代码库，初步测试表明与传统方法相比，路径规划时间减少了30%，尽管具体性能指标未在实际数据集中量化。</p>
+<p><strong>技术精髓</strong>: 通过将Hybrid A*与牵引-挂车运动模型相结合，系统生成符合非完整约束的无碰撞路径，从而实现精确停车机动，降低了发生折叠的风险。</p>
+
+<hr>
+
+
+
+        <div class="footer">
+            <p>自动生成 | 数据来源: arXiv | 由 LLM 分析总结</p>
+            <p>2026-05-05 08:55</p>
+        </div>
+    </div>
+</body>
+</html>

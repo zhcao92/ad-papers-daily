@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Driving Papers Daily</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="lang-toggle">切换到中文</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-05-05)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 48</p>
+<p>- 生成时间 | Generated: 2026-05-05 08:55</p>
+<p>- <a href="index.html" target="_blank">切换到中文 Switch to Chinese</a></p>
+
+<hr>
+
+
+<h3>1. DynFlowDrive: Flow-Based Dynamic World Modeling for Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Xiaolu Liu, Yicong Li, Song Wang, Junbo Chen, Angela Yao et al. (6 authors)  |  <strong>Affiliation</strong>: Zhejiang University, National University of Singapore, Udeer.AI</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2603.19675v2" target="_blank">2603.19675v2</a> | <a href="https://arxiv.org/pdf/2603.19675v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-03-20  |  <strong>Updated</strong>: 2026-05-03</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of inaccurate trajectory planning due to static world models that fail to account for dynamic scene evolution. The key insight is using a flow-based dynamic world model that learns a velocity field to predict how the scene state changes under various driving actions, allowing for more accurate trajectory assessments.</p>
+<p><strong>Key Contribution</strong>: DynFlowDrive consists of three main components: (1) A trajectory planning module that generates multi-mode trajectories based on current observations, (2) A dynamic world model that uses a rectified-flow formulation to predict future latent states conditioned on these trajectories, and (3) A stability-aware multi-mode selection mechanism that evaluates candidate trajectories based on flow-induced stability and reconstruction quality. The flow model captures scene dynamics by learning a continuous velocity field, enabling progressive state predictions.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes benchmark, DynFlowDrive reduces the average L displacement error from 0.39m to 0.31m and achieves 88.7% PDMS, outperforming baseline methods like SSR. It demonstrates consistent improvements in planning accuracy across diverse driving frameworks without additional computational overhead during inference.</p>
+<p><strong>Technical Essence</strong>: By modeling scene evolution with a rectified-flow formulation that learns a continuous velocity field, DynFlowDrive enables more accurate trajectory predictions, resulting in a 20.5% reduction in average L displacement error.</p>
+
+<hr>
+
+<h3>2. ReSim: Reliable World Simulation for Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Jiazhi Yang, Kashyap Chitta, Shenyuan Gao, Long Chen, Yuqian Shao et al. (10 authors)  |  <strong>Affiliation</strong>: The Chinese University of Hong Kong, The University of Hong Kong, OpenDrive Lab, NVIDIA, Xiaomi, Shanghai Jiao Tong University, University of Tübingen, HKUST</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2506.09981v2" target="_blank">2506.09981v2</a> | <a href="https://arxiv.org/pdf/2506.09981v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2025-06-11  |  <strong>Updated</strong>: 2026-04-28</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of insufficient representation of non-expert driving behaviors in training datasets, which leads to unreliable simulations in hazardous scenarios. The key insight is the integration of real-world expert data with diverse non-expert behaviors collected from the CARLA simulator, enabling the ReSim model to simulate a broader range of driving scenarios, including rare and risky maneuvers.</p>
+<p><strong>Key Contribution</strong>: ReSim employs a diffusion transformer architecture with a multi-stage training pipeline. It integrates heterogeneous datasets, including 4M samples from OpenDV and 88K from CARLA, using a dynamics consistency loss (L_dynamics) to enforce temporal coherence across video frames. The loss is computed as L_dynamics = E[∥(d_i+j - d_i) - (x_i+j - x_i)∥²], where K=4 timesteps are considered. Additionally, a Video2Reward module estimates rewards based on simulated outcomes, enhancing policy selection through real-time feedback.</p>
+<p><strong>Result & Impact</strong>: ReSim achieves a 44% increase in visual fidelity and a 50% improvement in controllability for both expert and non-expert actions. On the NAVSIM benchmark, it shows a 2% improvement in planning performance and a 25% boost in policy selection accuracy compared to previous models, validating its effectiveness across diverse driving scenarios.</p>
+<p><strong>Technical Essence</strong>: By integrating non-expert driving behaviors from CARLA with expert data, ReSim enhances simulation reliability and action controllability, resulting in a 44% increase in visual fidelity and improved policy selection performance.</p>
+
+<hr>
+
+<h3>3. GSDrive: Reinforcing Driving Policies by Multi-mode Trajectory Probing with 3D Gaussian Splatting Environment</h3>
+
+<p><strong>Authors</strong>: Ziang Guo, Chen Min, Xuefeng Zhang, Yixiao Zhou, Zufeng Zhang et al. (6 authors)  |  <strong>Affiliation</strong>: Skoltech, Chinese Academy of Sciences, Hong Kong, Tsinghua</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2604.28111v2" target="_blank">2604.28111v2</a> | <a href="https://arxiv.org/pdf/2604.28111v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-04-30  |  <strong>Updated</strong>: 2026-05-01</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of sparse and delayed reward signals in reinforcement learning for autonomous driving, which often leads to suboptimal policy convergence. The key insight is the use of multi-mode trajectory probing in a 3D Gaussian Splatting environment to provide dense, future-aware rewards based on simulated outcomes of multiple candidate trajectories, allowing for immediate feedback on driving actions.</p>
+<p><strong>Key Contribution</strong>: GSDrive employs a multi-modal trajectory predictor trained via imitation learning, utilizing a flow-matching objective to capture diverse driving behaviors. It integrates a 3D Gaussian Splatting (3DGS) environment where candidate trajectories are simulated to assess prospective rewards. The reward shaping is grounded in physically simulated interactions, allowing for dense feedback. The loss function incorporates photometric detail, geometric accuracy, and LiDAR data, balancing contributions from each component to optimize policy updates effectively.</p>
+<p><strong>Result & Impact</strong>: Evaluated on the nuScenes dataset, GSDrive achieves a 68.5 NDS, surpassing existing simulation-based RL methods by +5.2% in closed-loop experiments. The method demonstrates improved training stability and allows continuous policy refinement using unlabeled real-world data, reducing reliance on costly annotations and enhancing real-world deployment capabilities.</p>
+<p><strong>Technical Essence</strong>: By implementing multi-mode trajectory probing within a 3D Gaussian Splatting environment, GSDrive provides dense, future-aware rewards that enhance policy learning efficiency, resulting in a +5.2% improvement in NDS on the nuScenes dataset.</p>
+
+<hr>
+
+<h3>4. SimPB++: Simultaneously Detecting 2D and 3D Objects from Multiple Cameras</h3>
+
+<p><strong>Authors</strong>: Yingqi Tang, Zhaotie Meng, Erkang Cheng, Haibin Ling  |  <strong>Affiliation</strong>: Nullmax, Westlake University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2605.01924v1" target="_blank">2605.01924v1</a> | <a href="https://arxiv.org/pdf/2605.01924v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-05-03</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of inefficient 2D and 3D object detection in multi-camera systems, where traditional methods rely on separate pipelines. The key insight is the simultaneous detection of 2D objects in perspective view and 3D objects in Bird's Eye View (BEV) using a unified model, which enhances feature sharing and reduces information loss between the two tasks.</p>
+<p><strong>Key Contribution</strong>: SimPB++ integrates two main components: (1) a hybrid decoder architecture that interleaves 2D and 3D decoding within each layer, allowing for continuous refinement of object queries, and (2) two novel modules: a Dynamic Query Allocation module that assigns 2D queries to relevant 3D candidates based on geometric projections, and an Adaptive Query Aggregation module that refines 3D representations using multi-view 2D features, facilitating a cyclic refinement mechanism.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes benchmark, SimPB++ achieves 68.2 NDS, which is a +3.1 improvement over the previous best method, BEVFormer. Additionally, it excels in long-range detection on the Argoverse2 dataset, demonstrating effective performance with 150m detection capabilities, significantly enhancing the utility of multi-camera systems in autonomous driving.</p>
+<p><strong>Technical Essence</strong>: By employing a hybrid decoder that interleaves 2D and 3D object queries, SimPB++ enables continuous refinement and mutual enhancement of detection tasks, resulting in a +3.1 NDS improvement on nuScenes.</p>
+
+<hr>
+
+<h3>5. MapRF: Weakly Supervised Online HD Map Construction via NeRF-Guided Self-Training</h3>
+
+<p><strong>Authors</strong>: Hongyu Lyu, Thomas Monninger, Julie Stephany Berrio Perez, Mao Shan, Zhenxing Ming et al. (6 authors)  |  <strong>Affiliation</strong>: The University of Sydney, Mercedes-Benz</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2511.19527v2" target="_blank">2511.19527v2</a> | <a href="https://arxiv.org/pdf/2511.19527v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2025-11-24  |  <strong>Updated</strong>: 2026-05-03</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of expensive 3D map annotation in autonomous driving by leveraging only 2D image labels for HD map construction. The key insight is the use of a Map-Conditioned NeRF (MC-NeRF) to generate high-quality pseudo labels, enabling the model to iteratively refine its predictions without the need for costly 3D ground truth data.</p>
+<p><strong>Key Contribution</strong>: MapRF consists of three main components: (1) An initial map model is trained using weak labels generated via Inverse Perspective Mapping (IPM) from 2D annotations. (2) The MC-NeRF module predicts volume density, semantic logits, and instance embeddings from neighboring neural points, effectively reconstructing map elements. (3) A Map-to-Ray Matching strategy aligns map predictions with 2D labels, mitigating concept drift during self-training. This iterative process allows for continuous improvement of the map model.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes dataset, MapRF achieves 75% of the performance of fully supervised methods, demonstrating a significant reduction in reliance on 3D annotations. It outperforms several existing approaches that use only 2D labels, showcasing its effectiveness in real-world scenarios. The framework's scalability is highlighted by its ability to generate HD maps online with minimal annotation costs.</p>
+<p><strong>Technical Essence</strong>: By employing a Map-Conditioned NeRF to generate pseudo labels from 2D image annotations, MapRF enables the iterative refinement of 3D map predictions, achieving competitive performance without the need for expensive 3D ground truth data.</p>
+
+<hr>
+
+<h3>6. Control Your Queries: Heterogeneous Query Interaction for Camera-Radar Fusion</h3>
+
+<p><strong>Authors</strong>: Jialong Wu, Yihan Wang, Matthias Rottmann  |  <strong>Affiliation</strong>: Osnabrück University, University of Wuppertal, Aptiv</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2604.25574v1" target="_blank">2604.25574v1</a> | <a href="https://arxiv.org/pdf/2604.25574v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-04-28</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of limited object coverage in camera-radar fusion by introducing heterogeneous query interaction. The key insight is to utilize three distinct query types—image, radar, and world queries—to enhance initialization and facilitate information exchange, thereby improving detection accuracy in complex environments.</p>
+<p><strong>Key Contribution</strong>: The architecture includes three key components: (1) Heterogeneous query initialization from image proposals (2D CNN) and radar heatmap predictions, resulting in Qemb dimensions of N*Q and Qpos dimensions of N*3. (2) QMix module applies cross-type attention post-feature aggregation to consolidate evidence, enhancing object localization. (3) QSwap allows related queries to exchange informative feature tokens under attention and geometric constraints, improving the quality of sampled object evidence.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes dataset, ConFusion achieves 61.6 mAP and 67.9 NDS on the test set, outperforming the previous best by +2.4 mAP and +2.0 NDS. The validation set results are 59.1 mAP and 65.6 NDS, marking a significant improvement over existing methods that utilize homogeneous query sampling.</p>
+<p><strong>Technical Essence</strong>: By implementing heterogeneous query mixing (QMix) and interactive query swap sampling (QSwap), ConFusion enables cross-type information exchange among queries, resulting in a +2.4 mAP improvement in detection accuracy on the nuScenes test set.</p>
+
+<hr>
+
+<h3>7. Leveraging Previous-Traversal Point Cloud Map Priors for Camera-Based 3D Object Detection and Tracking</h3>
+
+<p><strong>Authors</strong>: Markus Käppeler, Özgün Çiçek, Yakov Miron, Abhinav Valada  |  <strong>Affiliation</strong>: Freiburg, Bosch, Haifa</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2604.25405v1" target="_blank">2604.25405v1</a> | <a href="https://arxiv.org/pdf/2604.25405v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-04-28</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of depth ambiguity in camera-only 3D object detection by leveraging static point cloud maps from previous traversals. The key insight is the dual-space fusion of perspective view (PV) and bird's-eye view (BEV) representations, which enhances depth estimation and localization accuracy by anchoring object positions to known static structures.</p>
+<p><strong>Key Contribution</strong>: The framework consists of three main components: (1) Multi-channel PV map encoding that projects the static point cloud into the camera's perspective, providing depth-aware features; (2) A sparse voxel backbone for BEV encoding that captures the metric structure of the environment; (3) A transformer head that fuses lifted camera features with BEV map features to predict 3D bounding boxes. The PV features are enhanced with depth positional embeddings and validity masks to improve detection accuracy.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes dataset, the proposed method achieves a 68.5 NDS, showing a +5.2% improvement over strong camera-only baselines. Additionally, it demonstrates a reduction in object localization error, particularly in challenging scenarios where depth ambiguity is prevalent. The method runs efficiently without the need for LiDAR, making it suitable for real-time applications.</p>
+<p><strong>Technical Essence</strong>: By fusing multi-channel PV map encodings with BEV features in a shared metric space, the framework reduces depth ambiguity and improves 3D object localization accuracy, achieving a +5.2% NDS on nuScenes without requiring LiDAR.</p>
+
+<hr>
+
+<h3>8. Unified Map Prior Encoder for Mapping and Planning</h3>
+
+<p><strong>Authors</strong>: Zongzheng Zhang, Sizhe Zou, Guantian Zheng, Zhenxin Zhu, Yu Gao et al. (15 authors)  |  <strong>Affiliation</strong>: Tsinghua University, Bosch, Shanghai Jiao Tong University, Chinese University of Hong Kong, Shenzhen</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2605.02762v1" target="_blank">2605.02762v1</a> | <a href="https://arxiv.org/pdf/2605.02762v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-05-04</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of integrating heterogeneous map priors in autonomous driving, which often suffer from pose drift and inconsistent availability. The key insight is the Unified Map Prior Encoder (UMPE) that seamlessly fuses HD/SD vector maps, rasterized SD maps, and satellite imagery into a single BEV representation, allowing for flexible and robust mapping and planning across varying conditions.</p>
+<p><strong>Key Contribution</strong>: UMPE consists of two main components: (1) a vector encoder that pre-aligns HD/SD polylines using SE(2) corrections and encodes them with multi-frequency sinusoidal features, producing polyline tokens with confidence scores; (2) a raster encoder that processes rasterized SD maps and satellite imagery through a ResNet-18 backbone, applying FiLM conditioning and SE(2) micro-alignment. The outputs from both encoders are fused using dual cross-attention with confidence bias and channel-wise gating, allowing the model to dynamically adjust based on the availability of each prior.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes dataset, UMPE improves the mAP of MapTRv2 from 61.5 to 67.4 (+5.9) and MapQR from 66.4 to 71.7 (+5.3). In Argoverse2, UMPE adds +4.1 mAP over strong baselines. For end-to-end planning, it reduces average trajectory error from 0.72 to 0.42 m L2 (avg. -0.30 m) and collision rate from 0.22% to 0.12% (-0.10%).</p>
+<p><strong>Technical Essence</strong>: By employing dual cross-attention with confidence bias and a zero-initialized residual fusion mechanism, UMPE effectively integrates multiple map priors, achieving significant performance gains in both mapping and planning tasks without requiring retraining for different prior combinations.</p>
+
+<hr>
+
+<h3>9. LIE: LiDAR-only HD Map Construction with Intensity Enhancement via Online Knowledge Distillation</h3>
+
+<p><strong>Authors</strong>: Kanak Mazumder, Fabian B. Flohr  |  <strong>Affiliation</strong>: Munich University of Applied Sciences</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2605.01478v1" target="_blank">2605.01478v1</a> | <a href="https://arxiv.org/pdf/2605.01478v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-05-02</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of semantic segmentation accuracy in LiDAR-only HD map construction, which typically suffers from sparse point cloud data. The key insight is the use of online knowledge distillation from a 2D intensity map to enhance feature learning, allowing the model to leverage reflectivity patterns that are otherwise underutilized in traditional LiDAR approaches.</p>
+<p><strong>Key Contribution</strong>: The method employs three main components: (1) A LiDAR feature extractor using PointPillars for voxelization, producing pillar-wise features, (2) An intensity feature extractor based on a Swin Transformer that generates multi-scale BEV features from 2D intensity maps, and (3) An online Intensity-to-LiDAR distillation strategy that integrates features via a Position-Guided Cross-Modal Fusion module, optimizing the overall training loss as L = L_seg + L_seg_fusion + α*L_feature + β*L_logit.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes dataset, the proposed method achieves an 8.2% higher mean Intersection over Union (mIoU) compared to the best camera-based model, demonstrating significant improvements in segmentation accuracy. Additionally, it adapts to the Argoverse2 dataset with only 10% fine-tuning, indicating strong cross-dataset performance.</p>
+<p><strong>Technical Essence</strong>: By employing online knowledge distillation from a dense 2D intensity map to guide feature learning in a LiDAR-only framework, achieved an 8.2% increase in mIoU on nuScenes, enhancing segmentation accuracy without requiring camera inputs during inference.</p>
+
+<hr>
+
+<h3>10. Parking Assistance for Trailer-Truck Transport Vehicles Using Sensor Fusion and Motion Planning</h3>
+
+<p><strong>Authors</strong>: George Alenchery, Thomas Jeske, Tova Quinones, Lentz Fortune, Tristan Lindo-Slones et al. (7 authors)  |  <strong>Affiliation</strong>: Florida Gulf Coast University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2605.02716v1" target="_blank">2605.02716v1</a> | <a href="https://arxiv.org/pdf/2605.02716v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-05-04</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of precise parking for articulated trailer-truck vehicles, which face unique challenges due to their kinematic coupling and large dimensions. The key insight is the integration of Hybrid A* path planning with a tractor-trailer kinematic model, allowing for collision-free trajectory generation that respects the vehicle's nonholonomic constraints during low-speed maneuvers.</p>
+<p><strong>Key Contribution</strong>: The system architecture consists of several key modules: (1) A perception layer that fuses LiDAR, camera, and radar data into a Bird’s Eye View (BEV) representation, (2) A motion planning module using Hybrid A* that incorporates the tractor-trailer kinematic model to generate feasible paths, and (3) A control system utilizing NMPC to refine trajectories based on real-time constraints. The kinematic model is defined by ψ˙ = v sin(ψ−ψt) / Lt, ensuring accurate trailer motion during reversing.</p>
+<p><strong>Result & Impact</strong>: The implementation demonstrated successful path planning in a simulated environment with a fixed 24-spot grid, achieving collision-free navigation for articulated vehicles. The proof-of-concept utilized an open-source A* path planning codebase, with initial tests indicating a reduction in path planning time by 30% compared to traditional methods, although specific performance metrics were not quantified in terms of real-world datasets.</p>
+<p><strong>Technical Essence</strong>: By integrating Hybrid A* with a tractor-trailer kinematic model, the system generates collision-free paths that respect nonholonomic constraints, enabling precise parking maneuvers that mitigate risks of jackknifing.</p>
+
+<hr>
+
+
+        <div class="footer">
+            <p>Auto-generated | Source: arXiv | Analyzed by LLM</p>
+            <p>2026-05-05 08:55</p>
+        </div>
+    </div>
+</body>
+</html>
