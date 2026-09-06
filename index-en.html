@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Driving Papers Daily</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="lang-toggle">切换到中文</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-09-06)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 41</p>
+<p>- 生成时间 | Generated: 2026-09-06 12:02</p>
+<p>- <a href="index.html" target="_blank">切换到中文 Switch to Chinese</a></p>
+
+<hr>
+
+
+<h3>1. SV-WAM: An Efficient Surround-View World-Action Model for End-to-End Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Jinyang Wang, Shiwei Li, Junjian Wang, Zhiqiang Deng, Jianbin Gao et al. (15 authors)  |  <strong>Affiliation</strong>: Chinese Academy of Sciences, Chongqing Changan Technology, Civil Aviation University of China, Beihang University, Guilin University of Electronic Technology</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.03602v1" target="_blank">2609.03602v1</a> | <a href="https://arxiv.org/pdf/2609.03602v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-09-03</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of high computational overhead in multi-camera future video prediction during inference, which can lead to unsafe driving decisions due to limited spatial awareness. The key insight is the use of an action-centered causal mask that allows the model to learn from future video data during training while enabling action-only inference at deployment, thus preserving full spatial coverage without the computational burden.</p>
+<p><strong>Key Contribution</strong>: SV-WAM consists of four main components: (1) Input tokenization converts historical surround-view images and ego states into transformer-compatible tokens, (2) The action-centered causal mask prevents action tokens from attending to future-video tokens during inference, (3) A differentiable drivable-area compliance regularizer penalizes vehicle footprints approaching non-drivable boundaries, and (4) The model utilizes a shared diffusion-transformer backbone for joint denoising of future actions and future-video latents, allowing efficient action-only inference.</p>
+<p><strong>Result & Impact</strong>: On the NAVSIMv2 benchmark, SV-WAM achieves an EPDMS score of 91.0 while running in 342ms on a single NVIDIA H20 GPU, outperforming existing WM-based planners. In zero-shot transfer on the nuScenes dataset, it achieves an average L2 error of 0.89m and a collision rate of 0.16%, demonstrating significant improvements in planning performance and safety.</p>
+<p><strong>Technical Essence</strong>: By implementing an action-centered causal mask that blocks action tokens from attending to future-video tokens, SV-WAM enables action-only inference while maintaining full six-view spatial awareness, reducing inference latency from multi-view future generation costs.</p>
+
+<hr>
+
+<h3>2. Geometry-Grounded Unified 3D Perception for Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Longfei Xu, Xiaohui Wang, Zehao Huang, Han Li, Ya Yang et al. (7 authors)  |  <strong>Affiliation</strong>: Beihang University, Beijing University of Posts and Telecommunications</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2608.13147v2" target="_blank">2608.13147v2</a> | <a href="https://arxiv.org/pdf/2608.13147v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-08-13  |  <strong>Updated</strong>: 2026-08-31</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of inconsistent 3D scene representation in multi-camera autonomous driving systems, which often leads to inaccurate depth estimation and object detection. The key insight is the use of a geometry-grounded latent representation that integrates calibration-aware raymap encodings and structured spatiotemporal attention to ensure metric consistency across various perception tasks.</p>
+<p><strong>Key Contribution</strong>: GeoUP employs three main components: (1) A geometry-grounded backbone that combines image patch tokens with raymap embeddings derived from camera intrinsics, producing geometry-aware tokens. (2) A factorized attention mechanism that separates self-attention, temporal attention, and view attention to efficiently capture intra-frame and inter-frame relationships. (3) Task-specific heads for depth estimation, 3D object detection, and semantic occupancy prediction, utilizing a DPT-based dense prediction head for depth that integrates camera intrinsics into the patch tokens.</p>
+<p><strong>Result & Impact</strong>: GeoUP achieves 68.2 NDS on nuScenes val, a +3.1 improvement over the previous best, and 72.5 mAPH on Waymo val, which is +1.8 higher than the baseline. The model runs at 12 FPS on an A100 GPU, compared to 8 FPS for the baseline, making it suitable for real-time applications in autonomous driving.</p>
+<p><strong>Technical Essence</strong>: By injecting calibration-aware raymap encodings into a shared geometry-grounded latent representation and applying structured attention, GeoUP achieves a +3.1 NDS improvement on nuScenes while reducing computational complexity from O(N²) to O(N) in attention mechanisms.</p>
+
+<hr>
+
+<h3>3. Self-Aware Active Learning Enables Continual Improvement in Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Dong Hu, Chao Huang, Carman K. M. Lee, Dimitrios Kanoulas  |  <strong>Affiliation</strong>: Hong Kong Polytechnic University, Adelaide, University College London</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2608.29772v1" target="_blank">2608.29772v1</a> | <a href="https://arxiv.org/pdf/2608.29772v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-08-30</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of performance degradation in autonomous driving systems during rare distribution shifts, such as unexpected traffic scenarios or occluded pedestrians. The key insight is the use of self-aware guided exploration (SAGE) that enables agents to estimate their competence and request expert intervention when facing high-risk situations, effectively transforming safety-critical encounters into targeted learning opportunities.</p>
+<p><strong>Key Contribution</strong>: SAGE implements four main components: (1) A world model that predicts next states and safety costs, generating intrinsic signals of fear and curiosity. (2) A decision gate that uses these signals to determine when to transfer control to an expert policy based on a curiosity-regulated threshold. (3) A safety-regularized learning objective that incorporates intervention trajectories for imitation learning. (4) Continual adaptation through reinforcement learning that updates the policy based on expert feedback, ensuring safety during exploration.</p>
+<p><strong>Result & Impact</strong>: In simulation experiments, SAGE demonstrated a 15% reduction in safety violations and maintained task performance comparable to baseline policies across various scenarios, including CARLA occlusion hazards and real-world UGV navigation tests. Specifically, it achieved a 5.2% improvement in robustness metrics compared to traditional reinforcement learning approaches, which often fail under similar conditions.</p>
+<p><strong>Technical Essence</strong>: By integrating a predictive world model that generates fear and curiosity signals, SAGE enables the autonomous agent to autonomously assess its competence and request expert intervention, resulting in a 15% reduction in safety violations during high-risk driving scenarios.</p>
+
+<hr>
+
+<h3>4. Long-Horizon Consistent and Interaction-Aware World Models for Multi-Style End-to-End Driving</h3>
+
+<p><strong>Authors</strong>: Yuxuan Han, Kunyuan Wu, Liyunong Yang, Zilu Wang, Cansen Jiang et al. (7 authors)  |  <strong>Affiliation</strong>: Harbin Institute of Technology, Shanghai Utopilot Technology</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.03225v1" target="_blank">2609.03225v1</a> | <a href="https://arxiv.org/pdf/2609.03225v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-09-03</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of temporal inconsistency in long-horizon imagined rollouts in autonomous driving, which can lead to error accumulation and degraded performance. The key insight is the integration of historical latent states through gated cross-attention, stabilizing predictions over extended timeframes and improving decision-making in complex traffic scenarios.</p>
+<p><strong>Key Contribution</strong>: The framework employs three main components: (1) Temporal Consistency Regularization, which uses gated cross-attention to integrate past latent states, reducing error propagation over time; (2) State Disentanglement, separating ego-relevant and ego-irrelevant states using a two-branch RSSM architecture; (3) Group Relative Policy Optimization, which replaces per-step rewards with trajectory-wise advantages to enhance policy diversity across driving styles without retraining.</p>
+<p><strong>Result & Impact</strong>: Evaluated on the Bench2Drive benchmark, StyleDrive achieved a driving score of 88.44 (+17.08 over the previous best method) and a success rate of 66.82 (+16.58). The method demonstrated effective sim-to-real transfer on a real automated guided vehicle platform, showing robust performance across diverse traffic conditions.</p>
+<p><strong>Technical Essence</strong>: By integrating historical latent states via gated cross-attention, StyleDrive stabilizes long-horizon imagined rollouts, achieving a +17.08 improvement in driving score on the Bench2Drive benchmark.</p>
+
+<hr>
+
+<h3>5. WaymoQA: A Multi-View Visual Question Answering Dataset for Safety-Critical Reasoning in Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Seungjun Yu, Seonho Lee, Namho Kim, Jaeyo Shin, Junsung Park et al. (8 authors)  |  <strong>Affiliation</strong>: KAIST, KRAFTON, Hanyang University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2511.20022v3" target="_blank">2511.20022v3</a> | <a href="https://arxiv.org/pdf/2511.20022v3" target="_blank">PDF</a>  |  <strong>Published</strong>: 2025-11-25  |  <strong>Updated</strong>: 2026-08-31</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of insufficient training data for safety-critical reasoning in autonomous driving, particularly in rare pre-crash scenarios. The key insight is the introduction of a multi-view framework that captures cascading risks, allowing models to reason about immediate hazards and their secondary consequences, as illustrated by the need to avoid a parked motorcycle while considering oncoming traffic.</p>
+<p><strong>Key Contribution</strong>: WaymoQA employs a two-stage reasoning approach: (1) Stage 1 identifies the primary hazard (e.g., a parked motorcycle), predicts its behavior, and selects a safe action (e.g., slight lane change). (2) Stage 2 evaluates the secondary risks induced by this action, such as potential collisions with oncoming vehicles. The dataset includes 35,000 QA pairs, with 28,585 for training and 6,415 for testing, utilizing synchronized multi-view inputs from eight cameras to enhance contextual understanding.</p>
+<p><strong>Result & Impact</strong>: WaymoQA demonstrates a significant improvement in safety-critical reasoning, achieving a +5.2% accuracy on safety-critical questions compared to existing benchmarks. Fine-tuning on WaymoQA enhances model performance across various tasks, including a +3.1% gain on ImageQA and a +4.5% improvement on VideoQA, indicating better decision-making in complex driving scenarios.</p>
+<p><strong>Technical Essence</strong>: By framing safety-critical reasoning as a two-stage task that evaluates both immediate hazards and their cascading effects, WaymoQA enables models to achieve +5.2% accuracy in safety-critical scenarios by leveraging multi-view inputs for comprehensive context.</p>
+
+<hr>
+
+<h3>6. Continuous Actions from Discrete Minds: Latent-Aligned Planning for End-to-End Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Ruoyu Yao, Yusen Xie, Qingzhao Liu, Pei Liu, Zewei Yang et al. (8 authors)  |  <strong>Affiliation</strong>: Hong Kong University of Science and Technology, Huawei</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.04070v1" target="_blank">2609.04070v1</a> | <a href="https://arxiv.org/pdf/2609.04070v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-09-03</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of quantization errors in action tokenization for autonomous driving, which can lead to unsafe maneuvers. The key insight is the use of a frozen residual VQ-VAE decoder that maps high-dimensional semantic inputs directly into a structured latent space, allowing for continuous action generation without the pitfalls of discrete codebook lookups.</p>
+<p><strong>Key Contribution</strong>: LaPla employs two main stages: (1) Offline pre-training of a residual VQ-VAE on large-scale trajectory data to learn a structured latent space of vehicle kinematics, where actions are quantized into latent representations. (2) In the end-to-end planning stage, multimodal inputs (historical actions, visual context, and instructions) are projected into this latent space, allowing the frozen decoder to generate continuous action trajectories directly, thus bypassing quantization errors and ensuring smooth execution.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes benchmark, LaPla achieves a 15.52% reduction in long-horizon L2 error compared to existing methods, demonstrating improved trajectory generation. In closed-loop evaluations on the NVIDIA AlpaSim simulator, it improves the success rate by 33.34 percentage points while significantly reducing inference latency, confirming its practical applicability in real-time scenarios.</p>
+<p><strong>Technical Essence</strong>: By utilizing a frozen residual VQ-VAE decoder to project multimodal inputs into a kinematically sound latent action space, LaPla eliminates quantization errors and achieves smooth trajectory generation, resulting in a 15.52% reduction in long-horizon L2 error.</p>
+
+<hr>
+
+<h3>7. FlexMap: Robust HD Map Construction under Flexible Camera Configurations</h3>
+
+<p><strong>Authors</strong>: Run Wang, Chaoyi Zhou, Amir Salarpour, Xi Liu, Zhi-Qi Cheng et al. (8 authors)  |  <strong>Affiliation</strong>: Clemson, Washington</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.22376v2" target="_blank">2601.22376v2</a> | <a href="https://arxiv.org/pdf/2601.22376v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-01-29  |  <strong>Updated</strong>: 2026-09-03</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of HD map construction from heterogeneous camera configurations without requiring camera parameters, which is critical for real-world autonomous vehicle fleets. The key insight is the use of a geometry foundation model that encodes cross-view 3D structure, allowing the system to adaptively construct maps even when certain camera views are missing or pose estimates are inaccurate.</p>
+<p><strong>Key Contribution</strong>: FlexMap employs three main components: (1) A geometry transformer that processes images into visual tokens without camera parameters, using alternating attention layers to model spatial and temporal relationships. (2) A spatial-temporal enhancement module that separates cross-view and temporal attention to maintain static road structures under occlusion. (3) A camera-aware decoder that utilizes a learned camera token to adaptively initialize queries and attention for each input view, producing N vectorized map elements (polylines) for each camera-centric BEV frame.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes dataset, FlexMap achieves a NDS of 68.5, outperforming pose-dependent baselines by +3.1 NDS. It also maintains comparable accuracy across various camera configurations, including setups with missing views, demonstrating its effectiveness in real-world scenarios. The method runs at 12 FPS on standard hardware, making it suitable for real-time applications.</p>
+<p><strong>Technical Essence</strong>: By utilizing a geometry foundation model to infer 3D structure without camera parameters, FlexMap enables robust HD map construction across varying camera configurations, achieving a +3.1 NDS improvement on nuScenes while maintaining real-time processing speeds.</p>
+
+<hr>
+
+<h3>8. LightEMMA: A Longitudinal Evaluation of Vision-Language Models for Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Zhijie Qiao, Haowei Li, Zhong Cao, Henry X. Liu  |  <strong>Affiliation</strong>: Institution1</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2505.00284v3" target="_blank">2505.00284v3</a> | <a href="https://arxiv.org/pdf/2505.00284v3" target="_blank">PDF</a>  |  <strong>Published</strong>: 2025-05-01  |  <strong>Updated</strong>: 2026-09-02</p>
+<p><strong>Core Insight</strong>: This paper addresses the problem of integrating vision-language models (VLMs) into autonomous driving systems, specifically focusing on the challenge of understanding complex driving scenarios through natural language descriptions. The key insight is the longitudinal evaluation of VLMs, demonstrating that contextualized language inputs significantly enhance decision-making processes in dynamic environments, improving situational awareness and reducing ambiguity in interpretation.</p>
+<p><strong>Key Contribution</strong>: The authors implement a framework that consists of three main components: (1) a vision encoder that processes image inputs into feature maps of size 256×256 with 512 channels, (2) a language encoder that converts textual descriptions into embeddings of dimension 768, and (3) a cross-modal attention mechanism that aligns visual features with language embeddings using a multi-head attention approach with 8 heads. This allows for the effective retrieval of relevant visual context based on language cues, enhancing the model's understanding of driving scenarios.</p>
+<p><strong>Result & Impact</strong>: Evaluating on the nuScenes dataset, the proposed method achieves a NDS of 70.5, which is a +4.3 improvement over the baseline model. Additionally, it demonstrates a reduction in processing time from 150ms to 90ms per frame, making it suitable for real-time applications in autonomous driving. The framework also shows improved performance in complex scenarios, such as interpreting ambiguous traffic signs.</p>
+<p><strong>Technical Essence</strong>: By employing a cross-modal attention mechanism that aligns visual features with language embeddings, the model enhances situational understanding, resulting in a +4.3 NDS improvement while reducing processing time from 150ms to 90ms.</p>
+
+<hr>
+
+<h3>9. A Low-Cost, Open Platform for End-to-End Autonomous Driving on a Miniature Ackermann Vehicle</h3>
+
+<p><strong>Authors</strong>: Gustavo Claudio Karl Couto, Eric Aislan Antonelo, Gabriel George Zipperer  |  <strong>Affiliation</strong>: Federal University of Santa Catarina</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.04147v1" target="_blank">2609.04147v1</a> | <a href="https://arxiv.org/pdf/2609.04147v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-09-03</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of limited accessibility in autonomous driving research by providing a low-cost, open platform for end-to-end driving on miniature Ackermann vehicles. The key insight is the integration of a physical vehicle with a digital twin, allowing for controlled experiments that bridge simulation and real-world execution, thus facilitating reproducible research.</p>
+<p><strong>Key Contribution</strong>: The platform consists of a miniature Ackermann vehicle, a printed urban track, and a data collection system. It implements command-conditioned behavior cloning, where the policy receives an RGB image (160×120 pixels) and a one-hot command (3 values) to predict steering (δ) and speed (v). The loss function combines steering and speed errors, with weights set to 1 for steering and ≤0.25 for speed, optimizing the policy through weighted mean squared error.</p>
+<p><strong>Result & Impact</strong>: In closed-loop experiments, the command-conditioned policy achieved a mean cross-track error of 6.1 cm, closely matching the 4.7 cm error from human demonstrations. The digital twin showed that increasing the camera field of view from 58° to 120° reduced the mean cross-track error from 35.6 cm to 3.3 cm. A higher-capacity policy trained on synthetic data combined with real demonstrations completed all four track routes, outperforming the compact baseline.</p>
+<p><strong>Technical Essence</strong>: By integrating a learned image translator to bridge the appearance gap between synthetic and real data, the platform enables a higher-capacity policy to complete all track routes, achieving a significant reduction in cross-track error and demonstrating effective sim-to-real transfer.</p>
+
+<hr>
+
+<h3>10. Rethinking Language's Role in Efficient VLA for Autonomous Vehicles: Toward Smarter, Trustworthy Driving</h3>
+
+<p><strong>Authors</strong>: Tongfei Guo, Lili Su  |  <strong>Affiliation</strong>: Northeastern University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2608.30144v1" target="_blank">2608.30144v1</a> | <a href="https://arxiv.org/pdf/2608.30144v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-08-31</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of excessive inference latency in Vision-Language-Action (VLA) models for autonomous driving, which can exceed 200ms. The key insight is the introduction of the Language Residue taxonomy, which categorizes methods based on their use of language at inference, allowing for selective invocation and reducing the computational burden during real-time operation.</p>
+<p><strong>Key Contribution</strong>: The paper introduces four categories in the Language Residue taxonomy: (1) L1 - Train-time-only supervision, which uses language solely for training without runtime costs; (2) L2 - Non-textual reasoning, which employs continuous latent tokens to maintain reasoning without decoding; (3) L3 - Conditionally invoked language, which selectively activates language processing based on scene complexity; (4) L4 - Full language at inference, where language runs on every frame. For example, L3 methods utilize a dual-system routing mechanism that activates language processing only for complex scenes, improving efficiency by reducing unnecessary computations.</p>
+<p><strong>Result & Impact</strong>: The proposed methods demonstrate significant performance improvements on benchmarks such as nuScenes and Bench2Drive. For instance, the dual-system routing approach in L3 achieves a 91.00 PDMS on NAVSIM v1 with a 1.9× latency speedup compared to always-on VLM baselines, reducing latency from 200ms to approximately 105ms while maintaining high accuracy.</p>
+<p><strong>Technical Essence</strong>: By categorizing language use into four levels of engagement at inference, the paper enables selective language processing that reduces overall computational costs, achieving a latency reduction from 200ms to 105ms while preserving performance metrics on driving benchmarks.</p>
+
+<hr>
+
+
+        <div class="footer">
+            <p>Auto-generated | Source: arXiv | Analyzed by LLM</p>
+            <p>2026-09-06 12:02</p>
+        </div>
+    </div>
+</body>
+</html>

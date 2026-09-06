@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自动驾驶论文每日速览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index-en.html" class="lang-toggle">Switch to English</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-09-06)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 41</p>
+<p>- 生成时间 | Generated: 2026-09-06 12:02</p>
+<p>- <a href="index-en.html" target="_blank">Switch to English 切换到英文</a></p>
+
+<hr>
+
+
+<h3>1. SV-WAM: An Efficient Surround-View World-Action Model for End-to-End Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Jinyang Wang, Shiwei Li, Junjian Wang, Zhiqiang Deng, Jianbin Gao et al. (15 authors)  |  <strong>机构</strong>: Chinese Academy of Sciences, Chongqing Changan Technology, Civil Aviation University of China, Beihang University, Guilin University of Electronic Technology</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.03602v1" target="_blank">2609.03602v1</a> | <a href="https://arxiv.org/pdf/2609.03602v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-09-03</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了多摄像头未来视频预测在推理时带来的高计算开销问题，这可能导致由于空间意识有限而产生不安全的驾驶决策。关键技术洞察是使用动作中心因果掩码，使模型在训练期间能够从未来视频数据中学习，同时在部署时实现仅动作推理，从而在不增加计算负担的情况下保留完整的空间覆盖。</p>
+<p><strong>技术贡献</strong>: SV-WAM由四个主要组件组成：（1）输入标记化将历史全景图像和自我状态转换为适合变换器的标记，（2）动作中心因果掩码防止动作标记在推理期间关注未来视频标记，（3）可微分的可行区域合规正则化器惩罚接近不可行边界的车辆足迹，以及（4）该模型利用共享扩散变换器骨干网联合去噪未来动作和未来视频潜在变量，从而实现高效的仅动作推理。</p>
+<p><strong>结果与影响</strong>: 在NAVSIMv2基准测试中，SV-WAM的EPDMS得分为91.0，同时在单个NVIDIA H20 GPU上运行时间为342ms，超越了现有的基于世界模型的规划器。在nuScenes数据集的零-shot转移中，其平均L2误差为0.89m，碰撞率为0.16%，显示出规划性能和安全性显著提升。</p>
+<p><strong>技术精髓</strong>: 通过实现一个动作中心因果掩码，阻止动作标记关注未来视频标记，SV-WAM在保持完整六视角空间意识的同时，实现了仅动作推理，降低了多视角未来生成成本带来的推理延迟。</p>
+
+<hr>
+
+<h3>2. Geometry-Grounded Unified 3D Perception for Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Longfei Xu, Xiaohui Wang, Zehao Huang, Han Li, Ya Yang et al. (7 authors)  |  <strong>机构</strong>: Beihang University, Beijing University of Posts and Telecommunications</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2608.13147v2" target="_blank">2608.13147v2</a> | <a href="https://arxiv.org/pdf/2608.13147v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-08-13  |  <strong>更新</strong>: 2026-08-31</p>
+<p><strong>核心洞察</strong>: 该论文解决了多摄像头自动驾驶系统中3D场景表示不一致的问题，这通常导致深度估计和物体检测不准确。关键技术洞察是使用几何基础的潜在表示，集成了基于校准的光线图编码和结构化时空注意力，以确保各个感知任务之间的度量一致性。</p>
+<p><strong>技术贡献</strong>: GeoUP采用三个主要组件：（1）几何基础的骨干网络，将图像补丁令牌与来自相机内参的光线图嵌入相结合，生成几何感知令牌；（2）分解的注意力机制，分离自注意力、时间注意力和视图注意力，以高效捕捉帧内和帧间关系；（3）针对深度估计、3D物体检测和语义占用预测的任务特定头，利用基于DPT的密集预测头进行深度预测，将相机内参集成到补丁令牌中。</p>
+<p><strong>结果与影响</strong>: GeoUP在nuScenes验证集上实现了68.2 NDS，比之前最佳提高了3.1，并在Waymo验证集上实现了72.5 mAPH，比基线高出1.8。该模型在A100 GPU上以12 FPS运行，而基线为8 FPS，适合实时自动驾驶应用。</p>
+<p><strong>技术精髓</strong>: 通过将基于校准的光线图编码注入共享的几何基础潜在表示，并应用结构化注意力，GeoUP在nuScenes上实现了3.1 NDS的提升，同时将注意力机制的计算复杂度从O(N²)降低到O(N)。</p>
+
+<hr>
+
+<h3>3. Self-Aware Active Learning Enables Continual Improvement in Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Dong Hu, Chao Huang, Carman K. M. Lee, Dimitrios Kanoulas  |  <strong>机构</strong>: Hong Kong Polytechnic University, Adelaide, University College London</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2608.29772v1" target="_blank">2608.29772v1</a> | <a href="https://arxiv.org/pdf/2608.29772v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-08-30</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了在稀有分布变化中自主驾驶系统性能下降的问题，例如意外的交通场景或被遮挡的行人。关键技术洞察是使用自我意识引导探索（SAGE），使代理能够估计其能力，并在面临高风险情况时请求专家干预，有效地将安全关键的遭遇转化为有针对性的学习机会。</p>
+<p><strong>技术贡献</strong>: SAGE实现了四个主要组件：（1）一个预测下一个状态和安全成本的世界模型，生成恐惧和好奇心的内在信号；（2）一个决策门，利用这些信号确定何时根据好奇心调节的阈值将控制权转移给专家策略；（3）一个安全正则化学习目标，结合干预轨迹进行模仿学习；（4）通过强化学习进行持续适应，根据专家反馈更新策略，确保探索过程中的安全。</p>
+<p><strong>结果与影响</strong>: 在仿真实验中，SAGE在安全违规方面减少了15%，并在各种场景中保持了与基线策略相当的任务性能，包括CARLA遮挡危险和真实世界UGV导航测试。具体而言，与传统强化学习方法相比，它在鲁棒性指标上提高了5.2%，后者在类似条件下往往失败。</p>
+<p><strong>技术精髓</strong>: 通过整合生成恐惧和好奇心信号的预测世界模型，SAGE使自主代理能够自主评估其能力并请求专家干预，从而在高风险驾驶场景中实现了安全违规减少15%的结果。</p>
+
+<hr>
+
+<h3>4. Long-Horizon Consistent and Interaction-Aware World Models for Multi-Style End-to-End Driving</h3>
+
+<p><strong>作者</strong>: Yuxuan Han, Kunyuan Wu, Liyunong Yang, Zilu Wang, Cansen Jiang et al. (7 authors)  |  <strong>机构</strong>: Harbin Institute of Technology, Shanghai Utopilot Technology</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.03225v1" target="_blank">2609.03225v1</a> | <a href="https://arxiv.org/pdf/2609.03225v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-09-03</p>
+<p><strong>核心洞察</strong>: 该论文解决了自主驾驶中长时间想象回放的时间不一致性问题，这可能导致错误累积和性能下降。关键洞察是通过门控交叉注意力集成历史潜在状态，从而稳定预测并改善复杂交通场景中的决策。</p>
+<p><strong>技术贡献</strong>: 该框架采用三个主要组件：（1）时间一致性正则化，利用门控交叉注意力集成过去的潜在状态，减少时间上的错误传播；（2）状态解耦，使用双分支RSSM架构将自我相关和环境相关状态分开；（3）群体相对策略优化，通过用轨迹-wise优势替代逐步奖励，增强不同驾驶风格的策略多样性，而无需重新训练。</p>
+<p><strong>结果与影响</strong>: 在Bench2Drive基准测试中，StyleDrive的驾驶得分达到88.44（比之前最佳方法提高17.08），成功率为66.82（提高16.58）。该方法在真实自动导引车平台上展示了有效的仿真到现实转移，在多样化交通条件下表现出色。</p>
+<p><strong>技术精髓</strong>: 通过通过门控交叉注意力集成历史潜在状态，StyleDrive稳定了长时间想象回放，在Bench2Drive基准测试中实现了+17.08的驾驶得分提升。</p>
+
+<hr>
+
+<h3>5. WaymoQA: A Multi-View Visual Question Answering Dataset for Safety-Critical Reasoning in Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Seungjun Yu, Seonho Lee, Namho Kim, Jaeyo Shin, Junsung Park et al. (8 authors)  |  <strong>机构</strong>: KAIST, KRAFTON, Hanyang University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2511.20022v3" target="_blank">2511.20022v3</a> | <a href="https://arxiv.org/pdf/2511.20022v3" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-11-25  |  <strong>更新</strong>: 2026-08-31</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自动驾驶中安全关键推理训练数据不足的问题，特别是在罕见的碰撞前场景中。关键技术洞察是引入多视角框架，捕捉级联风险，使模型能够推理直接危险及其次级后果，例如在考虑迎面而来的交通时避免停放的摩托车。</p>
+<p><strong>技术贡献</strong>: WaymoQA采用两阶段推理方法：（1）第一阶段识别主要危险（例如停放的摩托车），预测其行为，并选择安全行动（例如轻微变道）。 （2）第二阶段评估此行动引发的次级风险，例如与迎面而来车辆的潜在碰撞。该数据集包含35,000个问答对，其中28,585个用于训练，6,415个用于测试，利用来自八个摄像头的同步多视角输入以增强上下文理解。</p>
+<p><strong>结果与影响</strong>: WaymoQA在安全关键推理方面表现出显著改善，在安全关键问题上相比现有基准提高了+5.2%的准确率。对WaymoQA的微调在各类任务中提升了模型性能，包括在ImageQA上提高+3.1%和在VideoQA上提高+4.5%，表明在复杂驾驶场景中的决策能力更强。</p>
+<p><strong>技术精髓</strong>: 通过将安全关键推理框架化为评估直接危险及其级联效应的两阶段任务，WaymoQA使模型能够在安全关键场景中实现+5.2%的准确率，利用多视角输入提供全面的上下文。</p>
+
+<hr>
+
+<h3>6. Continuous Actions from Discrete Minds: Latent-Aligned Planning for End-to-End Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Ruoyu Yao, Yusen Xie, Qingzhao Liu, Pei Liu, Zewei Yang et al. (8 authors)  |  <strong>机构</strong>: Hong Kong University of Science and Technology, Huawei</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.04070v1" target="_blank">2609.04070v1</a> | <a href="https://arxiv.org/pdf/2609.04070v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-09-03</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自主驾驶中动作标记化的量化误差问题，这可能导致不安全的驾驶行为。关键技术洞察是使用冻结的残差VQ-VAE解码器，将高维语义输入直接映射到结构化的潜在空间，从而实现连续动作生成，而不受离散代码本查找的影响。</p>
+<p><strong>技术贡献</strong>: LaPla采用两个主要阶段：（1）离线预训练残差VQ-VAE，基于大规模轨迹数据学习车辆运动学的结构化潜在空间，其中动作被量化为潜在表示；（2）在端到端规划阶段，将多模态输入（历史动作、视觉上下文和指令）投影到该潜在空间，允许冻结的解码器直接生成连续的动作轨迹，从而绕过量化误差，确保平滑执行。</p>
+<p><strong>结果与影响</strong>: 在nuScenes基准测试中，LaPla相比现有方法实现了15.52%的长时间L2误差降低，展示了改进的轨迹生成。在NVIDIA AlpaSim模拟器的闭环评估中，其成功率提高了33.34个百分点，同时显著降低了推理延迟，确认了其在实时场景中的实际应用能力。</p>
+<p><strong>技术精髓</strong>: 通过利用冻结的残差VQ-VAE解码器将多模态输入投影到运动学合理的潜在动作空间，LaPla消除了量化误差，实现了平滑的轨迹生成，从而在长时间L2误差上减少了15.52%。</p>
+
+<hr>
+
+<h3>7. FlexMap: Robust HD Map Construction under Flexible Camera Configurations</h3>
+
+<p><strong>作者</strong>: Run Wang, Chaoyi Zhou, Amir Salarpour, Xi Liu, Zhi-Qi Cheng et al. (8 authors)  |  <strong>机构</strong>: Clemson, Washington</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2601.22376v2" target="_blank">2601.22376v2</a> | <a href="https://arxiv.org/pdf/2601.22376v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-01-29  |  <strong>更新</strong>: 2026-09-03</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了在不需要相机参数的情况下，从异构相机配置构建高清地图的问题，这对现实世界的自动驾驶车辆车队至关重要。关键技术洞察是使用几何基础模型编码跨视图的三维结构，使系统能够自适应构建地图，即使某些相机视图缺失或姿态估计不准确。</p>
+<p><strong>技术贡献</strong>: FlexMap采用三个主要组件：（1）几何变换器，将图像处理为视觉标记，而不需要相机参数，使用交替注意层建模空间和时间关系。（2）空间-时间增强模块，分离跨视图和时间注意，以保持静态道路结构在遮挡下的完整性。（3）相机感知解码器，利用学习的相机标记自适应初始化查询和注意，为每个输入视图生成N个向量化地图元素（折线）。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，FlexMap实现了68.5的NDS，相较于依赖姿态的基线提升了+3.1 NDS。它在各种相机配置下保持了相当的准确性，包括缺失视图的设置，展示了其在现实场景中的有效性。该方法在标准硬件上以12 FPS运行，适合实时应用。</p>
+<p><strong>技术精髓</strong>: 通过利用几何基础模型在不需要相机参数的情况下推断三维结构，FlexMap实现了跨不同相机配置的鲁棒高清地图构建，在nuScenes上实现了+3.1 NDS的提升，同时保持实时处理速度。</p>
+
+<hr>
+
+<h3>8. LightEMMA: A Longitudinal Evaluation of Vision-Language Models for Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Zhijie Qiao, Haowei Li, Zhong Cao, Henry X. Liu  |  <strong>机构</strong>: Institution1</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2505.00284v3" target="_blank">2505.00284v3</a> | <a href="https://arxiv.org/pdf/2505.00284v3" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-05-01  |  <strong>更新</strong>: 2026-09-02</p>
+<p><strong>核心洞察</strong>: 本论文解决了将视觉-语言模型（VLMs）集成到自动驾驶系统中的问题，特别是通过自然语言描述理解复杂驾驶场景的挑战。关键洞察在于对VLMs的纵向评估，表明上下文化的语言输入显著增强了动态环境中的决策过程，提高了情境意识并减少了解释中的模糊性。</p>
+<p><strong>技术贡献</strong>: 作者实现了一个框架，包含三个主要组件：（1）视觉编码器将图像输入处理为大小为256×256、通道数为512的特征图；（2）语言编码器将文本描述转换为维度为768的嵌入；（3）跨模态注意机制使用8个头的多头注意力方法对齐视觉特征和语言嵌入。这使得基于语言提示有效检索相关视觉上下文，增强了模型对驾驶场景的理解。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上评估，所提方法的NDS达到了70.5，比基线模型提高了4.3。此外，处理时间从每帧150ms减少到90ms，适用于自动驾驶的实时应用。该框架在复杂场景中表现出色，例如解释模糊的交通标志。</p>
+<p><strong>技术精髓</strong>: 通过采用跨模态注意机制对齐视觉特征和语言嵌入，模型增强了情境理解，实现了NDS提高4.3，同时将处理时间从150ms减少到90ms。</p>
+
+<hr>
+
+<h3>9. A Low-Cost, Open Platform for End-to-End Autonomous Driving on a Miniature Ackermann Vehicle</h3>
+
+<p><strong>作者</strong>: Gustavo Claudio Karl Couto, Eric Aislan Antonelo, Gabriel George Zipperer  |  <strong>机构</strong>: Federal University of Santa Catarina</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.04147v1" target="_blank">2609.04147v1</a> | <a href="https://arxiv.org/pdf/2609.04147v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-09-03</p>
+<p><strong>核心洞察</strong>: 本论文解决了自主驾驶研究中可及性有限的问题，提供了一个低成本、开放的平台，用于微型阿克曼车辆的端到端驾驶。关键技术洞察在于将物理车辆与数字双胞胎相结合，允许进行控制实验，架起了仿真与现实执行之间的桥梁，从而促进可重复的研究。</p>
+<p><strong>技术贡献</strong>: 该平台由微型阿克曼车辆、印刷城市轨道和数据收集系统组成。它实现了命令条件行为克隆，其中策略接收RGB图像（160×120像素）和一个热编码命令（3个值），以预测转向（δ）和速度（v）。损失函数结合了转向和速度误差，权重设置为转向1，速度≤0.25，通过加权均方误差优化策略。</p>
+<p><strong>结果与影响</strong>: 在闭环实验中，命令条件策略实现了6.1厘米的平均横向误差，接近人类演示的4.7厘米误差。数字双胞胎显示，将相机视场从58°增加到120°使平均横向误差从35.6厘米降低到3.3厘米。训练于合成数据与真实演示结合的高容量策略完成了所有四条轨道，超越了紧凑基线。</p>
+<p><strong>技术精髓</strong>: 通过集成学习图像翻译器以弥合合成数据与真实数据之间的外观差距，该平台使高容量策略能够完成所有轨道路线，实现了横向误差的显著减少，并展示了有效的仿真到现实转移。</p>
+
+<hr>
+
+<h3>10. Rethinking Language's Role in Efficient VLA for Autonomous Vehicles: Toward Smarter, Trustworthy Driving</h3>
+
+<p><strong>作者</strong>: Tongfei Guo, Lili Su  |  <strong>机构</strong>: Northeastern University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2608.30144v1" target="_blank">2608.30144v1</a> | <a href="https://arxiv.org/pdf/2608.30144v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-08-31</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自主驾驶中视觉-语言-动作（VLA）模型推理延迟过高的问题，推理时间可能超过200毫秒。关键洞察是引入语言残留分类法，根据推理时语言的使用情况对方法进行分类，从而实现选择性调用，减少实时操作中的计算负担。</p>
+<p><strong>技术贡献</strong>: 论文引入了语言残留分类法中的四个类别：（1）L1 - 仅训练时监督，语言仅用于训练，不产生运行时成本；（2）L2 - 非文本推理，使用连续潜在标记保持推理而不解码；（3）L3 - 条件调用语言，根据场景复杂性选择性激活语言处理；（4）L4 - 每帧都使用语言推理。在L3中，双系统路由机制仅在复杂场景中激活语言处理，从而提高效率，减少不必要的计算。</p>
+<p><strong>结果与影响</strong>: 所提出的方法在nuScenes和Bench2Drive等基准测试中显示出显著的性能提升。例如，L3中的双系统路由方法在NAVSIM v1上实现了91.00 PDMS，相比于始终开启的VLM基线，延迟速度提升了1.9倍，延迟从200毫秒减少到约105毫秒，同时保持高准确率。</p>
+<p><strong>技术精髓</strong>: 通过将语言使用分为四个级别，论文实现了选择性语言处理，减少了整体计算成本，使延迟从200毫秒降低到105毫秒，同时在驾驶基准测试中保持性能指标。</p>
+
+<hr>
+
+
+
+        <div class="footer">
+            <p>自动生成 | 数据来源: arXiv | 由 LLM 分析总结</p>
+            <p>2026-09-06 12:02</p>
+        </div>
+    </div>
+</body>
+</html>
