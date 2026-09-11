@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Driving Papers Daily</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="lang-toggle">切换到中文</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-09-11)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 29</p>
+<p>- 生成时间 | Generated: 2026-09-11 12:43</p>
+<p>- <a href="index.html" target="_blank">切换到中文 Switch to Chinese</a></p>
+
+<hr>
+
+
+<h3>1. ROVR-Open-Dataset: A Large-Scale Depth Dataset for Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Xianda Guo, Ruijun Zhang, Yiqun Duan, Ruilin Wang, Matteo Poggi et al. (12 authors)  |  <strong>Affiliation</strong>: Wuhan University, Chinese Academy of Sciences, University of Technology Sydney, University of Bologna, Zhejiang University, University of California, Berkeley, Huazhong University of Science and Technology, Great Wall Motor, ROVR Labs</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2508.13977v4" target="_blank">2508.13977v4</a> | <a href="https://arxiv.org/pdf/2508.13977v4" target="_blank">PDF</a>  |  <strong>Published</strong>: 2025-08-19  |  <strong>Updated</strong>: 2026-09-09</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of limited scene diversity and scalability in depth datasets for autonomous driving, which previously hindered model generalization. The key technical insight is the use of a lightweight sensor suite that combines solid-state LiDAR and global-shutter HDR cameras, allowing for extensive data collection across varied environments, including urban, rural, and highway scenarios under different weather conditions.</p>
+<p><strong>Key Contribution</strong>: ROVR employs a sensor suite consisting of a solid-state LiDAR (e.g., 128 beams), a global-shutter HDR camera (1920×1280 resolution), and a tactical-grade IMU for accurate pose estimation. The calibration pipeline includes intrinsic and extrinsic calibration of sensors, synchronized data capture at 30 Hz, and a privacy blurring mechanism to anonymize data. This results in 200K high-resolution frames collected across three continents, ensuring diverse environmental conditions and reducing acquisition costs by 70% compared to traditional multi-LiDAR setups.</p>
+<p><strong>Result & Impact</strong>: On the ROVR dataset, models trained on existing benchmarks like KITTI show a performance drop of 15% when evaluated, indicating the need for new training data. Furthermore, ROVR-trained models achieve a 5.2% improvement in depth estimation accuracy on nuScenes validation compared to those trained solely on KITTI, demonstrating the dataset's effectiveness in enhancing model robustness across varied driving conditions.</p>
+<p><strong>Technical Essence</strong>: By integrating a lightweight, commodity-class sensor suite and a comprehensive calibration pipeline, ROVR enables the collection of diverse depth data at a fraction of the cost, resulting in a dataset that enhances model generalization and performance across multiple driving scenarios.</p>
+
+<hr>
+
+<h3>2. CARLAverse: A Highly Modular, Distributed, and Multimodal Framework for Human-in-the-Loop Simulation</h3>
+
+<p><strong>Authors</strong>: Patrick Rebling, Philipp Nenninger, Reiner Kriesten  |  <strong>Affiliation</strong>: Karlsruhe University of Applied Sciences</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.11478v1" target="_blank">2609.11478v1</a> | <a href="https://arxiv.org/pdf/2609.11478v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-09-10</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of high latency and synchronization issues in Human-in-the-Loop (HITL) simulations for autonomous driving by introducing CARLAverse, a distributed simulation framework that allows for real-time interaction among multiple human participants and various road users. The key insight is the decoupling of ego dynamics computation from NPC physics, enabling localized haptic feedback while maintaining environmental synchronization.</p>
+<p><strong>Key Contribution</strong>: CARLAverse employs a distributed physics architecture where (1) ego vehicle dynamics are computed locally on client nodes, (2) NPC physics and global traffic management are handled by a central CARLA server, and (3) high-frequency haptic feedback is achieved by maintaining a local control loop at >100Hz. This architecture enables seamless interaction between DrivoCARLA, CycloCARLA, and WalkoCARLA modules, facilitating real-time responses to user inputs without compromising physical immersion.</p>
+<p><strong>Result & Impact</strong>: CARLAverse reduces latency from 200ms to under 50ms for haptic feedback in multi-agent HITL scenarios, significantly improving user experience and interaction fidelity. In comparative tests, it supports up to 10 simultaneous human participants interacting with 20 NPCs in a shared virtual environment, demonstrating a 30% increase in task completion speed compared to centralized simulation frameworks.</p>
+<p><strong>Technical Essence</strong>: By distributing ego dynamics computation to local nodes while centralizing NPC management, CARLAverse achieves a reduction in latency from 200ms to under 50ms, enabling real-time haptic feedback in multi-agent HITL simulations.</p>
+
+<hr>
+
+<h3>3. Closed-Loop Evaluation of Bird's-Eye-View Maps from Cross-View Transformers as Inputs to Behavior-Cloning Policies</h3>
+
+<p><strong>Authors</strong>: Felipe Carlos dos Santos, Eric Antonelo, Gustavo Claudio Karl Couto  |  <strong>Affiliation</strong>: Federal University of Santa Catarina</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.05783v1" target="_blank">2609.05783v1</a> | <a href="https://arxiv.org/pdf/2609.05783v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-09-05</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of perceptual errors in BEV maps generated from camera inputs, which can significantly affect the performance of behavior-cloning policies in autonomous driving. The key insight is that using a six-channel BEV representation, which includes critical driving elements, allows for better navigation despite the inaccuracies in the predicted maps, as evidenced by the closed-loop evaluation in CARLA.</p>
+<p><strong>Key Contribution</strong>: The authors implement a six-channel BEV generation model using Cross-View Transformers (CVT) that predicts road surface, planned route, lane boundaries, vehicles, pedestrians, and traffic lights. They introduce a Kernel Density Estimation (KDE) weighting scheme that adjusts the segmentation loss to focus on underrepresented driving scenarios, improving the model's attention to critical geometrical locations. The training objective incorporates a weighted binary cross-entropy loss, enhancing performance on challenging maneuvers.</p>
+<p><strong>Result & Impact</strong>: In closed-loop evaluations across two CARLA towns, the KDE-weighted model was the only agent to complete a full episode without infractions, despite not achieving the highest aggregate IoU. The model demonstrated improved navigation success, particularly at critical route locations, highlighting that global segmentation metrics inadequately reflect driving performance. The dataset comprised 1,186,499 images, with a significant increase in training data complexity compared to prior work.</p>
+<p><strong>Technical Essence</strong>: By applying a KDE weighting scheme to the segmentation loss, the model emphasizes learning from rare driving scenarios, resulting in a behavior-cloning agent that successfully navigates complex environments without infractions, despite lower overall IoU scores.</p>
+
+<hr>
+
+<h3>4. CLFTv2: Efficient Camera-LiDAR Fusion for Semantic Segmentation via Hierarchical Feature Pyramids</h3>
+
+<p><strong>Authors</strong>: Toomas Tahves, Mauro Bellone, Raivo Sell  |  <strong>Affiliation</strong>: Tallinn University of Technology, Universitas Mercatorum</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.09881v1" target="_blank">2609.09881v1</a> | <a href="https://arxiv.org/pdf/2609.09881v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-09-09</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of detecting vulnerable road users (VRUs) in autonomous driving, particularly under conditions of heavy class imbalance where VRUs occupy only 0.3-0.4% of pixels. The key insight is the use of a hierarchical camera-LiDAR fusion framework that integrates multi-scale geometric cues, allowing for improved recall rates of VRUs in semantic segmentation tasks.</p>
+<p><strong>Key Contribution</strong>: CLFTv2 employs three main components: (1) A Siamese Swin Transformer encoder that extracts four hierarchical feature pyramids from RGB and LiDAR inputs, with spatial dimensions reduced by strides of 4, 8, 16, and 32, (2) A coarse-to-fine residual fusion decoder that processes these features across four scales, utilizing learned 1x1 convolutions to unify channel dimensions to D=256, and (3) A segmentation head that upsamples the fused representation to the original input resolution. This architecture allows for efficient feature integration without spatial resampling.</p>
+<p><strong>Result & Impact</strong>: On the ZOD dataset, CLFTv2-Large achieves 53.5% mIoU, improving pedestrian IoU from 35.5% to 44.9%. On Waymo, it reaches 61.7% mIoU. Compared to the Swin-based Mask2Former, CLFTv2 requires 1.4× fewer GFLOPs and delivers 2.2× higher throughput, demonstrating significant performance gains while maintaining competitive accuracy.</p>
+<p><strong>Technical Essence</strong>: By utilizing a hierarchical feature pyramid with per-scale residual fusion, CLFTv2 reduces computational complexity to linear in image resolution, achieving a 2.2× throughput increase while maintaining competitive mIoU scores across multiple datasets.</p>
+
+<hr>
+
+<h3>5. L2G-Map: Local-to-Global Mapping via Hierarchical Diffusion Refinement and Elliptical Bayesian Fusion</h3>
+
+<p><strong>Authors</strong>: Siyu Li, Xinying Hong, Fei Teng, Kang Zeng, Hao Shi et al. (8 authors)  |  <strong>Affiliation</strong>: Zhejiang University of Science and Technology, Hunan University, Ant Group</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2503.02578v2" target="_blank">2503.02578v2</a> | <a href="https://arxiv.org/pdf/2503.02578v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2025-03-04  |  <strong>Updated</strong>: 2026-09-08</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of inaccuracies in local-to-global mapping due to viewpoint variations and environmental noise, which can lead to geometric deviations in HD maps. The key insight is the use of Hierarchical Prior Diffusion Refinement to leverage temporal and centerline priors, effectively guiding the denoising process and enhancing map accuracy under challenging conditions.</p>
+<p><strong>Key Contribution</strong>: L2G-Map introduces two main components: (1) Hierarchical Prior Diffusion Refinement (HPDR) that employs a lightweight U-Net architecture to iteratively refine local maps by integrating temporal context and centerline priors, utilizing 3×3 convolutions for feature extraction, and (2) Elliptical Space Bayesian Fusion (ESBF) that applies elliptical distance propagation for confidence estimation, enabling adaptive fusion of multi-source local maps based on their uncertainty. The HPDR module refines maps through 4×4 dilated convolutions and temporal feature alignment, while the ESBF module uses Bayesian updates to optimally aggregate local observations.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes dataset, L2G-Map achieves a 3.27% improvement in mean Intersection over Union (mIoU) under sensor-degraded conditions compared to baseline methods. Additionally, the global map fusion process yields an 18.26% mIoU enhancement in semantic map construction and a 20.00% improvement in vectorized map construction, demonstrating significant performance gains across various mapping tasks.</p>
+<p><strong>Technical Essence</strong>: By integrating temporal and centerline priors into a diffusion-based refinement process, L2G-Map significantly reduces geometric inaccuracies in local maps, achieving a 3.27% mIoU improvement under adverse conditions.</p>
+
+<hr>
+
+<h3>6. MAVEN-T: Reinforced Heterogeneous Distillation for Real-Time Multi-Agent Trajectory Prediction</h3>
+
+<p><strong>Authors</strong>: Wenchang Duan, Zhenguo Gao, Jinguo Xian, Yi Shi  |  <strong>Affiliation</strong>: Shanghai Jiao Tong University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2604.10169v5" target="_blank">2604.10169v5</a> | <a href="https://arxiv.org/pdf/2604.10169v5" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-04-11  |  <strong>Updated</strong>: 2026-09-09</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of high computational costs in real-time multi-agent trajectory prediction, particularly in scenarios with dense interactions and heterogeneous agent behaviors. The key insight is the use of a reinforced heterogeneous distillation framework that allows a high-capacity teacher model to effectively transfer knowledge to a lightweight student model, ensuring safety and efficiency in trajectory forecasting.</p>
+<p><strong>Key Contribution</strong>: MAVEN-T employs three main components: (1) a surround-aware graph encoder (GATv2) for directed local interactions, (2) a hybrid temporal-spatial block (EHybrid) that combines linear-time filtering with shifted-window attention, and (3) a sparse Mixture-of-Experts (DMoE) decoder for maneuver-specific predictions. The student model, utilizing a GRU-Squeeze-and-Excitation architecture, is trained through multi-granular distillation at feature, attention, and semantic levels, followed by Proximal Policy Optimization (PPO) for task-level refinement.</p>
+<p><strong>Result & Impact</strong>: On the Waymo Open Motion Dataset, MAVEN-T achieves a 6.2× reduction in parameters and a 3.7× increase in inference speed, with a latency of 14.6 ms on an NVIDIA Jetson AGX Orin. It maintains competitive prediction accuracy compared to the teacher model, demonstrating significant improvements in real-time deployment scenarios.</p>
+<p><strong>Technical Essence</strong>: By applying multi-granular distillation from a high-capacity teacher to a compact student, MAVEN-T achieves a 3.7× increase in inference speed while preserving accuracy, enabling real-time trajectory prediction with 14.6 ms latency.</p>
+
+<hr>
+
+<h3>7. Data-Driven Risk Fields for Safer End-to-End Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Yuanxin Tian, Zhiyuan Liu, Jinhao Li, Liangfan Zhu, Shuai Wang et al. (12 authors)  |  <strong>Affiliation</strong>: Tsinghua, Yinwang, KAIST</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.10377v2" target="_blank">2609.10377v2</a> | <a href="https://arxiv.org/pdf/2609.10377v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-09-09  |  <strong>Updated</strong>: 2026-09-10</p>
+<p><strong>Core Insight</strong>: This paper solves the issue of inadequate risk representation in autonomous driving by introducing a data-driven risk field (DRiF) that explicitly models ego-conditioned risks based on dynamic interactions with surrounding agents. The key insight is the conversion of rule-based safety priors into pairwise risk labels, which allows the model to learn relative risk ordering instead of relying on absolute risk scores.</p>
+<p><strong>Key Contribution</strong>: DRiF comprises four main components: (1) A BEV encoder that processes multi-source inputs into a shared feature representation, (2) A static map branch that encodes road structure using dense labels, (3) A dynamic risk branch that utilizes pairwise ranking loss to learn risk from surrounding agents, and (4) A planning branch that generates trajectories based on the learned risk field. The dynamic risk field is supervised using pairwise comparisons, where locations are labeled as riskier or safer, facilitating ego-conditioned risk learning.</p>
+<p><strong>Result & Impact</strong>: On the Bench2Drive dataset, DRiF achieves a driving score improvement of +5.2% and a success rate increase of +4.3% compared to baseline end-to-end planners. It also shows a reduction in collision-related metrics, indicating enhanced safety performance. The results demonstrate the effectiveness of relative risk supervision in connecting explicit safety structures with planning.</p>
+<p><strong>Technical Essence</strong>: By converting rule-based safety priors into pairwise risk labels for dynamic risk learning, DRiF achieves a more accurate ego-conditioned risk representation, leading to improved trajectory planning and safety metrics.</p>
+
+<hr>
+
+<h3>8. CrossDepth: Geometry-Constrained Attention for Generalizable Multi-View Surround Depth Estimation</h3>
+
+<p><strong>Authors</strong>: Samer Abualhanud, Max Mehltretter  |  <strong>Affiliation</strong>: Leibniz University Hannover</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.05397v1" target="_blank">2609.05397v1</a> | <a href="https://arxiv.org/pdf/2609.05397v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-09-04</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of depth estimation inconsistency across multi-view images caused by varying camera intrinsics and limited spatial overlap. The key insight is the use of per-pixel camera-aware ray embeddings to normalize monocular cues, allowing the model to learn a non-linear relationship between image appearance and depth more effectively.</p>
+<p><strong>Key Contribution</strong>: The method consists of three main components: (1) a depth network that encodes N input images independently and predicts initial depth maps, (2) a cylindrical projection that maps overlapping regions onto a shared cylindrical grid for efficient cross-image attention, and (3) a Cross-Image Feature Aggregation module that aggregates features based on spatially constrained attention, enhancing depth consistency across images. The dimensions of the feature maps are denoted as F ∈ RN×Hp×Wp×Fl, where N is the number of images, Hp and Wp are the spatial dimensions, and Fl is the feature dimension.</p>
+<p><strong>Result & Impact</strong>: On the DDAD dataset, the proposed method achieves a depth accuracy improvement of 5.2% over the baseline method, reducing RMSE error from 0.12m to 0.11m. Additionally, it shows enhanced cross-image depth consistency, outperforming state-of-the-art self-supervised methods. The evaluations on nuScenes also demonstrate similar performance gains.</p>
+<p><strong>Technical Essence</strong>: By employing per-pixel camera-aware ray embeddings to adjust for camera intrinsics and utilizing a shared cylindrical grid for cross-image attention, the method achieves improved depth accuracy and consistency across multi-view images.</p>
+
+<hr>
+
+<h3>9. A Multi-Modal Perception Pipeline for Object Detection and Tracking in Autonomous Racing</h3>
+
+<p><strong>Authors</strong>: Davide Malvezzi, Michele Pestarino, Vittoria Cavicchioli, Valentina La Gamba, Silvia Severi et al. (12 authors)  |  <strong>Affiliation</strong>: University of Modena and Reggio Emilia, HiPeRT</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.08338v2" target="_blank">2609.08338v2</a> | <a href="https://arxiv.org/pdf/2609.08338v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-09-08  |  <strong>Updated</strong>: 2026-09-10</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of inaccurate object tracking in high-speed autonomous racing, where latency can lead to significant spatial errors. The key insight is the late-fusion of detections from cameras, LiDAR, and RADAR, which compensates for detection delays and integrates vehicle dynamics for improved state estimation.</p>
+<p><strong>Key Contribution</strong>: The system consists of three main modules: (1) Camera detection using YOLOv4, optimized for 8.4 ms inference on NVIDIA RTX 6000; (2) LiDAR detection via PointPillars, yielding 3D bounding boxes with a timestamp based on point cloud averaging; (3) RADAR detection using filtering and clustering, processing in under 3 ms. The late-fusion mechanism synchronizes detections based on timestamps and merges them with velocity information for enhanced tracking.</p>
+<p><strong>Result & Impact</strong>: Experimental results show a significant improvement in tracking accuracy, with the system achieving a 95% detection rate in racing scenarios, compared to 85% for previous methods. The latency is reduced to 4.5 ms for camera detections and 3 ms for RADAR, enabling real-time processing essential for high-speed racing.</p>
+<p><strong>Technical Essence</strong>: By implementing a late-fusion approach that synchronizes multi-sensor detections based on timestamps, the system achieves a 10% increase in tracking accuracy while maintaining a processing latency under 5 ms, crucial for high-speed racing environments.</p>
+
+<hr>
+
+<h3>10. MC-DeTra: Motion-Consistent Joint Object Detection and Socially-Aware Trajectory Forecasting in Bird's-Eye-View Images</h3>
+
+<p><strong>Authors</strong>: Vladislav Diuzhev, Dmitry Yudin  |  <strong>Affiliation</strong>: Moscow Institute of Physics and Technology, Artificial Intelligence Research Institute</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.11717v1" target="_blank">2609.11717v1</a> | <a href="https://arxiv.org/pdf/2609.11717v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-09-10</p>
+<p><strong>Core Insight</strong>: This paper solves the challenge of accurately forecasting dynamic actor trajectories in autonomous driving scenarios, where traditional methods struggle due to the lack of contextual information from object detection. The key insight is the integration of past motion data and occupancy information into the trajectory forecasting process, allowing for more informed predictions based on the social context of surrounding traffic.</p>
+<p><strong>Key Contribution</strong>: MC-DeTra employs three auxiliary objectives: (1) Past Reconstruction, which utilizes the observed past trajectory of each actor to inform future predictions; (2) Occupancy Auxiliary, which encodes the spatial occupancy of surrounding traffic; and (3) a heading-consistency regularizer that aligns predicted heading with motion direction. The model architecture includes a shared BEV representation processed through a residual backbone with dynamic convolution, producing a trajectory volume of dimensions N×K×T×D (N=600 queries, K=6 modes, T=11 time slots, D=128 features).</p>
+<p><strong>Result & Impact</strong>: On the Waymo Open Dataset, MC-DeTra achieves a minimum final displacement error (minFDE) improvement of 6.3% over the baseline DeTra, with a minADE improvement of 5.2%. The model maintains detection accuracy while operating within a 2Hz prediction budget, achieving inference times of 360.7 ms on RTX 3080 and 104.9 ms on H200, thus ensuring real-time performance.</p>
+<p><strong>Technical Essence</strong>: By integrating past motion and occupancy information as auxiliary objectives during training, MC-DeTra enhances trajectory forecasting accuracy without increasing inference latency, achieving a 6.3% reduction in minFDE while maintaining real-time performance.</p>
+
+<hr>
+
+
+        <div class="footer">
+            <p>Auto-generated | Source: arXiv | Analyzed by LLM</p>
+            <p>2026-09-11 12:43</p>
+        </div>
+    </div>
+</body>
+</html>

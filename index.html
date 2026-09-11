@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自动驾驶论文每日速览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index-en.html" class="lang-toggle">Switch to English</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-09-11)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 29</p>
+<p>- 生成时间 | Generated: 2026-09-11 12:43</p>
+<p>- <a href="index-en.html" target="_blank">Switch to English 切换到英文</a></p>
+
+<hr>
+
+
+<h3>1. ROVR-Open-Dataset: A Large-Scale Depth Dataset for Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Xianda Guo, Ruijun Zhang, Yiqun Duan, Ruilin Wang, Matteo Poggi et al. (12 authors)  |  <strong>机构</strong>: Wuhan University, Chinese Academy of Sciences, University of Technology Sydney, University of Bologna, Zhejiang University, University of California, Berkeley, Huazhong University of Science and Technology, Great Wall Motor, ROVR Labs</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2508.13977v4" target="_blank">2508.13977v4</a> | <a href="https://arxiv.org/pdf/2508.13977v4" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-08-19  |  <strong>更新</strong>: 2026-09-09</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了深度数据集在自动驾驶中场景多样性和可扩展性不足的问题，这之前限制了模型的泛化能力。关键技术洞察是使用轻量级传感器套件，结合固态LiDAR和全球快门HDR相机，允许在不同环境中广泛收集数据，包括城市、乡村和高速公路场景，涵盖不同天气条件。</p>
+<p><strong>技术贡献</strong>: ROVR采用的传感器套件包括固态LiDAR（例如128束）、全球快门HDR相机（1920×1280分辨率）和战术级IMU，以实现准确的姿态估计。校准管道包括传感器的内外参数校准、30 Hz的同步数据采集和隐私模糊机制，以匿名化数据。这导致在三个大洲收集到20万帧高分辨率图像，确保环境条件多样，并将收集成本降低了70%，相比传统的多LiDAR设置。</p>
+<p><strong>结果与影响</strong>: 在ROVR数据集上，基于现有基准（如KITTI）训练的模型在评估时表现下降15%，表明需要新的训练数据。此外，ROVR训练的模型在nuScenes验证集上相比仅在KITTI训练的模型提高了5.2%的深度估计精度，证明了该数据集在增强模型在多样化驾驶条件下的鲁棒性方面的有效性。</p>
+<p><strong>技术精髓</strong>: 通过整合轻量级的商品级传感器套件和全面的校准管道，ROVR实现了以较低成本收集多样化深度数据，从而增强了模型在多种驾驶场景下的泛化能力和性能。</p>
+
+<hr>
+
+<h3>2. CARLAverse: A Highly Modular, Distributed, and Multimodal Framework for Human-in-the-Loop Simulation</h3>
+
+<p><strong>作者</strong>: Patrick Rebling, Philipp Nenninger, Reiner Kriesten  |  <strong>机构</strong>: Karlsruhe University of Applied Sciences</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.11478v1" target="_blank">2609.11478v1</a> | <a href="https://arxiv.org/pdf/2609.11478v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-09-10</p>
+<p><strong>核心洞察</strong>: 本文解决了自主驾驶中人机交互模拟的高延迟和同步问题，通过引入CARLAverse，一个分布式模拟框架，实现了多个参与者和各种道路使用者之间的实时交互。关键技术洞察是将自我动态计算与NPC物理解耦，从而在保持环境同步的同时实现局部触觉反馈。</p>
+<p><strong>技术贡献</strong>: CARLAverse采用分布式物理架构，其中（1）自我车辆动态在客户端节点上本地计算，（2）NPC物理和全局交通管理由中央CARLA服务器处理，（3）通过保持>100Hz的本地控制循环实现高频触觉反馈。该架构实现了DrivoCARLA、CycloCARLA和WalkoCARLA模块之间的无缝交互，促进了用户输入的实时响应，而不妨碍物理沉浸感。</p>
+<p><strong>结果与影响</strong>: CARLAverse将多代理人HITL场景中的延迟从200ms降低到50ms以下，显著改善了用户体验和交互真实感。在比较测试中，它支持最多10个同时参与者与20个NPC在共享虚拟环境中交互，任务完成速度比集中式模拟框架提高了30%。</p>
+<p><strong>技术精髓</strong>: 通过将自我动态计算分配到本地节点，同时集中管理NPC，CARLAverse实现了将延迟从200ms降低到50ms以下，使多代理人HITL模拟中的实时触觉反馈成为可能。</p>
+
+<hr>
+
+<h3>3. Closed-Loop Evaluation of Bird's-Eye-View Maps from Cross-View Transformers as Inputs to Behavior-Cloning Policies</h3>
+
+<p><strong>作者</strong>: Felipe Carlos dos Santos, Eric Antonelo, Gustavo Claudio Karl Couto  |  <strong>机构</strong>: Federal University of Santa Catarina</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.05783v1" target="_blank">2609.05783v1</a> | <a href="https://arxiv.org/pdf/2609.05783v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-09-05</p>
+<p><strong>核心洞察</strong>: 本文解决了由相机输入生成的BEV地图中的感知错误问题，这可能显著影响自主驾驶中的行为克隆策略的性能。关键洞察是，使用包含关键驾驶元素的六通道BEV表示能够更好地导航，尽管预测地图存在不准确性，这在CARLA的闭环评估中得到了证实。</p>
+<p><strong>技术贡献</strong>: 作者实现了一个六通道BEV生成模型，使用交叉视图变换器（CVT）预测道路表面、计划路线、车道边界、车辆、行人和交通信号灯。他们引入了一种核密度估计（KDE）加权方案，调整分割损失以关注代表性不足的驾驶场景，从而改善模型对关键几何位置的关注。训练目标结合了加权的二元交叉熵损失，提高了在挑战性动作上的表现。</p>
+<p><strong>结果与影响</strong>: 在两个CARLA城镇的闭环评估中，KDE加权模型是唯一一个在没有违规的情况下完成完整回合的代理，尽管其整体IoU得分并不最高。该模型在关键路线位置的导航成功率得到了提升，突显出全局分割指标不足以反映驾驶性能。数据集包含1,186,499张图像，与之前的工作相比，训练数据复杂性显著增加。</p>
+<p><strong>技术精髓</strong>: 通过对分割损失应用KDE加权方案，该模型强调从稀有驾驶场景中学习，导致行为克隆代理成功导航复杂环境而没有违规，尽管整体IoU得分较低。</p>
+
+<hr>
+
+<h3>4. CLFTv2: Efficient Camera-LiDAR Fusion for Semantic Segmentation via Hierarchical Feature Pyramids</h3>
+
+<p><strong>作者</strong>: Toomas Tahves, Mauro Bellone, Raivo Sell  |  <strong>机构</strong>: Tallinn University of Technology, Universitas Mercatorum</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.09881v1" target="_blank">2609.09881v1</a> | <a href="https://arxiv.org/pdf/2609.09881v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-09-09</p>
+<p><strong>核心洞察</strong>: 该论文解决了在自动驾驶中检测脆弱道路用户（VRUs）的问题，尤其是在VRUs仅占像素的0.3-0.4%的重类不平衡情况下。关键技术洞察是使用分层的相机-激光雷达融合框架，集成多尺度几何线索，从而提高语义分割任务中VRUs的召回率。</p>
+<p><strong>技术贡献</strong>: CLFTv2采用三个主要组件：（1）一个Siamese Swin Transformer编码器，从RGB和激光雷达输入中提取四个分层特征金字塔，空间维度通过4、8、16和32的步幅减少；（2）一个粗到细的残差融合解码器，跨四个尺度处理这些特征，利用学习的1x1卷积将通道维度统一为D=256；（3）一个分割头，将融合后的表示上采样到原始输入分辨率。该架构允许在不进行空间重采样的情况下高效集成特征。</p>
+<p><strong>结果与影响</strong>: 在ZOD数据集上，CLFTv2-Large实现了53.5%的mIoU，将行人IoU从35.5%提高到44.9%。在Waymo上，达到61.7%的mIoU。与基于Swin的Mask2Former相比，CLFTv2需要1.4倍更少的GFLOPs，并提供2.2倍更高的吞吐量，展示了显著的性能提升，同时保持竞争力的准确性。</p>
+<p><strong>技术精髓</strong>: 通过利用具有每尺度残差融合的分层特征金字塔，CLFTv2将计算复杂度降低到与图像分辨率成线性关系，实现了2.2倍的吞吐量提升，同时在多个数据集上保持竞争力的mIoU得分。</p>
+
+<hr>
+
+<h3>5. L2G-Map: Local-to-Global Mapping via Hierarchical Diffusion Refinement and Elliptical Bayesian Fusion</h3>
+
+<p><strong>作者</strong>: Siyu Li, Xinying Hong, Fei Teng, Kang Zeng, Hao Shi et al. (8 authors)  |  <strong>机构</strong>: Zhejiang University of Science and Technology, Hunan University, Ant Group</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2503.02578v2" target="_blank">2503.02578v2</a> | <a href="https://arxiv.org/pdf/2503.02578v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-03-04  |  <strong>更新</strong>: 2026-09-08</p>
+<p><strong>核心洞察</strong>: 该论文解决了由于视角变化和环境噪声导致的本地到全局映射不准确的问题，这可能导致高清地图中的几何偏差。关键技术洞察是使用分层先验扩散细化来利用时间和中心线先验，有效指导去噪过程并提高地图准确性。</p>
+<p><strong>技术贡献</strong>: L2G-Map引入两个主要组件：（1）分层先验扩散细化（HPDR），采用轻量级U-Net架构，通过整合时间上下文和中心线先验迭代细化本地地图，利用3×3卷积进行特征提取；（2）椭圆空间贝叶斯融合（ESBF），应用椭圆距离传播进行置信度估计，实现基于不确定性的多源本地地图的自适应融合。HPDR模块通过4×4膨胀卷积和时间特征对齐来细化地图，而ESBF模块使用贝叶斯更新来优化聚合本地观测。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，L2G-Map在传感器降级条件下相比基线方法实现了3.27%的平均交并比（mIoU）提升。此外，全局地图融合过程在语义地图构建中实现了18.26%的mIoU提升，在矢量地图构建中实现了20.00%的提升，展示了在各种映射任务中的显著性能提升。</p>
+<p><strong>技术精髓</strong>: 通过将时间和中心线先验集成到基于扩散的细化过程中，L2G-Map显著减少本地地图中的几何不准确性，在不利条件下实现了3.27%的mIoU提升。</p>
+
+<hr>
+
+<h3>6. MAVEN-T: Reinforced Heterogeneous Distillation for Real-Time Multi-Agent Trajectory Prediction</h3>
+
+<p><strong>作者</strong>: Wenchang Duan, Zhenguo Gao, Jinguo Xian, Yi Shi  |  <strong>机构</strong>: Shanghai Jiao Tong University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2604.10169v5" target="_blank">2604.10169v5</a> | <a href="https://arxiv.org/pdf/2604.10169v5" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-04-11  |  <strong>更新</strong>: 2026-09-09</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了实时多智能体轨迹预测中的高计算成本问题，特别是在密集交互和异构代理行为的场景下。关键技术洞察是使用强化异构蒸馏框架，使高容量教师模型能够有效地将知识转移给轻量级学生模型，从而确保轨迹预测的安全性和效率。</p>
+<p><strong>技术贡献</strong>: MAVEN-T采用三个主要组件：（1）用于定向局部交互的周围感知图编码器（GATv2），（2）结合线性时间过滤和移动窗口注意力的混合时空块（EHybrid），（3）用于特定机动预测的稀疏专家混合解码器（DMoE）。学生模型利用GRU-压缩和激励架构，通过特征、注意力和语义层次的多粒度蒸馏进行训练，随后通过近端策略优化（PPO）进行任务级精炼。</p>
+<p><strong>结果与影响</strong>: 在Waymo开放运动数据集上，MAVEN-T实现了6.2倍的参数减少和3.7倍的推理速度提升，在NVIDIA Jetson AGX Orin上延迟为14.6毫秒。与教师模型相比，它保持了竞争的预测精度，展示了在实时部署场景中的显著改进。</p>
+<p><strong>技术精髓</strong>: 通过将高容量教师的多粒度蒸馏应用于紧凑的学生，MAVEN-T实现了3.7倍的推理速度提升，同时保持精度，使实时轨迹预测的延迟降至14.6毫秒。</p>
+
+<hr>
+
+<h3>7. Data-Driven Risk Fields for Safer End-to-End Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Yuanxin Tian, Zhiyuan Liu, Jinhao Li, Liangfan Zhu, Shuai Wang et al. (12 authors)  |  <strong>机构</strong>: Tsinghua, Yinwang, KAIST</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.10377v2" target="_blank">2609.10377v2</a> | <a href="https://arxiv.org/pdf/2609.10377v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-09-09  |  <strong>更新</strong>: 2026-09-10</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自动驾驶中风险表示不足的问题，通过引入数据驱动的风险场（DRiF），明确建模基于与周围代理的动态交互的自我条件风险。关键洞察是将基于规则的安全先验转换为成对风险标签，使模型能够学习相对风险排序，而不是依赖绝对风险评分。</p>
+<p><strong>技术贡献</strong>: DRiF包含四个主要组件：（1）BEV编码器将多源输入处理为共享特征表示，（2）静态地图分支使用密集标签编码道路结构，（3）动态风险分支利用成对排名损失从周围代理学习风险，以及（4）规划分支基于学习的风险场生成轨迹。动态风险场通过成对比较进行监督，标记位置为风险更高或更安全，从而促进自我条件风险学习。</p>
+<p><strong>结果与影响</strong>: 在Bench2Drive数据集上，DRiF实现了驾驶评分提高5.2%和成功率提高4.3%，与基线端到端规划器相比。它还显示出碰撞相关指标的减少，表明安全性能的增强。结果证明了相对风险监督在将明确的安全结构与规划相连接方面的有效性。</p>
+<p><strong>技术精髓</strong>: 通过将基于规则的安全先验转换为动态风险学习的成对风险标签，DRiF实现了更准确的自我条件风险表示，从而改善了轨迹规划和安全指标。</p>
+
+<hr>
+
+<h3>8. CrossDepth: Geometry-Constrained Attention for Generalizable Multi-View Surround Depth Estimation</h3>
+
+<p><strong>作者</strong>: Samer Abualhanud, Max Mehltretter  |  <strong>机构</strong>: Leibniz University Hannover</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.05397v1" target="_blank">2609.05397v1</a> | <a href="https://arxiv.org/pdf/2609.05397v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-09-04</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了由于相机内参变化和空间重叠有限而导致的多视图图像深度估计不一致性的问题。关键技术洞察是使用每像素相机感知光线嵌入来规范化单目线索，从而使模型更有效地学习图像外观与深度之间的非线性关系。</p>
+<p><strong>技术贡献</strong>: 该方法由三个主要组件组成：（1）深度网络独立编码N个输入图像并预测初始深度图；（2）圆柱投影将重叠区域映射到共享圆柱网格，以实现高效的跨图像注意力；（3）跨图像特征聚合模块根据空间约束注意力聚合特征，从而增强图像间的深度一致性。特征图的维度表示为F ∈ RN×Hp×Wp×Fl，其中N为图像数量，Hp和Wp为空间维度，Fl为特征维度。</p>
+<p><strong>结果与影响</strong>: 在DDAD数据集上，所提方法相较于基线方法提高了5.2%的深度准确性，将RMSE误差从0.12m降低到0.11m。此外，它在跨图像深度一致性方面表现出增强，超越了最先进的自监督方法。在nuScenes上的评估也显示出类似的性能提升。</p>
+<p><strong>技术精髓</strong>: 通过采用每像素相机感知光线嵌入来调整相机内参，并利用共享圆柱网格进行跨图像注意力，该方法在多视图图像中实现了深度准确性和一致性的改善。</p>
+
+<hr>
+
+<h3>9. A Multi-Modal Perception Pipeline for Object Detection and Tracking in Autonomous Racing</h3>
+
+<p><strong>作者</strong>: Davide Malvezzi, Michele Pestarino, Vittoria Cavicchioli, Valentina La Gamba, Silvia Severi et al. (12 authors)  |  <strong>机构</strong>: University of Modena and Reggio Emilia, HiPeRT</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.08338v2" target="_blank">2609.08338v2</a> | <a href="https://arxiv.org/pdf/2609.08338v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-09-08  |  <strong>更新</strong>: 2026-09-10</p>
+<p><strong>核心洞察</strong>: 本论文解决了高速自动赛车中不准确的目标跟踪问题，延迟可能导致显著的空间误差。关键技术洞察是通过延迟融合摄像头、LiDAR和RADAR的检测，补偿检测延迟并整合车辆动态以改善状态估计。</p>
+<p><strong>技术贡献</strong>: 该系统由三个主要模块组成：（1）使用YOLOv4进行摄像头检测，优化后在NVIDIA RTX 6000上实现8.4 ms推理；（2）通过PointPillars进行LiDAR检测，生成带时间戳的3D边界框；（3）使用过滤和聚类进行RADAR检测，处理时间少于3 ms。延迟融合机制基于时间戳同步检测，并与速度信息合并以增强跟踪。</p>
+<p><strong>结果与影响</strong>: 实验结果表明，跟踪精度显著提高，系统在赛车场景中的检测率达到95%，而之前的方法为85%。延迟降低到摄像头检测的4.5 ms和RADAR的3 ms，使得实时处理在高速赛车中至关重要。</p>
+<p><strong>技术精髓</strong>: 通过实现基于时间戳同步的多传感器检测延迟融合方法，该系统在保持处理延迟低于5 ms的同时，实现了10%的跟踪精度提升，这对于高速赛车环境至关重要。</p>
+
+<hr>
+
+<h3>10. MC-DeTra: Motion-Consistent Joint Object Detection and Socially-Aware Trajectory Forecasting in Bird's-Eye-View Images</h3>
+
+<p><strong>作者</strong>: Vladislav Diuzhev, Dmitry Yudin  |  <strong>机构</strong>: Moscow Institute of Physics and Technology, Artificial Intelligence Research Institute</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.11717v1" target="_blank">2609.11717v1</a> | <a href="https://arxiv.org/pdf/2609.11717v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-09-10</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了在自动驾驶场景中准确预测动态行为者轨迹的挑战，传统方法因缺乏来自物体检测的上下文信息而难以实现。关键洞察是将过去运动数据和周围交通的占用信息整合到轨迹预测过程中，从而基于周围交通的社会上下文做出更明智的预测。</p>
+<p><strong>技术贡献</strong>: MC-DeTra采用三个辅助目标：(1) 过去重建，利用每个行为者的观察到的过去轨迹来指导未来预测；(2) 占用辅助，编码周围交通的空间占用；(3) 方向一致性正则化器，将预测的航向与运动方向对齐。模型架构包括通过动态卷积处理的共享BEV表示，生成维度为N×K×T×D的轨迹体（N=600查询，K=6模式，T=11时间槽，D=128特征）。</p>
+<p><strong>结果与影响</strong>: 在Waymo开放数据集上，MC-DeTra在最小最终位移误差（minFDE）上比基线DeTra提高了6.3%，在最小平均位移误差（minADE）上提高了5.2%。该模型在保持检测精度的同时，操作在2Hz预测预算内，RTX 3080上的推理时间为360.7毫秒，H200上的推理时间为104.9毫秒，从而确保实时性能。</p>
+<p><strong>技术精髓</strong>: 通过在训练过程中将过去运动和占用信息作为辅助目标整合，MC-DeTra在不增加推理延迟的情况下提高了轨迹预测的准确性，实现了minFDE减少6.3%的效果，同时保持实时性能。</p>
+
+<hr>
+
+
+
+        <div class="footer">
+            <p>自动生成 | 数据来源: arXiv | 由 LLM 分析总结</p>
+            <p>2026-09-11 12:43</p>
+        </div>
+    </div>
+</body>
+</html>
