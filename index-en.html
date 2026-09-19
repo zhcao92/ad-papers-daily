@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Driving Papers Daily</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="lang-toggle">切换到中文</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-09-19)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 35</p>
+<p>- 生成时间 | Generated: 2026-09-19 12:22</p>
+<p>- <a href="index.html" target="_blank">切换到中文 Switch to Chinese</a></p>
+
+<hr>
+
+
+<h3>1. WZPlanner: Safe End-to-End Path Planning for Autonomous Driving in Work Zones</h3>
+
+<p><strong>Authors</strong>: Nishad Sahu, Changzhong Qian, Guangzhou Cai, Shounak Sural, Ragunathan et al. (6 authors)  |  <strong>Affiliation</strong>: Carnegie Mellon University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.19393v1" target="_blank">2609.19393v1</a> | <a href="https://arxiv.org/pdf/2609.19393v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-09-16</p>
+<p><strong>Core Insight</strong>: This paper addresses the challenge of accurately navigating autonomous vehicles through dynamically changing work zones, where lane configurations may not align with existing maps. The key technical insight is the introduction of a dataset that includes 149K+ synthetic and 5K+ real-world samples, enabling the model to learn from diverse work zone scenarios, including lane shifts and obstructions caused by construction activities.</p>
+<p><strong>Key Contribution</strong>: The authors present BoundaryFormer (BF), a transformer-based architecture that integrates three key components: (1) a slot attention mechanism for structured scene parsing, (2) a trajectory decoder that predicts driving paths based on lane and work zone boundaries, and (3) a metric ground-plane encoding for work zone-specific features. The model outputs parametric polynomials representing lane and boundary contours, allowing it to handle complex geometries effectively.</p>
+<p><strong>Result & Impact</strong>: In evaluations using the WorkZonePlan dataset, BoundaryFormer++ (BF++) achieved Driving Scores of 63.0 and 64.4 in closed-loop scenarios, outperforming baseline models like SimLingo (59.3) and TransFuser++ (26.1). The model demonstrated superior performance across 228 evaluation routes, indicating a significant advancement in work zone navigation capabilities for autonomous vehicles.</p>
+<p><strong>Technical Essence</strong>: By leveraging a transformer architecture with slot attention to jointly predict lane and work zone boundaries, BoundaryFormer enables accurate trajectory generation that adapts to dynamic road conditions, leading to a 5.2% increase in Driving Scores compared to traditional modular approaches.</p>
+
+<hr>
+
+<h3>2. OPTED: On-Policy Fine-Tuning for End-to-End Driving using a Render-Free Teacher</h3>
+
+<p><strong>Authors</strong>: Damiano Da Col, Maximilian Igl, Peter Karkus, Kashyap Chitta, Boris Ivanovic et al. (8 authors)  |  <strong>Affiliation</strong>: KE, ETH Zürich, NVIDIA, ELLIS Institute, Stanford</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.20756v1" target="_blank">2609.20756v1</a> | <a href="https://arxiv.org/pdf/2609.20756v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-09-17</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of compounding errors in closed-loop autonomous driving, which can lead to unsafe states not covered by training data. The key insight is the use of a render-free teacher trained on vectorized inputs (HD maps and bounding boxes) to provide supervision to a pre-trained student model during closed-loop fine-tuning, thereby reducing reliance on expensive rendering.</p>
+<p><strong>Key Contribution</strong>: OPTED employs a three-step process: (1) A privileged teacher is trained using Proximal Policy Optimization (PPO) in a render-free simulator on vectorized states, producing continuous control actions. (2) The student model, pre-trained via behavior cloning on human driving logs, is rolled out in a closed-loop environment to collect data. (3) The teacher labels the student's visited states, and the student is updated using a loss function that minimizes the difference between the teacher's actions and the student's predictions, adapting to the student's output representation.</p>
+<p><strong>Result & Impact</strong>: In experiments with the AlpaSim simulator, the TransFuser model achieved a 1.6× increase in driving scores, while the VaVAM model saw a 9.5× increase after just two epochs of fine-tuning. This performance was achieved with approximately three orders of magnitude fewer simulator interactions compared to direct reinforcement learning post-training, demonstrating significant efficiency gains.</p>
+<p><strong>Technical Essence</strong>: By decoupling the exploration and supervision processes into separate simulators, OPTED enables a privileged teacher to provide effective on-policy supervision to a student model, achieving closed-loop performance with 99.9% fewer simulator interactions than traditional reinforcement learning.</p>
+
+<hr>
+
+<h3>3. Vehicle Trajectory Prediction via Neural Fusion of Multiple EKF-Based Trajectory Candidates</h3>
+
+<p><strong>Authors</strong>: Seong-Jun Kim, Seung-Hyun Kong  |  <strong>Affiliation</strong>: KAIST</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.19813v1" target="_blank">2609.19813v1</a> | <a href="https://arxiv.org/pdf/2609.19813v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-09-17</p>
+<p><strong>Core Insight</strong>: This paper solves the issue of generating physically plausible vehicle trajectories during critical maneuvers like acceleration and turning, where traditional neural predictors may fail. The key insight is the fusion of neural predictions with multiple EKF-based trajectory candidates, ensuring that the final trajectories adhere to realistic motion constraints.</p>
+<p><strong>Key Contribution</strong>: The framework consists of two main components: (1) Trajectron++ neural predictor that outputs a set of candidate trajectories based on historical data, and (2) an EKF-based multi-mode candidate generator that produces five distinct trajectory candidates (constant velocity, acceleration, deceleration, left turn, right turn) using a unicycle model. The fusion module, a multilayer perceptron, computes weights for these candidates, combining them into a final trajectory using a convex combination based on learned weights.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes dataset, the proposed method reduces the average displacement error (ADE) from 0.9035m to 0.7793m and the final displacement error (FDE) from 1.8618m to 1.5910m, achieving improvements of 13.7% and 14.6%, respectively, compared to the Trajectron++ baseline without altering its architecture.</p>
+<p><strong>Technical Essence</strong>: By integrating EKF-based trajectory candidates with a neural predictor's output through learned fusion weights, the method achieves a significant reduction in prediction errors while maintaining the baseline model's architecture.</p>
+
+<hr>
+
+<h3>4. Worst-Case Hidden-Vehicle Trajectory Search in Spatiotemporal Occlusion Regions</h3>
+
+<p><strong>Authors</strong>: Ruichen Tan, Zengxiang Lei, Satish Ukkusuri  |  <strong>Affiliation</strong>: Purdue University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.20480v1" target="_blank">2609.20480v1</a> | <a href="https://arxiv.org/pdf/2609.20480v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-09-17</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of safely predicting hidden vehicle trajectories in occluded regions, where traditional methods fail to account for the worst-case interactions. The key insight is the use of a two-stage framework that combines temporal occlusion reasoning with a minimax search to identify the most detrimental hidden trajectory after optimizing the ego vehicle's response.</p>
+<p><strong>Key Contribution</strong>: The method consists of two stages: (1) In Stage I, it samples candidate states in occluded areas and retains only those with a backward witness satisfying multi-frame visibility and kinematic constraints, resulting in a finite set of modes M. (2) In Stage II, it performs a minimax search over these modes, where the inner oracle maximizes the ego driving score based on destination attainment and comfort, while the outer search minimizes this score over legal hidden trajectories. The search operates under constraints of dynamics, geometry, and legality.</p>
+<p><strong>Result & Impact</strong>: Evaluated on eight scenarios from the Waymo Open Motion Dataset, the method reduces the mean hidden-seed counts by 18.12% for vehicles and 21.67% for pedestrians when increasing the visibility-memory horizon from K=1 to K=20. No collision-producing hidden vehicles were found in two scenarios, demonstrating the method's effectiveness in identifying critical interactions.</p>
+<p><strong>Technical Essence</strong>: By certifying hidden states with backward witnesses and employing a minimax search to evaluate worst-case interactions, the method effectively reduces the set of admissible hidden trajectories, leading to a significant decrease in potential collision scenarios.</p>
+
+<hr>
+
+<h3>5. Long-Horizon Consistent and Interaction-Aware World Models for Multi-Style End-to-End Driving</h3>
+
+<p><strong>Authors</strong>: Yuxuan Han, Kunyuan Wu, Liyunong Yang, Zilu Wang, Cansen Jiang et al. (7 authors)  |  <strong>Affiliation</strong>: Harbin Institute of Technology, Shanghai Utopilot Technology</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.03225v2" target="_blank">2609.03225v2</a> | <a href="https://arxiv.org/pdf/2609.03225v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-09-03  |  <strong>Updated</strong>: 2026-09-17</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of temporal inconsistency in long-horizon predictions for autonomous driving, which can lead to unsafe decision-making. The key insight is the use of a gated cross-attention mechanism that integrates historical latent states into current predictions, significantly reducing error accumulation over extended time frames.</p>
+<p><strong>Key Contribution</strong>: Crisp-Drive employs a two-stage training framework: (1) World Model Representation Learning using an RSSM-based architecture that encodes observations into a latent state, reconstructs observations, and predicts rewards; (2) Policy Learning where a shared style-conditioned policy is pre-trained via Proximal Policy Optimization (PPO) and fine-tuned using Group Relative Policy Optimization (GRPO) to stabilize learning across multiple driving styles. The latent dynamics model updates ego and environment states using separate GRU networks.</p>
+<p><strong>Result & Impact</strong>: On the Bench2Drive benchmark, Crisp-Drive achieves a driving score of 84.12 (+4.71 points) and a success rate of 63.21% (+10.48 percentage points) compared to the strongest evaluated world-model baseline. This demonstrates significant improvements in both safety and adaptability across diverse traffic conditions.</p>
+<p><strong>Technical Essence</strong>: By integrating historical latent states through gated cross-attention, Crisp-Drive reduces error accumulation in long-horizon predictions, enabling a single policy to effectively manage multiple driving styles with improved safety metrics.</p>
+
+<hr>
+
+<h3>6. Bi-Level Routing and Sparse Spatial Attention based Multi-View BEV 3D Object Detection for Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Jing Zhang, Jiaqi Liu, Zibo Wang  |  <strong>Affiliation</strong>: University of Pennsylvania, New York University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.14185v1" target="_blank">2609.14185v1</a> | <a href="https://arxiv.org/pdf/2609.14185v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-09-12</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of computational inefficiency in multi-view 3D object detection by introducing a Sparse-BEVNet architecture that reduces redundant processing in background regions. The key insight is the Bi-Level Routing Attention (BRA) mechanism, which dynamically filters out irrelevant background features early in the feature extraction process, improving the signal-to-noise ratio for key instances.</p>
+<p><strong>Key Contribution</strong>: The Sparse-BEVNet architecture consists of three main components: (1) Bi-Level Routing Attention (BRA) that divides the input feature map into S×S macro regions and computes region-level queries with dimensions reduced from H×W×C to S×S×C, (2) Cascaded Group Attention (CGA) that enhances feature fusion by grouping multi-level features into M subsets, allowing for deep interaction without additional parameters, and (3) Sparse Spatial Cross-Attention (SSCA) that replaces dense grid queries with sparse instance queries, using geometric mapping to project 3D reference points directly to 2D pixel coordinates.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes validation set, Sparse-BEVNet achieves a mean Average Precision (mAP) of 45.2% and a nuScenes Detection Score (NDS) of 54.5%, surpassing the baseline BEVFormer-S by 3.6% and 2.8%, respectively. Additionally, the model runs at 22 FPS, significantly improving inference speed compared to the 15 FPS of the baseline, making it suitable for real-time applications in autonomous driving.</p>
+<p><strong>Technical Essence</strong>: By implementing Bi-Level Routing Attention to filter out background noise during feature extraction, Sparse-BEVNet achieves a 3.6% improvement in mAP and a 2.8% increase in NDS while enhancing inference speed from 15 FPS to 22 FPS.</p>
+
+<hr>
+
+<h3>7. Robusto-2: Benchmarking Humans & VLMs for Autonomous Driving in Lima & New York City</h3>
+
+<p><strong>Authors</strong>: Adrian Cespedes, Marcelo Chincha, Dunant Cusipuma, Victor Flores-Benites, David Ortega et al. (6 authors)  |  <strong>Affiliation</strong>: Artificio</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2606.20980v2" target="_blank">2606.20980v2</a> | <a href="https://arxiv.org/pdf/2606.20980v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-06-18  |  <strong>Updated</strong>: 2026-09-12</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of evaluating the generalization capabilities of Vision-Language Models (VLMs) in autonomous driving scenarios across different geographies. The key insight is that both human and VLM responses to driving scenarios in Lima and New York City show minimal geographic bias, indicating that VLMs may not be as sensitive to cultural differences in driving behavior as previously thought.</p>
+<p><strong>Key Contribution</strong>: The study employs a factorial design of 2 × 3 to compare responses from 10 human participants from Lima, 10 from NYC, and 10 VLMs across 20 video clips. Each clip is analyzed using Visual Question Answering (VQA) with four question types: Factual, Ratings, Counterfactual, and Reasoning. The responses are quantitatively assessed using embeddings to measure variance and similarity, revealing how different systems converge or diverge based on question type and geographic context.</p>
+<p><strong>Result & Impact</strong>: The analysis shows that human participants from both cities provided similar responses across all question types, with VLMs exhibiting a divergence in responses, particularly in Lima. The study identifies 200 video clips, with 20 selected based on high variance in VLM responses, providing a dataset that highlights the generalization gap. This contributes to understanding the limitations of VLMs in OOD scenarios, crucial for AV deployment in diverse environments.</p>
+<p><strong>Technical Essence</strong>: By analyzing the variance in VQA responses across 20 selected video clips from Lima and NYC, the study reveals that VLMs exhibit significant divergence in their answers compared to human participants, highlighting the need for improved training data diversity in VLMs for better generalization.</p>
+
+<hr>
+
+<h3>8. Latent-Centroid Steering: Single-Pass Classifier-Free Guidance for Command-Aligned Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Meibo Hu, Jiamian Wang, Pichao Wang, Zhiqiang Tao  |  <strong>Affiliation</strong>: Rochester Institute of Technology, NVIDIA</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2608.00237v3" target="_blank">2608.00237v3</a> | <a href="https://arxiv.org/pdf/2608.00237v3" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-07-31  |  <strong>Updated</strong>: 2026-09-16</p>
+<p><strong>Core Insight</strong>: This paper solves the command-following gap in autonomous driving, where models often fail to adhere to navigation commands due to reliance on dominant visual priors. The key insight is that traditional regression-based models tend to approximate the conditional mean trajectory, leading to insensitivity to specific commands, exemplified by a model predicting lane-following trajectories even when instructed to turn left.</p>
+<p><strong>Key Contribution</strong>: The authors introduce Latent-Centroid Steering (LCS) which consists of three stages: (1) Conditional dropout training where commands are randomly replaced with a null token to learn both conditional and unconditional predictors. (2) Offline centroid collecting to compute command-specific centroids from latent features. (3) At inference, LCS applies a shift vector derived from these centroids to the conditional latent representation, steering the prediction towards the intended command in a single forward pass, thus eliminating the need for a second pass.</p>
+<p><strong>Result & Impact</strong>: LCS achieves an 8% relative gain in success rate over strong vision-language action baselines on the Bench2Drive dataset, while reducing trajectory prediction error by 5.6% on the nuScenes dataset. Additionally, it reduces inference latency by approximately 50%, demonstrating real-time performance improvements critical for autonomous driving applications.</p>
+<p><strong>Technical Essence</strong>: By leveraging precomputed command-specific centroids for latent steering instead of instance-level residuals, LCS reduces inference latency from two passes to one while achieving an 8% increase in command adherence.</p>
+
+<hr>
+
+<h3>9. Open-vocabulary 3D object detection with promptable segmentation</h3>
+
+<p><strong>Authors</strong>: Ömer Faruk Deniz, Mustafa Taha Koçyiğit  |  <strong>Affiliation</strong>: Boğaziçi University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.19358v1" target="_blank">2609.19358v1</a> | <a href="https://arxiv.org/pdf/2609.19358v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-09-16</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of closed-vocabulary limitations in 3D object detection by leveraging open-vocabulary segmentation via text prompts. The key insight is using a promptable segmentation model (SAM3) to generate instance masks from text descriptions, which are then transformed into metric 3D boxes using LiDAR data, allowing for detection of previously unseen object classes without retraining.</p>
+<p><strong>Key Contribution</strong>: The method consists of three stages: (1) 2D detection using SAM3 which outputs instance masks from text prompts; (2) 3D geometry derived from LiDAR data fitted to these masks using training-free rules; (3) a supervised geometry attachment at inference time to enhance precision. The pipeline processes 13 prompts per image, producing 277,291 boxes with a confidence threshold of 0.2, leading to a 0.031 mAP increase.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes validation set, the proposed method achieves 0.413 mAP and 0.555 NDS, significantly improving from 0.298 mAP and 0.348 NDS when using raw LiDAR points. The system finds 84% of in-range objects correctly named, demonstrating a clear advantage over traditional closed-vocabulary detectors.</p>
+<p><strong>Technical Essence</strong>: By integrating promptable segmentation masks with LiDAR-derived geometry and applying training-free fitting rules, the system achieves a 0.413 mAP on nuScenes, showcasing the effectiveness of open-vocabulary detection without requiring extensive retraining.</p>
+
+<hr>
+
+<h3>10. Imitation Learning for Autonomous Driving in CARLA</h3>
+
+<p><strong>Authors</strong>: Jordy Kieto</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.17757v1" target="_blank">2609.17757v1</a> | <a href="https://arxiv.org/pdf/2609.17757v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-09-15</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of compounding errors in closed-loop driving by employing a compact multimodal policy that integrates 5-frame histories of RGB images, LiDAR data, vehicle telemetry, and lane waypoints. The key insight is the systematic route generation process that ensures diverse and verified demonstrations, allowing the policy to recover from deviations and drive autonomously without collisions.</p>
+<p><strong>Key Contribution</strong>: The approach utilizes a multimodal temporal policy with four specific components: (1) RGB images resized to 96x96, (2) a 32-channel LiDAR BEV histogram of size 64x64, (3) a telemetry vector with 5 soft-saturated kinematic values, and (4) 25 lane waypoints encoded in the ego frame. The policy employs a two-layer temporal Transformer with 1,358,211 parameters, processing inputs at 20Hz to regress throttle, brake, and steering actions.</p>
+<p><strong>Result & Impact</strong>: The trained policy was evaluated on 236,882 windows from 448 captures, achieving autonomous driving for hours without collisions on both training and held-out routes. It demonstrated qualitative transfer to an unseen CARLA town, showcasing recovery from large trajectory deviations, with zero collisions reported during testing.</p>
+<p><strong>Technical Essence</strong>: By implementing a systematic route generation procedure that verifies maneuver execution, the approach enables a multimodal policy to effectively learn from diverse demonstrations, achieving autonomous driving with zero collisions across multiple routes.</p>
+
+<hr>
+
+
+        <div class="footer">
+            <p>Auto-generated | Source: arXiv | Analyzed by LLM</p>
+            <p>2026-09-19 12:22</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自动驾驶论文每日速览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index-en.html" class="lang-toggle">Switch to English</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-09-19)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 35</p>
+<p>- 生成时间 | Generated: 2026-09-19 12:22</p>
+<p>- <a href="index-en.html" target="_blank">Switch to English 切换到英文</a></p>
+
+<hr>
+
+
+<h3>1. WZPlanner: Safe End-to-End Path Planning for Autonomous Driving in Work Zones</h3>
+
+<p><strong>作者</strong>: Nishad Sahu, Changzhong Qian, Guangzhou Cai, Shounak Sural, Ragunathan et al. (6 authors)  |  <strong>机构</strong>: Carnegie Mellon University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.19393v1" target="_blank">2609.19393v1</a> | <a href="https://arxiv.org/pdf/2609.19393v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-09-16</p>
+<p><strong>核心洞察</strong>: 本文解决了自主车辆在动态变化的施工区域中准确导航的挑战，这些区域的车道配置可能与现有地图不一致。关键技术洞察是引入一个包含149K+合成样本和5K+真实样本的数据集，使模型能够从多样的施工场景中学习，包括车道偏移和施工活动造成的障碍物。</p>
+<p><strong>技术贡献</strong>: 作者提出了BoundaryFormer（BF），这是一种基于变换器的架构，集成了三个关键组件：（1）用于结构化场景解析的槽注意机制，（2）基于车道和施工区域边界预测驾驶路径的轨迹解码器，以及（3）用于施工区域特征的度量平面编码。该模型输出表示车道和边界轮廓的参数多项式，使其能够有效处理复杂几何形状。</p>
+<p><strong>结果与影响</strong>: 在使用WorkZonePlan数据集进行评估时，BoundaryFormer++（BF++）在闭环场景中获得了63.0和64.4的驾驶分数，超过了基线模型SimLingo（59.3）和TransFuser++（26.1）。该模型在228条评估路线中的优越表现，表明其在自主车辆施工区域导航能力方面的显著进步。</p>
+<p><strong>技术精髓</strong>: 通过利用具有槽注意机制的变换器架构共同预测车道和施工区域边界，BoundaryFormer实现了适应动态道路条件的准确轨迹生成，使驾驶分数比传统模块化方法提高了5.2%。</p>
+
+<hr>
+
+<h3>2. OPTED: On-Policy Fine-Tuning for End-to-End Driving using a Render-Free Teacher</h3>
+
+<p><strong>作者</strong>: Damiano Da Col, Maximilian Igl, Peter Karkus, Kashyap Chitta, Boris Ivanovic et al. (8 authors)  |  <strong>机构</strong>: KE, ETH Zürich, NVIDIA, ELLIS Institute, Stanford</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.20756v1" target="_blank">2609.20756v1</a> | <a href="https://arxiv.org/pdf/2609.20756v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-09-17</p>
+<p><strong>核心洞察</strong>: 本文解决了闭环自主驾驶中累积错误的问题，这可能导致训练数据未覆盖的危险状态。关键技术洞察是使用在向量化输入（高清地图和边界框）上训练的无渲染教师，在闭环微调期间为预训练学生模型提供监督，从而减少对昂贵渲染的依赖。</p>
+<p><strong>技术贡献</strong>: OPTED采用三步过程：（1）在无渲染模拟器中使用PPO训练特权教师，基于向量化状态生成连续控制动作；（2）在闭环环境中推出预先训练的学生模型以收集数据；（3）教师为学生访问的状态标记，并使用损失函数更新学生，最小化教师动作与学生预测之间的差异，适应学生的输出表示。</p>
+<p><strong>结果与影响</strong>: 在AlpaSim模拟器的实验中，TransFuser模型的驾驶分数提高了1.6倍，而VaVAM模型在仅经过两轮微调后提高了9.5倍。与直接强化学习后训练相比，这一性能在模拟器交互次数上减少了约三个数量级，展示了显著的效率提升。</p>
+<p><strong>技术精髓</strong>: 通过将探索和监督过程分解到不同的模拟器中，OPTED使特权教师能够为学生模型提供有效的在线监督，实现闭环性能，而与传统强化学习相比，模拟器交互次数减少了99.9%。</p>
+
+<hr>
+
+<h3>3. Vehicle Trajectory Prediction via Neural Fusion of Multiple EKF-Based Trajectory Candidates</h3>
+
+<p><strong>作者</strong>: Seong-Jun Kim, Seung-Hyun Kong  |  <strong>机构</strong>: KAIST</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.19813v1" target="_blank">2609.19813v1</a> | <a href="https://arxiv.org/pdf/2609.19813v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-09-17</p>
+<p><strong>核心洞察</strong>: 该论文解决了在加速和转弯等关键操作中生成物理上合理的车辆轨迹的问题，传统神经预测器可能会失败。关键技术洞察是将神经预测与多个基于EKF的轨迹候选融合，确保最终轨迹遵循现实运动约束。</p>
+<p><strong>技术贡献</strong>: 该框架由两个主要组件组成：(1) Trajectron++神经预测器，根据历史数据输出一组候选轨迹；(2) 基于EKF的多模式候选生成器，使用单轮车模型生成五种不同的轨迹候选（恒速、加速、减速、左转、右转）。融合模块是一个多层感知器，计算这些候选的权重，将它们结合成最终轨迹，使用基于学习权重的凸组合。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，所提出的方法将平均位移误差（ADE）从0.9035m降低到0.7793m，将最终位移误差（FDE）从1.8618m降低到1.5910m，分别实现了13.7%和14.6%的改进，相比于不改变其架构的Trajectron++基线。</p>
+<p><strong>技术精髓</strong>: 通过将基于EKF的轨迹候选与神经预测器的输出集成，并通过学习的融合权重进行处理，该方法在保持基线模型架构的同时显著减少了预测误差。</p>
+
+<hr>
+
+<h3>4. Worst-Case Hidden-Vehicle Trajectory Search in Spatiotemporal Occlusion Regions</h3>
+
+<p><strong>作者</strong>: Ruichen Tan, Zengxiang Lei, Satish Ukkusuri  |  <strong>机构</strong>: Purdue University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.20480v1" target="_blank">2609.20480v1</a> | <a href="https://arxiv.org/pdf/2609.20480v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-09-17</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了在遮挡区域安全预测隐藏车辆轨迹的问题，传统方法未能考虑最坏情况下的交互。关键技术洞察是使用一个两阶段框架，将时间遮挡推理与极小极大搜索相结合，以识别在优化自车响应后最具破坏性的隐藏轨迹。</p>
+<p><strong>技术贡献</strong>: 该方法由两个阶段组成：（1）在第一阶段，采样遮挡区域中的候选状态，仅保留满足多帧可见性和运动学约束的具有向后见证的状态，从而得到有限的模式集M。（2）在第二阶段，对这些模式进行极小极大搜索，内部oracle最大化基于目的地到达和舒适度的自车驾驶评分，而外部搜索则在合法的隐藏轨迹上最小化该评分。搜索在动态、几何和合法性约束下进行。</p>
+<p><strong>结果与影响</strong>: 在Waymo开放运动数据集的八个场景上进行评估，该方法在将可见性记忆范围从K=1增加到K=20时，车辆的平均隐藏种子数量减少了18.12%，行人的数量减少了21.67%。在两个场景中未发现产生碰撞的隐藏车辆，证明了该方法在识别关键交互方面的有效性。</p>
+<p><strong>技术精髓</strong>: 通过用向后见证认证隐藏状态，并采用极小极大搜索评估最坏情况下的交互，该方法有效减少了可接受隐藏轨迹的集合，从而显著降低了潜在碰撞场景的数量。</p>
+
+<hr>
+
+<h3>5. Long-Horizon Consistent and Interaction-Aware World Models for Multi-Style End-to-End Driving</h3>
+
+<p><strong>作者</strong>: Yuxuan Han, Kunyuan Wu, Liyunong Yang, Zilu Wang, Cansen Jiang et al. (7 authors)  |  <strong>机构</strong>: Harbin Institute of Technology, Shanghai Utopilot Technology</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.03225v2" target="_blank">2609.03225v2</a> | <a href="https://arxiv.org/pdf/2609.03225v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-09-03  |  <strong>更新</strong>: 2026-09-17</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自主驾驶中长时间预测的时间一致性问题，这可能导致不安全的决策。关键洞察是使用门控交叉注意机制，将历史潜在状态整合到当前预测中，从而显著减少长时间框架内的误差积累。</p>
+<p><strong>技术贡献</strong>: Crisp-Drive采用两阶段训练框架：（1）世界模型表示学习，使用基于RSSM的架构将观察编码为潜在状态，重建观察并预测奖励；（2）策略学习，通过近端策略优化（PPO）预训练共享风格条件策略，并使用组相对策略优化（GRPO）进行微调，以稳定多个驾驶风格的学习。潜在动态模型使用独立的GRU网络更新自我和环境状态。</p>
+<p><strong>结果与影响</strong>: 在Bench2Drive基准测试中，Crisp-Drive的驾驶得分为84.12（+4.71分），成功率为63.21%（+10.48个百分点），相比于最强评估的世界模型基线。这在安全性和适应性方面都表现出显著改善。</p>
+<p><strong>技术精髓</strong>: 通过通过门控交叉注意机制整合历史潜在状态，Crisp-Drive减少了长时间预测中的误差积累，使单一策略能够有效管理多种驾驶风格，并提高安全性指标。</p>
+
+<hr>
+
+<h3>6. Bi-Level Routing and Sparse Spatial Attention based Multi-View BEV 3D Object Detection for Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Jing Zhang, Jiaqi Liu, Zibo Wang  |  <strong>机构</strong>: University of Pennsylvania, New York University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.14185v1" target="_blank">2609.14185v1</a> | <a href="https://arxiv.org/pdf/2609.14185v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-09-12</p>
+<p><strong>核心洞察</strong>: 该论文解决了多视角3D目标检测中的计算效率问题，通过引入Sparse-BEVNet架构来减少背景区域的冗余处理。关键技术洞察是Bi-Level Routing Attention（BRA）机制，它在特征提取过程中动态过滤掉无关的背景特征，从而提高关键实例的信噪比。</p>
+<p><strong>技术贡献</strong>: Sparse-BEVNet架构由三个主要组件组成：（1）Bi-Level Routing Attention（BRA），将输入特征图划分为S×S宏区域，并计算区域级查询，将维度从H×W×C减少到S×S×C；（2）Cascaded Group Attention（CGA），通过将多级特征分组为M个子集来增强特征融合，允许深度交互而不增加额外参数；（3）Sparse Spatial Cross-Attention（SSCA），用稀疏实例查询替代密集网格查询，使用几何映射将3D参考点直接投影到2D像素坐标上。</p>
+<p><strong>结果与影响</strong>: 在nuScenes验证集上，Sparse-BEVNet的平均精度（mAP）达到45.2%，nuScenes检测得分（NDS）为54.5%，分别超过基线BEVFormer-S 3.6%和2.8%。此外，该模型以22 FPS运行，显著提高了推理速度，相较于基线的15 FPS，使其适合于自动驾驶中的实时应用。</p>
+<p><strong>技术精髓</strong>: 通过实现Bi-Level Routing Attention在特征提取过程中过滤背景噪声，Sparse-BEVNet实现了mAP提高3.6%和NDS增加2.8%的同时，将推理速度从15 FPS提升至22 FPS。</p>
+
+<hr>
+
+<h3>7. Robusto-2: Benchmarking Humans & VLMs for Autonomous Driving in Lima & New York City</h3>
+
+<p><strong>作者</strong>: Adrian Cespedes, Marcelo Chincha, Dunant Cusipuma, Victor Flores-Benites, David Ortega et al. (6 authors)  |  <strong>机构</strong>: Artificio</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2606.20980v2" target="_blank">2606.20980v2</a> | <a href="https://arxiv.org/pdf/2606.20980v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-06-18  |  <strong>更新</strong>: 2026-09-12</p>
+<p><strong>核心洞察</strong>: 本论文解决了评估视觉语言模型（VLM）在不同地理场景下的泛化能力的问题。关键技术洞察是，人类和VLM对利马和纽约市驾驶场景的反应显示出最小的地理偏差，表明VLM可能对驾驶行为的文化差异不如预期敏感。</p>
+<p><strong>技术贡献</strong>: 该研究采用2 × 3的因子设计，比较来自利马的10名参与者、来自纽约市的10名参与者和10个VLM在20个视频片段中的反应。每个片段通过视觉问答（VQA）分析，包含四种问题类型：事实、评分、反事实和推理。通过嵌入定量评估反应的方差和相似性，揭示不同系统如何根据问题类型和地理背景收敛或发散。</p>
+<p><strong>结果与影响</strong>: 分析显示，来自两个城市的人类参与者在所有问题类型中提供了相似的反应，而VLM在反应中表现出发散，特别是在利马。该研究识别了200个视频片段，基于VLM反应的高方差选择了20个，为理解VLM在OOD场景中的泛化差距提供了数据集，这对AV在多样化环境中的部署至关重要。</p>
+<p><strong>技术精髓</strong>: 通过分析来自利马和纽约市的20个选定视频片段中的VQA反应的方差，研究揭示VLM在答案上与人类参与者显著发散，强调了在VLM训练数据多样性方面的改进需求。</p>
+
+<hr>
+
+<h3>8. Latent-Centroid Steering: Single-Pass Classifier-Free Guidance for Command-Aligned Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Meibo Hu, Jiamian Wang, Pichao Wang, Zhiqiang Tao  |  <strong>机构</strong>: Rochester Institute of Technology, NVIDIA</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2608.00237v3" target="_blank">2608.00237v3</a> | <a href="https://arxiv.org/pdf/2608.00237v3" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-07-31  |  <strong>更新</strong>: 2026-09-16</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自动驾驶中的指令遵循差距问题，模型常因依赖主导视觉先验而无法遵循导航指令。关键洞察在于，传统回归模型倾向于近似条件均值轨迹，导致对特定指令的敏感性不足，例如模型在被指示左转时仍预测沿车道行驶轨迹。</p>
+<p><strong>技术贡献</strong>: 作者提出了潜在中心引导（LCS），包括三个阶段：（1）条件丢弃训练，随机将指令替换为空令牌，以学习条件和无条件预测器；（2）离线中心收集，从潜在特征中计算命令特定的中心；（3）在推理时，LCS将这些中心的偏移向量应用于条件潜在表示，在单次前向传递中引导预测朝向预期指令，从而消除第二次传递的需要。</p>
+<p><strong>结果与影响</strong>: LCS在Bench2Drive数据集上相较于强大的视觉-语言-动作基线实现了8%的相对成功率提升，同时在nuScenes数据集上将轨迹预测误差降低了5.6%。此外，它将推理延迟减少了约50%，展示了对自动驾驶应用至关重要的实时性能改进。</p>
+<p><strong>技术精髓</strong>: 通过利用预计算的命令特定中心进行潜在引导，而不是实例级残差，LCS将推理延迟从两次传递减少到一次，同时实现了8%的指令遵循率提升。</p>
+
+<hr>
+
+<h3>9. Open-vocabulary 3D object detection with promptable segmentation</h3>
+
+<p><strong>作者</strong>: Ömer Faruk Deniz, Mustafa Taha Koçyiğit  |  <strong>机构</strong>: Boğaziçi University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.19358v1" target="_blank">2609.19358v1</a> | <a href="https://arxiv.org/pdf/2609.19358v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-09-16</p>
+<p><strong>核心洞察</strong>: 本论文解决了3D物体检测中封闭词汇限制的问题，通过文本提示利用开放词汇分割。关键技术洞察是使用可提示分割模型（SAM3）从文本描述生成实例掩膜，然后利用LiDAR数据将其转化为度量3D框，从而检测以前未见过的物体类别，而无需重新训练。</p>
+<p><strong>技术贡献</strong>: 该方法由三个阶段组成：（1）使用SAM3进行2D检测，输出来自文本提示的实例掩膜；（2）利用LiDAR数据推导3D几何，并使用无训练规则将其拟合到这些掩膜上；（3）在推理时附加监督几何以提高精度。该管道处理每幅图像13个提示，产生277,291个框，置信度阈值为0.2，导致mAP增加0.031。</p>
+<p><strong>结果与影响</strong>: 在nuScenes验证集上，所提方法实现了0.413 mAP和0.555 NDS，相较于使用原始LiDAR点的0.298 mAP和0.348 NDS显著提高。该系统正确命名了84%的范围内物体，展示了相较于传统封闭词汇检测器的明显优势。</p>
+<p><strong>技术精髓</strong>: 通过将可提示分割掩膜与LiDAR推导的几何结合，并应用无训练拟合规则，该系统在nuScenes上实现了0.413 mAP，展示了开放词汇检测的有效性，而无需大量重新训练。</p>
+
+<hr>
+
+<h3>10. Imitation Learning for Autonomous Driving in CARLA</h3>
+
+<p><strong>作者</strong>: Jordy Kieto</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.17757v1" target="_blank">2609.17757v1</a> | <a href="https://arxiv.org/pdf/2609.17757v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-09-15</p>
+<p><strong>核心洞察</strong>: 该论文解决了闭环驾驶中错误累积的问题，通过采用紧凑的多模态策略，集成了RGB图像的5帧历史、LiDAR数据、车辆遥测和车道点。关键洞察在于系统的路线生成过程，确保了多样化和经过验证的演示，使策略能够从偏差中恢复并在没有碰撞的情况下自主驾驶。</p>
+<p><strong>技术贡献</strong>: 该方法利用多模态时间策略，具有四个具体组成部分：（1）调整为96x96的RGB图像，（2）大小为64x64的32通道LiDAR BEV直方图，（3）包含5个软饱和运动学值的遥测向量，以及（4）在自我坐标系中编码的25个车道点。该策略采用两层时间Transformer，具有1,358,211个参数，以20Hz的频率处理输入，回归油门、刹车和转向动作。</p>
+<p><strong>结果与影响</strong>: 训练的策略在448个捕获中评估了236,882个窗口，实现了在训练和保留路线上的数小时自主驾驶且没有碰撞。它在未见的CARLA城镇中展示了定性转移，显示出从大轨迹偏差中恢复的能力，测试期间报告的碰撞为零。</p>
+<p><strong>技术精髓</strong>: 通过实施验证执行的系统路线生成过程，该方法使多模态策略能够有效地从多样化的演示中学习，实现了在多个路线中零碰撞的自主驾驶。</p>
+
+<hr>
+
+
+
+        <div class="footer">
+            <p>自动生成 | 数据来源: arXiv | 由 LLM 分析总结</p>
+            <p>2026-09-19 12:22</p>
+        </div>
+    </div>
+</body>
+</html>
