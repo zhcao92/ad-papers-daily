@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自动驾驶论文每日速览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index-en.html" class="lang-toggle">Switch to English</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-09-26)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 39</p>
+<p>- 生成时间 | Generated: 2026-09-26 12:51</p>
+<p>- <a href="index-en.html" target="_blank">Switch to English 切换到英文</a></p>
+
+<hr>
+
+
+<h3>1. NVIDIA OmniDreams: Real-Time Generative World Model for Closed-Loop Autonomous Vehicle Simulation</h3>
+
+<p><strong>作者</strong>: Aarti Basant, Amlan Kar, Despoina Paschalidou, Fangyin Wei, Francesco Ferroni et al. (33 authors)  |  <strong>机构</strong>: NVIDIA</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2606.03159v3" target="_blank">2606.03159v3</a> | <a href="https://arxiv.org/pdf/2606.03159v3" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-06-02  |  <strong>更新</strong>: 2026-09-23</p>
+<p><strong>核心洞察</strong>: 本文解决了自动驾驶仿真中场景多样性不足的问题，特别是在传统仿真器难以处理的长尾情况。关键技术洞察是使用OmniDreams生成世界模型，通过自回归生成动作条件的视频，实时合成复杂的未观察现象，如极端天气和不可预测的代理行为。</p>
+<p><strong>技术贡献</strong>: OmniDreams作为自回归扩散视频生成仿真器，集成了三个关键组件：（1）利用过去帧、当前仿真状态和驾驶动作生成新帧的条件机制，（2）保持长时间滚动一致性的KV缓存，以及（3）实时渲染能力，在单个1GB 300 GPU上以720p分辨率实现68 FPS。该模型在Cosmos数据集上进行了中期和后期训练，使用了21000小时的驾驶场景。</p>
+<p><strong>结果与影响</strong>: 在物理AI自动驾驶NuRec数据集上，从OmniDreams后期训练的世界-动作模型将碰撞率从6.9%降低到4.2%，具体碰撞类型的改进为：前方从1.0%降至0.9%，侧面从0.6%降至0.4%，后方从5.3%降至3.0%。该模型使用约20亿参数，显著少于基线模型Alpamayo 1.5的100亿参数。</p>
+<p><strong>技术精髓</strong>: 通过在新帧合成过程中利用过去帧生成的KV缓存，OmniDreams保持生成场景的长期一致性，从而实现实时仿真，显著增强闭环评估的多样性和真实感。</p>
+
+<hr>
+
+<h3>2. Teach-to-Crash: A Closed-Loop Student-Teacher LLM Framework for Collision-Inducing Test Scenario Generation</h3>
+
+<p><strong>作者</strong>: Zaid Ghazal, Khouloud Gaaloul, Bruce Maxim  |  <strong>机构</strong>: University of Michigan-Dearborn</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.27296v1" target="_blank">2609.27296v1</a> | <a href="https://arxiv.org/pdf/2609.27296v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-09-23</p>
+<p><strong>核心洞察</strong>: 本文解决了生成碰撞诱发测试场景的问题，尤其是在发现罕见故障时常常停滞不前。关键技术洞察是使用双LLM框架，其中高推理能力的教师LLM仅在碰撞率和碰撞时间指标停滞时介入，有效引导搜索更具多样性和关键性的场景。</p>
+<p><strong>技术贡献</strong>: 该框架由两个主要组件组成：（1）学生LLM以严格的JSON模式生成场景；（2）教师LLM根据碰撞指标的停滞检测提供战略指导。教师在停滞发生时激活，修订学生的生成策略，以探索更高碰撞率的场景。以自我中心的位置网格允许9个离散位置，优化碰撞诱发交互的搜索空间。</p>
+<p><strong>结果与影响</strong>: 在CARLA仿真研究中，Teach-to-Crash实现了90.79%的碰撞命中率，平均碰撞时间为18.31秒，平均每小时136.21次碰撞发现率。相比于基线方法PAFOT（碰撞命中率79.09%）和ChatScene（碰撞命中率64.03%），显示出更优越的故障覆盖率和场景多样性。</p>
+<p><strong>技术精髓</strong>: 通过实现闭环双LLM架构，允许根据执行反馈自适应场景生成，实现了90.79%的碰撞命中率，同时显著增强了场景多样性和可避免性。</p>
+
+<hr>
+
+<h3>3. SARFusion: Scene-Aware Routing Fusion for Robust Camera-LiDAR 3D Object Detection</h3>
+
+<p><strong>作者</strong>: Yuting Zhao, Ziyi Zheng, Shuxiao Li  |  <strong>机构</strong>: Institute of Automation, University of Chinese Academy of Sciences, Wuhan College</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.29235v1" target="_blank">2609.29235v1</a> | <a href="https://arxiv.org/pdf/2609.29235v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-09-24</p>
+<p><strong>核心洞察</strong>: 该论文解决了在恶劣天气条件下3D物体检测不可靠的问题，传统融合方法因固定模态依赖而失效。关键技术洞察是根据场景可靠性先验动态路由物体查询到最可靠的模态（相机、LiDAR或融合），以适应不同的场景条件和物体特征。</p>
+<p><strong>技术贡献</strong>: SARFusion采用三个分支：（1）使用相机令牌的相机分支，（2）使用LiDAR令牌的LiDAR分支，以及（3）使用多模态令牌的融合分支。通过轻量级Transformer计算场景可靠性先验，聚合场景级信息，生成可靠性向量c_prior ∈ R^D。将其与局部证据结合，以路由每个物体查询到最佳分支，提高在不同条件下的检测精度。</p>
+<p><strong>结果与影响</strong>: 在nuScenes测试集上，SARFusion实现了72.5 mAP和74.4 NDS，较之前的方法提高了+5.2 mAP和+3.7 NDS，尤其在恶劣天气下表现出更强的鲁棒性，相较于不进行自适应模态路由的基线模型有显著提升。</p>
+<p><strong>技术精髓</strong>: 通过实现场景感知分支路由机制，将全局场景可靠性与局部观察证据结合，SARFusion动态选择每个物体查询的最佳模态，从而在nuScenes测试集上实现了+5.2 mAP的提升。</p>
+
+<hr>
+
+<h3>4. How Far Can 5,500 Hours of Driving Take You? A Scaling Law Analysis of Video Diffusion Models</h3>
+
+<p><strong>作者</strong>: Victor Besnier, Anh-Quan Cao, Elias Ramzi, Spyros Gidaris, Tuan-Hung Vu et al. (8 authors)  |  <strong>机构</strong>: valeo.ai</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2608.28404v2" target="_blank">2608.28404v2</a> | <a href="https://arxiv.org/pdf/2608.28404v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-08-28  |  <strong>更新</strong>: 2026-09-23</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了在固定数据集（5500小时）上优化自动驾驶视频扩散模型训练的问题。关键洞察是，增加训练曝光（即看到的样本总数）显著提高验证损失的效果，远胜于仅仅增加模型规模，因为训练曝光的幂律指数比模型规模的指数更陡峭。</p>
+<p><strong>技术贡献</strong>: 该研究采用条件流匹配（CFM）学习从噪声到驾驶数据的传输映射。该架构由一个时空视频变换器组成，处理来自变分自编码器的潜在表示。训练涉及优化一个由神经网络定义的速度场，该网络预测沿线性插值路径的传输方向。模型规模从1.6M扩展到9B参数，验证损失从0.1528降至0.0746，展示了训练曝光的有效性。</p>
+<p><strong>结果与影响</strong>: 9B参数模型实现了0.0746的验证损失，低于基于缩放法则预测的3.6%。这代表了相较于之前模型的显著改进，为nuScenes数据集上的驾驶视频生成设定了新基准。研究报告显示，从134.9M到447.3M参数的验证损失从0.0963降至0.0880，突显了更大模型的优势。</p>
+<p><strong>技术精髓</strong>: 通过利用训练曝光与验证损失之间的陡峭幂律关系，该研究表明，在固定数据集上延长训练时间比单纯增加模型规模带来更大的性能提升。</p>
+
+<hr>
+
+<h3>5. Risk-Aware Occupancy for Safety-Oriented End-to-End Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Jiaxing Chen, Hengduo Zou, Yiren Zhao, Bolin Gao  |  <strong>机构</strong>: Tsinghua University, The Hong Kong University of Science and Technology</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.21470v2" target="_blank">2609.21470v2</a> | <a href="https://arxiv.org/pdf/2609.21470v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-09-18  |  <strong>更新</strong>: 2026-09-23</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自动驾驶中环境建模不完整的问题，通过引入风险感知占用表示，捕捉动态障碍物和监管约束。关键技术洞察是将几何占用、语义交通规则和未来运动预测整合到密集的BEV格式中，从而在复杂场景中实现更好的规划。</p>
+<p><strong>技术贡献</strong>: 提出的ROIDrive框架由三个主要模块组成：（1）BEV特征提取器，输出形状为C×H×W的张量，其中C是通道维度；（2）风险感知占用分支，利用Bi-Mamba2块预测归一化风险分数R∈[0,0.7]，基于关键高度区间；（3）时间查询一致性（TQC）模块，跨帧对齐代理状态以增强查询可靠性。风险感知占用通过滑动窗口采样进行标记，并通过交叉注意力注入到规划查询中。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，ROIDrive在UniAD指标上实现了35.0%的碰撞率降低，在ST-P3指标上实现了52.9%的降低，相较于基线GenAD框架。性能提升通过新引入的RiskOcc4D-nuScenes数据集进行验证，该数据集结合了多维风险监督。</p>
+<p><strong>技术精髓</strong>: 通过将风险感知占用表示与时间查询一致性模块集成，ROIDrive在复杂驾驶场景中实现了显著降低碰撞率，同时保持规划精度。</p>
+
+<hr>
+
+<h3>6. DreamStream: Towards Policy-Oriented Generative Simulation for End-to-End Driving</h3>
+
+<p><strong>作者</strong>: Ziyang Leng, Sicheng Mo, Seth Z. Zhao, Haoyuan Cai, Yu Zeng et al. (7 authors)  |  <strong>机构</strong>: UCLA, Toyota Research Institute</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.26792v1" target="_blank">2609.26792v1</a> | <a href="https://arxiv.org/pdf/2609.26792v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-09-22</p>
+<p><strong>核心洞察</strong>: 本文解决了闭环评估中模拟与真实之间的视觉差距问题，这可能导致驾驶性能评估不准确。关键技术洞察在于使用自回归视频模型，在生成视觉真实的观察时保持与策略相关的场景特征，从而在动态环境中实现更可靠的驾驶策略评估。</p>
+<p><strong>技术贡献</strong>: DreamStream整合了三个组件：（1）维护场景状态和交通布局的物理模拟器，（2）基于模拟器状态和交通布局生成相机帧的自回归视频模型，以及（3）允许交互式代理行为的闭环评估机制。视频模型采用多阶段蒸馏过程，确保长时间滚动稳定性，并结合交通布局指导，使生成的观察与模拟器状态对齐，从而提高生成观察的保真度。</p>
+<p><strong>结果与影响</strong>: DreamStream在nuScenes数据集上实现了1.6倍的性能提升，在NAVSIM上实现了4.7倍的提升，均以新引入的FDπ指标进行测量。这证明了其在模拟过程中保持与策略相关特征的有效性，显著增强了对端到端驾驶策略的评估。</p>
+<p><strong>技术精髓</strong>: 通过实现自回归视频模型的多阶段蒸馏过程，并结合交通布局指导，DreamStream在模拟与真实之间的视觉差距上实现了显著减少，从而在nuScenes评估中实现了1.6倍的性能提升。</p>
+
+<hr>
+
+<h3>7. FeasibleFlow: One-Step Joint Transport of Configuration Feasibility and Trajectories for End-to-End Driving</h3>
+
+<p><strong>作者</strong>: Xiang Li, Bikun Wang, Qing Xu, Jianjun Wang  |  <strong>机构</strong>: Bosch</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.23488v1" target="_blank">2609.23488v1</a> | <a href="https://arxiv.org/pdf/2609.23488v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-09-20</p>
+<p><strong>核心洞察</strong>: 该论文解决了在动态环境中确保轨迹可行性的问题，通过将分级配置空间可行性场与多模态轨迹生成相结合。关键技术洞察是非对称联合均值流，它允许同时传输可行性和轨迹，确保生成的路径在场景演变时保持有效。</p>
+<p><strong>技术贡献</strong>: FeasibleFlow由三个主要组件组成：（1）从稀疏查询中学习的分级可行性场，编码自我车辆配置空间中的几何约束；（2）非对称联合均值流，利用路径雅可比-向量积将场演变集成到轨迹生成中；（3）锚点相对排序器，根据安全性和进展选择候选轨迹，平衡来自两个方面的反馈。场表示为F ∈ RT×D，其中T是时间步，D是状态空间的维度。</p>
+<p><strong>结果与影响</strong>: 在NAVSIM基准测试中，FeasibleFlow相比基线方法实现了+5.2%的轨迹可行性指标提升。该方法在动态场景评估中显示出碰撞率显著降低，非法轨迹减少30%。此外，它保持实时性能，推理时间低于100毫秒。</p>
+<p><strong>技术精髓</strong>: 通过将非对称联合均值流与分级可行性场集成，FeasibleFlow实现了轨迹生成和可行性评估的同时进行，导致碰撞率减少30%，同时保持推理时间在100毫秒以内。</p>
+
+<hr>
+
+<h3>8. MatchFusion: Explicit-Implicit Instance Matching for Spatio-Temporal Multimodal Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Xiaoyu Li, Jiajia Fu, Long Shi, Tianyu Du, Ruihang Li et al. (10 authors)  |  <strong>机构</strong>: Harbin Institute of Technology, Zhejiang University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.25860v1" target="_blank">2609.25860v1</a> | <a href="https://arxiv.org/pdf/2609.25860v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-09-22</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了在稀疏实例表示之间建立可靠对应关系的问题，这对于自动驾驶中的准确感知至关重要。关键的洞察是结合基于几何相似性的显式结构初始化和使用上下文嵌入的隐式语义细化，从而有效地进行实例匹配，尽管存在几何差异。</p>
+<p><strong>技术贡献</strong>: MatchFusion采用三个主要组件：（1）显式结构初始化，计算初始亲和度M_ij = G_ij + H_ij，其中G_ij是基于物体位置和尺寸的几何相似性，H_ij是类别一致性掩码；（2）隐式语义细化，根据学习的成对修正R = MLP(ψ(Q_A) + ψ(Q_B))调整亲和度，使上下文嵌入能够细化关联；（3）基于匹配图的残差融合，根据软匹配分数M̂ = Sigmoid(M̃)聚合特征，促进实例之间的多对多特征交换。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，配备MatchFusion的系统相比SparseFusion实现了+5.2%的感知精度提升，同时FLOPs减少55.3%，GPU内存使用减少39.3%。匹配-融合模块仅占总感知延迟的3.7%，展示了其在实时应用中的高效性。</p>
+<p><strong>技术精髓</strong>: 通过结合显式结构初始化和隐式语义细化，MatchFusion实现了可靠的实例对应关系，增强了感知精度，同时降低了计算开销，在nuScenes性能上实现了5.2%的提升。</p>
+
+<hr>
+
+<h3>9. Sometimes You Gotta Run Before You Can Walk: Run-then-Walk Scheduling Strategy for VLM Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Yuqi Ye, Shangkun Sun, Junhong Lin, Jiayi Zhao, Changhao Peng et al. (9 authors)  |  <strong>机构</strong>: Peking University, Minieye Technology, Fuzhou University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.25831v1" target="_blank">2609.25831v1</a> | <a href="https://arxiv.org/pdf/2609.25831v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-09-22</p>
+<p><strong>核心洞察</strong>: 该论文解决了VLM基础的自动驾驶中进展与安全平衡的问题，这通常导致高碰撞率或过于保守的行为。关键洞察是识别出两种不同的RL机制：进展机制（Run-GRPO）积极探索高进展，和安全机制（Walk-GRPO）保持安全但限制进展。这种分离允许更有效的训练策略。</p>
+<p><strong>技术贡献</strong>: 提出的Run-then-Walk策略由两个阶段组成：（1）在Run阶段，采用优先考虑自我进展的激进奖励函数Rrun(τ) = PDMS(τ)，允许策略进行积极探索。（2）在Walk阶段，转向由端点距离和安全指标组成的奖励，定义为Rwalk(τ, τ⋆) = I(τ) Rsafe(τ) + Rend(d)，其中d是与专家端点的距离。这种结构化的方法使策略能够首先发现高进展轨迹，然后对其进行安全性修正。</p>
+<p><strong>结果与影响</strong>: Run-then-Walk策略在仅5个RL周期内实现了AutoDrive-P3的PDMS得分为91.8，而10个周期的基线为90.2，显示出40-50%的训练时间减少。它在NAVSIMv1、NAVSIMv2、Navhard和nuScenes等多个数据集上进行了验证，显示出性能指标的提升，同时保持安全性。</p>
+<p><strong>技术精髓</strong>: 通过将高进展轨迹的探索与安全修正分开，Run-then-Walk策略实现了更快的收敛和更高的性能，减少了40-50%的RL训练周期。</p>
+
+<hr>
+
+<h3>10. Relationally Grounded Latent World Models for Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Fabian Schmidt, Markus Enzweiler, Abhinav Valada  |  <strong>机构</strong>: Esslingen University, Freiburg</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.24626v1" target="_blank">2609.24626v1</a> | <a href="https://arxiv.org/pdf/2609.24626v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-09-21</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自主驾驶中潜在世界模型中隐含关系语义的问题，这可能导致次优预测。关键的洞察是利用交通场景图作为训练期间的结构化关系监督，使模型能够明确学习交通参与者之间的互动和关系，从而增强其预测能力。</p>
+<p><strong>技术贡献</strong>: 该方法引入了一个辅助目标，将视觉潜在与使用冻结文本嵌入模型编码的序列化交通场景图对齐。具体而言，它从nuScenes 3D注释构建场景图，将其序列化为主语-关系-对象语句，并使用余弦距离损失将视觉潜在与这些语义嵌入对齐。训练目标结合了原始LAW损失和两个附加对齐损失，允许在不修改推理管道的情况下进行结构化关系监督。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，所提方法将平均轨迹L2误差从0.661降低到0.622（提高5.9%），将碰撞率从0.456降低到0.217（减少52.4%），与重新训练的LAW基线相比。它还优于无结构的标题风格语义目标，实现了7.2%的L2误差降低和30.4%的碰撞率降低。</p>
+<p><strong>技术精髓</strong>: 通过在训练期间使用余弦距离将视觉潜在与结构化场景图嵌入对齐，模型捕捉到的关系语义导致平均轨迹误差减少5.9%和碰撞率降低52.4%。</p>
+
+<hr>
+
+
+
+        <div class="footer">
+            <p>自动生成 | 数据来源: arXiv | 由 LLM 分析总结</p>
+            <p>2026-09-26 12:51</p>
+        </div>
+    </div>
+</body>
+</html>
