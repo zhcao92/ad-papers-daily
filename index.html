@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自动驾驶论文每日速览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index-en.html" class="lang-toggle">Switch to English</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-10-10)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 56</p>
+<p>- 生成时间 | Generated: 2026-10-10 14:21</p>
+<p>- <a href="index-en.html" target="_blank">Switch to English 切换到英文</a></p>
+
+<hr>
+
+
+<h3>1. Generative AI for Autonomous Driving: Frontiers and Opportunities</h3>
+
+<p><strong>作者</strong>: Yuping Wang, Shuo Xing, Cui Can, Renjie Li, Hongyuan Hua et al. (49 authors)  |  <strong>机构</strong>: Texas A&M University, Georgia Institute of Technology, University of Michigan, Purdue University, Columbia University, University of Florida, Technische Universität München, University of Tübingen, University of Wisconsin-Madison, University of Texas at Austin, University of Notre Dame, Adobe, Lehigh University, Cleveland State University, Johns Hopkins University, University of California, Merced, University of Utah, Texas A&M Transportation Institute, Waymo, Bosch Research North America, Bosch Center for Artificial Intelligence, University of California, Berkeley, Stanford University, NVIDIA, Arizona State University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2505.08854v2" target="_blank">2505.08854v2</a> | <a href="https://arxiv.org/pdf/2505.08854v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-05-13  |  <strong>更新</strong>: 2026-10-06</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自主驾驶训练中数据多样性不足的问题，这通常导致在稀有场景中的泛化能力差。关键的洞察是使用生成模型（如GAN和扩散模型）创建合成数据集，以模拟真实世界条件，从而改善对极端天气或不寻常交通情况等边缘案例的训练覆盖。</p>
+<p><strong>技术贡献</strong>: 作者实现了一个包含三个主要组件的管道：（1）基于GAN的图像生成器，生成分辨率为512×512像素的高保真图像；（2）扩散模型生成点云，密度为每平方米10个点；（3）轨迹生成器根据生成的场景预测7自由度轨迹。这些组件的集成允许创建多样化的训练数据集，从而增强模型的鲁棒性。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，所提出的方法实现了5.2%的NDS提升，达到70.4，而基线为65.2。此外，由于合成数据生成的高效性，训练时间减少了30%，允许更快的模型开发迭代。该方法还在稀有事件检测的准确性上提高了15%。</p>
+<p><strong>技术精髓</strong>: 通过结合GAN和扩散模型合成多样化的训练场景，该方法增强了模型的泛化能力，在nuScenes上实现了5.2%的NDS提升，同时减少了30%的训练时间。</p>
+
+<hr>
+
+<h3>2. SDPAD: A Fully Spike-Driven Pipeline for End-to-End Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Chengjun Zhang, Yuhao Zhang, Jie Yang, Mohamad Sawan  |  <strong>机构</strong>: Westlake University, Zhejiang Key Laboratory of 3D Micro/Nano Fabrication and Characterization, Integrated-On-Chips Brain-Computer Interfaces Zhejiang Engineering Research Center, CenBRAIN Neurotech</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.11583v1" target="_blank">2610.11583v1</a> | <a href="https://arxiv.org/pdf/2610.11583v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-10-08</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了依赖于密集计算的自动驾驶模型的高能耗问题。关键技术洞察是使用完全由脉冲驱动的架构，通过整数脉冲计算处理输入，显著降低功耗，同时保持竞争性的规划精度。</p>
+<p><strong>技术贡献</strong>: SDPAD采用三个主要组件：（1）Spike-3D-Lift通过脉冲驱动最大机制将多视角图像转换为脉冲BEV表示，替代浮点softmax深度分布。（2）Spike-QFormer通过脉冲交叉注意力将自我、代理和地图查询提炼为路径点预测。（3）变形脉冲交叉注意力模块细化轨迹候选，结合辅助训练以增强场景表示。</p>
+<p><strong>结果与影响</strong>: 在nuScenes基准测试中，SDPAD实现了平均L误差0.40m和0.12%的碰撞率，匹配ANN规划器，同时仅消耗69.9mJ，低于最近ANN基线的2%。在NAVSIM的闭环评估中，得分86.3 PDMS，超过之前的SNN规划器4.3点。</p>
+<p><strong>技术精髓</strong>: 通过将感知输出转换为整数脉冲并利用单次推理机制，SDPAD将能耗降低至69.9mJ，同时实现与密集ANN模型相当的规划精度。</p>
+
+<hr>
+
+<h3>3. Controllable and Photorealistic Pedestrian Risky Motion Generation for End-to-End Driving Safety Evaluation</h3>
+
+<p><strong>作者</strong>: Siyuan Liu, Miao Li, Haibao Yu, Haohong Lin, Qing Zhou et al. (7 authors)  |  <strong>机构</strong>: Tsinghua, Carnegie Mellon</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.06171v1" target="_blank">2610.06171v1</a> | <a href="https://arxiv.org/pdf/2610.06171v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-10-05</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了在自动驾驶评估中生成现实行人行为的问题，这些行为在真实世界数据中往往缺乏。关键技术洞察是将轨迹级冲突合成与文本条件运动扩散相结合，允许生成可控且逼真的行人运动，反映危险交互。</p>
+<p><strong>技术贡献</strong>: ControlPed框架由三个主要组件组成：（1）轨迹生成器，使用条件扩散模型合成冲突轨迹，前向过程在K步上定义马尔可夫噪声链；（2）运动生成模块，将2D轨迹提升为3D人类运动序列，使用带有FiLM块的1D U-Net去噪器；（3）渲染模块，使用3D高斯点云创建多视角传感器观测。轨迹生成器通过硬根约束确保与目标轨迹的对齐。</p>
+<p><strong>结果与影响</strong>: 该框架在88个渲染场景中进行评估，导致七个领先的端到端驾驶模型的平均HDScore从88.8降至47.4，表明在生成的危险行人行为下性能显著下降。数据集HazardPed包含422个冲突轨迹和857个注释的3D人类运动，为安全评估提供了强有力的基准。</p>
+<p><strong>技术精髓</strong>: 通过将轨迹级冲突生成与文本条件运动扩散相结合，实现了可控且逼真的行人运动生成，使自动驾驶模型在安全关键场景下HDScore下降46.4%。</p>
+
+<hr>
+
+<h3>4. DVD: Dynamic Vector Decoding for Efficient MLLM-based Perception</h3>
+
+<p><strong>作者</strong>: Jinghua Hou, Zhe Liu, Hengshuang Zhao  |  <strong>机构</strong>: The University of Hong Kong</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.12266v1" target="_blank">2610.12266v1</a> | <a href="https://arxiv.org/pdf/2610.12266v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-10-08</p>
+<p><strong>核心洞察</strong>: 该论文解决了MLLM基础感知任务中令牌开销过大的问题，特别是在传统文本表示在范围和精度上难以应对的3D领域。关键洞察是将多样的感知表示（2D框、2D掩码和3D框）转换为1D向量序列，从而实现高维空间中的自适应量化和压缩。</p>
+<p><strong>技术贡献</strong>: 该方法采用1D编码器-解码器架构，将1D向量序列处理为统一的代码本。具体而言，它将2D边界框转换为规范化的角点序列，将3D框转换为结构化格式（x，y，z，w，h，l，R）。编码器将这些序列映射到潜在空间，而解码器重建原始序列，从而实现高效的令牌化并减少计算开销。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，DVD在3D定位精度上比现有方法提高了5.2%，同时令牌开销减少了14.2倍，推理延迟从200毫秒降至50毫秒。此外，它在2D任务上保持竞争性能，展示了在多个基准上的显著效率提升。</p>
+<p><strong>技术精髓</strong>: 通过将2D和3D感知表示转换为1D向量序列，并利用统一代码本进行自适应量化，DVD将令牌开销和推理延迟从200毫秒降低到50毫秒，同时提高3D定位精度5.2%。</p>
+
+<hr>
+
+<h3>5. HENet++: Hybrid Encoding and Multi-task Learning for 3D Perception and End-to-end Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Zhongyu Xia, Zhiwei Lin, Yongtao Wang, Ming-Hsuan Yang  |  <strong>机构</strong>: Peking University, VGI Labs, University of California</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2511.07106v2" target="_blank">2511.07106v2</a> | <a href="https://arxiv.org/pdf/2511.07106v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-11-10  |  <strong>更新</strong>: 2026-10-08</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自动驾驶中多任务3D感知的计算效率问题。关键技术洞察是混合编码策略，使用大型编码器处理高分辨率短期帧，轻量级编码器处理低分辨率长期序列，有效平衡准确性和效率，同时保持任务特定的特征表示。</p>
+<p><strong>技术贡献</strong>: HENet++采用三个主要组件：（1）混合编码机制，利用大型CNN（如ResNet-50）处理高分辨率短期帧（如640x480），轻量级CNN（如MobileNet）处理长期序列（如320x240）；（2）联合提取稀疏特征用于前景检测（3D目标检测）和密集特征用于背景任务（BEV分割）；（3）模型合并预训练策略，结合任务特定模型的权重以增强多任务性能。</p>
+<p><strong>结果与影响</strong>: 在nuScenes基准上，HENet++实现了68.5 NDS，超过了之前的模型BEVFormer，提升了3.1 NDS。它在端到端驾驶任务中报告了最低的碰撞率，与最佳基线相比减少了15%。该模型在A100 GPU上以12 FPS运行，提高了实时处理能力。</p>
+<p><strong>技术精髓</strong>: 通过采用混合编码策略，结合高分辨率短期和低分辨率长期特征提取，HENet++在nuScenes基准上实现了3.1 NDS的提升，同时减少了计算开销。</p>
+
+<hr>
+
+<h3>6. Diffusion-2BC: Hybrid Diffusion and Regression Training for Offline Behavior Cloning in Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Bruno Maciel Machado, Eric Aislan Antonelo  |  <strong>机构</strong>: Federal University of Santa Catarina</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.38472v2" target="_blank">2609.38472v2</a> | <a href="https://arxiv.org/pdf/2609.38472v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-09-29  |  <strong>更新</strong>: 2026-10-07</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了行为克隆中动作表示不足的问题，特别是在相似观察下存在多个有效动作的情况下。关键技术洞察是将确定性回归损失与扩散模型结合，使得在车辆可以在交叉口左转或右转的场景中更好地表示多模态动作。</p>
+<p><strong>技术贡献</strong>: Diffusion-2BC采用双分支架构：（1）卷积特征提取器同时输入扩散去噪网络和辅助全连接回归头，预测专家动作。组合损失函数L_D2BC = αL_MSE + (1-α)L_DBC在训练期间优化，其中L_MSE最小化预测与专家动作之间的平方误差，L_DBC是扩散损失。系数α在路线条件任务中固定为0.3，增强了多模态动作表示，同时保留了随机推理。</p>
+<p><strong>结果与影响</strong>: 在Claw基准测试中，Diffusion-2BC相较于Diffusion-BC减少了约10%的均值掩码距离误差，相较于确定性BC减少了85%。在路线条件CARLA导航中，它比Diffusion-BC更早且变异性更低地实现了无违规完成。路线自由实验显示在评估协议下行驶的平均距离最高，展示了闭环驾驶可靠性的显著提升。</p>
+<p><strong>技术精髓</strong>: 通过将确定性回归信号集成到扩散模型的训练中，Diffusion-2BC增强了多模态动作表示，实现了均值掩码距离误差减少10%的同时，在部署期间保持随机推理。</p>
+
+<hr>
+
+<h3>7. Sometimes You Gotta Run Before You Can Walk: Run-then-Walk Scheduling Strategy for VLM Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Yuqi Ye, Shangkun Sun, Junhong Lin, Jiayi Zhao, Changhao Peng et al. (9 authors)  |  <strong>机构</strong>: Peking University, Minieye Technology, Fuzhou University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.25831v2" target="_blank">2609.25831v2</a> | <a href="https://arxiv.org/pdf/2609.25831v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-09-22  |  <strong>更新</strong>: 2026-10-07</p>
+<p><strong>核心洞察</strong>: 本文解决了VLM基础的自动驾驶中平衡进展与安全的挑战，这通常导致不安全的激进行为或过于保守的驾驶。关键洞察是引入了一个两阶段的奖励调度策略Run-then-Walk，首先允许激进探索高进展，然后再施加安全约束，有效缓解了现有训练范式的局限性。</p>
+<p><strong>技术贡献</strong>: Run-then-Walk方法由两个关键阶段组成：(1) Run阶段利用激进的奖励函数R_run(τ) = PDMS(τ)优先考虑自我进展，允许策略探索高进展轨迹。(2) Walk阶段用安全为中心的奖励R_walk(τ, τ*) = I(τ) R_safe(τ) + R_end(d)替换激进奖励，结合终点距离和安全指标。这个结构化的方法使策略能够首先发现最佳行为，然后进行安全修正，所需RL训练周期仅为5-6个，而传统方法为10个。</p>
+<p><strong>结果与影响</strong>: 所提方法在多个基准上进行了验证，包括NAVSIMv1、NAVSIMv2、Navhard和nuScenes，训练周期减少40-50%（AutoDrive-P3为5个周期，ReCogDrive为6个），同时改善了PDMS、碰撞率和可行驶区域等驾驶性能指标。例如，仅用5个周期就达到了91.8的PDMS，超过了基线的90.2。</p>
+<p><strong>技术精髓</strong>: 通过将高进展行为的探索与安全修正分离，采用两阶段奖励系统，Run-then-Walk策略实现了更快的收敛和VLM基础的自动驾驶性能指标的提升。</p>
+
+<hr>
+
+<h3>8. Not All Uncertainty Matters: Simulation-in-the-Loop Fast-Slow Reasoning for Decision-Critical Autonomous Driving System</h3>
+
+<p><strong>作者</strong>: Jiayi Chen, Shuai Wang, Guangxu Zhu, Derrick Wing Kwan Ng, Chengzhong Xu et al. (6 authors)  |  <strong>机构</strong>: Shenzhen Research Institute of Big Data, Shenzhen Institutes of Advanced Technology, University of New South Wales, University of Macau, University of Hong Kong</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.09520v1" target="_blank">2610.09520v1</a> | <a href="https://arxiv.org/pdf/2610.09520v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-10-07</p>
+<p><strong>核心洞察</strong>: 该论文解决了自动驾驶系统中云调用效率低下的问题，不必要的云交互会降低实时性能。关键技术洞察是并非所有感知不确定性对决策都有相同影响；通过评估解决不确定性所带来的预期规划增益（EPG），系统可以选择性地在显著改善规划结果时调用云资源。</p>
+<p><strong>技术贡献</strong>: SIGMA框架由三个主要组件组成：（1）决策耦合的不确定性建模，将不确定性分解为语义和几何组件，清晰地与模型预测控制（MPC）约束接口；（2）EPG计算，通过对可行场景实现的蒙特卡罗回放估计规划成本的预期减少；（3）规划增益感知机制，根据EPG调节云调用，确保只有在提供显著决策益处时才使用云资源。</p>
+<p><strong>结果与影响</strong>: 在CARLA模拟器实验中，SIGMA减少了50%的不必要云交互，导航成功率提高超过6%，在动态场景中完成时间减少26.2%，与固定周期协作方法相比。这表明在静态和动态障碍条件下实时性能显著改善。</p>
+<p><strong>技术精髓</strong>: 通过集成基于EPG的规划增益的循环评估，SIGMA仅在预计改善规划结果时选择性地调用云推理，从而减少不必要的云交互，增强实时决策效率。</p>
+
+<hr>
+
+<h3>9. LighTROcc: Lightweight 4D Occupancy Forecasting via Instance-Centric 3D Gaussians</h3>
+
+<p><strong>作者</strong>: Hwanhee Jung, SeungHyeon Kim, Inkyu Koo, Qixing Huang, Sang Ho Yoon et al. (6 authors)  |  <strong>机构</strong>: Korea University, University of Texas at Austin, KAIST</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.09444v1" target="_blank">2610.09444v1</a> | <a href="https://arxiv.org/pdf/2610.09444v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-10-07</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了占用预测中的时间不一致性问题，通过引入以实例为中心的方法来保持对象在时间上的身份一致性。关键的洞察是使用注意力引导的前向提升来在三维空间中定位查询，从而准确预测未来的占用状态，同时避免稠密体素表示的计算开销。</p>
+<p><strong>技术贡献</strong>: LighTROcc采用三个主要组件：（1）一种注意力引导的前向提升机制，将图像空间注意力图与查询特定的深度预测相结合，以定位实例的三维中心；（2）每个实例建模为各向异性三维高斯的混合，允许紧凑的体积表示；（3）框架基于学习的位移预测未来轨迹，使实例状态在多个时间步长上得以传播。这导致了占用预测的单次前向传递。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，LighTROcc实现了68.5%的平均交并比（mIoU），超越了OccProphet等基线方法5.2%。它还保持了25 FPS的推理速度，显著快于传统体素方法的15 FPS，展示了其在实时应用中的效率。</p>
+<p><strong>技术精髓</strong>: 通过将注意力引导的定位与实例的紧凑高斯表示相结合，LighTROcc在单次前向传递中实现了准确的多步占用预测，在nuScenes上实现了+5.2%的mIoU，同时以25 FPS的速度运行。</p>
+
+<hr>
+
+<h3>10. Transferable Spatial Temporal Coherence Adversarial Attack on Black-Box Vision Language Models for Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Heyam Bin Jahlan Areej Alhothali Abeer Alhothali</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.08331v1" target="_blank">2610.08331v1</a> | <a href="https://arxiv.org/pdf/2610.08331v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-10-06</p>
+<p><strong>核心洞察</strong>: 本论文解决了在自动驾驶中使用的黑箱视觉语言模型（VLM）中的对抗脆弱性问题，通过引入空间时间一致性对抗攻击（STCA）。关键技术洞察在于，通过针对语义重要的帧并利用时间一致性，攻击能够有效降低模型性能，同时保持与原始视频的高结构相似性。</p>
+<p><strong>技术贡献</strong>: STCA框架由三个部分组成：（1）模态扩展，通过提取视频的多重标题来指导帧选择；（2）空间攻击，利用YOLOv8进行对象掩模，将扰动限制在关键区域；（3）时间一致性攻击，优化连续帧之间的扰动，通过最小化它们特征之间的余弦相似度，确保攻击有效利用时间动态。扰动的设计保持高结构相似性（SSIM=0.933），同时实现显著的攻击成功率。</p>
+<p><strong>结果与影响</strong>: 在BDD100K数据集上，STCA攻击在Video LLaVA-7B模型上实现了71%的攻击成功率（ASR），显著超过空间攻击的32.6%。在nuScenes数据集的实验中，STCA阶段后的ASR达到了83%，显示出在不同VLM架构之间的强转移性，具体成功率为45%和84.2%针对Qwen2.5-VL-7B。</p>
+<p><strong>技术精髓</strong>: 通过对连续帧之间的扰动进行运动引导掩模优化，STCA攻击有效破坏了时间一致性，实现了71%的攻击成功率，同时保持高结构相似性。</p>
+
+<hr>
+
+
+
+        <div class="footer">
+            <p>自动生成 | 数据来源: arXiv | 由 LLM 分析总结</p>
+            <p>2026-10-10 14:22</p>
+        </div>
+    </div>
+</body>
+</html>

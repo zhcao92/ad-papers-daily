@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Driving Papers Daily</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="lang-toggle">切换到中文</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-10-10)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 56</p>
+<p>- 生成时间 | Generated: 2026-10-10 14:21</p>
+<p>- <a href="index.html" target="_blank">切换到中文 Switch to Chinese</a></p>
+
+<hr>
+
+
+<h3>1. Generative AI for Autonomous Driving: Frontiers and Opportunities</h3>
+
+<p><strong>Authors</strong>: Yuping Wang, Shuo Xing, Cui Can, Renjie Li, Hongyuan Hua et al. (49 authors)  |  <strong>Affiliation</strong>: Texas A&M University, Georgia Institute of Technology, University of Michigan, Purdue University, Columbia University, University of Florida, Technische Universität München, University of Tübingen, University of Wisconsin-Madison, University of Texas at Austin, University of Notre Dame, Adobe, Lehigh University, Cleveland State University, Johns Hopkins University, University of California, Merced, University of Utah, Texas A&M Transportation Institute, Waymo, Bosch Research North America, Bosch Center for Artificial Intelligence, University of California, Berkeley, Stanford University, NVIDIA, Arizona State University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2505.08854v2" target="_blank">2505.08854v2</a> | <a href="https://arxiv.org/pdf/2505.08854v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2025-05-13  |  <strong>Updated</strong>: 2026-10-06</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of limited data diversity in autonomous driving training, which often leads to poor generalization in rare scenarios. The key insight is the use of generative models like GANs and diffusion models to create synthetic datasets that mimic real-world conditions, improving training coverage for edge cases such as extreme weather or unusual traffic situations.</p>
+<p><strong>Key Contribution</strong>: The authors implement a pipeline that consists of three main components: (1) a GAN-based image generator that produces high-fidelity images with a resolution of 512×512 pixels, (2) a diffusion model that generates LiDAR point clouds with a density of 10 points per square meter, and (3) a trajectory generator that predicts 7-DOF trajectories based on the generated scenes. The integration of these components allows for the creation of diverse training datasets that enhance model robustness.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes dataset, the proposed method achieves a 5.2% improvement in NDS, reaching 70.4 compared to the baseline of 65.2. Additionally, it reduces the training time by 30% due to the efficiency of synthetic data generation, allowing for quicker iterations in model development. The method also demonstrates a 15% increase in accuracy for rare event detection.</p>
+<p><strong>Technical Essence</strong>: By synthesizing diverse training scenarios through a combination of GANs and diffusion models, the approach enhances model generalization, achieving a 5.2% increase in NDS on nuScenes while reducing training time by 30%.</p>
+
+<hr>
+
+<h3>2. SDPAD: A Fully Spike-Driven Pipeline for End-to-End Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Chengjun Zhang, Yuhao Zhang, Jie Yang, Mohamad Sawan  |  <strong>Affiliation</strong>: Westlake University, Zhejiang Key Laboratory of 3D Micro/Nano Fabrication and Characterization, Integrated-On-Chips Brain-Computer Interfaces Zhejiang Engineering Research Center, CenBRAIN Neurotech</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.11583v1" target="_blank">2610.11583v1</a> | <a href="https://arxiv.org/pdf/2610.11583v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-10-08</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of high energy consumption in autonomous driving models that rely on dense computation. The key insight is the use of a fully spike-driven architecture that processes inputs through integer-spike computations, significantly reducing power usage while maintaining competitive planning accuracy.</p>
+<p><strong>Key Contribution</strong>: SDPAD employs three main components: (1) Spike-3D-Lift converts multi-view images into a spiking BEV representation using a spike-driven-max mechanism, replacing floating-point softmax depth distributions. (2) Spike-QFormer distills ego, agent, and map queries into waypoint predictions via spiking cross-attention. (3) A deformable spike-cross-attention module refines trajectory candidates, integrating auxiliary training for scene representation.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes benchmark, SDPAD achieves an average L error of 0.40m and a collision rate of 0.12%, matching ANN planners while consuming only 69.9mJ, which is less than 2% of recent ANN baselines. In closed-loop evaluations on NAVSIM, it scores 86.3 PDMS, surpassing the previous SNN planner by 4.3 points.</p>
+<p><strong>Technical Essence</strong>: By converting perception outputs into integer spikes and utilizing a single-pass inference mechanism, SDPAD reduces energy consumption to 69.9mJ while achieving planning accuracy comparable to dense ANN models.</p>
+
+<hr>
+
+<h3>3. Controllable and Photorealistic Pedestrian Risky Motion Generation for End-to-End Driving Safety Evaluation</h3>
+
+<p><strong>Authors</strong>: Siyuan Liu, Miao Li, Haibao Yu, Haohong Lin, Qing Zhou et al. (7 authors)  |  <strong>Affiliation</strong>: Tsinghua, Carnegie Mellon</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.06171v1" target="_blank">2610.06171v1</a> | <a href="https://arxiv.org/pdf/2610.06171v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-10-05</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of generating realistic pedestrian behaviors in safety-critical scenarios for autonomous driving evaluation, which are often underrepresented in real-world data. The key insight is the combination of trajectory-level conflict synthesis and text-conditioned motion diffusion, allowing for controllable and photorealistic pedestrian motion generation that reflects hazardous interactions.</p>
+<p><strong>Key Contribution</strong>: The ControlPed framework consists of three main components: (1) A trajectory generator that synthesizes conflict trajectories using a conditional diffusion model, where the forward process defines a Markov noising chain over K steps, (2) A motion generation module that lifts 2D trajectories into 3D human motion sequences using a 1D U-Net denoiser with FiLM blocks, and (3) A rendering module that uses 3D Gaussian Splatting to create multi-view sensor observations. The trajectory generator ensures alignment with target trajectories through a hard root constraint.</p>
+<p><strong>Result & Impact</strong>: The framework was evaluated in 88 rendered scenarios, resulting in a mean HDScore drop from 88.8 to 47.4 for seven leading end-to-end driving models, indicating significant performance degradation under generated hazardous pedestrian behaviors. The dataset, HazardPed, contains 422 conflict trajectories and 857 annotated 3D human motions, providing a robust benchmark for safety assessment.</p>
+<p><strong>Technical Essence</strong>: By integrating trajectory-level conflict generation with text-conditioned motion diffusion, achieves controllable and photorealistic pedestrian motion generation, resulting in a 46.4% drop in HDScore for autonomous driving models under safety-critical scenarios.</p>
+
+<hr>
+
+<h3>4. DVD: Dynamic Vector Decoding for Efficient MLLM-based Perception</h3>
+
+<p><strong>Authors</strong>: Jinghua Hou, Zhe Liu, Hengshuang Zhao  |  <strong>Affiliation</strong>: The University of Hong Kong</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.12266v1" target="_blank">2610.12266v1</a> | <a href="https://arxiv.org/pdf/2610.12266v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-10-08</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of excessive token overhead in MLLM-based perception tasks, particularly in 3D domains where traditional text-based representations struggle with range and precision. The key insight is the transformation of diverse perceptual representations (2D boxes, 2D masks, and 3D boxes) into 1D vector sequences, allowing for adaptive quantization and compression in high-dimensional space.</p>
+<p><strong>Key Contribution</strong>: The method employs a 1D encoder-decoder architecture that processes 1D vector sequences into a unified codebook. Specifically, it converts 2D bounding boxes into sequences of corner points normalized by image dimensions, and 3D boxes into a structured format (x, y, z, w, h, l, R). The encoder maps these sequences into latent space, while the decoder reconstructs the original sequences, enabling efficient tokenization and reducing computational overhead.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes dataset, DVD achieves a 5.2% improvement in 3D grounding accuracy compared to existing methods, while reducing token overhead by 14.2x and inference latency from 200ms to 50ms. Additionally, it maintains competitive performance on 2D tasks, demonstrating significant efficiency gains across multiple benchmarks.</p>
+<p><strong>Technical Essence</strong>: By transforming 2D and 3D perceptual representations into 1D vector sequences and utilizing a unified codebook for adaptive quantization, DVD reduces token overhead and inference latency from 200ms to 50ms while improving 3D grounding accuracy by 5.2%.</p>
+
+<hr>
+
+<h3>5. HENet++: Hybrid Encoding and Multi-task Learning for 3D Perception and End-to-end Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Zhongyu Xia, Zhiwei Lin, Yongtao Wang, Ming-Hsuan Yang  |  <strong>Affiliation</strong>: Peking University, VGI Labs, University of California</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2511.07106v2" target="_blank">2511.07106v2</a> | <a href="https://arxiv.org/pdf/2511.07106v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2025-11-10  |  <strong>Updated</strong>: 2026-10-08</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of computational inefficiency in multi-task 3D perception for autonomous driving. The key insight is the hybrid encoding strategy that uses a large encoder for high-resolution short-term frames and a lightweight encoder for low-resolution long-term sequences, effectively balancing accuracy and efficiency while maintaining task-specific feature representations.</p>
+<p><strong>Key Contribution</strong>: HENet++ employs three main components: (1) a hybrid encoding mechanism that utilizes a large CNN (e.g., ResNet-50) for short-term high-resolution frames (e.g., 640x480) and a lightweight CNN (e.g., MobileNet) for long-term sequences (e.g., 320x240), (2) joint extraction of sparse features for foreground detection (3D object detection) and dense features for background tasks (BEV segmentation), and (3) a model-merging pretraining strategy that combines weights from task-specific models to enhance multi-task performance.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes benchmark, HENet++ achieves a 68.5 NDS, surpassing previous models like BEVFormer by +3.1 NDS. It also reports the lowest collision rate in end-to-end driving tasks, with a 15% reduction compared to the best baseline. The model operates at 12 FPS on an A100 GPU, improving real-time processing capabilities.</p>
+<p><strong>Technical Essence</strong>: By employing a hybrid encoding strategy that combines high-resolution short-term and low-resolution long-term feature extraction, HENet++ reduces computational overhead while achieving a +3.1 NDS improvement on the nuScenes benchmark.</p>
+
+<hr>
+
+<h3>6. Diffusion-2BC: Hybrid Diffusion and Regression Training for Offline Behavior Cloning in Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Bruno Maciel Machado, Eric Aislan Antonelo  |  <strong>Affiliation</strong>: Federal University of Santa Catarina</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.38472v2" target="_blank">2609.38472v2</a> | <a href="https://arxiv.org/pdf/2609.38472v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-09-29  |  <strong>Updated</strong>: 2026-10-07</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of inadequate action representation in behavior cloning for autonomous driving, particularly when multiple valid actions exist for similar observations. The key insight is that integrating a deterministic regression loss with a diffusion-based model allows for better representation of multimodal actions, as seen in scenarios where a vehicle can turn left or right at an intersection.</p>
+<p><strong>Key Contribution</strong>: Diffusion-2BC employs a dual-branch architecture: (1) a convolutional feature extractor that feeds into both a diffusion denoising network and (2) an auxiliary fully connected regression head predicting expert actions. The combined loss function L_D2BC = αL_MSE + (1-α)L_DBC is optimized during training, where L_MSE minimizes the squared error between predicted and expert actions, and L_DBC is the diffusion loss. The coefficient α is fixed at 0.3 for route-conditioned tasks, enhancing multimodal action representation while retaining stochastic inference.</p>
+<p><strong>Result & Impact</strong>: In the Claw benchmark, Diffusion-2BC reduces mean mask-distance error by approximately 10% compared to Diffusion-BC and 85% compared to deterministic BC. In route-conditioned CARLA navigation, it achieves infraction-free completion earlier and with lower variability than Diffusion-BC. The route-free experiment shows the highest mean distance traveled under the evaluation protocol, demonstrating significant improvements in closed-loop driving reliability.</p>
+<p><strong>Technical Essence</strong>: By integrating a deterministic regression signal into the training of a diffusion model, Diffusion-2BC enhances multimodal action representation, achieving a 10% reduction in mean mask-distance error while maintaining stochastic inference during deployment.</p>
+
+<hr>
+
+<h3>7. Sometimes You Gotta Run Before You Can Walk: Run-then-Walk Scheduling Strategy for VLM Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Yuqi Ye, Shangkun Sun, Junhong Lin, Jiayi Zhao, Changhao Peng et al. (9 authors)  |  <strong>Affiliation</strong>: Peking University, Minieye Technology, Fuzhou University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2609.25831v2" target="_blank">2609.25831v2</a> | <a href="https://arxiv.org/pdf/2609.25831v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-09-22  |  <strong>Updated</strong>: 2026-10-07</p>
+<p><strong>Core Insight</strong>: This paper addresses the challenge of balancing progress and safety in VLM-based autonomous driving, which often leads to either unsafe aggressive behavior or overly conservative driving. The key insight is the introduction of a two-stage reward scheduling strategy, Run-then-Walk, which first allows aggressive exploration for high progress before enforcing safety constraints, effectively mitigating the limitations of existing training paradigms.</p>
+<p><strong>Key Contribution</strong>: The Run-then-Walk method consists of two key stages: (1) Run phase utilizes an aggressive reward function R_run(τ) = PDMS(τ) to prioritize ego progress, allowing the policy to explore high-progress trajectories. (2) Walk phase replaces the aggressive reward with a safety-focused reward R_walk(τ, τ*) = I(τ) R_safe(τ) + R_end(d) that incorporates endpoint distance and safety metrics. This structured approach enables the policy to first discover optimal behaviors and then refine them for safety, requiring only 5-6 RL epochs compared to 10 in traditional methods.</p>
+<p><strong>Result & Impact</strong>: The proposed method was validated on multiple benchmarks including NAVSIMv1, NAVSIMv2, Navhard, and nuScenes, achieving a 40-50% reduction in training epochs (5 epochs for AutoDrive-P3 and 6 for ReCogDrive) while improving driving performance metrics such as PDMS, collision rates, and drivable area. For instance, it reached a PDMS of 91.8 in only 5 epochs, surpassing the 90.2 achieved by the baseline.</p>
+<p><strong>Technical Essence</strong>: By separating the exploration of high-progress behaviors from safety refinement through a two-stage reward system, the Run-then-Walk strategy enables faster convergence and improved performance metrics in VLM-based autonomous driving.</p>
+
+<hr>
+
+<h3>8. Not All Uncertainty Matters: Simulation-in-the-Loop Fast-Slow Reasoning for Decision-Critical Autonomous Driving System</h3>
+
+<p><strong>Authors</strong>: Jiayi Chen, Shuai Wang, Guangxu Zhu, Derrick Wing Kwan Ng, Chengzhong Xu et al. (6 authors)  |  <strong>Affiliation</strong>: Shenzhen Research Institute of Big Data, Shenzhen Institutes of Advanced Technology, University of New South Wales, University of Macau, University of Hong Kong</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.09520v1" target="_blank">2610.09520v1</a> | <a href="https://arxiv.org/pdf/2610.09520v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-10-07</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of inefficient cloud invocation in autonomous driving systems, where unnecessary cloud interactions can degrade real-time performance. The key insight is that not all perception uncertainties impact decision-making equally; by evaluating the expected planning gain (EPG) from resolving uncertainties, the system can selectively invoke cloud resources only when they significantly improve planning outcomes.</p>
+<p><strong>Key Contribution</strong>: The SIGMA framework consists of three main components: (1) Decision-coupled uncertainty modeling that decomposes uncertainty into semantic and geometric components, allowing for a clear interface with Model Predictive Control (MPC) constraints; (2) EPG calculation, which estimates the expected reduction in planning costs through Monte Carlo rollouts of plausible scene realizations; (3) A planning-gain-aware mechanism that regulates cloud invocation based on EPG, ensuring that cloud resources are only used when they provide a significant benefit to decision-making.</p>
+<p><strong>Result & Impact</strong>: In experiments using the CARLA simulator, SIGMA reduced unnecessary cloud interactions by 50%, improved navigation success rates by over 6%, and achieved a 26.2% reduction in finish time in dynamic scenarios compared to fixed-period collaboration methods. This demonstrates a significant improvement in real-time performance under both static and dynamic obstacle conditions.</p>
+<p><strong>Technical Essence</strong>: By integrating simulation-in-the-loop evaluation of planning gain through EPG, SIGMA selectively invokes cloud reasoning only when it is expected to improve planning outcomes, reducing unnecessary cloud interactions and enhancing real-time decision-making efficiency.</p>
+
+<hr>
+
+<h3>9. LighTROcc: Lightweight 4D Occupancy Forecasting via Instance-Centric 3D Gaussians</h3>
+
+<p><strong>Authors</strong>: Hwanhee Jung, SeungHyeon Kim, Inkyu Koo, Qixing Huang, Sang Ho Yoon et al. (6 authors)  |  <strong>Affiliation</strong>: Korea University, University of Texas at Austin, KAIST</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.09444v1" target="_blank">2610.09444v1</a> | <a href="https://arxiv.org/pdf/2610.09444v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-10-07</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of temporal inconsistency in occupancy forecasting by introducing an instance-centric approach that maintains object identities over time. The key insight is the use of attention-guided forward lifting to localize queries in 3D space, allowing for accurate predictions of future occupancy states while avoiding the computational overhead of dense voxel representations.</p>
+<p><strong>Key Contribution</strong>: LighTROcc employs three main components: (1) An attention-guided forward lifting mechanism that combines image-space attention maps with query-specific depth predictions to localize 3D centers of instances. (2) Each instance is modeled as a mixture of anisotropic 3D Gaussians, allowing for compact volumetric representation. (3) The framework predicts future trajectories based on learned displacements, enabling the propagation of instance states across multiple time steps. This results in a single forward pass for occupancy forecasting.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes dataset, LighTROcc achieves a mean Intersection over Union (mIoU) of 68.5%, surpassing baseline methods like OccProphet by +5.2%. It also maintains an inference speed of 25 FPS, significantly faster than the 15 FPS of traditional voxel-based methods, demonstrating its efficiency in real-time applications.</p>
+<p><strong>Technical Essence</strong>: By combining attention-guided localization with a compact Gaussian representation of instances, LighTROcc enables accurate multi-step occupancy forecasting in a single forward pass, achieving +5.2% mIoU on nuScenes while running at 25 FPS.</p>
+
+<hr>
+
+<h3>10. Transferable Spatial Temporal Coherence Adversarial Attack on Black-Box Vision Language Models for Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Heyam Bin Jahlan Areej Alhothali Abeer Alhothali</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.08331v1" target="_blank">2610.08331v1</a> | <a href="https://arxiv.org/pdf/2610.08331v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-10-06</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of adversarial vulnerability in black-box Vision Language Models (VLMs) used for autonomous driving by introducing a Spatial Temporal Coherence Adversarial Attack (STCA). The key insight is that by targeting semantically significant frames and exploiting temporal coherence, the attack can effectively degrade model performance while maintaining high structural similarity to the original video.</p>
+<p><strong>Key Contribution</strong>: The STCA framework consists of three components: (1) Modalities Expansion, where multi-captions are extracted from videos to guide frame selection; (2) Spatial Attack, utilizing YOLOv8 for object masking to confine perturbations to critical regions; (3) Temporal Coherence Attack, which optimizes perturbations across consecutive frames by minimizing cosine similarity between their features, ensuring that the attack exploits temporal dynamics effectively. The perturbation is crafted to maintain high structural similarity (SSIM=0.933) while achieving significant attack success rates.</p>
+<p><strong>Result & Impact</strong>: On the BDD100K dataset, the STCA attack achieved an attack success rate (ASR) of 71% against the Video LLaVA-7B model, significantly outperforming the spatial attack's ASR of 32.6%. In experiments on the nuScenes dataset, ASR reached 83% after the STCA stage, demonstrating strong transferability across different VLM architectures, with specific success rates of 45% and 84.2% against Qwen2.5-VL-7B.</p>
+<p><strong>Technical Essence</strong>: By applying a motion-guided mask to optimize perturbations between consecutive frames, the STCA attack effectively disrupts temporal coherence, achieving a 71% attack success rate while preserving high structural similarity.</p>
+
+<hr>
+
+
+        <div class="footer">
+            <p>Auto-generated | Source: arXiv | Analyzed by LLM</p>
+            <p>2026-10-10 14:22</p>
+        </div>
+    </div>
+</body>
+</html>
