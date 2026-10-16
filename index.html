@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自动驾驶论文每日速览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index-en.html" class="lang-toggle">Switch to English</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-10-16)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 62</p>
+<p>- 生成时间 | Generated: 2026-10-16 13:07</p>
+<p>- <a href="index-en.html" target="_blank">Switch to English 切换到英文</a></p>
+
+<hr>
+
+
+<h3>1. AutoAgent0: An Agentic Runtime for Safe Closed-Loop Driving</h3>
+
+<p><strong>作者</strong>: Jiageng Liu, Seth Z. Zhao, Zewei Zhou, Alejandro Huerta, Aidan Bayer-Calvert et al. (12 authors)  |  <strong>机构</strong>: UCLA, CMU, UT Dallas, Stanford</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.18866v1" target="_blank">2610.18866v1</a> | <a href="https://arxiv.org/pdf/2610.18866v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-10-13</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自动驾驶中累积闭环错误的问题，特别是在车辆遇到未见情况的长尾场景中。关键技术洞察是集成了一种运行时监督机制，结合场景上下文细化、基于规则的动作验证和反馈驱动的恢复，以确保即使在名义策略失败时也能安全执行。</p>
+<p><strong>技术贡献</strong>: AUTOAGENT0由三个主要组件组成：(1) 场景上下文细化模块，利用互补感知技能（如激光雷达和相机融合）增强场景理解；(2) 基于规则的验证器，评估轨迹提案是否符合安全标准，包括基于PDMS的轨迹评分；(3) 恢复规划系统，从动作原语生成替代动作，并根据验证器反馈进行迭代细化。恢复规划通过实时反馈调整原语参数，确保安全驾驶行为。</p>
+<p><strong>结果与影响</strong>: 在Fail2Drive基准测试中的评估表明，AUTOAGENT0相比单一专家执行提高了16.3%的闭环鲁棒性。在NavSafe-∞数据集中，它在长尾场景中的成功导航率提高了12%，在安全关键情况下显示出显著的改进，而无需重新训练基础驾驶策略。</p>
+<p><strong>技术精髓</strong>: 通过集成运行时监督机制，结合场景上下文细化和基于规则的验证，AUTOAGENT0实现了安全驾驶轨迹的生成，使长尾场景中的失败率相比传统单一专家系统降低了16.3%。</p>
+
+<hr>
+
+<h3>2. Drive3R: Block-wise Streaming Geometric Foundation Models for Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Tianyi Yang, Haojun Yang, Jipeng Xiao, Xuesong Chen, Shaoshuai Shi et al. (7 authors)  |  <strong>机构</strong>: Shanghai Jiao Tong University, Didi, The Chinese University of Hong Kong</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.15112v1" target="_blank">2610.15112v1</a> | <a href="https://arxiv.org/pdf/2610.15112v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-10-10</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了由于GPU内存限制和全局注意力的平方复杂性导致的长时间自主驾驶序列中的计算不可行性问题。关键的洞察是引入块级因果注意力，使每个块内的token能够双向关注，保留局部上下文，同时在长序列中保持可扩展性。</p>
+<p><strong>技术贡献</strong>: Drive3R采用两个主要组件：(1) 块级因果注意力，每个块包含K帧，允许块内token双向关注，同时在块之间强制因果关系；(2) 置信度感知的重新锚定，使用轻量级置信度头预测漂移。如果漂移超过阈值，模型将重置KV缓存并从几帧前重新初始化，确保连续的轨迹对齐。注意力掩码定义为M(q,k) = 0（如果b(k) ≤ b(q)），否则为-∞，有效管理上下文。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，Drive3R的AbsRel达到0.1081，比DVGT-2的0.1806有显著提升，点云准确率从0.6750提高到0.5344。此外，平均平移误差（ATE）从1.5812降至0.9092，显示出与之前基线相比在多个指标上的显著性能提升。</p>
+<p><strong>技术精髓</strong>: 通过实现块级因果注意力以允许局部块内的双向上下文，并动态重新锚定KV缓存以减轻漂移，Drive3R实现了长序列中的连续、连贯的几何恢复，显著减少了轨迹误差。</p>
+
+<hr>
+
+<h3>3. Beyond Planning: Differentiable Control-in-the-loop End-to-End Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Zhidong Wang, Zirui Li, Zitong Shan, Zhiqi Mao, Qihang Huang et al. (9 authors)  |  <strong>机构</strong>: Nanyang Technological University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.18167v1" target="_blank">2610.18167v1</a> | <a href="https://arxiv.org/pdf/2610.18167v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-10-13</p>
+<p><strong>核心洞察</strong>: 本文解决了端到端自动驾驶系统中非可微车动力学的问题，这阻碍了控制系统的有效训练。关键技术洞察是将识别的执行器级车辆模型嵌入训练循环中，使梯度能够从车辆状态流回感知和规划网络，从而实现端到端优化。</p>
+<p><strong>技术贡献</strong>: DIVA采用三个主要组件：（1）可微车辆动力学模型，集成执行器动态，使控制解码器能够直接从车辆状态获得监督；（2）基于学习的控制解码器替代传统控制器，利用梯度门确保有效反向传播；（3）速率一致的控制输入参数化，调和标签和控制速率，实现20Hz的异步执行。控制解码器输出的节点通过一阶保持法插值到20Hz的控制速率。</p>
+<p><strong>结果与影响</strong>: 在闭环Bench2Drive基准测试中，DIVA的驾驶得分达到86.7，超过之前的最先进水平3.3分。它还将平均冲击减少50%，并将刹车切换事件减少64%。这一性能对于需要高稳定性和响应性的实时应用至关重要。</p>
+<p><strong>技术精髓</strong>: 通过将可微车辆动力学模型集成到训练循环中，DIVA实现了从车辆状态到规划网络的梯度流，在Bench2Drive上实现了+3.3的驾驶得分提升，同时保持3.8ms的控制周期。</p>
+
+<hr>
+
+<h3>4. ConDenseDrive: Knowledge-Dense, Token-Sparse Visual Encoder for End-to-End Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Shengzhen Li, Yongkang Li, Hao Gao, Chenxi Wu, Yajing Sun et al. (8 authors)  |  <strong>机构</strong>: Huazhong University of Science and Technology, Yinwang Intelligent Technology Co. Ltd.</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.16908v1" target="_blank">2610.16908v1</a> | <a href="https://arxiv.org/pdf/2610.16908v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-10-12</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了端到端自动驾驶中视觉编码的高计算成本问题，通过引入稀疏令牌的方法。关键洞察在于使用注册引导的令牌压缩，选择性地保留信息丰富的补丁令牌，同时丢弃冗余的，从而显著减少处理时间而不影响表示质量。</p>
+<p><strong>技术贡献</strong>: ConDenseDrive采用三阶段框架：（1）多教师视觉蒸馏将DINOv3、SigLIP2和DA3的特征整合到一个紧凑的编码器中，通过余弦和Smooth L1损失优化特征对齐。（2）多帧注册适应将空间和时间上下文聚合到用于规划的注册令牌中，增强编码器的输出。（3）注册引导的令牌压缩根据注册令牌的注意力对补丁令牌进行评分，将处理的令牌数量从N减少到K，其中K显著更小，从而优化计算效率。</p>
+<p><strong>结果与影响</strong>: 在NAVSIM v1上，ConDenseDrive达到了94.5 PDMS，在NAVSIM v2上达到了90.8 EPDMS，超越了之前的方法。该框架在HUGSIM的零-shot评估中记录了37.4 HD-Score。与传统方法相比，该方法在处理时间上实现了2.0倍的加速，证明了其在实时应用中的有效性。</p>
+<p><strong>技术精髓</strong>: 通过对补丁令牌应用注册引导的令牌压缩，选择性地保留基于注意力分数的信息丰富的补丁令牌，实现了处理时间的2.0倍加速，同时保持了高的轨迹预测准确性。</p>
+
+<hr>
+
+<h3>5. YOUDrive: Driving Style as a Composable Direction for End-to-End Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Guantian Zheng, Lidong Yu, Tianyu Gao, Jiaxing Chen, Jiashu Li et al. (6 authors)  |  <strong>机构</strong>: Nanyang Technological University, Tsinghua University, Neolix, City University of Hong Kong</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.14802v1" target="_blank">2610.14802v1</a> | <a href="https://arxiv.org/pdf/2610.14802v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-10-10</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了端到端自动驾驶系统中对驾驶风格控制有限的问题。关键技术洞察是引入任务向量的形式，使得驾驶风格能够连续且可组合地调整，从而使车辆能够根据用户偏好动态适应其行为，而无需重新训练基础模型。</p>
+<p><strong>技术贡献</strong>: YOUDrive采用视觉-语言-动作（VLA）规划器，结合任务向量机制，将教师行为提炼为风格方向。每个教师的驾驶行为表示为任务向量，经过缩放和组合后，用于调节流匹配解码器。该解码器通过从受限运动模型中采样生成运动控制序列，从而根据场景上下文动态调整驾驶风格。</p>
+<p><strong>结果与影响</strong>: 在NAVSIM评估中，YOUDrive的PDMS得分为0.954，在测试配置中保持在0.90以上。该系统在六个教师派生的人格中展示了系统性的单调控制，超越了缺乏这种可组合性驾驶风格调整的基线方法。</p>
+<p><strong>技术精髓</strong>: 通过将教师行为提炼为任务向量，并在共享VLA规划器中缩放这些方向，YOUDrive实现了动态驾驶风格调整，同时保持高规划性能，PDMS得分达到0.954，无需重新训练基础模型。</p>
+
+<hr>
+
+<h3>6. Mining Cross-Modal Perception Gaps in Autonomous Driving: When Camera and LiDAR Disagree</h3>
+
+<p><strong>作者</strong>: Hongsen Cao, Mona Jaber, Shanxin Yuan, Ahmed Sayed  |  <strong>机构</strong>: Queen Mary University of London</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.16906v1" target="_blank">2610.16906v1</a> | <a href="https://arxiv.org/pdf/2610.16906v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-10-12</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自动驾驶感知中模态不一致的问题，特别是在相机和激光雷达输出冲突时。关键洞察是引入了模态可靠性图，它量化了每种模态在空间分层特征基础上的可靠性，从而在一个模态可能失败的物体检测场景中实现更好的决策。</p>
+<p><strong>技术贡献</strong>: 作者开发了一个跨模态感知差距（CMPG）框架，包括三个关键组件：（1）分类模块，将检测结果标记为BOTH、CAM ONLY、LIDAR ONLY或NEITHER；（2）空间分层特征归因（SSFA）方法，分析不同距离区域的失败模式；（3）模态可靠性图，根据空间属性为相机和激光雷达检测分配可靠性分数。该框架使用来自nuScenes、KITTI和Waymo的40万标记对象进行训练和验证。</p>
+<p><strong>结果与影响</strong>: CMPG框架的实施使得四个最先进的融合检测器的性能提高了最高1.3平均精度（mAP），同时仅微调了4%的模型参数，耗时2-3个GPU小时。具体来说，它在nuScenes验证集上达到了68.2 mAP，超越了基线方法3.1 mAP。</p>
+<p><strong>技术精髓</strong>: 通过将空间分层可靠性评估集成到融合过程中，该框架提高了1.3 mAP的检测准确性，使得在何时信任相机与激光雷达输出的决策更加明智。</p>
+
+<hr>
+
+<h3>7. SpaceCache: Intermediate Feature Reuse for Efficient Semantic Segmentation on Point Cloud Streams</h3>
+
+<p><strong>作者</strong>: Dongheon Yang, Beomseok Kang, Jae-Joon Kim  |  <strong>机构</strong>: Seoul National University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.21207v1" target="_blank">2610.21207v1</a> | <a href="https://arxiv.org/pdf/2610.21207v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-10-15</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了点云分割中计算效率低下的问题，通过重用重叠帧中的中间特征，传统上需要完全处理的特征。关键洞察是，较深的编码器阶段表现出高语义一致性和时间重叠，允许之前计算的特征在不显著损失准确性的情况下被重用。</p>
+<p><strong>技术贡献</strong>: SpaceCache采用三个主要组件：（1）Mask Gate，根据当前令牌坐标识别缓存命中和未命中，（2）Reuse Gate，将缓存命中特征与新计算特征结合，恢复后续层的完整令牌布局，以及（3）Commit Gate，根据特征有效性更新缓存。该机制允许之前观察区域的令牌跳过变换块，大幅减少计算量。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，SpaceCache实现了1.65倍的加速，平均交并比（mIoU）下降不到1点。它在Waymo和ScanNet等基准上始终优于令牌合并方法，展示了在不妥协准确性的情况下提高效率。</p>
+<p><strong>技术精髓</strong>: 通过轻量级缓存机制重用较深编码器阶段的中间特征，SpaceCache减少了计算开销，同时保持语义一致性，从而实现了1.65倍的处理速度提升。</p>
+
+<hr>
+
+<h3>8. When Does Corruption Break the Plan? A Degradation-Tolerance Benchmark for Camera-Only End-to-End Driving</h3>
+
+<p><strong>作者</strong>: Haohua Que, Handong Yao  |  <strong>机构</strong>: University of Georgia</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2608.29005v2" target="_blank">2608.29005v2</a> | <a href="https://arxiv.org/pdf/2608.29005v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-08-29  |  <strong>更新</strong>: 2026-10-15</p>
+<p><strong>核心洞察</strong>: 本文解决了不同类型图像损坏如何影响仅依赖摄像头的端到端驾驶系统规划能力的问题。关键技术洞察是某些损坏类型（如模糊和JPEG压缩）具有特定阈值，超过该阈值后，规划性能显著下降，从而使设计人员能够优先考虑对这些特定故障的鲁棒性。</p>
+<p><strong>技术贡献</strong>: 作者提出DriveDegrade，利用单一注入器将16种损坏类型以五个严重程度直接应用于各种E2E驾驶模型的图像加载器中。这种方法允许在15个策略（包括UniAD和VAD）之间进行一致评估，通过测量轨迹L2保留和碰撞指标。注入器以确定性方式操作，确保所有模型接收相同的损坏输入，从而促进对每种架构容忍度的公平比较。</p>
+<p><strong>结果与影响</strong>: 在nuScenes验证集上，研究发现轻微的损坏影响不大，而严重的损坏类型（如模糊和噪声）会导致性能显著下降，L2保留率在约2.2-2.5的严重性阈值下降至0.90以下。分析显示，VAD和LAW在所有损坏类型下保持高性能，而其他规划者表现出不同程度的敏感性，为未来的鲁棒性改进提供了明确的路线图。</p>
+<p><strong>技术精髓</strong>: 通过直接将损坏注入E2E模型的图像加载器，研究量化了导致规划失败的确切损坏阈值，从而使系统在特定类型图像损坏方面的鲁棒性改进具有针对性。</p>
+
+<hr>
+
+<h3>9. FALCON: FPGA-Accelerated Latency-Certifiable Occupancy Networks for Camera-Based Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Haohua Que, Mingkai Liu, Handong Yao  |  <strong>机构</strong>: University of Georgia</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.22143v1" target="_blank">2610.22143v1</a> | <a href="https://arxiv.org/pdf/2610.22143v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-10-15</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了基于摄像头的占用网络中无界延迟的问题，这可能导致检测遗漏。关键技术洞察是使用看门狗机制，确保输出在严格的截止时间内交付，从而为每帧提供保证的最坏情况执行时间。</p>
+<p><strong>技术贡献</strong>: FALCON采用三个主要组件：（1）固定计算的FlashOcc占用模型，处理2D BEV特征并通过通道到高度的插件恢复高度；（2）两个自定义HLS运算符用于升采样视图变换和双线性重采样，这些运算符具有固定的循环计数和周期界限；（3）一个看门狗，强制执行100ms的输出交付截止时间，如果错过截止时间则发布过期输出。</p>
+<p><strong>结果与影响</strong>: 在完整的Occ3D-nuScenes验证集上，FALCON实现了29.88的平均交并比（mIoU），比INT8参考低1.55。该系统保证所有输出在100ms内交付，三次强制运行的最大延迟为10.2ms，显著优于Jetson Orin的4.4×最坏情况延迟。</p>
+<p><strong>技术精髓</strong>: 通过为非DPU操作实现固定循环计数运算符和看门狗截止时间强制执行，FALCON确保在100ms内交付输出，从而确保自动驾驶应用的安全性。</p>
+
+<hr>
+
+<h3>10. FutureLift: Lifting Trajectory Proposals into Bidirectional Future Graphs for Motion Forecasting</h3>
+
+<p><strong>作者</strong>: Daniel Grimm, J. Marius Zöllner  |  <strong>机构</strong>: FZI</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.22215v1" target="_blank">2610.22215v1</a> | <a href="https://arxiv.org/pdf/2610.22215v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-10-15</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了运动预测中多模态轨迹提案的残余误差问题，这可能导致不安全的预测。关键技术洞察是使用双向未来图，允许基于后续证据同时更新早期轨迹段，从而提高未来轨迹预测的准确性。</p>
+<p><strong>技术贡献</strong>: FutureLift引入了一种与骨干网络无关的精炼机制，将轨迹提案转化为异构未来图。它将每个轨迹划分为R个区间，创建空间锚定节点，通过双向边连接。精炼过程涉及单次图形传递，预测残余坐标更新（ΔY）和置信度分数（Δℓ），使用关系特定的注意力，允许在不重复因果扫掠的情况下进行修正。例如，如果为一个代理生成K=5个提案，并定义R=10个区间，则模型输出50个未来节点。</p>
+<p><strong>结果与影响</strong>: 在Waymo开放运动数据集上，FutureLift实现了0.5049米的最小平均位移误差（minADE）和0.9942米的最小最终位移误差（minFDE），显著超越基线方法。在WOMD排行榜上排名第一，竞争性Soft mAP为0.4874，展示了在多种骨干架构上的一致改进。</p>
+<p><strong>技术精髓</strong>: 通过将轨迹提案提升到一个双向未来图，允许所有段的同时更新，FutureLift减少了预测误差并提高了轨迹准确性，在Waymo开放运动数据集上实现了0.5049米的minADE。</p>
+
+<hr>
+
+
+
+        <div class="footer">
+            <p>自动生成 | 数据来源: arXiv | 由 LLM 分析总结</p>
+            <p>2026-10-16 13:07</p>
+        </div>
+    </div>
+</body>
+</html>

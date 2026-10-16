@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Driving Papers Daily</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="lang-toggle">切换到中文</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-10-16)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 62</p>
+<p>- 生成时间 | Generated: 2026-10-16 13:07</p>
+<p>- <a href="index.html" target="_blank">切换到中文 Switch to Chinese</a></p>
+
+<hr>
+
+
+<h3>1. AutoAgent0: An Agentic Runtime for Safe Closed-Loop Driving</h3>
+
+<p><strong>Authors</strong>: Jiageng Liu, Seth Z. Zhao, Zewei Zhou, Alejandro Huerta, Aidan Bayer-Calvert et al. (12 authors)  |  <strong>Affiliation</strong>: UCLA, CMU, UT Dallas, Stanford</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.18866v1" target="_blank">2610.18866v1</a> | <a href="https://arxiv.org/pdf/2610.18866v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-10-13</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of accumulated closed-loop errors in autonomous driving, particularly in long-tail scenarios where the vehicle encounters unseen situations. The key insight is the integration of a runtime supervision mechanism that combines scene context refinement, rule-based action verification, and feedback-driven recovery to ensure safe execution even when nominal policies fail.</p>
+<p><strong>Key Contribution</strong>: AUTOAGENT0 consists of three main components: (1) A scene context refinement module that uses complementary perception skills (e.g., LiDAR and camera fusion) to enhance scene understanding, (2) A rule-based verifier that evaluates trajectory proposals against safety criteria, including a PDMS-based trajectory score, and (3) A recovery planning system that generates alternative maneuvers from action primitives and iteratively refines them based on verifier feedback. The recovery planning operates by adjusting parameters of primitives based on real-time feedback, ensuring safe driving behavior.</p>
+<p><strong>Result & Impact</strong>: Evaluations on the Fail2Drive benchmark show that AUTOAGENT0 improves closed-loop robustness by 16.3% compared to single-expert execution. In the NavSafe-∞ dataset, it achieves a 12% increase in successful navigation through long-tail scenarios, demonstrating significant improvements in safety-critical situations without retraining the underlying driving policies.</p>
+<p><strong>Technical Essence</strong>: By integrating runtime supervision through scene context refinement and rule-based verification, AUTOAGENT0 enables the generation of safe driving trajectories that reduce failure rates in long-tail scenarios by 16.3% compared to traditional single-expert systems.</p>
+
+<hr>
+
+<h3>2. Drive3R: Block-wise Streaming Geometric Foundation Models for Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Tianyi Yang, Haojun Yang, Jipeng Xiao, Xuesong Chen, Shaoshuai Shi et al. (7 authors)  |  <strong>Affiliation</strong>: Shanghai Jiao Tong University, Didi, The Chinese University of Hong Kong</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.15112v1" target="_blank">2610.15112v1</a> | <a href="https://arxiv.org/pdf/2610.15112v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-10-10</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of computational intractability in long-horizon autonomous driving sequences due to GPU memory limits and the quadratic complexity of global attention. The key insight is the introduction of block-wise causal attention, which allows tokens within each block to attend bidirectionally, preserving local context while maintaining scalability across long sequences.</p>
+<p><strong>Key Contribution</strong>: Drive3R employs two main components: (1) Block-wise causal attention, where each block contains K frames, allowing intra-block tokens to attend bidirectionally while enforcing causality across blocks, and (2) Confidence-aware re-anchoring, which uses a lightweight confidence head to predict drift. If drift exceeds a threshold, the model resets the KV cache and re-initializes from a few frames back, ensuring continuous trajectory alignment. The attention mask is defined as M(q,k) = 0 if b(k) ≤ b(q), and -∞ otherwise, allowing for effective context management.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes dataset, Drive3R achieves an AbsRel of 0.1081, improving from 0.1806 with DVGT-2, and point-cloud accuracy improves from 0.6750 to 0.5344. Additionally, the Average Translation Error (ATE) decreases from 1.5812 to 0.9092, demonstrating significant performance gains across multiple metrics compared to previous baselines.</p>
+<p><strong>Technical Essence</strong>: By implementing block-wise causal attention to allow bidirectional context within local blocks and dynamically re-anchoring the KV cache to mitigate drift, Drive3R achieves continuous, coherent geometry recovery in long sequences, significantly reducing trajectory errors.</p>
+
+<hr>
+
+<h3>3. Beyond Planning: Differentiable Control-in-the-loop End-to-End Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Zhidong Wang, Zirui Li, Zitong Shan, Zhiqi Mao, Qihang Huang et al. (9 authors)  |  <strong>Affiliation</strong>: Nanyang Technological University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.18167v1" target="_blank">2610.18167v1</a> | <a href="https://arxiv.org/pdf/2610.18167v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-10-13</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of non-differentiable vehicle dynamics in end-to-end autonomous driving systems, which prevents effective training of control systems. The key insight is embedding an identified actuator-level vehicle model into the training loop, allowing gradients to flow from vehicle states back to the perception and planning networks, thus enabling end-to-end optimization.</p>
+<p><strong>Key Contribution</strong>: DIVA employs three main components: (1) A differentiable vehicle dynamics model that integrates actuator dynamics, allowing the control decoder to receive direct supervision from vehicle states, (2) A learning-based control decoder that replaces traditional controllers, utilizing a gradient gate to ensure effective backpropagation, and (3) A rate-consistent control-input parameterization that reconciles label and control rates, enabling asynchronous execution at 20Hz. The control decoder outputs knots that are interpolated to a control rate of 20Hz using first-order hold.</p>
+<p><strong>Result & Impact</strong>: On the closed-loop Bench2Drive benchmark, DIVA achieves a driving score of 86.7, surpassing the previous state-of-the-art by 3.3 points. It also reduces mean jerk by 50% and decreases brake switching events by 64%. This performance is critical for real-time applications requiring high stability and responsiveness.</p>
+<p><strong>Technical Essence</strong>: By integrating a differentiable vehicle dynamics model into the training loop, DIVA enables gradient flow from vehicle states back to the planning network, achieving a driving score improvement of +3.3 on Bench2Drive while maintaining a control cycle of 3.8ms.</p>
+
+<hr>
+
+<h3>4. ConDenseDrive: Knowledge-Dense, Token-Sparse Visual Encoder for End-to-End Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Shengzhen Li, Yongkang Li, Hao Gao, Chenxi Wu, Yajing Sun et al. (8 authors)  |  <strong>Affiliation</strong>: Huazhong University of Science and Technology, Yinwang Intelligent Technology Co. Ltd.</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.16908v1" target="_blank">2610.16908v1</a> | <a href="https://arxiv.org/pdf/2610.16908v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-10-12</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of high computational costs in visual encoding for end-to-end autonomous driving by introducing a token-sparse approach. The key insight is the use of register-guided token compression, which selectively retains informative patch tokens while discarding redundant ones, leading to a significant reduction in processing time without compromising representation quality.</p>
+<p><strong>Key Contribution</strong>: ConDenseDrive employs a three-stage framework: (1) Multi-teacher visual distillation integrates features from DINOv3, SigLIP2, and DA3 into a single compact encoder, optimizing feature alignment via cosine and Smooth L1 losses. (2) Multi-frame register adaptation aggregates spatial and temporal context into register tokens for planning, enhancing the encoder's output. (3) Register-guided token compression scores patch tokens based on attention from register tokens, reducing the number of tokens processed from N to K, where K is significantly smaller, thus optimizing computational efficiency.</p>
+<p><strong>Result & Impact</strong>: On NAVSIM v1, ConDenseDrive achieves 94.5 PDMS, and 90.8 EPDMS on NAVSIM v2, outperforming previous methods. The framework also records a 37.4 HD-Score in zero-shot evaluation on HUGSIM. The approach results in a 2.0× speedup in processing time compared to traditional methods, demonstrating its effectiveness in real-time applications.</p>
+<p><strong>Technical Essence</strong>: By applying register-guided token compression to selectively retain informative patch tokens based on attention scores, achieved a 2.0× speedup in processing time while maintaining high trajectory prediction accuracy.</p>
+
+<hr>
+
+<h3>5. YOUDrive: Driving Style as a Composable Direction for End-to-End Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Guantian Zheng, Lidong Yu, Tianyu Gao, Jiaxing Chen, Jiashu Li et al. (6 authors)  |  <strong>Affiliation</strong>: Nanyang Technological University, Tsinghua University, Neolix, City University of Hong Kong</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.14802v1" target="_blank">2610.14802v1</a> | <a href="https://arxiv.org/pdf/2610.14802v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-10-10</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of limited control over driving styles in end-to-end autonomous driving systems. The key insight is the introduction of a task-vector formulation that allows for continuous and composable adjustments to driving styles, enabling the vehicle to adapt its behavior dynamically based on user preferences without retraining the underlying model.</p>
+<p><strong>Key Contribution</strong>: YOUDrive employs a vision-language-action (VLA) planner that integrates a task-vector mechanism to distill teacher behaviors into style directions. Each teacher's driving behavior is represented as a task vector, which is scaled and combined to condition a flow-matching decoder. This decoder generates kinematically feasible control sequences by sampling from a constrained motion model, allowing for dynamic adjustments to driving style based on scene context.</p>
+<p><strong>Result & Impact</strong>: In the NAVSIM evaluation, YOUDrive achieves a PDMS score of 0.954, maintaining above 0.90 across tested configurations. The system demonstrates systematic monotonic control of assertiveness across six teacher-derived personas, outperforming baseline methods that lack such composability in driving style adjustments.</p>
+<p><strong>Technical Essence</strong>: By distilling teacher behaviors into task vectors and scaling these directions within a shared VLA planner, YOUDrive enables dynamic driving style adjustments that maintain high planning performance, achieving a PDMS score of 0.954 without retraining the backbone model.</p>
+
+<hr>
+
+<h3>6. Mining Cross-Modal Perception Gaps in Autonomous Driving: When Camera and LiDAR Disagree</h3>
+
+<p><strong>Authors</strong>: Hongsen Cao, Mona Jaber, Shanxin Yuan, Ahmed Sayed  |  <strong>Affiliation</strong>: Queen Mary University of London</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.16906v1" target="_blank">2610.16906v1</a> | <a href="https://arxiv.org/pdf/2610.16906v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-10-12</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of modality disagreement in autonomous driving perception, specifically when camera and LiDAR outputs conflict. The key insight is the introduction of a Modality Reliability Map that quantifies the reliability of each modality based on spatially stratified features, allowing for better decision-making in object detection scenarios where one modality may fail.</p>
+<p><strong>Key Contribution</strong>: The authors develop a Cross-Modal Perception Gap (CMPG) framework that includes three key components: (1) a classification module that labels detections as BOTH, CAM ONLY, LIDAR ONLY, or NEITHER, (2) a Spatially Stratified Feature Attribution (SSFA) method that analyzes failure patterns across distance zones, and (3) a Modality Reliability Map that assigns reliability scores to camera and LiDAR detections based on spatial attributes. The framework uses 0.4M labeled objects from nuScenes, KITTI, and Waymo to train and validate these components.</p>
+<p><strong>Result & Impact</strong>: The implementation of the CMPG framework results in a performance improvement of up to 1.3 mean Average Precision (mAP) across four state-of-the-art fusion detectors, while only fine-tuning 4% of the model parameters in 2–3 GPU hours. Specifically, it achieves a 68.2 mAP on nuScenes validation, outperforming baseline methods by 3.1 mAP.</p>
+<p><strong>Technical Essence</strong>: By integrating a spatially stratified reliability assessment into the fusion process, the framework enhances detection accuracy by 1.3 mAP, allowing for more informed decisions on when to trust camera versus LiDAR outputs.</p>
+
+<hr>
+
+<h3>7. SpaceCache: Intermediate Feature Reuse for Efficient Semantic Segmentation on Point Cloud Streams</h3>
+
+<p><strong>Authors</strong>: Dongheon Yang, Beomseok Kang, Jae-Joon Kim  |  <strong>Affiliation</strong>: Seoul National University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.21207v1" target="_blank">2610.21207v1</a> | <a href="https://arxiv.org/pdf/2610.21207v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-10-15</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of computational inefficiency in point cloud segmentation by reusing intermediate features across overlapping frames, which traditionally require full processing. The key insight is that deeper encoder stages exhibit high semantic consistency and temporal overlap, allowing previously computed features to be reused without significant loss of accuracy.</p>
+<p><strong>Key Contribution</strong>: SpaceCache employs three main components: (1) A Mask Gate that identifies cache hits and misses based on current token coordinates, (2) A Reuse Gate that combines features from cache hits with newly computed features, restoring the full token layout for subsequent layers, and (3) A Commit Gate that updates the cache based on feature validity. This mechanism allows tokens from previously observed regions to bypass transformer blocks, reducing computation significantly.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes dataset, SpaceCache achieves a 1.65× speedup with less than a 1-point drop in mean Intersection over Union (mIoU). It consistently outperforms token-merging methods across benchmarks like Waymo and ScanNet, demonstrating improved efficiency without compromising accuracy.</p>
+<p><strong>Technical Essence</strong>: By reusing intermediate features from deeper encoder stages through a lightweight caching mechanism, SpaceCache reduces computational overhead while maintaining semantic consistency, resulting in a 1.65× speedup in processing time.</p>
+
+<hr>
+
+<h3>8. When Does Corruption Break the Plan? A Degradation-Tolerance Benchmark for Camera-Only End-to-End Driving</h3>
+
+<p><strong>Authors</strong>: Haohua Que, Handong Yao  |  <strong>Affiliation</strong>: University of Georgia</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2608.29005v2" target="_blank">2608.29005v2</a> | <a href="https://arxiv.org/pdf/2608.29005v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-08-29  |  <strong>Updated</strong>: 2026-10-15</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of understanding how different types of image corruption affect the planning capabilities of camera-only end-to-end driving systems. The key insight is that certain corruption types, such as blur and JPEG compression, have specific thresholds beyond which the planning performance significantly degrades, allowing designers to prioritize robustness against these specific failures.</p>
+<p><strong>Key Contribution</strong>: The authors introduce DriveDegrade, which employs a single injector to apply 16 corruption families at five severity levels directly into the image loader of various E2E driving models. This method allows for consistent evaluation across 15 policies, including UniAD and VAD, by measuring trajectory L2 retention and collision metrics. The injector operates deterministically, ensuring that all models receive identical corrupted inputs, facilitating a fair comparison of how each architecture tolerates degradation.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes validation set, the study finds that mild degradations have minimal impact, while severe corruption types like blur and noise lead to significant drops in performance, with L2 retention falling below 0.90 at severity thresholds of approximately 2.2-2.5 for these families. The analysis reveals that VAD and LAW maintain high performance across all corruption types, while other planners show varying degrees of sensitivity, providing a clear roadmap for future robustness improvements.</p>
+<p><strong>Technical Essence</strong>: By injecting corruption directly into the image loader of E2E models, the study quantifies the exact degradation thresholds that lead to planning failures, enabling targeted improvements in system robustness against specific types of image corruption.</p>
+
+<hr>
+
+<h3>9. FALCON: FPGA-Accelerated Latency-Certifiable Occupancy Networks for Camera-Based Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Haohua Que, Mingkai Liu, Handong Yao  |  <strong>Affiliation</strong>: University of Georgia</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.22143v1" target="_blank">2610.22143v1</a> | <a href="https://arxiv.org/pdf/2610.22143v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-10-15</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of unbounded latency in camera-based occupancy networks for autonomous driving, which can lead to missed detections. The key insight is the use of a watchdog mechanism that ensures output delivery within a strict deadline, thus providing a guaranteed worst-case execution time for each frame.</p>
+<p><strong>Key Contribution</strong>: FALCON employs three main components: (1) a fixed-compute FlashOcc occupancy model that processes 2D BEV features and recovers height with a channel-to-height plug-in, (2) two custom HLS operators for the lift-splat view transform and bilinear resize, which are fixed-trip-count and cycle-bounded, and (3) a watchdog that enforces a 100ms deadline for output delivery, publishing stale outputs if the deadline is missed.</p>
+<p><strong>Result & Impact</strong>: On the full Occ3D-nuScenes validation set, FALCON achieves a mean Intersection over Union (mIoU) of 29.88, which is 1.55 below the INT8 reference. The system guarantees that all outputs are delivered within 100ms, with a maximum latency of 10.2ms across three enforced runs, significantly outperforming Jetson Orin's 4.4× worst-case latency.</p>
+<p><strong>Technical Essence</strong>: By implementing fixed-trip-count operators for non-DPU operations and a watchdog for deadline enforcement, FALCON achieves guaranteed output delivery within 100ms, ensuring safety in autonomous driving applications.</p>
+
+<hr>
+
+<h3>10. FutureLift: Lifting Trajectory Proposals into Bidirectional Future Graphs for Motion Forecasting</h3>
+
+<p><strong>Authors</strong>: Daniel Grimm, J. Marius Zöllner  |  <strong>Affiliation</strong>: FZI</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.22215v1" target="_blank">2610.22215v1</a> | <a href="https://arxiv.org/pdf/2610.22215v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-10-15</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of residual errors in multimodal trajectory proposals during motion forecasting, which can lead to unsafe predictions. The key insight is the use of a bidirectional future graph that allows for simultaneous updates of earlier trajectory segments based on later evidence, enhancing accuracy in predicting future trajectories.</p>
+<p><strong>Key Contribution</strong>: FutureLift introduces a backbone-agnostic refinement mechanism that transforms trajectory proposals into heterogeneous future graphs. It partitions each trajectory into R intervals, creating spatially anchored nodes connected by bidirectional edges. The refinement process involves a single graph pass that predicts residual coordinate updates (ΔY) and confidence scores (Δℓ) using relation-specific attention, allowing for corrections without repeated causal sweeps. For example, if K=5 proposals are generated for an agent, and R=10 intervals are defined, the model outputs 50 future nodes.</p>
+<p><strong>Result & Impact</strong>: On the Waymo Open Motion Dataset, FutureLift achieves a minimum Average Displacement Error (minADE) of 0.5049 m and a minimum Final Displacement Error (minFDE) of 0.9942 m, outperforming baseline methods by significant margins. It ranks first on the WOMD leaderboard, with a competitive Soft mAP of 0.4874, demonstrating consistent improvements across multiple backbone architectures.</p>
+<p><strong>Technical Essence</strong>: By lifting trajectory proposals into a bidirectional future graph that allows simultaneous updates of all segments, FutureLift reduces prediction errors and enhances trajectory accuracy, achieving a minADE of 0.5049 m on the Waymo Open Motion Dataset.</p>
+
+<hr>
+
+
+        <div class="footer">
+            <p>Auto-generated | Source: arXiv | Analyzed by LLM</p>
+            <p>2026-10-16 13:07</p>
+        </div>
+    </div>
+</body>
+</html>
