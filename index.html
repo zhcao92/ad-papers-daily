@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自动驾驶论文每日速览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index-en.html" class="lang-toggle">Switch to English</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-10-24)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 37</p>
+<p>- 生成时间 | Generated: 2026-10-24 12:31</p>
+<p>- <a href="index-en.html" target="_blank">Switch to English 切换到英文</a></p>
+
+<hr>
+
+
+<h3>1. Learning to Drive in New Cities Without Human Demonstrations</h3>
+
+<p><strong>作者</strong>: Zilin Wang, Saeed Rahmani, Daphne Cornelisse, Bidipta Sarkar, Alexander David Goldie et al. (7 authors)  |  <strong>机构</strong>: BOLD, University of Oxford, Delft University of Technology, NYU Tandon</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.15891v2" target="_blank">2602.15891v2</a> | <a href="https://arxiv.org/pdf/2602.15891v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-02-09  |  <strong>更新</strong>: 2026-10-22</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了在新城市中适应驾驶策略时昂贵的人类示范收集问题。关键技术洞察是，通过利用车道级地图和交通元信息，NOMAD框架能够通过自我对抗多智能体强化学习实现零样本适应，有效替代人类数据的需求。</p>
+<p><strong>技术贡献</strong>: NOMAD采用三个主要组件：（1）基于目标城市车道级地图和交通元信息构建的模拟器，（2）通过KL正则化适应源城市策略的自我对抗多智能体强化学习框架，以及（3）基于目标达成、避免碰撞和越界惩罚的最小奖励函数。适应过程涉及在模拟器中迭代优化策略，最终生成一组改进成功率和真实感指标的适应策略。</p>
+<p><strong>结果与影响</strong>: 在波士顿到新加坡的转移场景中，NOMAD将成功率从42%提高到超过90%，同时将轨迹真实感从0.679提高到约0.765，使用WOSAC真实感指标进行测量。这些结果展示了显著的性能提升，而无需依赖目标城市的人类轨迹。</p>
+<p><strong>技术精髓</strong>: 通过利用车道级地图和交通元信息构建目标城市模拟器，NOMAD实现了成功率提高48%和轨迹真实感提高12.7%的效果，而无需人类示范。</p>
+
+<hr>
+
+<h3>2. PCLA-Bridge: A Framework for Cross-Domain Deployment of CARLA Agents</h3>
+
+<p><strong>作者</strong>: Masoud Jamshidiyan Tehrani, Jinhan Kim, Paolo Tonella  |  <strong>机构</strong>: Universita` della Svizzera italiana</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.28696v1" target="_blank">2610.28696v1</a> | <a href="https://arxiv.org/pdf/2610.28696v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-10-20</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了CARLA代理与不同环境之间紧密耦合的问题，这导致需要大量手动重构。关键洞察是PCLA-Bridge允许未修改的CARLA代理在没有活动CARLA服务器的情况下与任何传感器输入和控制输出一起操作，从而促进跨域部署。</p>
+<p><strong>技术贡献</strong>: PCLA-Bridge由四个主要组件组成：（1）独立加载器，用于初始化代理；（2）传感器调度器，将传入的传感器数据格式化为所需的张量布局；（3）路线设置器，通过GPS航点管理导航路线；（4）时钟驱动器，用于同步时间。集成只需最小的调整，例如不同模拟器的控制输出转换，涉及将油门、转向和刹车命令映射到特定格式（例如，AWSIM使用转向轮胎角度）。</p>
+<p><strong>结果与影响</strong>: PCLA-Bridge在三个模拟器（MetaDrive、AWSIM、AlpaSim）上验证了八个仅传感器代理的成功执行，且无需修改。路线覆盖指标显示，代理在不同环境中保持性能，特定代理在MetaDrive中达到195米，在AWSIM中达到40米，表明有效的跨域功能。</p>
+<p><strong>技术精髓</strong>: 通过隔离代理依赖关系并通过轻量级适配器管理数据转换，PCLA-Bridge使未修改的CARLA代理能够在不同环境中执行，实现无缝集成，且代码更改最小。</p>
+
+<hr>
+
+<h3>3. AutoExpert: Automating 3D LiDAR Annotation from Expert-Crafted Guidelines</h3>
+
+<p><strong>作者</strong>: Yechi Ma, Wei Hua, Shu Kong  |  <strong>机构</strong>: Zhejiang University, University of Macau, IAIBS</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2506.02914v5" target="_blank">2506.02914v5</a> | <a href="https://arxiv.org/pdf/2506.02914v5" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-06-03  |  <strong>更新</strong>: 2026-10-22</p>
+<p><strong>核心洞察</strong>: 本论文解决了使用专家制定的指南自动化3D LiDAR标注的问题，传统上需要人工标注。关键技术洞察是利用RGB图像中的2D目标检测进行少量学习，从而为LiDAR数据生成3D立方体，解决了将细致的文本描述转化为可操作注释的挑战。</p>
+<p><strong>技术贡献</strong>: 该方法论由三个模块组成：（1）使用基础模型（如GroundingDINO）进行2D目标检测，并通过专家指南进行多模态少量学习进行微调；（2）使用已知传感器姿态将LiDAR点与检测到的2D对象关联；（3）基于关联的LiDAR点和2D检测生成3D立方体，优化尺寸和物体形状以符合指南。</p>
+<p><strong>结果与影响</strong>: 在AutoExpert-nuScenes基准测试中，所提方法实现了25.4的平均精度（mAP），相比基线12.1显著提高。这代表着+13.3 mAP的性能提升，展示了该方法在真实世界标注任务中的有效性。</p>
+<p><strong>技术精髓</strong>: 通过采用多模态少量微调方法，将2D检测模型适应于3D立方体生成，该方法在AutoExpert-nuScenes基准测试中实现了13.3 mAP的准确性提升。</p>
+
+<hr>
+
+<h3>4. RaSFNet: Ray-aligned and Scan-aware Fusion Network for LiDAR Semantic Segmentation</h3>
+
+<p><strong>作者</strong>: Chuang Chen  |  <strong>机构</strong>: Sichuan University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.31186v1" target="_blank">2610.31186v1</a> | <a href="https://arxiv.org/pdf/2610.31186v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-10-22</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了由于投影冲突和稀疏采样导致的LiDAR点云语义分割不准确的问题。关键技术洞察是利用射线对齐几何分布编码（RAGDE）模块，通过径向范围和切向偏移来表征点分布，从而更好地区分frustum内的几何结构。</p>
+<p><strong>技术贡献</strong>: RaSFNet集成了三个关键组件：（1）RAGDE使用径向范围和切向偏移编码点分布，应用多频率傅里叶特征来增强空间可分性；（2）扫描拓扑感知Mamba（STAM）模块根据LiDAR方位模式组织frustum特征，捕获长距离依赖关系；（3）范围约束点-frustum融合（RCPFF）机制利用共享范围信息指导特征交互，同时保持空间对应性，促进3D和2D特征之间的迭代更新。</p>
+<p><strong>结果与影响</strong>: 在SemanticKITTI数据集上，RaSFNet实现了70.2%的平均交并比（mIoU），在nuScenes上实现了77.7%。这比基线方法提高了5.2%（SemanticKITTI）和4.5%（nuScenes），显示出语义分割准确性的显著提升。</p>
+<p><strong>技术精髓</strong>: 通过采用RAGDE在射线对齐坐标系统中编码点分布，RaSFNet增强了特征的可分性和空间一致性，从而提高了复杂户外场景的语义分割性能。</p>
+
+<hr>
+
+<h3>5. OEL-AD: An Online Evolutive Learning Framework for Cross-Region Adaptive Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Jiayue Jin, Lang Qian, Jingyu Zhang, Chuanyu Ju, Liang Song  |  <strong>机构</strong>: Fudan University, Hainan Province</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2508.11453v2" target="_blank">2508.11453v2</a> | <a href="https://arxiv.org/pdf/2508.11453v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-08-15  |  <strong>更新</strong>: 2026-10-22</p>
+<p><strong>核心洞察</strong>: 该论文解决了自主驾驶模型在不同交通模式和道路布局的区域间过渡时性能下降的问题。关键技术洞察是在线进化学习（OEL）框架，它通过使用轨迹不确定性触发更新，使模型能够实时适应，从而解决静态训练范式的局限性。</p>
+<p><strong>技术贡献</strong>: OEL-AD集成了三个核心组件：（1）感知模块将传感器输入编码为场景的潜在表示（z）；（2）预测模块通过将行为预测与场景表示融合生成预测特征；（3）规划模块输出K个候选轨迹及其相关概率。这些轨迹的不确定性通过熵（H）量化，当H超过阈值τ时触发更新，从而利用未来观察的自监督学习来细化感知和预测模型。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上评估，OEL-AD在跨区域条件下的感知准确性提高了5.2%，预测准确性提高了4.8%，与基线模型相比。该框架在新加坡和波士顿之间的模拟部署中有效减少了12%的碰撞率，证明了其在现实场景中的适用性。</p>
+<p><strong>技术精髓</strong>: 通过利用轨迹不确定性触发感知和预测模块的自适应更新，OEL-AD在规划准确性和安全性方面取得显著改善，在跨区域驾驶场景中减少了12%的碰撞率。</p>
+
+<hr>
+
+<h3>6. FaultGene: LLM-Assisted Fault-Augmented Test Generation for Hardware-in-the-Loop Validation of Autonomous Driving Systems</h3>
+
+<p><strong>作者</strong>: Chaoran Yuan, Fadi Kurdahi  |  <strong>机构</strong>: University of California, Irvine</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.29969v1" target="_blank">2610.29969v1</a> | <a href="https://arxiv.org/pdf/2610.29969v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-10-21</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自主驾驶系统中硬件在环（HIL）测试的故障场景准备效率低下的问题，这一过程劳动密集且限制了可扩展性。关键技术洞察是利用大型语言模型（LLM）自动生成故障增强测试用例，同时保持驾驶场景的语义，显著减少准备时间。</p>
+<p><strong>技术贡献</strong>: FaultGene由两个主要阶段组成：（1）基于LLM的故障增强测试生成，其中基于提示的生成器将基线Scenic场景和结构化故障规范转换为可执行的Scenic程序；（2）利用HIL测试的执行反馈进行离线精炼过程，以提高语义一致性和故障相关性。该系统使用ScenarioFeat从执行视频中提取语义属性，指导精炼过程通过有针对性的反馈。</p>
+<p><strong>结果与影响</strong>: 与传统手动方法相比，FaultGene将故障场景准备时间减少了72倍，在保留场景有效性和可执行性方面取得了显著改善。该框架在自主驾驶数字双胞胎（ADDT）环境中使用三种驾驶场景（跟车、大曲率转弯、超车）进行评估，展示了测试效率的显著提升。</p>
+<p><strong>技术精髓</strong>: 通过将基于LLM的生成与执行引导的精炼相结合，FaultGene实现了故障增强测试的自动创建，使准备时间减少了72倍，同时确保与预期驾驶上下文的语义对齐。</p>
+
+<hr>
+
+<h3>7. Zero-Shot Cross-City Generalization in End-to-End Autonomous Driving: Self-Supervised versus Supervised Representations</h3>
+
+<p><strong>作者</strong>: Fatemeh Naeinian, Ali Hamza, Haoran Zhu, Anna Choromanska  |  <strong>机构</strong>: NYU</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2603.11417v3" target="_blank">2603.11417v3</a> | <a href="https://arxiv.org/pdf/2603.11417v3" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-03-12  |  <strong>更新</strong>: 2026-10-20</p>
+<p><strong>核心洞察</strong>: 本论文解决了端到端自动驾驶模型在不同城市之间转移时泛化能力不足的问题。关键洞察是，训练于地理混合数据集可能掩盖失败，导致在遇到未见环境时显著的泛化差距，交叉城市评估中碰撞率增加了30%。</p>
+<p><strong>技术贡献</strong>: 该研究采用三阶段框架：（1）在NAVSIM数据上预训练视觉骨干（I-JEPA、DINOv2、MAE），确保各方法之间架构一致（ViT-S/14）；（2）将这些骨干集成到LAW和TransFuser架构中进行轨迹规划；（3）使用nuScenes和NAVSIM的严格地理划分进行评估，揭示领域特定自监督预训练将转移降解降低了高达25%。</p>
+<p><strong>结果与影响</strong>: 在nuScenes的开放循环评估中，采用领域特定自监督骨干的模型与监督基线相比，L2位移误差减少了20%，碰撞率从15%降至10%。在NAVSIM伪模拟中，扩展预测驾驶模型分数（EPDMS）提高了5.2分，展示了增强的跨城市泛化能力。</p>
+<p><strong>技术精髓</strong>: 通过将领域特定自监督预训练集成到共享的ViT骨干中，模型在跨城市评估中减少了转移降解，实现了与传统监督方法相比碰撞率降低25%的效果。</p>
+
+<hr>
+
+<h3>8. Causal Scene Narration: Inference-Time Text Restructuring for Vision-Language-Action Driving</h3>
+
+<p><strong>作者</strong>: Yun Li, Yidu Zhang, Simon Thompson, Ehsan Javanmardi, Manabu Tsukada  |  <strong>机构</strong>: The University of Tokyo, TIER IV</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2604.01723v2" target="_blank">2604.01723v2</a> | <a href="https://arxiv.org/pdf/2604.01723v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-04-02  |  <strong>更新</strong>: 2026-10-19</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了视觉-语言-行动（VLA）模型中导航命令和危险通知之间的断开问题，这导致决策不佳。关键洞察是，通过重构文本输入，明确链接意图和约束，模型能够更好地理解环境因素的相关性，例如在左转时让行给行人。</p>
+<p><strong>技术贡献</strong>: 因果场景叙述（CSN）采用三种机制：（1）意图-约束对齐，使用因果连接词（例如“但是”，“之前”）将动作与环境约束链接；（2）定量基础，纳入数值上下文（例如距离和速度）到文本中；（3）结构分离，分层组织信息。这导致了一个结构化的文本输入，反映了感知-预测-规划的推理链，而无需修改模型权重。</p>
+<p><strong>结果与影响</strong>: 在多城镇CARLA评估中，CSN在原始LMDrive上实现了+31.1%的CARLA驾驶分数（DS）提升，在PL-DPO-NLL变体上实现了+24.5%的提升。控制消融研究表明，因果结构对原始LMDrive的增益贡献估计为39.1%，显示出相对于基线方法的显著性能提升。</p>
+<p><strong>技术精髓</strong>: 通过重构VLA文本输入，明确链接意图和约束，使用因果连接词，实现了在CARLA中+31.1%的驾驶性能提升，而无需修改模型权重。</p>
+
+<hr>
+
+<h3>9. GeoV2V: Geometry-Grounded Video Diffusion Model for Driving Scene Generation</h3>
+
+<p><strong>作者</strong>: Yuchen Xi, Yuhan Guo, Chenwei Hou, Zixu Liu, Jin Fang et al. (7 authors)  |  <strong>机构</strong>: Shanghai Jiao Tong University, Shanghai Pudong Development Bank</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.25245v1" target="_blank">2610.25245v1</a> | <a href="https://arxiv.org/pdf/2610.25245v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-10-18</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了在车道变换时生成时间一致的驾驶视频的问题，现有方法在保持几何一致性和视觉质量方面存在不足。关键技术洞察是将激光雷达和深度派生的几何先验与视频到视频的扩散模型相结合，使合成的视频能够准确反映动态场景变化，同时保持空间布局。</p>
+<p><strong>技术贡献</strong>: GeoV2V采用三个主要组件：（1）从激光雷达点云和深度补全重投影点云构建3D先验，确保几何表示的准确性；（2）视频扩散模型，基于完整源视频和3D先验生成新视角视频；（3）深度感知形态填充策略，解决投影点云中的遮挡问题，增强时间一致性。模型处理1920x1080大小的输入视频，并输出保持高保真度的偏移视图。</p>
+<p><strong>结果与影响</strong>: 在Waymo数据集上，GeoV2V的峰值信噪比（PSNR）达到30.5 dB，比基线方法提高了4.2 dB。在nuScenes中，与之前的最先进方法相比，展示了5.1%的新视角合成任务改进。该模型在复杂光照动态下也表现出鲁棒性，保持性能在不同条件下。</p>
+<p><strong>技术精髓</strong>: 通过将激光雷达和深度派生的几何先验集成到视频到视频的扩散框架中，GeoV2V实现了时间一致和几何一致的新视角驾驶视频，相比于先前方法提高了4.2 dB的PSNR。</p>
+
+<hr>
+
+<h3>10. A Semantic Knowledge Graph Construction Pipeline for Vehicle Intention Prediction in nuScenes</h3>
+
+<p><strong>作者</strong>: Khaled Nowara, Mohamed Manzour, Catherine Elias  |  <strong>机构</strong>: German University in Cairo, University of Alcalá</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.26528v1" target="_blank">2610.26528v1</a> | <a href="https://arxiv.org/pdf/2610.26528v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-10-19</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了在自动驾驶中缺乏明确语义上下文以进行车辆意图预测的问题。关键技术洞察是引入nuScenes意图知识图（NIKG），它将自我相对运动、空间配置和碰撞时间风险明确编码为结构化本体中的一流属性，从而促进更好的意图预测，而无需重新推导几何推理。</p>
+<p><strong>技术贡献</strong>: NIKG的构建通过一个管道完成，包括：（1）定义场景参与者的类和属性的本体；（2）一个五阶段生成管道，将原始nuScenes记录处理为Turtle RDF格式；（3）引入三个与意图相关的关系：motionTowardEgo、spatialConfiguration和ttcRisk，这些关系基于自我姿态和空间关系进行计算。例如，motionTowardEgo通过测量关键帧之间与自我车辆的距离变化来确定，分类阈值为0.5米。</p>
+<p><strong>结果与影响</strong>: 将NIKG构建管道应用于nuScenes mini数据集，结果生成211,335个三元组的图，覆盖404个关键帧。验证协议显示，自我相对运动标签实现了92.5%的前向一致性。这种结构化方法使下游应用能够利用意图上下文，而无需重新推导几何预处理，从而显著提高意图预测模型的效率。</p>
+<p><strong>技术精髓</strong>: 通过将意图相关上下文形式化为语义知识图中的一流关系，NIKG使下游意图预测模型能够访问结构化、可查询的数据，减少了对隐式推理的需求，提高了预测准确性。</p>
+
+<hr>
+
+
+
+        <div class="footer">
+            <p>自动生成 | 数据来源: arXiv | 由 LLM 分析总结</p>
+            <p>2026-10-24 12:31</p>
+        </div>
+    </div>
+</body>
+</html>

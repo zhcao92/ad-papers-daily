@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Driving Papers Daily</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="lang-toggle">切换到中文</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-10-24)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 37</p>
+<p>- 生成时间 | Generated: 2026-10-24 12:31</p>
+<p>- <a href="index.html" target="_blank">切换到中文 Switch to Chinese</a></p>
+
+<hr>
+
+
+<h3>1. Learning to Drive in New Cities Without Human Demonstrations</h3>
+
+<p><strong>Authors</strong>: Zilin Wang, Saeed Rahmani, Daphne Cornelisse, Bidipta Sarkar, Alexander David Goldie et al. (7 authors)  |  <strong>Affiliation</strong>: BOLD, University of Oxford, Delft University of Technology, NYU Tandon</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2602.15891v2" target="_blank">2602.15891v2</a> | <a href="https://arxiv.org/pdf/2602.15891v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-02-09  |  <strong>Updated</strong>: 2026-10-22</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of costly human demonstration collection for adapting driving policies in new cities. The key insight is that by utilizing lane-level maps and traffic meta-information, the NOMAD framework enables zero-shot adaptation of driving policies through self-play multi-agent reinforcement learning, effectively substituting the need for human data.</p>
+<p><strong>Key Contribution</strong>: NOMAD employs three main components: (1) a simulator constructed from the target city's lane-level map and traffic meta-information, (2) a self-play multi-agent reinforcement learning framework that adapts a source-city policy via KL-regularization to maintain behavioral priors, and (3) a minimal reward function based on goal achievement, collision avoidance, and off-road penalties. The adaptation process involves iteratively optimizing the policy in the simulator, resulting in a set of adapted policies that improve success and realism metrics.</p>
+<p><strong>Result & Impact</strong>: In the Boston-to-Singapore transfer scenario, NOMAD increases the success rate from 42% under zero-shot transfer to over 90%, while improving trajectory realism from 0.679 to approximately 0.765 as measured by the WOSAC realism metric. These results demonstrate significant performance gains without relying on target-city human trajectories.</p>
+<p><strong>Technical Essence</strong>: By constructing a target city simulator using lane-level maps and traffic meta-information, NOMAD achieves a 48% increase in success rate and a 12.7% improvement in trajectory realism compared to zero-shot policy transfer, all without requiring human demonstrations.</p>
+
+<hr>
+
+<h3>2. PCLA-Bridge: A Framework for Cross-Domain Deployment of CARLA Agents</h3>
+
+<p><strong>Authors</strong>: Masoud Jamshidiyan Tehrani, Jinhan Kim, Paolo Tonella  |  <strong>Affiliation</strong>: Universita` della Svizzera italiana</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.28696v1" target="_blank">2610.28696v1</a> | <a href="https://arxiv.org/pdf/2610.28696v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-10-20</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of tightly coupled CARLA agents that cannot be reused across different environments, which necessitates extensive manual re-engineering. The key insight is that PCLA-Bridge allows unmodified CARLA agents to operate with any sensor input and control output without requiring an active CARLA server, thus facilitating cross-domain deployment.</p>
+<p><strong>Key Contribution</strong>: PCLA-Bridge consists of four main components: (1) Standalone Loader for initializing agents, (2) Sensor Marshaller that formats incoming sensor data into the required tensor layout, (3) Route Setter for managing navigation routes via GPS waypoints, and (4) Clock Driver for synchronizing timing. The integration requires only minimal adjustments like control-output translation for different simulators, which involves mapping throttle, steer, and brake commands to specific formats (e.g., AWSIM uses steering-tire angles).</p>
+<p><strong>Result & Impact</strong>: PCLA-Bridge was validated with eight sensor-only agents across three simulators (MetaDrive, AWSIM, AlpaSim) and demonstrated successful execution without modification. Route coverage metrics showed that agents maintained performance across environments, with specific agents achieving 195m in MetaDrive and 40m in AWSIM, indicating effective cross-domain functionality.</p>
+<p><strong>Technical Essence</strong>: By isolating agent dependencies and managing data transformations through a lightweight adapter, PCLA-Bridge enables unmodified CARLA agents to execute in diverse environments, achieving seamless integration with minimal code changes.</p>
+
+<hr>
+
+<h3>3. AutoExpert: Automating 3D LiDAR Annotation from Expert-Crafted Guidelines</h3>
+
+<p><strong>Authors</strong>: Yechi Ma, Wei Hua, Shu Kong  |  <strong>Affiliation</strong>: Zhejiang University, University of Macau, IAIBS</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2506.02914v5" target="_blank">2506.02914v5</a> | <a href="https://arxiv.org/pdf/2506.02914v5" target="_blank">PDF</a>  |  <strong>Published</strong>: 2025-06-03  |  <strong>Updated</strong>: 2026-10-22</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of automating 3D LiDAR annotation using expert-crafted guidelines, which traditionally require human annotators. The key insight is leveraging few-shot learning from 2D object detection in RGB images to generate 3D cuboids for LiDAR data, addressing the challenge of translating nuanced textual descriptions into actionable annotations.</p>
+<p><strong>Key Contribution</strong>: The methodology consists of three modules: (1) 2D object detection using a foundational model like GroundingDINO, which is fine-tuned with multimodal few-shot learning from expert guidelines; (2) LiDAR point association with detected 2D objects using known sensor poses; (3) 3D cuboid generation based on associated LiDAR points and 2D detections, optimizing for dimensions and object shapes as per guidelines.</p>
+<p><strong>Result & Impact</strong>: On the AutoExpert-nuScenes benchmark, the proposed method achieves a mean Average Precision (mAP) of 25.4, a significant increase from the baseline of 12.1. This represents a performance gain of +13.3 mAP, demonstrating the effectiveness of the approach in real-world annotation tasks.</p>
+<p><strong>Technical Essence</strong>: By employing a multimodal few-shot finetuning approach to adapt 2D detection models for 3D cuboid generation, the method achieves a 13.3 mAP improvement in 3D detection accuracy on the AutoExpert-nuScenes benchmark.</p>
+
+<hr>
+
+<h3>4. RaSFNet: Ray-aligned and Scan-aware Fusion Network for LiDAR Semantic Segmentation</h3>
+
+<p><strong>Authors</strong>: Chuang Chen  |  <strong>Affiliation</strong>: Sichuan University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.31186v1" target="_blank">2610.31186v1</a> | <a href="https://arxiv.org/pdf/2610.31186v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-10-22</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of semantic segmentation inaccuracies in LiDAR point clouds caused by projection conflicts and sparse sampling. The key insight is to utilize a Ray-aligned Geometric Distribution Encoding (RAGDE) module that characterizes point distributions using radial range and tangential offsets, allowing for better differentiation of geometric structures within frustums.</p>
+<p><strong>Key Contribution</strong>: RaSFNet integrates three key components: (1) RAGDE encodes point distributions using radial range and tangential offsets, applying multi-frequency Fourier features to enhance spatial separability; (2) a Scan-Topology-Aware Mamba (STAM) block organizes frustum features according to LiDAR azimuth patterns, capturing long-range dependencies; (3) a Range-Constrained Point-Frustum Fusion (RCPFF) mechanism uses shared range information to guide feature interactions while maintaining spatial correspondence, facilitating iterative updates between 3D and 2D features.</p>
+<p><strong>Result & Impact</strong>: On the SemanticKITTI dataset, RaSFNet achieves a mean Intersection over Union (mIoU) of 70.2%, and on nuScenes, it achieves 77.7%. This represents a performance increase of +5.2% on SemanticKITTI and +4.5% on nuScenes compared to baseline methods, demonstrating significant improvements in segmentation accuracy.</p>
+<p><strong>Technical Essence</strong>: By employing RAGDE to encode point distributions in a ray-aligned coordinate system, RaSFNet enhances feature separability and spatial consistency, resulting in improved semantic segmentation performance on complex outdoor scenes.</p>
+
+<hr>
+
+<h3>5. OEL-AD: An Online Evolutive Learning Framework for Cross-Region Adaptive Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Jiayue Jin, Lang Qian, Jingyu Zhang, Chuanyu Ju, Liang Song  |  <strong>Affiliation</strong>: Fudan University, Hainan Province</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2508.11453v2" target="_blank">2508.11453v2</a> | <a href="https://arxiv.org/pdf/2508.11453v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2025-08-15  |  <strong>Updated</strong>: 2026-10-22</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of performance degradation in autonomous driving models when transitioning between regions with different traffic patterns and road layouts. The key insight is the Online Evolutive Learning (OEL) framework, which allows models to adapt in real-time by using trajectory uncertainty to trigger updates, thus addressing the limitations of static training paradigms.</p>
+<p><strong>Key Contribution</strong>: OEL-AD integrates three core components: (1) a perception module that encodes sensor inputs into a latent representation (z) of the scene, (2) a prediction module that generates predictive features by fusing behavior predictions with the scene representation, and (3) a planning module that outputs K candidate trajectories with associated probabilities. The uncertainty of these trajectories is quantified using entropy (H), triggering updates when H exceeds a threshold τ, enabling self-supervised learning from future observations to refine perception and prediction models.</p>
+<p><strong>Result & Impact</strong>: Evaluated on the nuScenes dataset, OEL-AD shows a +5.2% improvement in perception accuracy and a +4.8% increase in prediction accuracy compared to baseline models under cross-region conditions. The framework effectively reduces collision rates by 12% in simulated deployments between Singapore and Boston, demonstrating its applicability in real-world scenarios.</p>
+<p><strong>Technical Essence</strong>: By leveraging trajectory uncertainty to trigger adaptive updates in perception and prediction modules, OEL-AD achieves significant improvements in planning accuracy and safety, reducing collision rates by 12% in cross-region driving scenarios.</p>
+
+<hr>
+
+<h3>6. FaultGene: LLM-Assisted Fault-Augmented Test Generation for Hardware-in-the-Loop Validation of Autonomous Driving Systems</h3>
+
+<p><strong>Authors</strong>: Chaoran Yuan, Fadi Kurdahi  |  <strong>Affiliation</strong>: University of California, Irvine</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.29969v1" target="_blank">2610.29969v1</a> | <a href="https://arxiv.org/pdf/2610.29969v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-10-21</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of inefficient manual fault scenario preparation for Hardware-in-the-Loop (HIL) testing in autonomous driving systems, which is labor-intensive and limits scalability. The key insight is the use of a Large Language Model (LLM) to automate the generation of fault-augmented test cases that maintain the semantics of driving scenarios while introducing faults, significantly reducing preparation time.</p>
+<p><strong>Key Contribution</strong>: FaultGene consists of two main phases: (1) LLM-based fault-augmented test generation, where a prompt-based generator transforms a baseline Scenic scenario and structured fault specifications into executable Scenic programs, and (2) an offline refinement process utilizing execution feedback from HIL tests to improve semantic consistency and fault relevance. The system employs ScenarioFeat to extract semantic attributes from execution videos, guiding the refinement process through targeted feedback.</p>
+<p><strong>Result & Impact</strong>: FaultGene reduces fault-scenario preparation time by 72× compared to conventional manual methods, achieving improved scenario validity and executability on held-out scenario-fault combinations. The framework was evaluated using three driving scenarios (vehicle following, large-curvature turning, overtaking) within the Autonomous Driving Digital Twin (ADDT) environment, demonstrating significant enhancements in testing efficiency.</p>
+<p><strong>Technical Essence</strong>: By integrating LLM-based generation with execution-guided refinement, FaultGene automates the creation of fault-augmented tests, achieving a 72× reduction in preparation time while ensuring semantic alignment with the intended driving context.</p>
+
+<hr>
+
+<h3>7. Zero-Shot Cross-City Generalization in End-to-End Autonomous Driving: Self-Supervised versus Supervised Representations</h3>
+
+<p><strong>Authors</strong>: Fatemeh Naeinian, Ali Hamza, Haoran Zhu, Anna Choromanska  |  <strong>Affiliation</strong>: NYU</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2603.11417v3" target="_blank">2603.11417v3</a> | <a href="https://arxiv.org/pdf/2603.11417v3" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-03-12  |  <strong>Updated</strong>: 2026-10-20</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of inadequate generalization of end-to-end autonomous driving models when transferring between cities with distinct road structures and traffic rules. The key insight is that training on geographically mixed datasets can mask failures, leading to a significant generalization gap when models encounter unseen environments, as evidenced by a 30% increase in collision rates during cross-city evaluations.</p>
+<p><strong>Key Contribution</strong>: The study employs a three-stage framework: (1) Pretraining visual backbones (I-JEPA, DINOv2, MAE) on NAVSIM data, ensuring consistent architecture (ViT-S/14) across methods; (2) Integrating these backbones into LAW and TransFuser architectures for trajectory planning; (3) Evaluating using strict geographic splits on nuScenes and NAVSIM, revealing that domain-specific self-supervised pretraining reduces transfer degradation by up to 25% in collision rates.</p>
+<p><strong>Result & Impact</strong>: In open-loop evaluation on nuScenes, models with domain-specific self-supervised backbones achieved a 20% reduction in L2 displacement error compared to supervised baselines, with collision rates dropping from 15% to 10%. In NAVSIM pseudo-simulation, the Extended Predictive Driver Model Score (EPDMS) improved by 5.2 points, demonstrating enhanced cross-city generalization.</p>
+<p><strong>Technical Essence</strong>: By integrating domain-specific self-supervised pretraining into a shared ViT backbone, the model reduces transfer degradation in cross-city evaluations, achieving a 25% lower collision rate compared to traditional supervised methods.</p>
+
+<hr>
+
+<h3>8. Causal Scene Narration: Inference-Time Text Restructuring for Vision-Language-Action Driving</h3>
+
+<p><strong>Authors</strong>: Yun Li, Yidu Zhang, Simon Thompson, Ehsan Javanmardi, Manabu Tsukada  |  <strong>Affiliation</strong>: The University of Tokyo, TIER IV</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2604.01723v2" target="_blank">2604.01723v2</a> | <a href="https://arxiv.org/pdf/2604.01723v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-04-02  |  <strong>Updated</strong>: 2026-10-19</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of disconnected navigation commands and hazard notices in Vision-Language-Action (VLA) models, which leads to suboptimal decision-making. The key insight is that by restructuring text inputs to explicitly link intent and constraints using causal connectives, the model can better understand the relevance of environmental factors, such as yielding to pedestrians while turning left.</p>
+<p><strong>Key Contribution</strong>: Causal Scene Narration (CSN) employs three mechanisms: (1) Intent-Constraint Alignment, which uses causal connectives (e.g., 'BUT', 'BEFORE') to link actions to environmental constraints; (2) Quantitative Grounding, which incorporates numerical context (e.g., distances and speeds) into the text; (3) Structured Separation, which organizes information hierarchically. This results in a structured text input that mirrors the perception-prediction-planning reasoning chain without modifying model weights.</p>
+<p><strong>Result & Impact</strong>: In a multi-town CARLA evaluation across 16 routes and 8 towns, CSN achieved a +31.1% improvement in CARLA Driving Score (DS) on the original LMDrive and +24.5% on the PL-DPO-NLL variant. The controlled ablation study indicated that the causal structure contributed an estimated 39.1% of the gain on the original LMDrive, demonstrating significant performance enhancements over baseline methods.</p>
+<p><strong>Technical Essence</strong>: By restructuring VLA text inputs to explicitly link intent and constraints using causal connectives, achieved a +31.1% improvement in driving performance on CARLA without modifying model weights.</p>
+
+<hr>
+
+<h3>9. GeoV2V: Geometry-Grounded Video Diffusion Model for Driving Scene Generation</h3>
+
+<p><strong>Authors</strong>: Yuchen Xi, Yuhan Guo, Chenwei Hou, Zixu Liu, Jin Fang et al. (7 authors)  |  <strong>Affiliation</strong>: Shanghai Jiao Tong University, Shanghai Pudong Development Bank</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.25245v1" target="_blank">2610.25245v1</a> | <a href="https://arxiv.org/pdf/2610.25245v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-10-18</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of generating temporally coherent driving videos from novel viewpoints, particularly during lane shifts, where existing methods fail to maintain geometric consistency and visual quality. The key insight is the integration of LiDAR and depth-derived geometric priors with a video-to-video diffusion model, enabling the synthesis of videos that accurately reflect dynamic scene changes while preserving spatial layout.</p>
+<p><strong>Key Contribution</strong>: GeoV2V employs three main components: (1) 3D priors constructed from LiDAR point clouds and depth-completed reprojected point clouds, ensuring accurate geometric representation; (2) a video diffusion model that conditions on both the full source video and the 3D priors to generate novel-view videos; (3) a depth-aware morphological filling strategy to address occlusions in projected point clouds, enhancing temporal consistency. The model processes input videos of size 1920x1080 and outputs shifted views maintaining high fidelity.</p>
+<p><strong>Result & Impact</strong>: On the Waymo dataset, GeoV2V achieves a peak signal-to-noise ratio (PSNR) of 30.5 dB, surpassing the baseline methods by +4.2 dB. In nuScenes, it demonstrates a 5.1% improvement in the novel view synthesis task compared to previous state-of-the-art methods. The model also shows robustness to complex lighting dynamics, maintaining performance across varying conditions.</p>
+<p><strong>Technical Essence</strong>: By integrating LiDAR and depth-derived geometric priors into a video-to-video diffusion framework, GeoV2V achieves temporally coherent and geometrically consistent novel-view driving videos, improving PSNR by +4.2 dB over prior methods.</p>
+
+<hr>
+
+<h3>10. A Semantic Knowledge Graph Construction Pipeline for Vehicle Intention Prediction in nuScenes</h3>
+
+<p><strong>Authors</strong>: Khaled Nowara, Mohamed Manzour, Catherine Elias  |  <strong>Affiliation</strong>: German University in Cairo, University of Alcalá</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.26528v1" target="_blank">2610.26528v1</a> | <a href="https://arxiv.org/pdf/2610.26528v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-10-19</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of lacking explicit semantic context for vehicle intention prediction in autonomous driving. The key insight is the introduction of the nuScenes Intention Knowledge Graph (NIKG), which explicitly encodes ego-relative motion, spatial configuration, and time-to-collision risk as first-class properties in a structured ontology, facilitating better intention prediction without re-deriving geometric inferences.</p>
+<p><strong>Key Contribution</strong>: NIKG is constructed through a pipeline that includes: (1) an ontology defining classes and properties for scene participants, (2) a five-stage generation pipeline that processes raw nuScenes records into a Turtle RDF format, and (3) the introduction of three intention-relevant relations: motionTowardEgo, spatialConfiguration, and ttcRisk, which are computed based on ego-pose and spatial relationships. For example, motionTowardEgo is determined by measuring the change in distance to the ego vehicle across keyframes, with a threshold of 0.5m for classification.</p>
+<p><strong>Result & Impact</strong>: Applying the NIKG construction pipeline to the nuScenes mini dataset results in a graph of 211,335 triples across 404 keyframes. The validation protocol shows that ego-relative motion labels achieve 92.5% forward consistency. This structured approach allows downstream applications to utilize intention context without needing to re-derive the geometric preprocessing, significantly enhancing the efficiency of intention prediction models.</p>
+<p><strong>Technical Essence</strong>: By formalizing intention-relevant context as first-class relations in a semantic knowledge graph, NIKG enables downstream intention prediction models to access structured, queryable data, reducing the need for implicit inference and improving prediction accuracy.</p>
+
+<hr>
+
+
+        <div class="footer">
+            <p>Auto-generated | Source: arXiv | Analyzed by LLM</p>
+            <p>2026-10-24 12:31</p>
+        </div>
+    </div>
+</body>
+</html>
