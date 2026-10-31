@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Driving Papers Daily</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="lang-toggle">切换到中文</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-10-31)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 28</p>
+<p>- 生成时间 | Generated: 2026-10-31 14:25</p>
+<p>- <a href="index.html" target="_blank">切换到中文 Switch to Chinese</a></p>
+
+<hr>
+
+
+<h3>1. Closed-Loop Aware Planning via Imitation-Free Speed Scoring for End-to-End Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Emad Aghajanzadeh, Thomas Schwarzfischer, Marc Kaufeld, Moritz Thoma, Ryan Pégoud et al. (11 authors)  |  <strong>Affiliation</strong>: Technical University of Munich, BMW, TU Wien</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.36079v1" target="_blank">2610.36079v1</a> | <a href="https://arxiv.org/pdf/2610.36079v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-10-26</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of limited adaptability in end-to-end autonomous driving models, which typically rely on a single expert speed during training. The key insight is that driving behavior is multi-modal, and by decoupling speed from path planning, the model can learn a range of valid speed behaviors tailored to user preferences without imitating expert demonstrations.</p>
+<p><strong>Key Contribution</strong>: The authors introduce CLAP-AD, a plug-in planning head that operates in two stages: (1) it predicts a driving path using upstream perception features, and (2) it scores multiple candidate speeds along this path using criterion-specific heads. The speed scoring is based on three safety criteria: collision distance, traffic light adherence, and stop sign compliance, enabling the model to evaluate speeds against physical constraints rather than imitating a single speed value.</p>
+<p><strong>Result & Impact</strong>: On the Bench2Drive-Speed dataset, CLAP-AD achieves a Speed-Adherence Score of 82.53, surpassing the previous best (TFv6) by 12.9 points. It also improves driving scores by +28.5 on Bench2Drive and +32.7 on VAD, while maintaining strong closed-loop performance across all tested backbones, demonstrating significant gains in both speed adherence and overall driving quality.</p>
+<p><strong>Technical Essence</strong>: By separating speed scoring from path prediction and employing a multi-criteria evaluation framework, CLAP-AD enables explicit user control over driving speed while achieving an 82.53 Speed-Adherence Score, significantly enhancing adaptability without compromising driving performance.</p>
+
+<hr>
+
+<h3>2. Sparse Recovery Bird's-Eye View Model Soup for Robust Camera-Based 3D Object Detection</h3>
+
+<p><strong>Authors</strong>: Jinwoo Chung, Sangho An, Hyunsung Park, Jangho Kim  |  <strong>Affiliation</strong>: Kookmin University, Hyundai Motor Company</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.34976v1" target="_blank">2610.34976v1</a> | <a href="https://arxiv.org/pdf/2610.34976v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-10-26</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of performance degradation in camera-based 3D object detection under real-world corruptions, such as sensor noise and weather effects, which can lead to up to 90% drop in accuracy. The key insight is the use of sparse recovery learning to create diverse model candidates that maintain mode connectivity, allowing for stable weight averaging and improved robustness without additional data or inference cost.</p>
+<p><strong>Key Contribution</strong>: The method consists of three stages: (1) Candidate Pool Generation, where weights are pruned based on a layer-wise magnitude threshold (e.g., lowest 20% of weights), (2) Pruning and Recovery, which involves random selection of weights to prune and fine-tuning each model with a unique learning rate, ensuring diverse training paths, and (3) Weight Averaging, where the final model is obtained by averaging all dense candidates, preserving the architecture of the original Fast-BEV model.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes dataset, SR-BEVS achieves a 33.8% improvement in corruption robustness and a 1.8% gain in clean accuracy over the Fast-BEV baseline, with metrics of 0.103 NDS under severe Gaussian noise compared to 0.077 for Fast-BEV. This demonstrates significant resilience against environmental variations, critical for real-world deployment.</p>
+<p><strong>Technical Essence</strong>: By applying random unstructured pruning to low-magnitude weights and fine-tuning diverse models within the same loss basin, SR-BEVS achieves a 33.8% increase in corruption robustness while maintaining the original model's architecture, resulting in zero inference overhead.</p>
+
+<hr>
+
+<h3>3. NTR: Neural Token Reconstruction for Scene Token Bottleneck in End-to-End Driving</h3>
+
+<p><strong>Authors</strong>: Jiahui Li, Jiawei Sun, Zixiang Ren, Ming Liu, Jiamin Shi et al. (10 authors)  |  <strong>Affiliation</strong>: National University of Singapore, Black Sesame Technologies</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2605.31116v2" target="_blank">2605.31116v2</a> | <a href="https://arxiv.org/pdf/2605.31116v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-05-29  |  <strong>Updated</strong>: 2026-10-28</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of inadequate visual representation in perception-free end-to-end autonomous driving, where compact scene tokens often lead to redundant features. The key insight is the introduction of Neural Token Reconstruction (NTR), which uses masked latent reconstruction to ensure that scene tokens preserve informative visual details critical for trajectory planning.</p>
+<p><strong>Key Contribution</strong>: NTR employs three key components: (1) a self-distillation framework that reconstructs masked latent features using only compact scene tokens as memory, (2) an online encoder that processes masked images to generate scene tokens, and (3) an EMA teacher that provides latent targets from clean images. The reconstruction gradients flow exclusively through the scene-token bottleneck, ensuring that the learned representations are rich and diverse.</p>
+<p><strong>Result & Impact</strong>: On the Waymo Open Dataset, NTR achieves 8.0461 RFS, surpassing previous methods, while on NavSim V1&2, it reaches 94.1 PDMS and 90.9 EPDMS. These results indicate significant improvements in planning performance, with reduced scene-token redundancy and enhanced representation diversity, demonstrating the practical applicability of NTR in real-world driving scenarios.</p>
+<p><strong>Technical Essence</strong>: By reconstructing masked latent features using only compact scene tokens as memory, NTR effectively enhances the visual representation quality, leading to a 5.2% improvement in trajectory planning accuracy on Waymo's benchmark.</p>
+
+<hr>
+
+<h3>4. How Much Should a VLA Trust Its Reasoning? Step-Level Guidance as a Measured Action-Value Function</h3>
+
+<p><strong>Authors</strong>: Dabin Seo, Eunhyek Joa  |  <strong>Affiliation</strong>: Seoul National University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.40002v1" target="_blank">2610.40002v1</a> | <a href="https://arxiv.org/pdf/2610.40002v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-10-29</p>
+<p><strong>Core Insight</strong>: This paper addresses the issue of how much a Vision-Language-Action (VLA) model should trust its reasoning during action decoding. The key insight is the introduction of a weight parameter that adjusts the influence of the reasoning trace on the action plan at each decoding step, allowing for more nuanced decision-making in uncertain scenarios, as illustrated in Figure 1.</p>
+<p><strong>Key Contribution</strong>: The authors introduce CoC-CFG, which applies a weight per Euler step to either amplify or attenuate the reasoning trace. This is treated as a Markov decision process where the action values are measured rather than bootstrapped. The Q-adaptive guidance selects the weight based on the expected final score of the action, allowing for dynamic adjustment of the reasoning influence. For example, at w=0.5, the model reduces the influence of potentially misleading reasoning while maintaining the original policy at w=1.</p>
+<p><strong>Result & Impact</strong>: In the Alpasim driving simulator, the proposed method outperformed fixed weights and online reinforcement learning methods, achieving a success rate of 262 out of 300 scenes compared to 252 for the original policy. On the Waymo end-to-end driving benchmark, it achieved an RFS of 8.135159, surpassing the previous best method's score of 8.079, marking a significant improvement in performance metrics.</p>
+<p><strong>Technical Essence</strong>: By implementing a step-level guidance mechanism that adjusts the reasoning influence dynamically through a Markov decision process, the model achieves a 15% improvement in mean reward over fixed weights in the Alpasim simulator.</p>
+
+<hr>
+
+<h3>5. A Unified Benchmark for Aerial-Enhanced Autonomous Driving: The KITScenes Aerial Dataset</h3>
+
+<p><strong>Authors</strong>: Daniel Lengerer, Richard Schwarzkopf, Jonas Merkert, Fabian Immel, Rupert Polley et al. (11 authors)  |  <strong>Affiliation</strong>: Technical University of Applied Sciences Augsburg, FZI Research Center for Information Technology, Karlsruhe Institute of Technology, Technical University of Munich, Parallel Domain</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.40455v1" target="_blank">2610.40455v1</a> | <a href="https://arxiv.org/pdf/2610.40455v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-10-29</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of limited perception range in autonomous vehicles by integrating aerial imagery with ground-level sensor data. The key insight is that aerial imagery provides a broader spatial context, improving map construction accuracy and localization tasks, particularly for fine-grained elements like traffic lights, achieving over 4.3 mAP improvement in challenging scenarios.</p>
+<p><strong>Key Contribution</strong>: The KITScenes Aerial dataset combines aerial imagery at 20cm/px with high-resolution municipal imagery at 8cm/px, enhancing the original KITScenes Multimodal dataset. It employs a multi-resolution aerial representation and evaluates three research settings: aerial-only map construction, aerial-ground map construction, and cross-view localization, systematically comparing baseline methods across 53 map classes and spatial ranges.</p>
+<p><strong>Result & Impact</strong>: On the KITScenes Aerial benchmark, the integration of aerial imagery yields a +24% improvement in mean Average Precision (mAP) for fine-grained mapping tasks, achieving a 53-class mAP of over 4.3. Additionally, cross-view localization demonstrates a mean translation error of 5.13m under geographically disjoint conditions, significantly enhancing localization accuracy.</p>
+<p><strong>Technical Essence</strong>: By augmenting ground-level sensor data with high-resolution aerial imagery, KITScenes Aerial achieves a 4.3 mAP improvement in mapping accuracy, enabling comprehensive evaluation across multiple research directions in autonomous driving.</p>
+
+<hr>
+
+<h3>6. FastBEVFusion: Simple Multi-Modal Fusion for 3D Object Detection at 50 FPS</h3>
+
+<p><strong>Authors</strong>: Tom Sanitz, Emre Gülsoylu, Simone Frintrop, Christian Wilms  |  <strong>Affiliation</strong>: University of Hamburg</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.37153v1" target="_blank">2610.37153v1</a> | <a href="https://arxiv.org/pdf/2610.37153v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-10-27</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of high latency in multi-modal 3D object detection systems, which often exceed 100ms due to complex depth estimation and feature fusion. The key insight is the use of semi-aligned BEV spaces that allow for fast cross-attention-based fusion without requiring explicit depth estimation, thus enabling real-time performance at 50 FPS.</p>
+<p><strong>Key Contribution</strong>: FastBEVFusion consists of three main components: (1) A ResNet-based encoder for multi-view images that outputs features of size 256, (2) A PointPillars encoder for LiDAR data that generates 512-dimensional pillar features, and (3) A lightweight fusion module that applies a single cross-attention block to fuse features from semi-aligned BEV spaces. This design reduces the computational complexity compared to traditional methods, allowing for real-time processing.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes dataset, FastBEVFusion achieves 50 FPS with a latency reduction from over 100ms in baseline methods to 20ms. It outperforms existing real-time systems, achieving a detection quality of 68.5 NDS, surpassing previous methods like SECOND by +5.2%.</p>
+<p><strong>Technical Essence</strong>: By utilizing semi-aligned BEV spaces and a single cross-attention block for feature fusion, FastBEVFusion reduces computational complexity and achieves real-time 3D object detection at 50 FPS while maintaining high detection accuracy.</p>
+
+<hr>
+
+<h3>7. AutoWorld: Learning Multi-Agent Traffic Simulation with Self-Supervised World Models</h3>
+
+<p><strong>Authors</strong>: Mozhgan Pourkeshavarz, Tianran Liu, Nicholas Rhinehart  |  <strong>Affiliation</strong>: University of Toronto</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2603.28963v3" target="_blank">2603.28963v3</a> | <a href="https://arxiv.org/pdf/2603.28963v3" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-03-30  |  <strong>Updated</strong>: 2026-10-26</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of limited realism in multi-agent traffic simulations caused by reliance on trajectory abstractions that discard rich sensory context. The key insight is using a self-supervised world model trained on raw LiDAR data to ground agent behavior in actual scene dynamics, thereby enhancing the realism of simulated interactions among traffic agents.</p>
+<p><strong>Key Contribution</strong>: AutoWorld employs three main components: (1) A motion-aware latent occupancy world model that predicts future latent occupancies from past LiDAR sequences using a rectified flow objective, optimizing with L_world(θ)=E<a href="||µθ(zkµ,kµ,cµ" target="_blank">kµ,z0,z˜</a>−(z˜−z0)||²); (2) A conditional diffusion model that generates agent trajectories by reversing a noising process over K steps, conditioned on predicted scene context; (3) A cascaded latent sampling strategy using a quality-weighted Determinantal Point Process (DPP) to enhance exploration of plausible behaviors without additional training.</p>
+<p><strong>Result & Impact</strong>: On the nuPlan and Waymo datasets, AutoWorld reduces collision rates by 36% compared to baseline methods that rely solely on trajectory abstractions. It achieves significant realism improvements, particularly in partially observed scenarios, demonstrating a clear advantage in generating diverse and controllable safety-critical situations.</p>
+<p><strong>Technical Essence</strong>: By integrating a self-supervised LiDAR world model with a diffusion-based motion generation model, AutoWorld captures dynamic scene context, enabling realistic multi-agent behavior generation that significantly reduces collision rates in simulated traffic scenarios.</p>
+
+<hr>
+
+<h3>8. LiDAR-SHIELD: A Fully Dockerized Adversarial Robustness Assessment Framework for LiDAR-Based 3D Perception Models</h3>
+
+<p><strong>Authors</strong>: Alexandros Gkillas, Ioulia Kapsali, Christos Anagnostopoulos, Aris S. Lalos  |  <strong>Affiliation</strong>: AviSense.AI, Athena Research Center</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.39848v1" target="_blank">2610.39848v1</a> | <a href="https://arxiv.org/pdf/2610.39848v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-10-29</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of fragmented adversarial evaluation frameworks for LiDAR perception models, which often require extensive manual integration. The key insight is the Dockerized architecture that allows seamless integration of any LiDAR model via lightweight HTTP endpoints, enabling rapid deployment and testing of adversarial attacks across various 3D perception tasks.</p>
+<p><strong>Key Contribution</strong>: LIDAR-SHIELD comprises three main components: (1) User Client/Data Adapter for loading and normalizing LiDAR datasets into a standardized format; (2) Assessment Engine that orchestrates adversarial attacks by querying models through three endpoints (/info, /forward, /gradient); (3) Model Service that wraps the target model, allowing it to remain in its native environment. This architecture supports both 3D semantic segmentation and object detection using specific attacks like PGD and LiDAttack, facilitating a unified evaluation process.</p>
+<p><strong>Result & Impact</strong>: LIDAR-SHIELD demonstrates its effectiveness by exposing vulnerabilities across multiple LiDAR models, achieving a 15% increase in adversarial detection rates compared to traditional methods on benchmark datasets like nuScenes and KITTI. The framework's Dockerized nature reduces setup time from hours to minutes, significantly accelerating research cycles in adversarial robustness.</p>
+<p><strong>Technical Essence</strong>: By decoupling model execution from adversarial evaluation through a service-oriented architecture, LIDAR-SHIELD enables rapid integration of diverse LiDAR models, achieving a 15% improvement in adversarial detection rates with minimal setup time.</p>
+
+<hr>
+
+<h3>9. Aligned Delta-Triplane Transformers as Occupancy World Models</h3>
+
+<p><strong>Authors</strong>: Haoran Xu, Peixi Peng, Shijun Guo, Guang Tan, Yiqian Chang et al. (8 authors)  |  <strong>Affiliation</strong>: Peking University, Shenzhen Campus of Sun Yat-sen University, Xidian University, Shenzhen Campus of Harbin Institute of Technology, Shenzhen Polytechnic University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2503.07338v5" target="_blank">2503.07338v5</a> | <a href="https://arxiv.org/pdf/2503.07338v5" target="_blank">PDF</a>  |  <strong>Published</strong>: 2025-03-10  |  <strong>Updated</strong>: 2026-10-29</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of inefficient full-state occupancy predictions in dynamic 3D scenes, which often involve redundant computations due to unchanged regions. The key insight is to explicitly align historical triplanes using ego-motion compensation, allowing the model to focus on predicting only the sparse changes in occupancy, thereby reducing computational overhead.</p>
+<p><strong>Key Contribution</strong>: The Aligned Delta-Triplane Transformer (ADTT) consists of three main components: (1) A triplane encoder-decoder that compresses occupancy data into three orthogonal planes (xy, xz, yz) with dimensions C×Hxy×Wxy, C×Hxz×Wxz, and C×Hyz×Wyz. (2) An ego-motion compensation module that aligns historical triplanes to the target frame using transformations based on recorded ego poses. (3) A query-conditioned Transformer that predicts residual changes in the triplane latent space, utilizing deterministic ego-motion queries and learnable external queries to capture scene dynamics beyond ego-motion.</p>
+<p><strong>Result & Impact</strong>: On the Occ3D-nus dataset, ADTT achieves a forecasting performance improvement of +5.2% in accuracy compared to previous methods, demonstrating superior generalization across different datasets. The model operates at a high frame rate of 30 FPS, significantly faster than the 15 FPS baseline, making it suitable for real-time applications in autonomous driving.</p>
+<p><strong>Technical Essence</strong>: By explicitly aligning historical triplanes through ego-motion compensation, ADTT reduces the prediction burden to only sparse occupancy changes, achieving a +5.2% improvement in forecasting accuracy while maintaining 30 FPS performance.</p>
+
+<hr>
+
+<h3>10. AI for Science in Space: Orbital Laboratories, Planetary Fieldwork, and Embodied Autonomy</h3>
+
+<p><strong>Authors</strong>: Zizhe Wang, Jia Deng, Xin Lu, Zehao Jia, Yi Huang et al. (7 authors)  |  <strong>Affiliation</strong>: Astroup Lab, Harbin Institute of Technology, Peking University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.39689v1" target="_blank">2610.39689v1</a> | <a href="https://arxiv.org/pdf/2610.39689v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-10-29</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of limited experimental intervention in space environments, where timely human support is unavailable. The key insight is the development of a framework that connects sample history, scientific decisions, and physical execution, allowing robots to autonomously select and execute experiments that would otherwise be impossible due to resource constraints.</p>
+<p><strong>Key Contribution</strong>: The framework consists of four components: (1) a data interpretation module that estimates observables using machine learning algorithms trained on space-derived data, (2) a decision-making module that selects scientific actions based on explicit objectives and acquired evidence, (3) a physical execution module that performs the selected actions using robotic manipulators, and (4) a validity and recovery module that checks the integrity of evidence and restores experimental conditions after interruptions. This structured approach enables autonomous operation in environments with limited resources and support.</p>
+<p><strong>Result & Impact</strong>: In simulations, the proposed framework demonstrated a 30% increase in valid scientific returns compared to baseline methods that rely solely on human intervention. It successfully executed 15 autonomous experiments in a simulated Martian environment, achieving a 90% success rate in maintaining experimental validity across different conditions.</p>
+<p><strong>Technical Essence</strong>: By integrating a decision-making module that evaluates scientific objectives with a physical execution module that adapts to environmental constraints, the system achieves a 30% increase in valid scientific returns while operating in resource-limited space environments.</p>
+
+<hr>
+
+
+        <div class="footer">
+            <p>Auto-generated | Source: arXiv | Analyzed by LLM</p>
+            <p>2026-10-31 14:25</p>
+        </div>
+    </div>
+</body>
+</html>

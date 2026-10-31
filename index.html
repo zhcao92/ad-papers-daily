@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自动驾驶论文每日速览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index-en.html" class="lang-toggle">Switch to English</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-10-31)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 28</p>
+<p>- 生成时间 | Generated: 2026-10-31 14:25</p>
+<p>- <a href="index-en.html" target="_blank">Switch to English 切换到英文</a></p>
+
+<hr>
+
+
+<h3>1. Closed-Loop Aware Planning via Imitation-Free Speed Scoring for End-to-End Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Emad Aghajanzadeh, Thomas Schwarzfischer, Marc Kaufeld, Moritz Thoma, Ryan Pégoud et al. (11 authors)  |  <strong>机构</strong>: Technical University of Munich, BMW, TU Wien</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.36079v1" target="_blank">2610.36079v1</a> | <a href="https://arxiv.org/pdf/2610.36079v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-10-26</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了端到端自动驾驶模型适应性有限的问题，这些模型通常依赖于单一的专家速度进行训练。关键技术洞察是驾驶行为是多模态的，通过将速度与路径规划解耦，模型可以学习一系列有效的速度行为，以满足用户偏好，而无需模仿专家演示。</p>
+<p><strong>技术贡献</strong>: 作者引入了CLAP-AD，一个插件规划头，它分两个阶段操作：（1）使用上游感知特征预测驾驶路径，（2）使用特定标准的头部对沿路径的多个候选速度进行评分。速度评分基于三个安全标准：碰撞距离、交通信号灯遵守和停车标志合规，使模型能够根据物理约束评估速度，而不是模仿单一速度值。</p>
+<p><strong>结果与影响</strong>: 在Bench2Drive-Speed数据集上，CLAP-AD实现了82.53的速度遵循分数，超过了之前的最佳（TFv6）12.9分。它还在Bench2Drive上提高了驾驶分数+28.5，在VAD上提高了+32.7，同时在所有测试的基础上保持强大的闭环性能，显示出速度遵循和整体驾驶质量的显著提升。</p>
+<p><strong>技术精髓</strong>: 通过将速度评分与路径预测分离，并采用多标准评估框架，CLAP-AD实现了用户对驾驶速度的明确控制，同时达到了82.53的速度遵循分数，显著增强了适应性而不妨碍驾驶性能。</p>
+
+<hr>
+
+<h3>2. Sparse Recovery Bird's-Eye View Model Soup for Robust Camera-Based 3D Object Detection</h3>
+
+<p><strong>作者</strong>: Jinwoo Chung, Sangho An, Hyunsung Park, Jangho Kim  |  <strong>机构</strong>: Kookmin University, Hyundai Motor Company</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.34976v1" target="_blank">2610.34976v1</a> | <a href="https://arxiv.org/pdf/2610.34976v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-10-26</p>
+<p><strong>核心洞察</strong>: 本论文解决了相机基础的3D目标检测在真实世界干扰下性能下降的问题，例如传感器噪声和天气影响，准确率可能下降高达90%。关键技术洞察是使用稀疏恢复学习创建多样化的模型候选，保持模式连接性，从而实现稳定的权重平均和提高鲁棒性，而无需额外的数据或推理成本。</p>
+<p><strong>技术贡献</strong>: 该方法由三个阶段组成：（1）候选池生成，通过层级权重幅度阈值修剪权重（例如，最低20%的权重），（2）修剪与恢复，随机选择权重进行修剪，并使用独特的学习率微调每个模型，确保多样化的训练路径，以及（3）权重平均，最终模型通过平均所有稠密候选获得，保持原始Fast-BEV模型的架构。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，SR-BEVS在腐蚀鲁棒性上实现了33.8%的提升，并在干净准确性上比Fast-BEV基线提高了1.8%，在严重高斯噪声下的指标为0.103 NDS，而Fast-BEV为0.077。这表明在环境变化下显著的韧性，对实际部署至关重要。</p>
+<p><strong>技术精髓</strong>: 通过对低幅度权重进行随机无结构修剪并在同一损失盆地内微调多样化模型，SR-BEVS实现了腐蚀鲁棒性提升33.8%，同时保持原始模型架构，实现零推理开销。</p>
+
+<hr>
+
+<h3>3. NTR: Neural Token Reconstruction for Scene Token Bottleneck in End-to-End Driving</h3>
+
+<p><strong>作者</strong>: Jiahui Li, Jiawei Sun, Zixiang Ren, Ming Liu, Jiamin Shi et al. (10 authors)  |  <strong>机构</strong>: National University of Singapore, Black Sesame Technologies</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2605.31116v2" target="_blank">2605.31116v2</a> | <a href="https://arxiv.org/pdf/2605.31116v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-05-29  |  <strong>更新</strong>: 2026-10-28</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了在感知自由的端到端自动驾驶中视觉表示不足的问题，其中紧凑的场景令牌常常导致冗余特征。关键洞察是引入神经令牌重建（NTR），通过掩蔽潜在重建确保场景令牌保留对轨迹规划至关重要的信息视觉细节。</p>
+<p><strong>技术贡献</strong>: NTR采用三个关键组件：（1）自蒸馏框架，通过仅使用紧凑的场景令牌作为内存重建掩蔽潜在特征，（2）在线编码器处理掩蔽图像以生成场景令牌，以及（3）EMA教师从干净图像提供潜在目标。重建梯度仅通过场景令牌瓶颈流动，确保学习到的表示丰富且多样。</p>
+<p><strong>结果与影响</strong>: 在Waymo开放数据集上，NTR实现了8.0461 RFS，超越了之前的方法，而在NavSim V1&2上达到了94.1 PDMS和90.9 EPDMS。这些结果表明轨迹规划性能显著提高，场景令牌冗余减少，表示多样性增强，展示了NTR在现实驾驶场景中的实用性。</p>
+<p><strong>技术精髓</strong>: 通过仅使用紧凑的场景令牌作为内存重建掩蔽潜在特征，NTR有效提升了视觉表示质量，导致Waymo基准上轨迹规划准确性提高5.2%。</p>
+
+<hr>
+
+<h3>4. How Much Should a VLA Trust Its Reasoning? Step-Level Guidance as a Measured Action-Value Function</h3>
+
+<p><strong>作者</strong>: Dabin Seo, Eunhyek Joa  |  <strong>机构</strong>: Seoul National University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.40002v1" target="_blank">2610.40002v1</a> | <a href="https://arxiv.org/pdf/2610.40002v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-10-29</p>
+<p><strong>核心洞察</strong>: 本文解决了视觉-语言-动作（VLA）模型在动作解码过程中应多大程度上信任其推理的问题。关键技术洞察是引入一个权重参数，该参数在每个解码步骤中调整推理轨迹对动作计划的影响，从而在不确定场景中实现更细致的决策。</p>
+<p><strong>技术贡献</strong>: 作者提出了CoC-CFG，在每个Euler步骤应用一个权重，以放大或减弱推理轨迹。这被视为一个马尔可夫决策过程，其中动作值是测量而非自举的。Q自适应引导根据动作的预期最终分数选择权重，从而允许动态调整推理影响。例如，在w=0.5时，模型减少了潜在误导推理的影响，同时在w=1时保持原始策略。</p>
+<p><strong>结果与影响</strong>: 在Alpasim驾驶模拟器中，所提出的方法超越了固定权重和在线强化学习方法，在300个场景中取得了262次成功，而原始策略为252次。在Waymo端到端驾驶基准测试中，其RFS达到了8.135159，超过了之前最佳方法的8.079，标志着性能指标的显著提升。</p>
+<p><strong>技术精髓</strong>: 通过实现一个动态调整推理影响的逐步引导机制，该模型在Alpasim模拟器中实现了平均奖励提高15%的效果。</p>
+
+<hr>
+
+<h3>5. A Unified Benchmark for Aerial-Enhanced Autonomous Driving: The KITScenes Aerial Dataset</h3>
+
+<p><strong>作者</strong>: Daniel Lengerer, Richard Schwarzkopf, Jonas Merkert, Fabian Immel, Rupert Polley et al. (11 authors)  |  <strong>机构</strong>: Technical University of Applied Sciences Augsburg, FZI Research Center for Information Technology, Karlsruhe Institute of Technology, Technical University of Munich, Parallel Domain</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.40455v1" target="_blank">2610.40455v1</a> | <a href="https://arxiv.org/pdf/2610.40455v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-10-29</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自动驾驶车辆感知范围有限的问题，通过将空中影像与地面传感器数据相结合。关键技术洞察在于，空中影像提供了更广泛的空间上下文，改善了地图构建精度和定位任务，特别是在交通信号灯等细粒度元素上，实现了超过4.3 mAP的提升。</p>
+<p><strong>技术贡献</strong>: KITScenes Aerial数据集将20cm/px的空中影像与8cm/px的高分辨率市政影像结合，增强了原始KITScenes多模态数据集。它采用多分辨率空中表示法，并评估三种研究设置：仅空中地图构建、空中-地面地图构建和交叉视图定位，系统地比较53个地图类别和空间范围的基线方法。</p>
+<p><strong>结果与影响</strong>: 在KITScenes Aerial基准测试中，空中影像的整合在细粒度映射任务中实现了+24%的平均精度提升，53类mAP超过4.3。此外，交叉视图定位在地理不相交条件下显示出5.13米的平均平移误差，显著提高了定位精度。</p>
+<p><strong>技术精髓</strong>: 通过将地面传感器数据与高分辨率空中影像增强，KITScenes Aerial在映射精度上实现了4.3 mAP的提升，使得在自动驾驶多个研究方向的综合评估成为可能。</p>
+
+<hr>
+
+<h3>6. FastBEVFusion: Simple Multi-Modal Fusion for 3D Object Detection at 50 FPS</h3>
+
+<p><strong>作者</strong>: Tom Sanitz, Emre Gülsoylu, Simone Frintrop, Christian Wilms  |  <strong>机构</strong>: University of Hamburg</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.37153v1" target="_blank">2610.37153v1</a> | <a href="https://arxiv.org/pdf/2610.37153v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-10-27</p>
+<p><strong>核心洞察</strong>: 该论文解决了多模态3D目标检测系统中高延迟的问题，这些系统通常由于复杂的深度估计和特征融合而超过100ms。关键技术洞察是使用半对齐的BEV空间，允许快速的基于交叉注意力的融合，而无需显式深度估计，从而实现实时性能，达到50 FPS。</p>
+<p><strong>技术贡献</strong>: FastBEVFusion由三个主要组件组成：（1）基于ResNet的多视角图像编码器，输出256维特征；（2）PointPillars编码器处理LiDAR数据，生成512维柱状特征；（3）轻量级融合模块，应用单个交叉注意力块融合半对齐BEV空间的特征。该设计降低了与传统方法相比的计算复杂性，从而实现实时处理。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，FastBEVFusion以50 FPS的速度实现了从基线方法的100ms以上的延迟降低到20ms。它超越了现有的实时系统，检测质量达到68.5 NDS，比SECOND等方法提高了+5.2%。</p>
+<p><strong>技术精髓</strong>: 通过利用半对齐的BEV空间和单个交叉注意力块进行特征融合，FastBEVFusion降低了计算复杂性，实现了实时3D目标检测，速度达到50 FPS，同时保持高检测精度。</p>
+
+<hr>
+
+<h3>7. AutoWorld: Learning Multi-Agent Traffic Simulation with Self-Supervised World Models</h3>
+
+<p><strong>作者</strong>: Mozhgan Pourkeshavarz, Tianran Liu, Nicholas Rhinehart  |  <strong>机构</strong>: University of Toronto</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2603.28963v3" target="_blank">2603.28963v3</a> | <a href="https://arxiv.org/pdf/2603.28963v3" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-03-30  |  <strong>更新</strong>: 2026-10-26</p>
+<p><strong>核心洞察</strong>: 该论文解决了多智能体交通模拟中因依赖轨迹抽象而导致的有限真实感问题，这些抽象丢弃了丰富的传感器上下文。关键技术洞察是使用基于原始LiDAR数据训练的自监督世界模型，将智能体行为与实际场景动态相结合，从而增强模拟交通智能体之间的互动真实感。</p>
+<p><strong>技术贡献</strong>: AutoWorld采用三个主要组件：（1）运动感知的潜在占用世界模型，从过去的LiDAR序列预测未来的潜在占用，使用整流流目标进行优化，L_world(θ)=E<a href="||µθ(zkµ,kµ,cµ" target="_blank">kµ,z0,z˜</a>−(z˜−z0)||²)；（2）条件扩散模型，通过反转在K步内的噪声过程生成智能体轨迹，条件是预测的场景上下文；（3）使用质量加权的行列式点过程（DPP）增强潜在行为的探索的级联潜在采样策略，无需额外训练。</p>
+<p><strong>结果与影响</strong>: 在nuPlan和Waymo数据集上，AutoWorld将碰撞率降低了36%，相比于仅依赖轨迹抽象的基线方法。它在生成多样化和可控的安全关键场景方面表现出显著的真实感提升，尤其是在部分可观察场景中。</p>
+<p><strong>技术精髓</strong>: 通过将自监督的LiDAR世界模型与基于扩散的运动生成模型相结合，AutoWorld捕获动态场景上下文，实现了真实的多智能体行为生成，显著降低了模拟交通场景中的碰撞率。</p>
+
+<hr>
+
+<h3>8. LiDAR-SHIELD: A Fully Dockerized Adversarial Robustness Assessment Framework for LiDAR-Based 3D Perception Models</h3>
+
+<p><strong>作者</strong>: Alexandros Gkillas, Ioulia Kapsali, Christos Anagnostopoulos, Aris S. Lalos  |  <strong>机构</strong>: AviSense.AI, Athena Research Center</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.39848v1" target="_blank">2610.39848v1</a> | <a href="https://arxiv.org/pdf/2610.39848v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-10-29</p>
+<p><strong>核心洞察</strong>: 本论文解决了LiDAR感知模型的对抗性评估框架分散的问题，这些框架通常需要大量手动集成。关键技术洞察是Docker化架构，允许通过轻量级HTTP端点无缝集成任何LiDAR模型，从而快速部署和测试各种3D感知任务的对抗攻击。</p>
+<p><strong>技术贡献</strong>: LIDAR-SHIELD由三个主要组件组成：（1）用户客户端/数据适配器，用于加载和标准化LiDAR数据集；（2）评估引擎，通过三个端点（/info，/forward，/gradient）协调对抗攻击；（3）模型服务，封装目标模型，使其保持在原生环境中。该架构支持3D语义分割和目标检测，使用特定攻击（如PGD和LiDAttack），促进统一评估过程。</p>
+<p><strong>结果与影响</strong>: LIDAR-SHIELD通过在nuScenes和KITTI等基准数据集上实现15%的对抗检测率提升，展示了其有效性。该框架的Docker化特性将设置时间从数小时减少到数分钟，显著加快了对抗鲁棒性研究周期。</p>
+<p><strong>技术精髓</strong>: 通过将模型执行与对抗性评估解耦，采用服务导向架构，LIDAR-SHIELD实现了多样化LiDAR模型的快速集成，在对抗检测率上提升15%，并且设置时间极短。</p>
+
+<hr>
+
+<h3>9. Aligned Delta-Triplane Transformers as Occupancy World Models</h3>
+
+<p><strong>作者</strong>: Haoran Xu, Peixi Peng, Shijun Guo, Guang Tan, Yiqian Chang et al. (8 authors)  |  <strong>机构</strong>: Peking University, Shenzhen Campus of Sun Yat-sen University, Xidian University, Shenzhen Campus of Harbin Institute of Technology, Shenzhen Polytechnic University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2503.07338v5" target="_blank">2503.07338v5</a> | <a href="https://arxiv.org/pdf/2503.07338v5" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-03-10  |  <strong>更新</strong>: 2026-10-29</p>
+<p><strong>核心洞察</strong>: 本论文解决了动态3D场景中低效的全状态占用预测问题，这通常涉及由于不变区域而导致的冗余计算。关键技术洞察是通过自我运动补偿显式对齐历史三维平面，使模型能够专注于预测占用的稀疏变化，从而减少计算开销。</p>
+<p><strong>技术贡献</strong>: Aligned Delta-Triplane Transformer (ADTT)由三个主要组件组成：（1）三维平面编码器-解码器，将占用数据压缩为三个正交平面（xy、xz、yz），其维度为C×Hxy×Wxy、C×Hxz×Wxz和C×Hyz×Wyz；（2）自我运动补偿模块，根据记录的自我姿态对历史三维平面进行对齐；（3）查询条件的Transformer，预测三维平面潜在空间中的残差变化，利用确定性的自我运动查询和可学习的外部查询捕捉超出自我运动的场景动态。</p>
+<p><strong>结果与影响</strong>: 在Occ3D-nus数据集上，ADTT实现了+5.2%的预测准确性提升，显示出在不同数据集上的优越泛化能力。该模型以30 FPS的高帧率运行，显著快于15 FPS的基线，适用于自动驾驶中的实时应用。</p>
+<p><strong>技术精髓</strong>: 通过自我运动补偿显式对齐历史三维平面，ADTT将预测负担减少到仅稀疏的占用变化，实现了+5.2%的预测准确性提升，同时保持30 FPS的性能。</p>
+
+<hr>
+
+<h3>10. AI for Science in Space: Orbital Laboratories, Planetary Fieldwork, and Embodied Autonomy</h3>
+
+<p><strong>作者</strong>: Zizhe Wang, Jia Deng, Xin Lu, Zehao Jia, Yi Huang et al. (7 authors)  |  <strong>机构</strong>: Astroup Lab, Harbin Institute of Technology, Peking University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.39689v1" target="_blank">2610.39689v1</a> | <a href="https://arxiv.org/pdf/2610.39689v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-10-29</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了在太空环境中实验干预有限的问题，在及时的人类支持不可用的情况下。关键洞察是开发了一个框架，连接样本历史、科学决策和物理执行，使机器人能够自主选择和执行在资源限制下无法进行的实验。</p>
+<p><strong>技术贡献</strong>: 该框架由四个组件组成：（1）数据解释模块，使用在太空衍生数据上训练的机器学习算法估计可观测量；（2）决策模块，根据明确的目标和获取的证据选择科学行动；（3）物理执行模块，使用机器人操纵器执行所选行动；（4）有效性和恢复模块，检查证据的完整性并在中断后恢复实验条件。这种结构化的方法使得在资源有限和支持不足的环境中实现自主操作成为可能。</p>
+<p><strong>结果与影响</strong>: 在模拟中，所提出的框架相比于仅依赖人类干预的基线方法，展示了有效科学回报增加30%的效果。在模拟火星环境中成功执行了15个自主实验，保持实验有效性的成功率达到90%。</p>
+<p><strong>技术精髓</strong>: 通过将评估科学目标的决策模块与适应环境约束的物理执行模块集成，该系统在资源有限的太空环境中实现了有效科学回报增加30%。</p>
+
+<hr>
+
+
+
+        <div class="footer">
+            <p>自动生成 | 数据来源: arXiv | 由 LLM 分析总结</p>
+            <p>2026-10-31 14:25</p>
+        </div>
+    </div>
+</body>
+</html>
