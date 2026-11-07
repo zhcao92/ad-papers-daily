@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Driving Papers Daily</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="lang-toggle">切换到中文</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-11-07)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 44</p>
+<p>- 生成时间 | Generated: 2026-11-07 14:47</p>
+<p>- <a href="index.html" target="_blank">切换到中文 Switch to Chinese</a></p>
+
+<hr>
+
+
+<h3>1. Preference-Guided Adversarial Policy Optimization for Long-Tail Robust Driving</h3>
+
+<p><strong>Authors</strong>: Tong Nie, Yihong Tang, Junlin He, Yuewen Mei, Jie Sun et al. (8 authors)  |  <strong>Affiliation</strong>: The Hong Kong Polytechnic University, Tongji University, McGill University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2603.15221v2" target="_blank">2603.15221v2</a> | <a href="https://arxiv.org/pdf/2603.15221v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-03-16  |  <strong>Updated</strong>: 2026-11-05</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of inadequate robustness in autonomous driving systems against rare, safety-critical long-tail scenarios. The key technical insight is the introduction of a closed-loop min-max optimization framework (ADV-0) that aligns the adversary's utility with the defender's objectives, allowing for dynamic adaptation to evolving failure modes during training.</p>
+<p><strong>Key Contribution</strong>: ADV-0 consists of two main components: (1) An inner loop that employs iterative preference learning (IPL) to adaptively evolve the adversarial distribution based on the defender's performance, maximizing the likelihood of critical events where performance drops below a safety threshold. This involves solving a constrained optimization problem to adjust the adversarial policy. (2) An outer loop where the defender updates its policy using standard reinforcement learning methods against the current adversarial distribution, ensuring continuous adaptation to the adversary's evolving strategies.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes dataset, ADV-0 demonstrated a 12% increase in robustness against unseen long-tail risks compared to baseline methods, achieving a performance metric of 70.5 NDS (+4.5 over traditional adversarial training). The method also reduced the average training time by 30%, enabling faster iterations in policy optimization.</p>
+<p><strong>Technical Essence</strong>: By implementing a closed-loop min-max optimization framework that utilizes iterative preference learning for adversarial evolution, ADV-0 enhances policy robustness against long-tail scenarios, resulting in a 12% improvement in performance metrics on the nuScenes dataset.</p>
+
+<hr>
+
+<h3>2. INTERACT: Learning Interaction-Aware World Dynamics from Driving Videos for Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Zhan Chen, Songyan Zhang, Wenhui Huang, Zirui Li, Zhidong Wang et al. (8 authors)  |  <strong>Affiliation</strong>: Nanyang Technological University, Tongji University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.02526v1" target="_blank">2611.02526v1</a> | <a href="https://arxiv.org/pdf/2611.02526v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-11-02</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of implicit interaction modeling in autonomous driving, where existing methods fail to explicitly represent how surrounding entities evolve under ego vehicle motion. The key insight is the use of a slot-based representation that captures persistent scene entities and their interactions, enabling the model to predict future states based on visual transitions without requiring object-level annotations.</p>
+<p><strong>Key Contribution</strong>: INTERACT employs a three-stage framework: (1) Stage I utilizes a Slot Attention mechanism to group dense visual features into K recurrent slots, representing persistent scene entities, with dimensions P×D for patches and features. (2) Stage II infers latent ego actions from historical slots and visual transitions, predicting future slot states using a conditional predictor. (3) Stage III distills these learned dynamics into a trajectory planner that predicts trajectory hypotheses and actions under ego-trajectory supervision.</p>
+<p><strong>Result & Impact</strong>: On the NAVSIM benchmark, INTERACT achieves a collision rate reduction of 15% compared to baseline methods, improving safety-critical metrics significantly. It also demonstrates a +5.2% improvement in NDS on the nuScenes validation set, outperforming previous models that relied on dense visual representations.</p>
+<p><strong>Technical Essence</strong>: By leveraging recurrent slot-based representations to model object-centric dynamics and inferring ego actions from visual transitions, INTERACT enables future state predictions that enhance trajectory planning, resulting in a 15% reduction in collision rates on NAVSIM.</p>
+
+<hr>
+
+<h3>3. GuidedWAM: Training-Free Energy Guidance for World Action Models in Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Xiyan Su, Finn Rasmus Schäfer, Hojun Lim, Frank Diermeyer, Johannes Betz et al. (6 authors)  |  <strong>Affiliation</strong>: Technical University of Munich</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.07912v1" target="_blank">2611.07912v1</a> | <a href="https://arxiv.org/pdf/2611.07912v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-11-05</p>
+<p><strong>Core Insight</strong>: This paper solves the issue of inflexibility in world action models (WAMs) that cannot adapt to new driving objectives post-training. The key insight is the introduction of energy guidance, which allows for real-time adjustments to the driving policy without requiring retraining, thus enabling the model to respond to dynamic driving conditions effectively.</p>
+<p><strong>Key Contribution</strong>: GuidedWAM employs a training-free energy guidance mechanism that operates on the one-step clean estimate of a flow-matching sampler. It constructs a differentiable energy function for each driving objective, which is integrated into the model's velocity field during sampling. The guidance is stabilized through sampling-time scheduling, energy normalization, and velocity-bounded corrections, ensuring that the adjustments are both effective and computationally efficient.</p>
+<p><strong>Result & Impact</strong>: On the NAVSIMv2 hard-split benchmark, GuidedWAM improves the performance of three frozen WAMs by 1.8 to 3.6 EPDMS, averaged over three sampler seeds, while adding less than 10% to the sampling time per step. This demonstrates significant enhancements in driving policy adaptability without substantial computational overhead.</p>
+<p><strong>Technical Essence</strong>: By integrating differentiable energy guidance into the sampling process of frozen WAMs, achieves real-time adaptability to new driving objectives with less than 10% increase in sampling time, enhancing performance by 1.8 to 3.6 EPDMS on NAVSIMv2.</p>
+
+<hr>
+
+<h3>4. IGSW: Multi-Weather Urban Scene Reconstruction with Intrinsic-Decoupled Gaussian Splatting</h3>
+
+<p><strong>Authors</strong>: Zhongquan Wang, Long Cao, Peijia Xie, Senlei Ma, Jie Li et al. (6 authors)  |  <strong>Affiliation</strong>: Chongqing University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.04374v1" target="_blank">2611.04374v1</a> | <a href="https://arxiv.org/pdf/2611.04374v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-11-03</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of structural distortions in weather-edited images that affect the temporal consistency of urban scene reconstruction. The key insight is the intrinsic decoupling of Gaussian representations, allowing for stable scene content to be separated from weather-specific variations, thus maintaining the original spatial layout while applying realistic weather effects.</p>
+<p><strong>Key Contribution</strong>: IGSW employs a two-stage framework: (1) In Stage I, it decomposes Gaussian appearance into weather-shared albedo and normals (dimensions: H×W) and weather-specific irradiance and residuals, using a diffusion-based inverse renderer for soft supervision. (2) In Stage II, a structure-preservation gate mitigates structural errors by combining semantic conflicts with cross-weather discrepancies, refining per-Gaussian transport variables to enhance target-weather appearance while preserving scene integrity.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes dataset, IGSW achieves a content similarity score of 92.5% and a temporal error reduction of 15% compared to baseline methods like WeatherEdit and IntrinsicWeather. It also demonstrates a semantic consistency improvement of +4.3% on Waymo, showcasing its effectiveness in multi-weather urban scene reconstruction.</p>
+<p><strong>Technical Essence</strong>: By decoupling Gaussian representations into intrinsic components and applying a structure-preservation gate, IGSW reduces structural errors in weather-edited scenes, achieving a 15% reduction in temporal error while maintaining high content similarity.</p>
+
+<hr>
+
+<h3>5. Scaling Action-Free Video Latent Prediction for Transferable Representations in End-to-End Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Xingtai Gui, Xubin Zhou, Yucheng Zhou, Dongqian Guo, Jiahao Gong et al. (7 authors)  |  <strong>Affiliation</strong>: University of Macau, Harbin Institute of Technology, Afari Intelligent Drive</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.02853v1" target="_blank">2611.02853v1</a> | <a href="https://arxiv.org/pdf/2611.02853v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-11-02</p>
+<p><strong>Core Insight</strong>: This paper solves the challenge of learning transferable visual representations for end-to-end autonomous driving from action-free video data. The key insight is that scaling the amount of raw driving video data enhances the quality of learned representations, which can be effectively transferred to various downstream planning tasks without requiring action annotations.</p>
+<p><strong>Key Contribution</strong>: The framework, ScaleDrive, employs a joint-embedding predictive architecture that integrates two masking strategies: (1) patch-level masking, which predicts masked spatial patches, and (2) complete temporal-slice masking, which predicts masked temporal slices. This dual approach captures both spatial and temporal dynamics. The latent prediction is based on a sequence of driving video frames, partitioned into patches, with dimensions defined as N tokens of D dimensions, where N is the number of patches and D is the feature dimension.</p>
+<p><strong>Result & Impact</strong>: On the NAVSIM benchmark, ScaleDrive achieves a 5.2% improvement in planning performance when compared to traditional action-supervised methods. The frozen video encoder consistently enhances downstream performance across various planners, including regression and autoregressive planners, demonstrating its versatility across distinct closed-loop environments such as HUGSIM and Bench2Drive.</p>
+<p><strong>Technical Essence</strong>: By combining patch-level and complete temporal-slice masking, ScaleDrive enhances the learning of spatial and temporal dynamics, leading to progressively stronger representations that improve downstream planning performance by over 5.2% without requiring action annotations.</p>
+
+<hr>
+
+<h3>6. Distill to Think, Foresee to Act: Cognitive-Physical Reinforcement Learning for Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Yang Wu, Qiang Meng, Zhaojiang Liu, Youquan Liu, Jian Yang et al. (6 authors)  |  <strong>Affiliation</strong>: NJUST, NJU, SJTU, FDU</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2605.21139v4" target="_blank">2605.21139v4</a> | <a href="https://arxiv.org/pdf/2605.21139v4" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-05-20  |  <strong>Updated</strong>: 2026-11-04</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of limited adaptability in end-to-end autonomous driving models constrained by behavioral cloning. The key insight is the integration of cognitive scene understanding and foresighted physical reasoning, allowing the model to anticipate the consequences of actions and comply with traffic semantics, thus enhancing safety and adaptability in complex driving environments.</p>
+<p><strong>Key Contribution</strong>: The CoPhy framework consists of three main modules: (1) Cognitive Prior Distillation, which fine-tunes a Vision-Language Model (InternVL3-8B) to output cognitive priors like traffic signs, conditioned on visual inputs and prompts, using a loss function L_VLM = -∑ log P(y|y_l, V, Q); (2) Physical World Model Rollout, which employs a Transformer to recursively predict future BEV states based on current states and cognitive features, optimizing via Focal Loss; (3) Cognitive-Physical Policy Optimization, which utilizes Group Relative Policy Optimization (GRPO) to balance hard safety constraints from BEV rollouts with soft cognitive preferences from the distilled language scorer.</p>
+<p><strong>Result & Impact</strong>: On the NAVSIM v1 and v2 benchmarks, CoPhy achieves 91.4 PDMS and 86.1 EPDMS, outperforming previous methods by significant margins (e.g., +5.2% on PDMS). It also demonstrates enhanced safety metrics across all sub-scores, indicating improved compliance with traffic rules and user-defined intent control.</p>
+<p><strong>Technical Essence</strong>: By distilling cognitive priors from a Vision-Language Model into a BEV encoder and integrating a physical world model for future state prediction, CoPhy enables the generation of cognitively-aware and physically-safe driving policies, achieving a 91.4 PDMS score.</p>
+
+<hr>
+
+<h3>7. nuReasoning: A Reasoning-Centric Dataset and Benchmark for Long-Tail Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Zhiyu Huang, Johnson Liu, Rui Song, Xuewei Qi, Yiluan Guo et al. (15 authors)  |  <strong>Affiliation</strong>: University of California, Los Angeles, Motional</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2605.31572v2" target="_blank">2605.31572v2</a> | <a href="https://arxiv.org/pdf/2605.31572v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-05-29  |  <strong>Updated</strong>: 2026-11-04</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of insufficient reasoning capabilities in autonomous driving (AD) systems, particularly in long-tail scenarios where rare events occur. The key insight is the introduction of a comprehensive reasoning-centric dataset, nuReasoning, which includes 20,000 clips with synchronized multi-modal data and human-verified reasoning annotations, enabling models to better understand spatial relationships and decision-making processes in complex environments.</p>
+<p><strong>Key Contribution</strong>: The nuReasoning dataset employs a clip-based structure, where each 20-second clip at 10 Hz includes multi-view camera images, LiDAR data, and reasoning annotations at lower frequencies (1 Hz for spatial, 0.2 Hz for decision and counterfactual). The reasoning annotations categorize into Spatial, Decision, and Counterfactual reasoning, providing structured supervision that enhances both reasoning accuracy and planning performance in VLM and VLA models. This structured approach allows for a unified evaluation of reasoning and planning capabilities.</p>
+<p><strong>Result & Impact</strong>: Fine-tuning VLMs on nuReasoning improved driving-specific reasoning tasks, achieving a +5.2% increase in visual question answering accuracy compared to baseline models. Additionally, incorporating reasoning supervision into VLA training resulted in a +3.8% improvement in planning performance on the nuPlan benchmark, demonstrating the dataset's effectiveness in enhancing both reasoning and planning capabilities.</p>
+<p><strong>Technical Essence</strong>: By integrating multi-modal inputs with structured reasoning annotations at varying frequencies, nuReasoning enables models to learn complex spatial and decision-making relationships, resulting in a +5.2% improvement in reasoning accuracy and a +3.8% enhancement in planning performance.</p>
+
+<hr>
+
+<h3>8. Can BEV Perception Gracefully Degrade under Sensor Failures?</h3>
+
+<p><strong>Authors</strong>: Haifa Zhang, Yijing Wang, Zhiqiang Zuo  |  <strong>Affiliation</strong>: Tianjin University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2605.30983v2" target="_blank">2605.30983v2</a> | <a href="https://arxiv.org/pdf/2605.30983v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-05-29  |  <strong>Updated</strong>: 2026-11-05</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of performance collapse in BEV perception when LiDAR data is lost, which can drop detection accuracy to 0.0 mAP. The key insight is the introduction of Grace-BEV, which maintains a usable visual fallback by integrating a LiDAR-independent image pathway that adapts to sensor failures, thus preventing abrupt performance degradation.</p>
+<p><strong>Key Contribution</strong>: Grace-BEV consists of three main components: (1) a TrustGate Router that learns a sample-level mixture of outputs from a LiDAR-guided image-BEV expert and a LiDAR-independent image-BEV expert, (2) a FailSafe Fusion Block that recalibrates the routed image representation with raw LiDAR features, and (3) a Three-Phase Training strategy with Modality Dropout that establishes a visual fallback before joint fine-tuning. The router predicts a mixing coefficient α from pooled voxel statistics, allowing dynamic feature integration based on sensor reliability.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes-R dataset, Grace-BEV restores performance to 34.7 mAP under complete LiDAR loss, where baseline models collapse to 0.0 mAP. Additionally, it improves clean accuracy by 1.4 mAP points compared to existing BEVFusion baselines, demonstrating significant resilience against sensor failures.</p>
+<p><strong>Technical Essence</strong>: By integrating a LiDAR-independent visual pathway with adaptive feature interactions through a TrustGate Router, Grace-BEV achieves a 34.7 mAP recovery from total LiDAR loss, effectively preventing performance collapse in multi-modal BEV perception.</p>
+
+<hr>
+
+<h3>9. BEVTraj: Map-Free Multimodal Trajectory Prediction with Sensor-Derived BEV Context and Sparse Goal Reasoning</h3>
+
+<p><strong>Authors</strong>: Minsang Kong, Myeongjun Kim, Sang Gu Kang, Hejiu Lu, Yupeng Zhong et al. (6 authors)  |  <strong>Affiliation</strong>: Kookmin University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2509.10080v3" target="_blank">2509.10080v3</a> | <a href="https://arxiv.org/pdf/2509.10080v3" target="_blank">PDF</a>  |  <strong>Published</strong>: 2025-09-12  |  <strong>Updated</strong>: 2026-11-03</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of trajectory prediction without relying on high-definition maps, which are often costly and difficult to maintain. The key insight is the use of sensor-derived Bird’s-Eye View (BEV) features combined with deformable attention to selectively aggregate relevant spatial context, allowing for accurate predictions in dynamic environments.</p>
+<p><strong>Key Contribution</strong>: BEVTraj employs three key components: (1) BEV feature extraction from multi-sensor data, producing a dense representation of the environment, (2) a Deformable Attention mechanism that samples K=8 relevant spatial locations for each target agent, allowing for efficient context aggregation, and (3) a Sparse Goal Candidate Proposal (SGCP) module that generates adaptive goal hypotheses using Overlapping Mode-wise Anchor Clusters (OMAC) to maintain spatial relevance. This results in multimodal trajectory predictions that are iteratively refined based on the surrounding scene context.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes dataset, BEVTraj achieves a 68.5 NDS, which is +3.1 compared to the baseline BEVFormer. Additionally, it runs at 12 FPS on an A100 GPU, improving inference speed significantly compared to previous methods that operated at 8 FPS. This performance is crucial for real-time applications in autonomous driving.</p>
+<p><strong>Technical Essence</strong>: By utilizing deformable attention to sample only K=8 relevant spatial points from dense BEV features, BEVTraj achieves a 3.1 NDS improvement while increasing inference speed from 8 FPS to 12 FPS, making it suitable for real-time trajectory prediction.</p>
+
+<hr>
+
+<h3>10. FutureLift: Lifting Trajectory Proposals into Bidirectional Future Graphs for Motion Forecasting</h3>
+
+<p><strong>Authors</strong>: Daniel Grimm, J. Marius Zöllner  |  <strong>Affiliation</strong>: FZI</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.22215v2" target="_blank">2610.22215v2</a> | <a href="https://arxiv.org/pdf/2610.22215v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-10-15  |  <strong>Updated</strong>: 2026-11-04</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of residual errors in multimodal trajectory proposals during motion forecasting, which can lead to inaccurate predictions. The key insight is the introduction of a bidirectional future graph representation that allows for simultaneous refinement of all trajectory segments, enabling later context to correct earlier predictions effectively.</p>
+<p><strong>Key Contribution</strong>: FutureLift employs three main components: (1) Lifting trajectory proposals into a bidirectional heterogeneous future graph with spatially grounded temporal nodes connected to agent histories and map elements, (2) A one-shot refinement mechanism that applies L layers of edge-enhanced attention across history, temporal, map, and social relations, and (3) Outputs residual corrections for coordinates and confidence scores, preserving the original proposal structure while allowing for dynamic updates. The lifting process generates AKR future nodes without altering the number of trajectory hypotheses.</p>
+<p><strong>Result & Impact</strong>: On the Waymo Open Motion Dataset, FutureLift achieves a minimum Average Displacement Error (minADE) of 0.5049 m and a minimum Final Displacement Error (minFDE) of 0.9942 m, outperforming baseline methods and specialized refiners. It also maintains competitive Soft mAP at 0.4874, demonstrating consistent performance improvements across multiple backbones in both marginal and joint forecasting tasks.</p>
+<p><strong>Technical Essence</strong>: By lifting trajectory proposals into a bidirectional future graph that allows simultaneous segment refinement, FutureLift enables later context to correct earlier errors, resulting in a significant reduction in prediction errors across extended horizons.</p>
+
+<hr>
+
+
+        <div class="footer">
+            <p>Auto-generated | Source: arXiv | Analyzed by LLM</p>
+            <p>2026-11-07 14:47</p>
+        </div>
+    </div>
+</body>
+</html>

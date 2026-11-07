@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自动驾驶论文每日速览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index-en.html" class="lang-toggle">Switch to English</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-11-07)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 44</p>
+<p>- 生成时间 | Generated: 2026-11-07 14:47</p>
+<p>- <a href="index-en.html" target="_blank">Switch to English 切换到英文</a></p>
+
+<hr>
+
+
+<h3>1. Preference-Guided Adversarial Policy Optimization for Long-Tail Robust Driving</h3>
+
+<p><strong>作者</strong>: Tong Nie, Yihong Tang, Junlin He, Yuewen Mei, Jie Sun et al. (8 authors)  |  <strong>机构</strong>: The Hong Kong Polytechnic University, Tongji University, McGill University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2603.15221v2" target="_blank">2603.15221v2</a> | <a href="https://arxiv.org/pdf/2603.15221v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-03-16  |  <strong>更新</strong>: 2026-11-05</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自主驾驶系统在面对稀有且安全关键的长尾场景时缺乏足够鲁棒性的问题。关键技术洞察在于引入了一个闭环的最小-最大优化框架（ADV-0），使对手的效用与防御者的目标对齐，从而在训练过程中动态适应不断变化的失败模式。</p>
+<p><strong>技术贡献</strong>: ADV-0由两个主要组件组成：（1）内循环采用迭代偏好学习（IPL）动态演化对抗分布，最大化在防御者性能下降到安全阈值以下时关键事件的发生概率。这涉及解决一个约束优化问题以调整对抗策略。（2）外循环中，防御者使用标准强化学习方法在当前对抗分布下更新其策略，确保持续适应对手不断演变的策略。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，ADV-0相比基线方法提高了12%的对未见长尾风险的鲁棒性，性能指标达到70.5 NDS（比传统对抗训练高出4.5）。该方法还将平均训练时间减少了30%，从而加快了策略优化的迭代速度。</p>
+<p><strong>技术精髓</strong>: 通过实现一个闭环的最小-最大优化框架，利用迭代偏好学习进行对抗演化，ADV-0增强了对长尾场景的策略鲁棒性，在nuScenes数据集上实现了12%的性能提升。</p>
+
+<hr>
+
+<h3>2. INTERACT: Learning Interaction-Aware World Dynamics from Driving Videos for Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Zhan Chen, Songyan Zhang, Wenhui Huang, Zirui Li, Zhidong Wang et al. (8 authors)  |  <strong>机构</strong>: Nanyang Technological University, Tongji University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.02526v1" target="_blank">2611.02526v1</a> | <a href="https://arxiv.org/pdf/2611.02526v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-11-02</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自动驾驶中隐式交互建模的问题，现有方法未能明确表示周围实体如何在自我车辆运动下演变。关键技术洞察是使用基于槽的表示来捕捉持久场景实体及其交互，使模型能够根据视觉过渡预测未来状态，而无需对象级注释。</p>
+<p><strong>技术贡献</strong>: INTERACT采用三阶段框架：（1）第一阶段利用槽注意机制将密集视觉特征分组为K个递归槽，表示持久场景实体，维度为P×D（补丁和特征）。 （2）第二阶段从历史槽和视觉过渡推断潜在自我动作，使用条件预测器预测未来槽状态。 （3）第三阶段将这些学习到的动态提炼到轨迹规划器中，在自我轨迹监督下预测轨迹假设和动作。</p>
+<p><strong>结果与影响</strong>: 在NAVSIM基准上，INTERACT相比基线方法实现了15%的碰撞率降低，显著提高了安全关键指标。它在nuScenes验证集上也展示了+5.2%的NDS提升，超越了依赖于密集视觉表示的先前模型。</p>
+<p><strong>技术精髓</strong>: 通过利用递归槽基表示建模对象中心动态，并从视觉过渡推断自我动作，INTERACT实现了增强轨迹规划的未来状态预测，在NAVSIM上实现了15%的碰撞率降低。</p>
+
+<hr>
+
+<h3>3. GuidedWAM: Training-Free Energy Guidance for World Action Models in Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Xiyan Su, Finn Rasmus Schäfer, Hojun Lim, Frank Diermeyer, Johannes Betz et al. (6 authors)  |  <strong>机构</strong>: Technical University of Munich</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.07912v1" target="_blank">2611.07912v1</a> | <a href="https://arxiv.org/pdf/2611.07912v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-11-05</p>
+<p><strong>核心洞察</strong>: 本文解决了世界行动模型（WAM）在训练后无法适应新驾驶目标的问题。关键技术洞察是引入能量引导，允许实时调整驾驶策略，而无需重新训练，从而使模型能够有效应对动态驾驶条件。</p>
+<p><strong>技术贡献</strong>: GuidedWAM采用无训练的能量引导机制，该机制在流匹配采样器的一步清洁估计上运行。它为每个驾驶目标构建了一个可微分的能量函数，并在采样过程中将其集成到模型的速度场中。通过采样时间调度、能量归一化和速度限制校正来稳定引导，确保调整既有效又计算高效。</p>
+<p><strong>结果与影响</strong>: 在NAVSIMv2硬分割基准上，GuidedWAM使三种冻结WAM的性能提高了1.8到3.6 EPDMS，平均在三个采样器种子上，同时每步采样时间增加不到10%。这表明在不显著增加计算开销的情况下，驾驶策略适应性显著增强。</p>
+<p><strong>技术精髓</strong>: 通过将可微分的能量引导集成到冻结WAM的采样过程中，实现了对新驾驶目标的实时适应，采样时间增加不到10%，在NAVSIMv2上提高了1.8到3.6 EPDMS。</p>
+
+<hr>
+
+<h3>4. IGSW: Multi-Weather Urban Scene Reconstruction with Intrinsic-Decoupled Gaussian Splatting</h3>
+
+<p><strong>作者</strong>: Zhongquan Wang, Long Cao, Peijia Xie, Senlei Ma, Jie Li et al. (6 authors)  |  <strong>机构</strong>: Chongqing University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.04374v1" target="_blank">2611.04374v1</a> | <a href="https://arxiv.org/pdf/2611.04374v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-11-03</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了天气编辑图像中的结构失真问题，这影响了城市场景重建的时间一致性。关键技术洞察是高斯表示的内在解耦，使稳定的场景内容与天气特定变化分离，从而在应用真实天气效果的同时保持原始空间布局。</p>
+<p><strong>技术贡献</strong>: IGSW采用两阶段框架：（1）在第一阶段，它将高斯外观分解为天气共享的反照率和法线（尺寸：H×W）以及天气特定的辐照度和残差，使用基于扩散的逆渲染器进行软监督。（2）在第二阶段，结构保护门通过结合语义冲突与跨天气差异来减轻结构错误，细化每个高斯的传输变量，以增强目标天气外观，同时保持场景完整性。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，IGSW实现了92.5%的内容相似度得分，相较于WeatherEdit和IntrinsicWeather等基线方法，时间误差减少了15%。它还在Waymo上展示了+4.3%的语义一致性提升，展示了其在多天气城市场景重建中的有效性。</p>
+<p><strong>技术精髓</strong>: 通过将高斯表示解耦为内在组件并应用结构保护门，IGSW减少了天气编辑场景中的结构错误，实现了时间误差减少15%的同时保持高内容相似度。</p>
+
+<hr>
+
+<h3>5. Scaling Action-Free Video Latent Prediction for Transferable Representations in End-to-End Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Xingtai Gui, Xubin Zhou, Yucheng Zhou, Dongqian Guo, Jiahao Gong et al. (7 authors)  |  <strong>机构</strong>: University of Macau, Harbin Institute of Technology, Afari Intelligent Drive</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.02853v1" target="_blank">2611.02853v1</a> | <a href="https://arxiv.org/pdf/2611.02853v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-11-02</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了从无动作视频数据中学习可转移视觉表示以用于端到端自动驾驶的挑战。关键技术洞察是，扩大原始驾驶视频数据的规模可以增强学习到的表示的质量，这些表示可以有效地转移到各种下游规划任务中，而无需动作注释。</p>
+<p><strong>技术贡献</strong>: 该框架ScaleDrive采用联合嵌入预测架构，结合了两种掩蔽策略：（1）基于补丁的掩蔽，预测被掩蔽的空间补丁；（2）完整时间切片掩蔽，预测被掩蔽的时间切片。这种双重方法捕获空间和时间动态。潜在预测基于一系列驾驶视频帧，将其划分为补丁，维度定义为N个D维的标记，其中N是补丁数量，D是特征维度。</p>
+<p><strong>结果与影响</strong>: 在NAVSIM基准测试中，ScaleDrive相比于传统的动作监督方法提高了5.2%的规划性能。冻结的视频编码器在各种规划器（包括回归和自回归规划器）中持续增强下游性能，展示了其在HUGSIM和Bench2Drive等不同闭环环境中的多样性。</p>
+<p><strong>技术精髓</strong>: 通过结合基于补丁的掩蔽和完整时间切片掩蔽，ScaleDrive增强了空间和时间动态的学习，导致逐步增强的表示，从而在不需要动作注释的情况下提高了下游规划性能超过5.2%。</p>
+
+<hr>
+
+<h3>6. Distill to Think, Foresee to Act: Cognitive-Physical Reinforcement Learning for Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Yang Wu, Qiang Meng, Zhaojiang Liu, Youquan Liu, Jian Yang et al. (6 authors)  |  <strong>机构</strong>: NJUST, NJU, SJTU, FDU</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2605.21139v4" target="_blank">2605.21139v4</a> | <a href="https://arxiv.org/pdf/2605.21139v4" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-05-20  |  <strong>更新</strong>: 2026-11-04</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了端到端自动驾驶模型在行为克隆限制下适应性不足的问题。关键技术洞察在于将认知场景理解与前瞻性物理推理相结合，使模型能够预测动作后果并遵守交通语义，从而增强复杂驾驶环境中的安全性和适应性。</p>
+<p><strong>技术贡献</strong>: CoPhy框架由三个主要模块组成：（1）认知先验蒸馏，通过微调视觉语言模型（InternVL3-8B）输出交通标志等认知先验，基于视觉输入和提示，使用损失函数L_VLM = -∑ log P(y|y_l, V, Q)；（2）物理世界模型展开，利用Transformer递归预测未来BEV状态，基于当前状态和认知特征，优化使用Focal Loss；（3）认知-物理策略优化，利用群体相对策略优化（GRPO）平衡来自BEV展开的硬安全约束与蒸馏语言评分器的软认知偏好。</p>
+<p><strong>结果与影响</strong>: 在NAVSIM v1和v2基准测试中，CoPhy达到了91.4 PDMS和86.1 EPDMS，显著超越了先前的方法（例如，PDMS提升5.2%）。它还在所有子分数中展示了增强的安全指标，表明对交通规则和用户定义意图控制的遵守得到了改善。</p>
+<p><strong>技术精髓</strong>: 通过将视觉语言模型的认知先验蒸馏到BEV编码器中，并整合物理世界模型进行未来状态预测，CoPhy实现了认知意识和物理安全的驾驶策略生成，达到了91.4 PDMS的得分。</p>
+
+<hr>
+
+<h3>7. nuReasoning: A Reasoning-Centric Dataset and Benchmark for Long-Tail Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Zhiyu Huang, Johnson Liu, Rui Song, Xuewei Qi, Yiluan Guo et al. (15 authors)  |  <strong>机构</strong>: University of California, Los Angeles, Motional</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2605.31572v2" target="_blank">2605.31572v2</a> | <a href="https://arxiv.org/pdf/2605.31572v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-05-29  |  <strong>更新</strong>: 2026-11-04</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自主驾驶系统在长尾场景中推理能力不足的问题，尤其是在稀有事件发生时。关键技术洞察是引入了一个全面的推理中心数据集nuReasoning，其中包含20,000个片段，具有同步的多模态数据和人工验证的推理注释，使模型能够更好地理解复杂环境中的空间关系和决策过程。</p>
+<p><strong>技术贡献</strong>: nuReasoning数据集采用基于片段的结构，每个20秒的片段以10Hz包含多视角摄像头图像、LiDAR数据和较低频率的推理注释（空间推理1Hz，决策和反事实0.2Hz）。推理注释分为空间、决策和反事实推理，为增强VLM和VLA模型的推理准确性和规划性能提供了结构化监督。这种结构化方法允许对推理和规划能力进行统一评估。</p>
+<p><strong>结果与影响</strong>: 在nuReasoning上微调VLMs提高了驾驶特定推理任务的表现，与基线模型相比，视觉问答准确率提高了5.2%。此外，将推理监督纳入VLA训练使nuPlan基准上的规划性能提高了3.8%，证明了该数据集在增强推理和规划能力方面的有效性。</p>
+<p><strong>技术精髓</strong>: 通过将多模态输入与不同频率的结构化推理注释集成，nuReasoning使模型能够学习复杂的空间和决策关系，从而在推理准确性上提高了5.2%，在规划性能上提高了3.8%。</p>
+
+<hr>
+
+<h3>8. Can BEV Perception Gracefully Degrade under Sensor Failures?</h3>
+
+<p><strong>作者</strong>: Haifa Zhang, Yijing Wang, Zhiqiang Zuo  |  <strong>机构</strong>: Tianjin University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2605.30983v2" target="_blank">2605.30983v2</a> | <a href="https://arxiv.org/pdf/2605.30983v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-05-29  |  <strong>更新</strong>: 2026-11-05</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了在失去LiDAR数据时BEV感知性能崩溃的问题，这种情况下检测精度可能降至0.0 mAP。关键技术洞察是引入Grace-BEV，通过整合一个与LiDAR无关的图像路径来维持可用的视觉后备，从而防止性能的突然下降。</p>
+<p><strong>技术贡献</strong>: Grace-BEV由三个主要组件组成：（1）TrustGate Router学习来自LiDAR引导的图像-BEV专家和LiDAR独立图像-BEV专家的输出的样本级混合，（2）FailSafe Fusion Block重新校准路由的图像表示与原始LiDAR特征，（3）使用模态丢弃的三阶段训练策略，在联合微调之前建立视觉后备。路由器根据池化体素统计预测混合系数α，允许根据传感器可靠性动态集成特征。</p>
+<p><strong>结果与影响</strong>: 在nuScenes-R数据集上，Grace-BEV在完全失去LiDAR的情况下将性能恢复到34.7 mAP，而基线模型崩溃至0.0 mAP。此外，与现有BEVFusion基线相比，它提高了1.4 mAP的干净准确性，展示了对传感器故障的显著韧性。</p>
+<p><strong>技术精髓</strong>: 通过将LiDAR独立的视觉路径与通过TrustGate Router的自适应特征交互相结合，Grace-BEV在完全失去LiDAR的情况下实现了34.7 mAP的恢复，有效防止了多模态BEV感知中的性能崩溃。</p>
+
+<hr>
+
+<h3>9. BEVTraj: Map-Free Multimodal Trajectory Prediction with Sensor-Derived BEV Context and Sparse Goal Reasoning</h3>
+
+<p><strong>作者</strong>: Minsang Kong, Myeongjun Kim, Sang Gu Kang, Hejiu Lu, Yupeng Zhong et al. (6 authors)  |  <strong>机构</strong>: Kookmin University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2509.10080v3" target="_blank">2509.10080v3</a> | <a href="https://arxiv.org/pdf/2509.10080v3" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-09-12  |  <strong>更新</strong>: 2026-11-03</p>
+<p><strong>核心洞察</strong>: 本论文解决了不依赖高精度地图进行轨迹预测的问题，这些地图通常成本高且难以维护。关键技术洞察是结合传感器生成的鸟瞰图（BEV）特征和可变形注意力，选择性地聚合相关空间上下文，从而在动态环境中实现准确预测。</p>
+<p><strong>技术贡献</strong>: BEVTraj采用三个关键组件：（1）从多传感器数据中提取BEV特征，生成环境的密集表示；（2）可变形注意力机制为每个目标代理采样K=8个相关空间位置，实现高效上下文聚合；（3）稀疏目标候选提案（SGCP）模块，利用重叠模式锚点集（OMAC）生成适应性目标假设，保持空间相关性。这导致了基于周围场景上下文的多模态轨迹预测的迭代精炼。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，BEVTraj实现了68.5 NDS，比基线BEVFormer提高了3.1。此外，它在A100 GPU上以12 FPS运行，显著提高了推理速度，相比之下，之前的方法仅为8 FPS。这一性能对于自动驾驶的实时应用至关重要。</p>
+<p><strong>技术精髓</strong>: 通过利用可变形注意力仅从密集BEV特征中采样K=8个相关空间点，BEVTraj实现了3.1 NDS的提升，同时将推理速度从8 FPS提高到12 FPS，使其适用于实时轨迹预测。</p>
+
+<hr>
+
+<h3>10. FutureLift: Lifting Trajectory Proposals into Bidirectional Future Graphs for Motion Forecasting</h3>
+
+<p><strong>作者</strong>: Daniel Grimm, J. Marius Zöllner  |  <strong>机构</strong>: FZI</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.22215v2" target="_blank">2610.22215v2</a> | <a href="https://arxiv.org/pdf/2610.22215v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-10-15  |  <strong>更新</strong>: 2026-11-04</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了多模态轨迹提议在运动预测中残余误差的问题，这可能导致不准确的预测。关键洞察是引入一种双向未来图表示，允许同时对所有轨迹段进行细化，从而有效地使后续上下文纠正早期预测。</p>
+<p><strong>技术贡献</strong>: FutureLift采用三个主要组件：（1）将轨迹提议提升为双向异构未来图，具有与代理历史和地图元素连接的空间锚定时间节点，（2）一种一次性细化机制，应用L层边缘增强注意力，跨越历史、时间、地图和社会关系，以及（3）输出坐标和置信度的残差修正，保留原始提议结构，同时允许动态更新。提升过程生成AKR未来节点，而不改变轨迹假设的数量。</p>
+<p><strong>结果与影响</strong>: 在Waymo开放运动数据集上，FutureLift实现了0.5049米的最小平均位移误差（minADE）和0.9942米的最小最终位移误差（minFDE），超越了基线方法和专门的细化器。它还保持了竞争性的Soft mAP为0.4874，展示了在边际和联合预测任务中跨多个骨干网的一致性能提升。</p>
+<p><strong>技术精髓</strong>: 通过将轨迹提议提升为双向未来图，允许同时细化轨迹段，FutureLift使后续上下文能够纠正早期错误，从而在扩展预测范围内显著减少预测误差。</p>
+
+<hr>
+
+
+
+        <div class="footer">
+            <p>自动生成 | 数据来源: arXiv | 由 LLM 分析总结</p>
+            <p>2026-11-07 14:47</p>
+        </div>
+    </div>
+</body>
+</html>
