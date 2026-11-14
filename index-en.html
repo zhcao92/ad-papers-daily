@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Driving Papers Daily</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="lang-toggle">切换到中文</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-11-14)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 35</p>
+<p>- 生成时间 | Generated: 2026-11-14 14:53</p>
+<p>- <a href="index.html" target="_blank">切换到中文 Switch to Chinese</a></p>
+
+<hr>
+
+
+<h3>1. NVIDIA OmniDreams: Real-Time Generative World Model for Closed-Loop Autonomous Vehicle Simulation</h3>
+
+<p><strong>Authors</strong>: Aarti Basant, Amlan Kar, Despoina Paschalidou, Fangyin Wei, Francesco Ferroni et al. (33 authors)  |  <strong>Affiliation</strong>: NVIDIA</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2606.03159v4" target="_blank">2606.03159v4</a> | <a href="https://arxiv.org/pdf/2606.03159v4" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-06-02  |  <strong>Updated</strong>: 2026-11-12</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of limited generalization in closed-loop AV simulations, particularly in long-tail scenarios where traditional simulators struggle. The key insight is the use of an autoregressive generative world model, OmniDreams, which synthesizes complex, unobserved phenomena like extreme weather and dynamic agent behaviors by conditioning on past frames and current actions.</p>
+<p><strong>Key Contribution</strong>: OmniDreams operates as an autoregressive diffusion video generator, utilizing a KV cache from past generations to maintain long rollout consistency. It conditions sensor generation on three inputs: an abstract state map (encoding lane lines and bounding boxes), a text prompt for environmental conditions, and a memory cache of recent visual history. The model achieves real-time rendering at 68 FPS with a single camera at 720p using a 1GB 300 GPU, and 105 FPS with four cameras using a 16GB 300 GPU.</p>
+<p><strong>Result & Impact</strong>: On the Physical AI Autonomous Vehicles NuRec dataset, a policy model post-trained from OmniDreams reduces collision rates from 6.9% to 4.2% and collision_front from 1.0% to 0.9%, while using only 2 billion parameters compared to 10 billion for the baseline model, Alpamayo1.5. This demonstrates a significant performance gain with fewer resources.</p>
+<p><strong>Technical Essence</strong>: By leveraging a KV cache from previous frame generations during new frame synthesis, OmniDreams achieves high temporal consistency in sensor outputs, enabling real-time simulation at 68 FPS while maintaining photorealism.</p>
+
+<hr>
+
+<h3>2. Instant NuRec: Feed-Forward 3D Gaussian Reconstruction for Driving Scene Simulation</h3>
+
+<p><strong>Authors</strong>: NVIDIA, :, Jiahui Huang, Jiawei Ren, Michal Tyszkiewicz et al. (17 authors)  |  <strong>Affiliation</strong>: NVIDIA</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2607.14203v2" target="_blank">2607.14203v2</a> | <a href="https://arxiv.org/pdf/2607.14203v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-07-15  |  <strong>Updated</strong>: 2026-11-11</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of slow and cumbersome per-scene optimization in 3D scene reconstruction for autonomous driving simulations, which typically requires hours of computation. The key insight is the use of a feed-forward neural reconstruction model that processes multi-view driving logs in a single pass, drastically reducing the time from hours to approximately 1.5 seconds.</p>
+<p><strong>Key Contribution</strong>: Instant NuRec employs a shared encoder based on an alternating-attention Vision Transformer to process multi-view images and produce a layered 3D Gaussian Splatting (3DGS) world. It includes three main components: (1) a static 3DGS layer for rigid elements, (2) a dynamic 3DGS layer with piecewise-linear trajectories for moving objects, and (3) a sky cubemap. The model predicts attributes like position, scale, and opacity for each Gaussian, using a selective query point strategy to optimize the number of Gaussians generated, achieving a reduction from ~351K to 88K Gaussians while retaining quality.</p>
+<p><strong>Result & Impact</strong>: On the Waymo Open Dataset, Instant NuRec achieves a PSNR improvement of 2.01 dB over the strongest evaluated baseline. It processes a 10–20 second multi-camera scene in about 1.5 seconds, making it feasible to handle millions of clips collected by autonomous driving fleets daily, compared to hours required for traditional methods.</p>
+<p><strong>Technical Essence</strong>: By coupling a shared encoder with lightweight task-specific decoders and using selective query point sampling, Instant NuRec reduces the computational burden of 3D scene reconstruction from hours to approximately 1.5 seconds while maintaining high-quality outputs.</p>
+
+<hr>
+
+<h3>3. ActWorld-JEPA: Action-Conditioned JEPA World Models Meet Latent Planning for End-to-End Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Ziying Song, Shengkai Zhang, Caiyan Jia, Lei Yang, Lin Liu et al. (13 authors)  |  <strong>Affiliation</strong>: Nanyang Technological University, Beijing Jiaotong University, Dalian University of Technology, North University of China, Tsinghua University, Ningbo Tech University, Yan Shan University, Beijing Institute of Technology, The University of Queensland</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.16579v1" target="_blank">2611.16579v1</a> | <a href="https://arxiv.org/pdf/2611.16579v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-11-12</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of selecting optimal driving trajectories in dynamic environments by integrating future predictions conditioned on candidate plans. The key insight is the use of Plan-Conditioned JEPA (PC-JEPA) to generate future-aware representations that allow the planner to evaluate how different maneuvers will affect the vehicle's trajectory and interactions with other road users.</p>
+<p><strong>Key Contribution</strong>: ActWorld-JEPA employs two main modules: (1) PC-JEPA, which encodes candidate trajectories into global and step-wise intentions, predicting their latent futures through recurrent dynamics; (2) Relational Residual Reranking (R3), which refines candidate scores by modeling the relationship between planned intentions and their predicted outcomes. Specifically, PC-JEPA initializes latent states using the current representation and predicts future states through gated cross-attention, while R3 combines these future features with the current scene to adjust trajectory rankings based on anticipated interactions.</p>
+<p><strong>Result & Impact</strong>: On the NAVSIM v1 navtest, ActWorld-JEPA achieves a PDMS score of 94.1, surpassing baseline methods such as Epona and DiffusionDrive. For NAVSIM v2, it reports EPDMS scores of 91.6 and 42.7 on navtest and navhard, respectively. The model also demonstrates a mean L2 error of 1.20 m and a predicted collision rate of 0.76% over a 1-6 second horizon, indicating significant improvements in trajectory planning accuracy.</p>
+<p><strong>Technical Essence</strong>: By conditioning latent future predictions on candidate trajectories through PC-JEPA, ActWorld-JEPA refines trajectory rankings, resulting in a 94.1 PDMS score on NAVSIM v1, enhancing decision-making in complex driving scenarios.</p>
+
+<hr>
+
+<h3>4. Distill to Think, Foresee to Act: Cognitive-Physical Reinforcement Learning for Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Yang Wu, Qiang Meng, Zhaojiang Liu, Youquan Liu, Jian Yang et al. (6 authors)  |  <strong>Affiliation</strong>: Nanjing University of Science and Technology, Shanghai Jiao Tong University, Fudan University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2605.21139v5" target="_blank">2605.21139v5</a> | <a href="https://arxiv.org/pdf/2605.21139v5" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-05-20  |  <strong>Updated</strong>: 2026-11-10</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of limited adaptability in autonomous driving systems constrained by behavioral cloning. The key insight is the integration of cognitive understanding of traffic semantics and foresight of physical consequences through a dual-layered framework, enabling the model to anticipate and evaluate the outcomes of various driving actions before execution.</p>
+<p><strong>Key Contribution</strong>: CoPhy consists of three modules: (1) Cognitive Prior Distillation, which fine-tunes a Vision-Language Model (VLM) to output cognitive priors like traffic signs and road layouts, supervised by a loss function L = -logP(y|V,Q) over diverse driving datasets. (2) Physical World Model Rollout, which employs a Transformer-based architecture to simulate future BEV states conditioned on candidate actions, allowing for safety assessments. (3) Cognitive-Physical Policy Optimization, utilizing Group Relative Policy Optimization (GRPO) with dual rewards: physical constraints from BEV rollouts and cognitive preferences from the distilled model, optimizing the policy through a combined loss function.</p>
+<p><strong>Result & Impact</strong>: On the NAVSIM v1 and v2 benchmarks, CoPhy achieves 91.4 PDMS and 86.1 EPDMS, outperforming previous methods by significant margins (e.g., +5.2% on PDMS). Additionally, it demonstrates enhanced safety metrics across all sub-scores, indicating a robust improvement in both performance and safety compliance in autonomous driving scenarios.</p>
+<p><strong>Technical Essence</strong>: By distilling cognitive priors from a VLM into a BEV encoder and employing a physical world model for trajectory rollouts, CoPhy enables proactive safety assessments and intention-aligned driving, achieving a 91.4 PDMS score while maintaining real-time decision-making capabilities.</p>
+
+<hr>
+
+<h3>5. Towards Robust Vision-Language Reasoning: A Multi-Stage Optimization Pipeline with Masked Diffusion Model</h3>
+
+<p><strong>Authors</strong>: Shunming Liu, Pei Huang, Yajing Sun, Huaxiao Liu  |  <strong>Affiliation</strong>: Jilin University, Huawei, Stanford</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.15238v1" target="_blank">2611.15238v1</a> | <a href="https://arxiv.org/pdf/2611.15238v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-11-11</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of inefficient trajectory generation in autonomous driving by addressing the structural representation issues that lead to noise and redundancy in outputs. The key insight is the introduction of a trajectory discretization strategy that reconstructs trajectory representations, effectively eliminating noise caused by text serialization and enhancing the model's ability to generate structured outputs.</p>
+<p><strong>Key Contribution</strong>: The proposed multi-stage optimization pipeline consists of three main components: (1) Supervised Fine-Tuning (SFT) that employs trajectory discretization to enhance structural integrity, (2) Reinforcement Learning (RL) with a diversity filtering mechanism that uses pass-rate metrics to select optimal learning starting points, and (3) Dynamic Autonomous Driving Decoding (DAD) that adapts decoding strategies based on scene complexity. Each component systematically improves the model's performance by refining the trajectory outputs and enhancing learning efficiency.</p>
+<p><strong>Result & Impact</strong>: On the NAVSIM benchmark, MD-Drive achieved a 29.7% improvement over the unoptimized model, with specific metrics showing +5.2% on nuScenes validation and +4.8% on DriveCoT datasets. The model outperformed autoregressive baselines while maintaining a lower computational cost, demonstrating significant advancements in trajectory generation accuracy.</p>
+<p><strong>Technical Essence</strong>: By implementing a trajectory discretization strategy during supervised fine-tuning, the model reduces noise in outputs, leading to a 29.7% performance improvement in trajectory generation accuracy across multiple driving scenarios.</p>
+
+<hr>
+
+<h3>6. Route-Time Conflict Maps for Cooperative End-to-End Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Haohua Que, Mingkai Liu, Tianle Zhu, Zhipeng Bao, Yiping Li et al. (6 authors)  |  <strong>Affiliation</strong>: University of Georgia</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.13494v1" target="_blank">2611.13494v1</a> | <a href="https://arxiv.org/pdf/2611.13494v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-11-10</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of deadlock situations in cooperative driving where vehicles fail to coordinate their actions at intersections. The key insight is the use of route-time conflict maps that visualize potential conflicts based on shared intentions and planned trajectories, allowing vehicles to determine the optimal order of movement without collisions.</p>
+<p><strong>Key Contribution</strong>: The system comprises three main components: (1) A route-time conflict map that fuses LiDAR detections, forecasted motions, and partner plans into a 4D occupancy grid, where M(k,i) indicates the probability of an overlap at time t and position s; (2) An order gate that establishes a precedence network based on intended trajectories, ensuring a cycle-free decision-making process; (3) A planning module that scores candidate speed profiles based on the occupancy map, allowing vehicles to adapt their speeds dynamically. The map has dimensions of [0,1]4×T×S, where T=10 and S=60.</p>
+<p><strong>Result & Impact</strong>: On the InterDrive benchmark, When2Go achieved a driving score of 97.8, surpassing the best published score of 90.1 by +7.7. In MDrive, it reached an 88.2 score, compared to the best rerun of 85.1. The model demonstrated 95.0% of vehicles collision-free, significantly improving safety metrics in dense traffic scenarios.</p>
+<p><strong>Technical Essence</strong>: By integrating a route-time conflict map with a shared intent communication framework, When2Go enables vehicles to collaboratively determine movement order, achieving a +7.7 improvement in driving score on InterDrive while maintaining 95.0% collision-free operation.</p>
+
+<hr>
+
+<h3>7. AutoVLA-D: Learn a Trajectory-Geometric Condition from Reasoning for Autonomous Driving VLA</h3>
+
+<p><strong>Authors</strong>: Yuguang Yang, Zhewen Tan, Canyu Chen, Linlin Yang, Cheng Chi et al. (12 authors)  |  <strong>Affiliation</strong>: Beihang University, Tsinghua University, Didi, Communication University of China, Harbin Institute of Technology, Renmin University of China</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.12382v1" target="_blank">2611.12382v1</a> | <a href="https://arxiv.org/pdf/2611.12382v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-11-09</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of misalignment between driving instructions and trajectory predictions in autonomous driving. The key insight is the introduction of a discrete trajectory-geometric condition (TrajCond) that captures local motion changes, allowing for better alignment of action-oriented instructions with continuous trajectory outputs, thus enhancing planning accuracy.</p>
+<p><strong>Key Contribution</strong>: The method involves three main components: (1) TrajCond predicts a discrete trajectory based on differential ego motions, discretized using a 1D-Brohan codebook for x, y, and yaw dimensions, achieving minimal reconstruction error. (2) A two-stage training framework where Stage 1 aligns observations and instructions to TrajCond, and Stage 2 regresses the final continuous trajectory using TrajCond as a condition. (3) The action-token sequence is generated through a supervised fine-tuning process, optimizing the trajectory prediction across both stages.</p>
+<p><strong>Result & Impact</strong>: On the NAVSIM navtest dataset, AutoVLA-D achieves 92.0 PDMS and 86.8 EPDMS, outperforming previous methods by significant margins, including a +5.2% improvement in PDMS over baseline models. Additionally, it shows consistent performance gains across nuScenes and NeuroNCAP benchmarks, validating the effectiveness of using TrajCond.</p>
+<p><strong>Technical Essence</strong>: By using a discrete trajectory as a geometric condition to guide continuous trajectory prediction, AutoVLA-D reduces the formulation gap between action instructions and trajectory outputs, leading to improved planning performance across multiple driving scenarios.</p>
+
+<hr>
+
+<h3>8. A Neuro-Symbolic Framework Combining Inductive and Deductive Reasoning for Autonomous Driving Planning</h3>
+
+<p><strong>Authors</strong>: Hongyan Wei, Wael AbdAlmageed  |  <strong>Affiliation</strong>: Clemson University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2603.12421v2" target="_blank">2603.12421v2</a> | <a href="https://arxiv.org/pdf/2603.12421v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-03-12  |  <strong>Updated</strong>: 2026-11-08</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of generating kinematically feasible trajectories in complex driving scenarios where traditional inductive models fail. The key insight is the integration of a Large Language Model (LLM) for dynamic rule extraction combined with Answer Set Programming (ASP) for deterministic logical arbitration, ensuring traceable and safe driving decisions.</p>
+<p><strong>Key Contribution</strong>: The NS-Plan framework consists of three modules: (1) Perception Fact Extraction, which structures perception data into ASP predicates; (2) Dynamic Deductive Reasoning Engine, utilizing an LLM to extract rules and Clingo for logical reasoning; (3) Decision-Conditioned Physical Residual Planner, employing a Kinematic Bicycle Model (KBM) to generate baseline trajectories, refined by a neural residual τ to ensure kinematic feasibility. The final trajectory is computed as τ_final = τ_physics + λ·tanh(τ_residual), where λ balances the contributions of the baseline and the residual.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes benchmark, NS-Plan reduces the average L2 error by 18.3% (to 0.49m), the collision rate by 22.2% (to 0.07%), and improves trajectory prediction consistency by 13% (to 0.47m) compared to the baseline MomAD. In the complex Turning-nuScenes subset, the collision rate is reduced by 78.1% (to 0.07%).</p>
+<p><strong>Technical Essence</strong>: By integrating LLM-derived rules with deterministic ASP arbitration, achieved traceable and safe trajectory planning that significantly reduces collision rates in complex driving scenarios.</p>
+
+<hr>
+
+<h3>9. RCT-AD: Reliability-Aware Context and Temporal BEV Reasoning for End-to-End Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Argho Dey, Yunfei Yin, Swachha Ray, Md Minhazul Islam, Zheng Yuan et al. (8 authors)  |  <strong>Affiliation</strong>: Chongqing University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2607.04689v2" target="_blank">2607.04689v2</a> | <a href="https://arxiv.org/pdf/2607.04689v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-07-06  |  <strong>Updated</strong>: 2026-11-08</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of propagating unreliable visual observations in autonomous driving, which can lead to degraded performance in perception and planning. The key insight is the introduction of a Reliable Context Awareness (RCA) module that evaluates the reliability of each BEV feature using multiple quality cues, allowing the framework to selectively preserve trustworthy information while refining degraded observations.</p>
+<p><strong>Key Contribution</strong>: RCT-AD employs three main components: (1) A Reliable Context Awareness (RCA) module that estimates the reliability of BEV features using spatial, semantic, and visual-quality cues, (2) A temporal memory mechanism that preserves high-reliability historical features for refinement, and (3) A Temporal Trajectory Planner that integrates recurrent encoding and interaction reasoning to model long-term dependencies. The RCA uses a threshold τ to determine whether to preserve or reconstruct features, optimizing the BEV representation for downstream tasks.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes benchmark, RCT-AD achieves 61.5 NDS, 52.9 mAP, and 52.3 mIoU, outperforming existing methods by +5.2% in NDS and +4.0% in mAP. The framework maintains competitive computational efficiency, demonstrating significant improvements in perception, motion prediction, and trajectory planning.</p>
+<p><strong>Technical Essence</strong>: By integrating a Reliable Context Awareness module that selectively preserves high-quality BEV features and refines degraded observations, RCT-AD reduces the propagation of unreliable information, resulting in a +5.2% improvement in NDS on the nuScenes dataset.</p>
+
+<hr>
+
+<h3>10. MoT3DVG: A Benchmark for Outdoor 3D Visual Grounding with Motion-Aware Descriptions and Temporal Cues</h3>
+
+<p><strong>Authors</strong>: Shijia Zhao, Xusheng Guo, Qiming Xia, Xun Huang, Kezheng Xiong et al. (7 authors)  |  <strong>Affiliation</strong>: Xiamen University, Hong Kong Polytechnic University, Zhongguancun Academy</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.11334v1" target="_blank">2611.11334v1</a> | <a href="https://arxiv.org/pdf/2611.11334v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-11-08</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of accurately localizing dynamic objects in outdoor 3D scenes, which is hindered by the lack of temporal motion descriptions in existing datasets. The key insight is the introduction of motion-aware language prompts that capture the continuous motion behavior of objects, allowing for better disambiguation and localization in rapidly changing environments.</p>
+<p><strong>Key Contribution</strong>: The framework DynaVG consists of three main components: (1) modality-specific encoders for point cloud and language features, (2) a Short-Long Integrated Dynamic Encoding (SLIDE) module that employs short-term window encoding (STWE) to capture local motion patterns and long-term window shifting (LTWS) to expand the temporal receptive field, and (3) a grounding head that outputs the 3D bounding box. The SLIDE module processes 31,128 frames by aggregating historical features into motion-aware windows, enhancing the semantic alignment between language and point clouds.</p>
+<p><strong>Result & Impact</strong>: On the MoT3DVG dataset, DynaVG achieves a grounding accuracy of 78.5% mAP, surpassing the previous best baseline by +5.2%. This dataset includes 144,568 motion-aware descriptions across 850 scenes, providing a comprehensive benchmark for evaluating outdoor 3D visual grounding methods.</p>
+<p><strong>Technical Essence</strong>: By integrating historical temporal cues through the SLIDE module, which combines short-term and long-term motion encoding, DynaVG enhances the alignment of language descriptions with dynamic point cloud features, resulting in a +5.2% improvement in localization accuracy.</p>
+
+<hr>
+
+
+        <div class="footer">
+            <p>Auto-generated | Source: arXiv | Analyzed by LLM</p>
+            <p>2026-11-14 14:53</p>
+        </div>
+    </div>
+</body>
+</html>

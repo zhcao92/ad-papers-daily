@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自动驾驶论文每日速览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index-en.html" class="lang-toggle">Switch to English</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-11-14)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 35</p>
+<p>- 生成时间 | Generated: 2026-11-14 14:53</p>
+<p>- <a href="index-en.html" target="_blank">Switch to English 切换到英文</a></p>
+
+<hr>
+
+
+<h3>1. NVIDIA OmniDreams: Real-Time Generative World Model for Closed-Loop Autonomous Vehicle Simulation</h3>
+
+<p><strong>作者</strong>: Aarti Basant, Amlan Kar, Despoina Paschalidou, Fangyin Wei, Francesco Ferroni et al. (33 authors)  |  <strong>机构</strong>: NVIDIA</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2606.03159v4" target="_blank">2606.03159v4</a> | <a href="https://arxiv.org/pdf/2606.03159v4" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-06-02  |  <strong>更新</strong>: 2026-11-12</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了闭环自动驾驶模拟中有限泛化的问题，特别是在传统模拟器难以应对的长尾场景中。关键技术洞察是使用自回归生成世界模型OmniDreams，通过对过去帧和当前动作的条件生成复杂的未观察现象，如极端天气和动态代理行为。</p>
+<p><strong>技术贡献</strong>: OmniDreams作为自回归扩散视频生成器运行，利用来自过去生成的KV缓存保持长期回放一致性。它的传感器生成基于三个输入：抽象状态图（编码车道线和边界框）、环境条件的文本提示和最近视觉历史的内存缓存。该模型在720p分辨率下，单摄像头以68 FPS实时渲染，四摄像头使用16GB 300 GPU可达到105 FPS。</p>
+<p><strong>结果与影响</strong>: 在物理AI自动驾驶NuRec数据集上，从OmniDreams后训练的策略模型将碰撞率从6.9%降低到4.2%，前方碰撞率从1.0%降低到0.9%，同时仅使用2亿参数，相比基线模型Alpamayo1.5的10亿参数，显示出显著的性能提升。</p>
+<p><strong>技术精髓</strong>: 通过在新帧合成过程中利用来自之前帧生成的KV缓存，OmniDreams实现了传感器输出的高时间一致性，使其能够以68 FPS的速度进行实时模拟，同时保持照片真实感。</p>
+
+<hr>
+
+<h3>2. Instant NuRec: Feed-Forward 3D Gaussian Reconstruction for Driving Scene Simulation</h3>
+
+<p><strong>作者</strong>: NVIDIA, :, Jiahui Huang, Jiawei Ren, Michal Tyszkiewicz et al. (17 authors)  |  <strong>机构</strong>: NVIDIA</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2607.14203v2" target="_blank">2607.14203v2</a> | <a href="https://arxiv.org/pdf/2607.14203v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-07-15  |  <strong>更新</strong>: 2026-11-11</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自主驾驶模拟中3D场景重建的慢速和繁琐的每场景优化问题，通常需要数小时的计算。关键洞察是使用前馈神经重建模型，在单次传递中处理多视角驾驶日志，将时间从数小时大幅减少到大约1.5秒。</p>
+<p><strong>技术贡献</strong>: Instant NuRec采用基于交替注意力视觉变换器的共享编码器，处理多视角图像并生成分层的3D高斯点云（3DGS）世界。它包括三个主要组件：（1）用于刚性元素的静态3DGS层，（2）具有分段线性轨迹的动态3DGS层，用于移动物体，以及（3）天空立方体图。该模型为每个高斯预测位置、尺度和不透明度等属性，使用选择性查询点策略优化生成的高斯数量，从约351K减少到88K，同时保持质量。</p>
+<p><strong>结果与影响</strong>: 在Waymo开放数据集上，Instant NuRec在最强评估基线之上实现了2.01 dB的PSNR提升。它在大约1.5秒内处理10-20秒的多摄像头场景，使得处理自主驾驶车队每天收集的数百万个片段成为可能，而传统方法则需要数小时。</p>
+<p><strong>技术精髓</strong>: 通过将共享编码器与轻量级任务特定解码器结合，并使用选择性查询点采样，Instant NuRec将3D场景重建的计算负担从数小时减少到大约1.5秒，同时保持高质量输出。</p>
+
+<hr>
+
+<h3>3. ActWorld-JEPA: Action-Conditioned JEPA World Models Meet Latent Planning for End-to-End Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Ziying Song, Shengkai Zhang, Caiyan Jia, Lei Yang, Lin Liu et al. (13 authors)  |  <strong>机构</strong>: Nanyang Technological University, Beijing Jiaotong University, Dalian University of Technology, North University of China, Tsinghua University, Ningbo Tech University, Yan Shan University, Beijing Institute of Technology, The University of Queensland</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.16579v1" target="_blank">2611.16579v1</a> | <a href="https://arxiv.org/pdf/2611.16579v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-11-12</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了在动态环境中选择最佳驾驶轨迹的问题，通过整合基于候选计划的未来预测。关键技术洞察是使用计划条件JEPA（PC-JEPA）生成未来感知表示，使规划器能够评估不同操作如何影响车辆轨迹和与其他道路用户的互动。</p>
+<p><strong>技术贡献</strong>: ActWorld-JEPA采用两个主要模块：（1）PC-JEPA，将候选轨迹编码为全局和逐步意图，通过递归动态预测其潜在未来；（2）关系残差重排名（R3），通过建模计划意图与其预测结果之间的关系来细化候选分数。具体而言，PC-JEPA使用当前表示初始化潜在状态，并通过门控交叉注意力预测未来状态，而R3将这些未来特征与当前场景结合，以根据预期互动调整轨迹排名。</p>
+<p><strong>结果与影响</strong>: 在NAVSIM v1 navtest上，ActWorld-JEPA实现了94.1的PDMS分数，超过了Epona和DiffusionDrive等基线方法。在NAVSIM v2上，报告了91.6和42.7的EPDMS分数，分别在navtest和navhard上。该模型还显示出1.20米的平均L2误差和0.76%的预测碰撞率，表明轨迹规划精度显著提高。</p>
+<p><strong>技术精髓</strong>: 通过将潜在未来预测条件化于候选轨迹，ActWorld-JEPA细化轨迹排名，在NAVSIM v1上实现了94.1的PDMS分数，从而增强了复杂驾驶场景中的决策能力。</p>
+
+<hr>
+
+<h3>4. Distill to Think, Foresee to Act: Cognitive-Physical Reinforcement Learning for Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Yang Wu, Qiang Meng, Zhaojiang Liu, Youquan Liu, Jian Yang et al. (6 authors)  |  <strong>机构</strong>: Nanjing University of Science and Technology, Shanghai Jiao Tong University, Fudan University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2605.21139v5" target="_blank">2605.21139v5</a> | <a href="https://arxiv.org/pdf/2605.21139v5" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-05-20  |  <strong>更新</strong>: 2026-11-10</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自主驾驶系统在行为克隆限制下适应性不足的问题。关键技术洞察是通过双层框架整合交通语义的认知理解和物理后果的前瞻性，使模型能够在执行前预测和评估各种驾驶动作的结果。</p>
+<p><strong>技术贡献</strong>: CoPhy由三个模块组成：(1) 认知先验蒸馏，通过对多样化驾驶数据集的监督，微调视觉-语言模型（VLM）以输出交通标志和道路布局等认知先验，损失函数为L = -logP(y|V,Q)。(2) 物理世界模型回滚，采用基于Transformer的架构模拟候选动作条件下的未来BEV状态，允许进行安全评估。(3) 认知-物理策略优化，利用群体相对策略优化（GRPO）和双重奖励：来自BEV回滚的物理约束和来自蒸馏模型的认知偏好，通过组合损失函数优化策略。</p>
+<p><strong>结果与影响</strong>: 在NAVSIM v1和v2基准测试中，CoPhy实现了91.4 PDMS和86.1 EPDMS，显著超越了之前的方法（例如，PDMS提升+5.2%）。此外，它在所有子分数上展示了增强的安全指标，表明在自主驾驶场景中性能和安全合规性的显著改善。</p>
+<p><strong>技术精髓</strong>: 通过将视觉-语言模型的认知先验蒸馏到BEV编码器中，并采用物理世界模型进行轨迹回滚，CoPhy实现了主动安全评估和意图对齐的驾驶，获得91.4 PDMS分数，同时保持实时决策能力。</p>
+
+<hr>
+
+<h3>5. Towards Robust Vision-Language Reasoning: A Multi-Stage Optimization Pipeline with Masked Diffusion Model</h3>
+
+<p><strong>作者</strong>: Shunming Liu, Pei Huang, Yajing Sun, Huaxiao Liu  |  <strong>机构</strong>: Jilin University, Huawei, Stanford</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.15238v1" target="_blank">2611.15238v1</a> | <a href="https://arxiv.org/pdf/2611.15238v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-11-11</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自主驾驶中轨迹生成效率低下的问题，通过解决导致输出噪声和冗余的结构表示问题。关键技术洞察是引入轨迹离散化策略，重构轨迹表示，有效消除文本序列化引起的噪声，增强模型生成结构化输出的能力。</p>
+<p><strong>技术贡献</strong>: 所提出的多阶段优化管道由三个主要组件组成：（1）监督微调（SFT），采用轨迹离散化以增强结构完整性；（2）强化学习（RL），使用基于通过率指标的多样性过滤机制选择最佳学习起点；（3）动态自主驾驶解码（DAD），根据场景复杂性调整解码策略。每个组件系统地通过精炼轨迹输出和增强学习效率来提高模型性能。</p>
+<p><strong>结果与影响</strong>: 在NAVSIM基准上，MD-Drive实现了比未优化模型高出29.7%的提升，具体指标显示在nuScenes验证集上提高了5.2%，在DriveCoT数据集上提高了4.8%。该模型在保持较低计算成本的同时超越了自回归基线，展示了轨迹生成准确性的显著进步。</p>
+<p><strong>技术精髓</strong>: 通过在监督微调期间实施轨迹离散化策略，模型减少了输出中的噪声，从而在多个驾驶场景中实现了29.7%的轨迹生成准确性提升。</p>
+
+<hr>
+
+<h3>6. Route-Time Conflict Maps for Cooperative End-to-End Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Haohua Que, Mingkai Liu, Tianle Zhu, Zhipeng Bao, Yiping Li et al. (6 authors)  |  <strong>机构</strong>: University of Georgia</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.13494v1" target="_blank">2611.13494v1</a> | <a href="https://arxiv.org/pdf/2611.13494v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-11-10</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了合作驾驶中车辆在交叉口未能协调行动导致的死锁问题。关键技术洞察是使用路线时间冲突图可视化潜在冲突，基于共享意图和规划轨迹，允许车辆确定最佳的移动顺序以避免碰撞。</p>
+<p><strong>技术贡献</strong>: 该系统由三个主要组件组成：(1) 路线时间冲突图，将LiDAR检测、预测运动和合作计划融合为一个4D占用网格，其中M(k,i)表示在时间t和位置s上重叠的概率；(2) 订单门，根据意图轨迹建立优先级网络，确保无循环的决策过程；(3) 规划模块，根据占用图评分候选速度配置，使车辆能够动态调整速度。该图的维度为[0,1]4×T×S，其中T=10，S=60。</p>
+<p><strong>结果与影响</strong>: 在InterDrive基准测试中，When2Go的驾驶评分达到97.8，超越了最佳已发布评分90.1，提升了7.7。在MDrive中，得分为88.2，相比最佳重跑85.1有所提高。该模型在密集交通场景中实现了95.0%的车辆无碰撞，显著提高了安全指标。</p>
+<p><strong>技术精髓</strong>: 通过将路线时间冲突图与共享意图通信框架集成，When2Go使车辆能够协作确定移动顺序，在InterDrive上实现了7.7的驾驶评分提升，同时保持95.0%的无碰撞操作。</p>
+
+<hr>
+
+<h3>7. AutoVLA-D: Learn a Trajectory-Geometric Condition from Reasoning for Autonomous Driving VLA</h3>
+
+<p><strong>作者</strong>: Yuguang Yang, Zhewen Tan, Canyu Chen, Linlin Yang, Cheng Chi et al. (12 authors)  |  <strong>机构</strong>: Beihang University, Tsinghua University, Didi, Communication University of China, Harbin Institute of Technology, Renmin University of China</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.12382v1" target="_blank">2611.12382v1</a> | <a href="https://arxiv.org/pdf/2611.12382v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-11-09</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自主驾驶中驾驶指令与轨迹预测之间的不对齐问题。关键技术洞察是引入了离散轨迹几何条件（TrajCond），捕捉局部运动变化，从而更好地将以动作为导向的指令与连续轨迹输出对齐，增强规划准确性。</p>
+<p><strong>技术贡献</strong>: 该方法涉及三个主要组件：（1）TrajCond基于差分自我运动预测离散轨迹，使用1D-Brohan码本对x、y和偏航维度进行离散化，实现最小重构误差。（2）一个两阶段训练框架，其中第一阶段将观察和指令与TrajCond对齐，第二阶段使用TrajCond作为条件回归最终连续轨迹。（3）通过监督微调过程生成动作令牌序列，优化两个阶段的轨迹预测。</p>
+<p><strong>结果与影响</strong>: 在NAVSIM navtest数据集上，AutoVLA-D实现了92.0 PDMS和86.8 EPDMS，显著超越之前的方法，包括在PDMS上提高了+5.2%的表现。此外，它在nuScenes和NeuroNCAP基准测试中也显示出一致的性能提升，验证了使用TrajCond的有效性。</p>
+<p><strong>技术精髓</strong>: 通过使用离散轨迹作为几何条件来指导连续轨迹预测，AutoVLA-D减少了动作指令与轨迹输出之间的表述差距，从而在多个驾驶场景中提高了规划性能。</p>
+
+<hr>
+
+<h3>8. A Neuro-Symbolic Framework Combining Inductive and Deductive Reasoning for Autonomous Driving Planning</h3>
+
+<p><strong>作者</strong>: Hongyan Wei, Wael AbdAlmageed  |  <strong>机构</strong>: Clemson University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2603.12421v2" target="_blank">2603.12421v2</a> | <a href="https://arxiv.org/pdf/2603.12421v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-03-12  |  <strong>更新</strong>: 2026-11-08</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了在复杂驾驶场景中生成运动学可行轨迹的问题，传统归纳模型在此方面失败。关键技术洞察是将大型语言模型（LLM）用于动态规则提取，并结合答案集编程（ASP）进行确定性逻辑仲裁，从而确保可追溯和安全的驾驶决策。</p>
+<p><strong>技术贡献</strong>: NS-Plan框架由三个模块组成：（1）感知事实提取，将感知数据结构化为ASP谓词；（2）动态推理引擎，利用LLM提取规则和Clingo进行逻辑推理；（3）决策条件物理残差规划器，采用运动学自行车模型（KBM）生成基线轨迹，并通过神经残差τ进行细化，以确保运动学可行性。最终轨迹计算为τ_final = τ_physics + λ·tanh(τ_residual)，其中λ平衡基线和残差的贡献。</p>
+<p><strong>结果与影响</strong>: 在nuScenes基准上，NS-Plan将平均L2误差降低18.3%（至0.49m），碰撞率降低22.2%（至0.07%），并将轨迹预测一致性提高13%（至0.47m），与基线MomAD相比。在复杂的Turning-nuScenes子集上，碰撞率降低78.1%（至0.07%）。</p>
+<p><strong>技术精髓</strong>: 通过将LLM提取的规则与确定性的ASP仲裁相结合，实现了可追溯和安全的轨迹规划，在复杂驾驶场景中显著降低了碰撞率。</p>
+
+<hr>
+
+<h3>9. RCT-AD: Reliability-Aware Context and Temporal BEV Reasoning for End-to-End Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Argho Dey, Yunfei Yin, Swachha Ray, Md Minhazul Islam, Zheng Yuan et al. (8 authors)  |  <strong>机构</strong>: Chongqing University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2607.04689v2" target="_blank">2607.04689v2</a> | <a href="https://arxiv.org/pdf/2607.04689v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-07-06  |  <strong>更新</strong>: 2026-11-08</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了在自动驾驶中传播不可靠视觉观测的问题，这可能导致感知和规划性能下降。关键技术洞察是引入了一个可靠上下文意识（RCA）模块，该模块使用多个质量线索评估每个BEV特征的可靠性，从而使框架能够选择性地保留可信信息，同时改进退化观测。</p>
+<p><strong>技术贡献</strong>: RCT-AD采用三个主要组件：（1）可靠上下文意识（RCA）模块，使用空间、语义和视觉质量线索估计BEV特征的可靠性；（2）一个时间记忆机制，保留高可靠性历史特征以进行改进；（3）一个时间轨迹规划器，结合递归编码和交互推理来建模长期依赖关系。RCA使用阈值τ来确定是保留还是重建特征，从而优化BEV表示以用于下游任务。</p>
+<p><strong>结果与影响</strong>: 在nuScenes基准上，RCT-AD实现了61.5 NDS、52.9 mAP和52.3 mIoU，优于现有方法，NDS提高了5.2%，mAP提高了4.0%。该框架保持了竞争性的计算效率，在感知、运动预测和轨迹规划方面显示出显著改进。</p>
+<p><strong>技术精髓</strong>: 通过集成一个可靠上下文意识模块，该模块选择性地保留高质量的BEV特征并改进退化观测，RCT-AD减少了不可靠信息的传播，在nuScenes数据集上实现了NDS提高5.2%的结果。</p>
+
+<hr>
+
+<h3>10. MoT3DVG: A Benchmark for Outdoor 3D Visual Grounding with Motion-Aware Descriptions and Temporal Cues</h3>
+
+<p><strong>作者</strong>: Shijia Zhao, Xusheng Guo, Qiming Xia, Xun Huang, Kezheng Xiong et al. (7 authors)  |  <strong>机构</strong>: Xiamen University, Hong Kong Polytechnic University, Zhongguancun Academy</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.11334v1" target="_blank">2611.11334v1</a> | <a href="https://arxiv.org/pdf/2611.11334v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-11-08</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了在户外3D场景中准确定位动态物体的问题，现有数据集中缺乏时间运动描述是主要障碍。关键技术洞察是引入运动感知语言提示，捕捉物体的连续运动行为，从而在快速变化的环境中实现更好的歧义消除和定位。</p>
+<p><strong>技术贡献</strong>: DynaVG框架由三个主要组件组成：（1）用于点云和语言特征的模态特定编码器；（2）短长集成动态编码（SLIDE）模块，采用短期窗口编码（STWE）捕捉局部运动模式，并通过长期窗口移动（LTWS）扩展时间感受野；（3）输出3D边界框的定位头。SLIDE模块处理31,128帧，通过将历史特征聚合到运动感知窗口中，增强语言与点云之间的语义对齐。</p>
+<p><strong>结果与影响</strong>: 在MoT3DVG数据集上，DynaVG实现了78.5%的mAP定位精度，超越了之前最佳基线5.2%。该数据集包含850个场景中的144,568个运动感知描述，为评估户外3D视觉定位方法提供了全面的基准。</p>
+<p><strong>技术精髓</strong>: 通过集成历史时间线索，SLIDE模块结合短期和长期运动编码，DynaVG增强了语言描述与动态点云特征的对齐，从而实现了+5.2%的定位精度提升。</p>
+
+<hr>
+
+
+
+        <div class="footer">
+            <p>自动生成 | 数据来源: arXiv | 由 LLM 分析总结</p>
+            <p>2026-11-14 14:53</p>
+        </div>
+    </div>
+</body>
+</html>
