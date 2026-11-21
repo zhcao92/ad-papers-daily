@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Driving Papers Daily</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="lang-toggle">切换到中文</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-11-21)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 61</p>
+<p>- 生成时间 | Generated: 2026-11-21 15:59</p>
+<p>- <a href="index.html" target="_blank">切换到中文 Switch to Chinese</a></p>
+
+<hr>
+
+
+<h3>1. SuperGlance: Driving at a Glance with a Vision-Language Model</h3>
+
+<p><strong>Authors</strong>: Jieyuan Pei, Xin Yan, Mingwei Xu, Haiyi Zhang, Siyu Zou et al. (12 authors)  |  <strong>Affiliation</strong>: Tsinghua University, HiThink, Hong Kong University of Science and Technology, A*STAR, University of Washington, Renmin University of China, Beihang University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.19138v2" target="_blank">2611.19138v2</a> | <a href="https://arxiv.org/pdf/2611.19138v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-11-14  |  <strong>Updated</strong>: 2026-11-18</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of slow trajectory planning in autonomous driving systems, which typically require multiple forward passes for trajectory generation. The key insight is that by leveraging a single hidden state from a vision-language model (VLM), SuperGlance can score a fixed set of 5,273 candidate trajectories in one pass, significantly speeding up the planning process.</p>
+<p><strong>Key Contribution</strong>: SuperGlance employs a linear Policy Head that scores 5,273 fixed candidate trajectories based on a single hidden state from the VLM. The architecture includes two training stages: Stage 1 focuses on maintaining visual abilities through multiple-choice questions, while Stage 2 trains the policy to weight candidates by reward. The final model operates with a temperature parameter τ = 0.2 in the softmax function to select trajectories, ensuring efficient planning without iterative decoding.</p>
+<p><strong>Result & Impact</strong>: SuperGlance achieves a planning time of 84 ms, which is 6.2 times faster than Qwen-Drive-1.0, and maintains competitive performance on benchmarks like NAVSIM and PAI-AV. It demonstrates a fault incident rate that is 3.9 times better than Qwen-Drive-1.0 under closed-loop conditions, showcasing its efficiency and effectiveness in real-time scenarios.</p>
+<p><strong>Technical Essence</strong>: By transforming a decoder-only VLM into an encoder-styled driving policy that scores fixed trajectory candidates from a single hidden state, SuperGlance reduces planning latency from 518 ms to 84 ms while maintaining high accuracy in trajectory selection.</p>
+
+<hr>
+
+<h3>2. DRIFT: Detachable Reasoning for Runtime-Flexible and Efficient End-to-End Driving</h3>
+
+<p><strong>Authors</strong>: Emad Aghajanzadeh, Bethany Anne Wong, Leonhard Kunze, Moritz Thoma, Maximilian Forstenhäusler et al. (11 authors)  |  <strong>Affiliation</strong>: Technical University of Munich, BMW, University of Glasgow, TU Wien</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.24719v1" target="_blank">2611.24719v1</a> | <a href="https://arxiv.org/pdf/2611.24719v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-11-18</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of high computational costs associated with large vision-language models (VLMs) in end-to-end autonomous driving. The key insight is the integration of a compact language model (135M parameters) that maintains performance while allowing for runtime flexibility by detaching language reasoning when not needed, thus optimizing resource usage.</p>
+<p><strong>Key Contribution</strong>: DRIFT employs three main components: (1) A TransFuser-based backbone that extracts dense scene representations from raw sensor inputs, producing visual features of dimensions 432×1512 and 120×1512. (2) A lightweight language model (LM) that processes these features through a two-layer MLP projector to generate reasoning tokens. (3) A planning module conditioned on either LM tokens or surrogate reasoning tokens, allowing for flexible inference without retraining. The surrogate tokens are aligned with LM outputs during training but can operate independently at runtime.</p>
+<p><strong>Result & Impact</strong>: On the Bench2Drive dataset, DRIFT achieves a Driving Score (DS) of 97.03 and a Success Rate of 89.39%, surpassing the TFv6/LEAD baseline by +1.8 DS. In real-world benchmarks like NAVSIM and AlpaSim, DRIFT demonstrates competitive results against larger VLM-based planners while significantly reducing computational costs, making it suitable for deployment on edge hardware.</p>
+<p><strong>Technical Essence</strong>: By distilling reasoning from a compact LM into surrogate tokens that condition a single planner, DRIFT enables flexible reasoning at runtime, achieving a 1.8 DS improvement without increasing computational overhead.</p>
+
+<hr>
+
+<h3>3. CausalDrive: Causal Decomposition for Data-Efficient End-to-End Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Xiaobao Wei, Jingxian Wu, Lirong Yang, Qing Han, Yuan Gao et al. (9 authors)  |  <strong>Affiliation</strong>: Carizon</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.24080v1" target="_blank">2611.24080v1</a> | <a href="https://arxiv.org/pdf/2611.24080v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-11-18</p>
+<p><strong>Core Insight</strong>: This paper solves the issue of entangled learning in autonomous driving, where nominal intention and driving style are not distinctly modeled. The key insight is the causal decomposition of driving behavior, allowing separate learning objectives for nominal intention and multimodal driving styles, enabling clearer attribution of expert demonstrations to their respective influences.</p>
+<p><strong>Key Contribution</strong>: CausalDrive consists of two main components: (1) a Nominal Intention Planner (NIP) that predicts a deterministic nominal trajectory from navigation commands, map topology, and ego state, using counterfactual trajectories to avoid style influence, and (2) a Style Execution Policy (SEP) that models driving styles as a multimodal distribution over residuals between nominal and expert trajectories. The NIP outputs τˆN = f(N, M, E), and the SEP generates δS ∼ p(δ | A, τˆN), combining them to form the final trajectory τˆ = τˆN + δS.</p>
+<p><strong>Result & Impact</strong>: CausalDrive achieves 91.2 PDMS on NAVSIM v1 and 89.5 EPDMS on NAVSIM v2, surpassing previous methods. It demonstrates strong data efficiency, achieving these results using only 20% of expert demonstrations, which is a significant reduction compared to traditional approaches that require full expert data.</p>
+<p><strong>Technical Essence</strong>: By decomposing driving behavior into independent nominal intention and style components, CausalDrive reduces the ambiguity in expert trajectory imitation, leading to a 91.2 PDMS performance on NAVSIM v1 with only 20% of the expert data.</p>
+
+<hr>
+
+<h3>4. PAD: Policy-Aware Data Valuation for Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Chengkai Xu, Yicheng Guo, Jiaqi Liu, Yiming Cui, Shiyu Fang et al. (8 authors)  |  <strong>Affiliation</strong>: Tongji University, UNC Chapel Hill</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.25604v1" target="_blank">2611.25604v1</a> | <a href="https://arxiv.org/pdf/2611.25604v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-11-19</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of inefficient data selection in autonomous driving training, where irrelevant or harmful demonstrations can degrade policy performance. The key insight is to evaluate each demonstration's utility based on its impact on a specific target driving policy, rather than relying on intrinsic properties or general characteristics.</p>
+<p><strong>Key Contribution</strong>: The framework combines three key components: (1) Scene-level advantage calibration using a separate calibration set to assess how each demonstration affects policy performance, (2) Projected training gradients to estimate the influence of each demonstration on the target policy, and (3) A regularized approximation of local training geometry to derive scalable influence-based values. This process involves calculating gradients and scene-level outcomes to assign a policy-specific value to each demonstration, facilitating targeted data selection for retraining.</p>
+<p><strong>Result & Impact</strong>: On the DiffusionDrive dataset, PAD achieves a 3.5-point improvement on the EPDMS metric over real-only training on the NavTest set and a 5.0-point improvement on the NavHard set. This demonstrates consistent gains across multiple policy families while reducing scene-level regressions, outperforming traditional data curation methods.</p>
+<p><strong>Technical Essence</strong>: By integrating scene-level calibration outcomes with projected training gradients, PAD enables precise per-demonstration valuation that directly correlates with downstream policy utility, resulting in targeted data selection that enhances training efficiency and performance.</p>
+
+<hr>
+
+<h3>5. FastRoverVLA: Fast Vision-Language-Action Execution for Off-Road Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Changtao Zhao, Yingxue Guan, Li Wang, Shijie Zhao, Yuhang Zhang et al. (8 authors)  |  <strong>Affiliation</strong>: Beijing Institute of Technology, Chongqing Innovation Center, Chang'an University, Beijing Jiaotong University, Yanshan University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.26242v1" target="_blank">2611.26242v1</a> | <a href="https://arxiv.org/pdf/2611.26242v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-11-19</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of high computational demand in off-road autonomous driving caused by frequent trajectory updates requiring multimodal inference. The key insight is the decoupling of visual plan generation from motion-conditioned execution, allowing for the reuse of previously generated plans while maintaining state consistency during vehicle motion.</p>
+<p><strong>Key Contribution</strong>: FastRoverVLA introduces an action-level execution interface that consists of three main operations: (1) Action-buffer initialization from a frozen vision-language model (VLM) that outputs speed and curvature actions, (2) State-consistent recurrent execution that aligns retained actions with measured vehicle motion using a bounded refresh rule, and (3) Write-back of corrected actions to preserve motion updates. This mechanism allows for a reduced inference demand while maintaining trajectory accuracy across updates.</p>
+<p><strong>Result & Impact</strong>: On the ORAD-3D and RELLIS-3D datasets, FastRoverVLA achieves an average displacement error (ADE) of 0.328m and final displacement error (FDE) of 0.596m, reducing FDE by 18.0% and 36.7% compared to baseline methods at request rates of 6.0% and 4.8%, respectively. Additionally, it lowers the Qwen3-VL request-processing cost by factors of 16.6 and 20.8 under serial replay.</p>
+<p><strong>Technical Essence</strong>: By maintaining a speed-curvature action buffer and applying state alignment during updates, FastRoverVLA reduces the need for frequent multimodal inference, achieving significant reductions in final displacement error while retaining lower computational costs.</p>
+
+<hr>
+
+<h3>6. Composable Driving Style for End-to-End Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Guantian Zheng, Lidong Yu, Tianyu Gao, Jiashu Li, Jiaxing Chen et al. (7 authors)  |  <strong>Affiliation</strong>: Nanyang Technological University, NEOLIX, The Chinese University of Hong Kong, Tsinghua</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.14802v2" target="_blank">2610.14802v2</a> | <a href="https://arxiv.org/pdf/2610.14802v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-10-10  |  <strong>Updated</strong>: 2026-11-19</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of ambiguous driving behavior in end-to-end autonomous driving by introducing a learnable style vector that allows for continuous control of driving styles. The key insight is the ability to interpolate between different driving styles (e.g., aggressive to conservative) using a style coefficient, enabling the model to adapt to varying traffic conditions without retraining.</p>
+<p><strong>Key Contribution</strong>: The method employs a vision-language-action (VLA) planner with a style-conditioned flow-matching decoder. It consists of three main components: (1) a shared VLA backbone that encodes multi-view images and navigation commands into content tokens, (2) a style direction extraction module that computes task vectors from multiple teacher policies, and (3) a flow-matching decoder that generates trajectories based on scaled and combined style vectors. The equations used include c(x) = h(x) + α∆h(x) for style conditioning and ∆W = β∆W_p for blending task vectors.</p>
+<p><strong>Result & Impact</strong>: On the NAVSIM dataset, the proposed method achieves a Style Alignment Score (SAS) above 0.90 across six driving styles, with the best combination reaching 0.954. This represents a significant improvement over previous methods that used discrete style labels, demonstrating composable performance without the need for retraining.</p>
+<p><strong>Technical Essence</strong>: By representing driving styles as learnable task vectors that can be scaled and combined, the method enables continuous adjustment of driving behavior, achieving a SAS of 0.954 without retraining the model.</p>
+
+<hr>
+
+<h3>7. STA: A Split Temporal Adversary Method for Evaluating Robustness of Multimodal RL-based Driving Policies</h3>
+
+<p><strong>Authors</strong>: Shenghao Xiong, Xiaolin Chang  |  <strong>Affiliation</strong>: Beijing Jiaotong University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.20765v1" target="_blank">2611.20765v1</a> | <a href="https://arxiv.org/pdf/2611.20765v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-11-16</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of temporal inconsistency in multimodal reinforcement learning (MRL) for autonomous driving, which can lead to decision failures due to misaligned sensor data. The key insight is the introduction of a unified temporal perturbation mechanism that manipulates sensor observations by replacing them with delayed versions, thereby creating cross-modal misalignment that can be exploited to evaluate policy robustness.</p>
+<p><strong>Key Contribution</strong>: The STA method consists of two main components: (1) A unified multimodal temporal perturbation mechanism that maintains a history buffer of size n, allowing the adversary to replace the current observation of a selected modality with its delayed counterpart from the buffer. (2) A split multimodal adversarial decision mechanism that optimizes when to attack and which modality to perturb, using a gated learning scheme to adaptively select attack strategies based on the victim policy's actions. This approach allows for a more realistic evaluation of temporal robustness under budget constraints.</p>
+<p><strong>Result & Impact</strong>: In experiments conducted in the CARLA simulator, STA more than doubles the collision rate of the strongest baseline against PPO, achieving a collision rate of 34.5% with 17.8% fewer attack attempts. This demonstrates significant improvements in evaluating the robustness of multimodal driving policies under adversarial conditions, highlighting the critical vulnerability of temporal consistency.</p>
+<p><strong>Technical Essence</strong>: By utilizing a history buffer to introduce temporal misalignment in sensor observations, STA effectively increases the collision rate of driving policies, demonstrating the vulnerability of temporal consistency in multimodal reinforcement learning.</p>
+
+<hr>
+
+<h3>8. AutoE2E: Don't speak - Language free end-to-end autonomy A Real-Time Driving Model for L2++ ADAS and L4 Robotaxis</h3>
+
+<p><strong>Authors</strong>: Muhammad Zain Khawaja, Zaynab El Mawas, Ryota Yamada, Gabriela Cordova, Arseni Lysak et al. (15 authors)  |  <strong>Affiliation</strong>: Technical University of Munich, Karlsruhe Institute of Technology</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.22374v1" target="_blank">2611.22374v1</a> | <a href="https://arxiv.org/pdf/2611.22374v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-11-17</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of integrating multi-modal inputs for real-time trajectory prediction in autonomous driving. The key insight is the use of a temporal bird’s-eye-view (BEV) architecture that combines multi-camera perception and HD-map data to predict vehicle motion, achieving a deterministic output without sampling, which is critical for L2++ ADAS and L4 robotaxis.</p>
+<p><strong>Key Contribution</strong>: AutoE2E employs a two-phase architecture: (1) A temporal camera BEV baseline using a frozen ResNet-50 backbone with 256 channels, processing six camera views at 512x512 resolution and fusing eight frames temporally through a six-layer BEVFormer encoder. (2) A map- and route-conditioned extension that integrates a 14-channel HD map and a 2-channel route raster, utilizing gated summation and a GRU-based control planner to output acceleration and curvature over a 6.4s horizon.</p>
+<p><strong>Result & Impact</strong>: On the KITScenes validation benchmark, AutoE2E achieves an average displacement error (ADE) of 0.745m and a final displacement error (FDE) of 2.020m at a three-second prediction horizon. This performance is competitive with existing models while maintaining a processing speed of 76 FPS on a single consumer GPU, significantly enhancing real-time applicability in autonomous driving.</p>
+<p><strong>Technical Essence</strong>: By integrating multi-camera inputs and HD-map data through a deterministic BEV architecture, AutoE2E achieves precise trajectory predictions with an ADE of 0.745m, enabling real-time processing at 76 FPS without the need for sampling.</p>
+
+<hr>
+
+<h3>9. Bridging Scene Generation and Planning: Driving with World Model via Unifying Vision and Motion Representation</h3>
+
+<p><strong>Authors</strong>: Xingtai Gui, Meijie Zhang, Tianyi Yan, Wencheng Han, Jiahao Gong et al. (8 authors)  |  <strong>Affiliation</strong>: University of Macau, Afari, Shandong University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2603.14948v2" target="_blank">2603.14948v2</a> | <a href="https://arxiv.org/pdf/2603.14948v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-03-16  |  <strong>Updated</strong>: 2026-11-17</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of misalignment between visual scene generation and motion planning in autonomous driving. The key insight is the introduction of a Trajectory-aware Driving World Model (TA-DWM) that conditions future scene generation on a trajectory vocabulary, ensuring that generated scenes are consistent with motion intentions, thereby enabling more accurate and reliable planning.</p>
+<p><strong>Key Contribution</strong>: The framework consists of three main components: (1) TA-DWM utilizes a 3D Causal VAE encoder to process historical observations, producing a visual latent representation f ∈ RC×H′×W′. (2) A Multi-modal Trajectory Encoder constructs a trajectory vocabulary V ∈ RN×F×3, where motion anchors are clustered from driving logs, and motion embeddings are computed as c = E_a(V) + E_o(Y - V). (3) A Multi-modal Trajectory Planner employs a query-centric attention mechanism to fuse visual context and ego status, generating top-K trajectories Yˆ1:K based on combined scores from imitation and simulation reward models.</p>
+<p><strong>Result & Impact</strong>: WorldDrive achieves a planning performance of 68.5 NDS on the nuScenes validation set, outperforming vision-only methods by +5.2%. Additionally, it maintains high-fidelity scene generation with a latency reduction from 200ms to 50ms during trajectory evaluation, demonstrating its effectiveness in real-time applications.</p>
+<p><strong>Technical Essence</strong>: By integrating a trajectory-aware representation that couples visual dynamics with motion intentions, WorldDrive enables real-time trajectory planning that reduces latency from 200ms to 50ms while achieving a +5.2% improvement in planning accuracy on the nuScenes dataset.</p>
+
+<hr>
+
+<h3>10. Human-like Semantic Navigation for Autonomous Driving using Knowledge Representation and Large Language Models</h3>
+
+<p><strong>Authors</strong>: Augusto Luis Ballardini, Miguel Ángel Sotelo  |  <strong>Affiliation</strong>: University of Alcala</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2505.16498v2" target="_blank">2505.16498v2</a> | <a href="https://arxiv.org/pdf/2505.16498v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2025-05-22  |  <strong>Updated</strong>: 2026-11-17</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of rigid navigation in dynamic urban environments where predefined maps are insufficient. The key insight is the use of Large Language Models (LLMs) to translate informal navigation instructions into Answer Set Programming (ASP) rules, allowing vehicles to adapt to real-time changes like road construction or detours without relying on static maps.</p>
+<p><strong>Key Contribution</strong>: The authors implement a system that consists of two main components: (1) a knowledge base (KB) that includes intrinsic rules derived from traffic legislation, and (2) an extrinsic KB generated dynamically from LLM outputs. The LLM translates natural language instructions into DLV constraints, which are then processed by ASP to generate all possible navigation solutions. For example, the instruction 'turn right after the first intersection' is converted into specific counting constraints that guide the vehicle's maneuvers.</p>
+<p><strong>Result & Impact</strong>: In experiments, the system demonstrated a 90% success rate in generating correct ASP rules from informal instructions across various scenarios. Compared to traditional map-based systems, it reduced navigation errors by 30% in dynamic environments. The evaluation used a custom dataset of 1,000 driving scenarios, showing significant improvements over baseline methods that relied solely on predefined maps.</p>
+<p><strong>Technical Essence</strong>: By leveraging LLMs to automate the generation of ASP rules from natural language instructions, the system achieves dynamic adaptability in navigation, enabling vehicles to respond to real-time changes without relying on outdated maps.</p>
+
+<hr>
+
+
+        <div class="footer">
+            <p>Auto-generated | Source: arXiv | Analyzed by LLM</p>
+            <p>2026-11-21 15:59</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自动驾驶论文每日速览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index-en.html" class="lang-toggle">Switch to English</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-11-21)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 61</p>
+<p>- 生成时间 | Generated: 2026-11-21 15:59</p>
+<p>- <a href="index-en.html" target="_blank">Switch to English 切换到英文</a></p>
+
+<hr>
+
+
+<h3>1. SuperGlance: Driving at a Glance with a Vision-Language Model</h3>
+
+<p><strong>作者</strong>: Jieyuan Pei, Xin Yan, Mingwei Xu, Haiyi Zhang, Siyu Zou et al. (12 authors)  |  <strong>机构</strong>: Tsinghua University, HiThink, Hong Kong University of Science and Technology, A*STAR, University of Washington, Renmin University of China, Beihang University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.19138v2" target="_blank">2611.19138v2</a> | <a href="https://arxiv.org/pdf/2611.19138v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-11-14  |  <strong>更新</strong>: 2026-11-18</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自主驾驶系统中慢速轨迹规划的问题，通常需要多次前向传递来生成轨迹。关键洞察是通过利用视觉语言模型（VLM）中的单个隐藏状态，SuperGlance能够在一次传递中评分固定的5,273个候选轨迹，从而显著加快规划过程。</p>
+<p><strong>技术贡献</strong>: SuperGlance采用线性策略头，根据来自VLM的单个隐藏状态评分5,273个固定候选轨迹。该架构包括两个训练阶段：第一阶段通过多项选择问题保持视觉能力，第二阶段训练策略根据奖励加权候选轨迹。最终模型在softmax函数中使用温度参数τ = 0.2来选择轨迹，确保高效规划而无需迭代解码。</p>
+<p><strong>结果与影响</strong>: SuperGlance实现了84毫秒的规划时间，比Qwen-Drive-1.0快6.2倍，并在NAVSIM和PAI-AV等基准测试中保持竞争力。在闭环条件下，其故障事件率比Qwen-Drive-1.0好3.9倍，展示了其在实时场景中的效率和有效性。</p>
+<p><strong>技术精髓</strong>: 通过将解码器仅的VLM转变为一种编码器风格的驾驶策略，从单个隐藏状态评分固定轨迹候选，SuperGlance将规划延迟从518毫秒减少到84毫秒，同时保持高精度的轨迹选择。</p>
+
+<hr>
+
+<h3>2. DRIFT: Detachable Reasoning for Runtime-Flexible and Efficient End-to-End Driving</h3>
+
+<p><strong>作者</strong>: Emad Aghajanzadeh, Bethany Anne Wong, Leonhard Kunze, Moritz Thoma, Maximilian Forstenhäusler et al. (11 authors)  |  <strong>机构</strong>: Technical University of Munich, BMW, University of Glasgow, TU Wien</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.24719v1" target="_blank">2611.24719v1</a> | <a href="https://arxiv.org/pdf/2611.24719v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-11-18</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了在端到端自主驾驶中与大型视觉语言模型（VLM）相关的高计算成本问题。关键技术洞察是集成了一个紧凑的语言模型（135M参数），在不需要时可以卸载语言推理，从而优化资源使用，同时保持性能。</p>
+<p><strong>技术贡献</strong>: DRIFT采用三个主要组件：（1）基于TransFuser的骨干网络，从原始传感器输入中提取密集场景表示，生成432×1512和120×1512的视觉特征；（2）一个轻量级语言模型（LM），通过两层MLP投影器处理这些特征以生成推理标记；（3）一个规划模块，根据LM标记或替代推理标记进行条件化，允许灵活推理而无需重新训练。替代标记在训练期间与LM输出对齐，但在运行时可以独立操作。</p>
+<p><strong>结果与影响</strong>: 在Bench2Drive数据集上，DRIFT实现了97.03的驾驶分数（DS）和89.39%的成功率，超越了TFv6/LEAD基线+1.8 DS。在NAVSIM和AlpaSim等真实世界基准中，DRIFT展示了与更大VLM基础规划器的竞争力，同时显著降低计算成本，使其适合在边缘硬件上部署。</p>
+<p><strong>技术精髓</strong>: 通过将推理从紧凑的LM蒸馏到条件单一规划器的替代标记，DRIFT实现了运行时灵活推理，在不增加计算开销的情况下提高了1.8 DS。</p>
+
+<hr>
+
+<h3>3. CausalDrive: Causal Decomposition for Data-Efficient End-to-End Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Xiaobao Wei, Jingxian Wu, Lirong Yang, Qing Han, Yuan Gao et al. (9 authors)  |  <strong>机构</strong>: Carizon</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.24080v1" target="_blank">2611.24080v1</a> | <a href="https://arxiv.org/pdf/2611.24080v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-11-18</p>
+<p><strong>核心洞察</strong>: 该论文解决了自主驾驶中意图和驾驶风格未明确建模的问题。关键技术洞察是对驾驶行为的因果分解，允许对名义意图和多模态驾驶风格进行独立学习目标，从而更清晰地归因于专家演示的各自影响。</p>
+<p><strong>技术贡献</strong>: CausalDrive由两个主要组件组成：（1）名义意图规划器（NIP），从导航命令、地图拓扑和自我状态预测确定性名义轨迹，使用反事实轨迹以避免风格影响；（2）风格执行策略（SEP），将驾驶风格建模为名义轨迹和专家轨迹之间残差的多模态分布。NIP输出τˆN = f(N, M, E)，SEP生成δS ∼ p(δ | A, τˆN)，最终轨迹为τˆ = τˆN + δS。</p>
+<p><strong>结果与影响</strong>: CausalDrive在NAVSIM v1上实现了91.2 PDMS，在NAVSIM v2上实现了89.5 EPDMS，超越了之前的方法。它展示了强大的数据效率，仅使用20%的专家演示就达到了这些结果，相较于传统方法需要完整的专家数据，显著减少了数据需求。</p>
+<p><strong>技术精髓</strong>: 通过将驾驶行为分解为独立的名义意图和风格组件，CausalDrive减少了专家轨迹模仿中的模糊性，在NAVSIM v1上实现了91.2 PDMS，且仅使用20%的专家数据。</p>
+
+<hr>
+
+<h3>4. PAD: Policy-Aware Data Valuation for Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Chengkai Xu, Yicheng Guo, Jiaqi Liu, Yiming Cui, Shiyu Fang et al. (8 authors)  |  <strong>机构</strong>: Tongji University, UNC Chapel Hill</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.25604v1" target="_blank">2611.25604v1</a> | <a href="https://arxiv.org/pdf/2611.25604v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-11-19</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自主驾驶训练中低效数据选择的问题，其中无关或有害的演示可能会降低策略性能。关键技术洞察是根据每个演示对特定目标驾驶策略的影响来评估其效用，而不是依赖于内在属性或一般特征。</p>
+<p><strong>技术贡献</strong>: 该框架结合了三个关键组件：（1）使用独立的校准集进行场景级优势校准，以评估每个演示对策略性能的影响，（2）使用投影训练梯度来估计每个演示对目标策略的影响，以及（3）局部训练几何的正则化近似，以推导可扩展的基于影响的值。该过程涉及计算梯度和场景级结果，为每个演示分配策略特定的值，从而促进针对性的数据选择以进行再训练。</p>
+<p><strong>结果与影响</strong>: 在DiffusionDrive数据集上，PAD在NavTest集上相对于仅使用真实数据的训练提高了3.5分的EPDMS指标，在NavHard集上提高了5.0分。这表明在多个策略家族中实现了一致的增益，同时减少了场景级回归，超越了传统数据策划方法。</p>
+<p><strong>技术精髓</strong>: 通过将场景级校准结果与投影训练梯度相结合，PAD实现了与下游策略效用直接相关的精确逐演示估值，从而实现了针对性的数据选择，增强了训练效率和性能。</p>
+
+<hr>
+
+<h3>5. FastRoverVLA: Fast Vision-Language-Action Execution for Off-Road Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Changtao Zhao, Yingxue Guan, Li Wang, Shijie Zhao, Yuhang Zhang et al. (8 authors)  |  <strong>机构</strong>: Beijing Institute of Technology, Chongqing Innovation Center, Chang'an University, Beijing Jiaotong University, Yanshan University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.26242v1" target="_blank">2611.26242v1</a> | <a href="https://arxiv.org/pdf/2611.26242v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-11-19</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了越野自动驾驶中由于频繁轨迹更新而导致的高计算需求问题，这些更新需要多模态推理。关键技术洞察是将视觉规划生成与运动条件执行解耦，从而在保持状态一致性的同时重用先前生成的计划。</p>
+<p><strong>技术贡献</strong>: FastRoverVLA引入了一个动作级执行接口，主要包括三个操作：（1）从冻结的视觉语言模型（VLM）初始化动作缓冲区，输出速度和曲率动作；（2）状态一致的递归执行，通过有界刷新规则将保留的动作与测量的车辆运动对齐；（3）写回修正后的动作以保留运动更新。该机制在保持轨迹精度的同时，降低了推理需求。</p>
+<p><strong>结果与影响</strong>: 在ORAD-3D和RELLIS-3D数据集上，FastRoverVLA实现了平均位移误差（ADE）为0.328m，最终位移误差（FDE）为0.596m，分别比基线方法降低了18.0%和36.7%的FDE，且请求率为6.0%和4.8%。此外，它在串行重放下将Qwen3-VL请求处理成本降低了16.6倍和20.8倍。</p>
+<p><strong>技术精髓</strong>: 通过维护速度-曲率动作缓冲区并在更新期间应用状态对齐，FastRoverVLA减少了频繁多模态推理的需求，实现了最终位移误差的显著降低，同时保持了较低的计算成本。</p>
+
+<hr>
+
+<h3>6. Composable Driving Style for End-to-End Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Guantian Zheng, Lidong Yu, Tianyu Gao, Jiashu Li, Jiaxing Chen et al. (7 authors)  |  <strong>机构</strong>: Nanyang Technological University, NEOLIX, The Chinese University of Hong Kong, Tsinghua</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.14802v2" target="_blank">2610.14802v2</a> | <a href="https://arxiv.org/pdf/2610.14802v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-10-10  |  <strong>更新</strong>: 2026-11-19</p>
+<p><strong>核心洞察</strong>: 本论文解决了端到端自动驾驶中驾驶行为模糊的问题，通过引入可学习的风格向量，实现对驾驶风格的连续控制。关键洞察在于能够使用风格系数在不同驾驶风格（例如，激进与保守）之间进行插值，使模型能够在不重新训练的情况下适应不同的交通条件。</p>
+<p><strong>技术贡献</strong>: 该方法采用了一个带有风格条件流匹配解码器的视觉-语言-动作（VLA）规划器。它由三个主要组件组成：（1）一个共享的VLA骨干网络，将多视角图像和导航命令编码为内容标记；（2）一个风格方向提取模块，从多个教师策略计算任务向量；（3）一个流匹配解码器，根据缩放和组合的风格向量生成轨迹。使用的方程包括c(x) = h(x) + α∆h(x)用于风格条件和∆W = β∆W_p用于任务向量的混合。</p>
+<p><strong>结果与影响</strong>: 在NAVSIM数据集上，所提出的方法在六种驾驶风格上实现了超过0.90的风格对齐得分（SAS），最佳组合达到0.954。这代表着相较于使用离散风格标签的先前方法的显著改进，展示了无需重新训练的可组合性能。</p>
+<p><strong>技术精髓</strong>: 通过将驾驶风格表示为可学习的任务向量并进行缩放和组合，该方法实现了驾驶行为的连续调整，达到0.954的SAS而无需重新训练模型。</p>
+
+<hr>
+
+<h3>7. STA: A Split Temporal Adversary Method for Evaluating Robustness of Multimodal RL-based Driving Policies</h3>
+
+<p><strong>作者</strong>: Shenghao Xiong, Xiaolin Chang  |  <strong>机构</strong>: Beijing Jiaotong University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.20765v1" target="_blank">2611.20765v1</a> | <a href="https://arxiv.org/pdf/2611.20765v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-11-16</p>
+<p><strong>核心洞察</strong>: 本论文解决了多模态强化学习（MRL）中时间不一致性的问题，这可能导致由于传感器数据不对齐而导致的决策失败。关键技术洞察是引入统一的时间扰动机制，通过用延迟版本替换传感器观测，创造出可利用的跨模态不对齐，从而评估策略的鲁棒性。</p>
+<p><strong>技术贡献</strong>: STA方法由两个主要组件组成：（1）统一的多模态时间扰动机制，维护一个大小为n的历史缓冲区，允许对手用延迟的对应观测替换所选模态的当前观测；（2）分离的多模态对抗决策机制，优化何时攻击和选择哪个模态进行扰动，使用门控学习方案根据受害者策略的动作自适应选择攻击策略。这种方法允许在预算约束下更现实地评估时间鲁棒性。</p>
+<p><strong>结果与影响</strong>: 在CARLA模拟器中进行的实验中，STA使最强基线对PPO的碰撞率翻倍，达到34.5%的碰撞率，同时减少了17.8%的攻击尝试。这表明在对抗条件下评估多模态驾驶策略的鲁棒性有显著改善，突显了时间一致性作为关键脆弱性的影响。</p>
+<p><strong>技术精髓</strong>: 通过利用历史缓冲区在传感器观测中引入时间不对齐，STA有效提高了驾驶策略的碰撞率，展示了多模态强化学习中时间一致性的脆弱性。</p>
+
+<hr>
+
+<h3>8. AutoE2E: Don't speak - Language free end-to-end autonomy A Real-Time Driving Model for L2++ ADAS and L4 Robotaxis</h3>
+
+<p><strong>作者</strong>: Muhammad Zain Khawaja, Zaynab El Mawas, Ryota Yamada, Gabriela Cordova, Arseni Lysak et al. (15 authors)  |  <strong>机构</strong>: Technical University of Munich, Karlsruhe Institute of Technology</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.22374v1" target="_blank">2611.22374v1</a> | <a href="https://arxiv.org/pdf/2611.22374v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-11-17</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了在实时轨迹预测中整合多模态输入的问题。关键技术洞察是使用时间鸟瞰图（BEV）架构，将多摄像头感知与高清地图数据结合，以预测车辆运动，实现无采样的确定性输出，这对L2++ ADAS和L4机器人出租车至关重要。</p>
+<p><strong>技术贡献</strong>: AutoE2E采用两阶段架构：（1）时间摄像头BEV基线，使用冻结的ResNet-50骨干网，处理六个512x512分辨率的摄像头视图，并通过六层BEVFormer编码器融合八帧；（2）地图和路线条件扩展，集成14通道高清地图和2通道路线光栅，利用门控求和和基于GRU的控制规划器输出6.4秒的加速度和曲率。</p>
+<p><strong>结果与影响</strong>: 在KITScenes验证基准上，AutoE2E实现了0.745米的平均位移误差（ADE）和2.020米的最终位移误差（FDE），在三秒预测范围内。这一性能与现有模型具有竞争力，同时在单个消费级GPU上保持76 FPS的处理速度，显著增强了在自动驾驶中的实时适用性。</p>
+<p><strong>技术精髓</strong>: 通过将多摄像头输入和高清地图数据集成到确定性BEV架构中，AutoE2E实现了精确的轨迹预测，ADE为0.745米，能够以76 FPS的速度实时处理，无需采样。</p>
+
+<hr>
+
+<h3>9. Bridging Scene Generation and Planning: Driving with World Model via Unifying Vision and Motion Representation</h3>
+
+<p><strong>作者</strong>: Xingtai Gui, Meijie Zhang, Tianyi Yan, Wencheng Han, Jiahao Gong et al. (8 authors)  |  <strong>机构</strong>: University of Macau, Afari, Shandong University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2603.14948v2" target="_blank">2603.14948v2</a> | <a href="https://arxiv.org/pdf/2603.14948v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-03-16  |  <strong>更新</strong>: 2026-11-17</p>
+<p><strong>核心洞察</strong>: 该论文解决了自主驾驶中视觉场景生成与运动规划之间的不一致问题。关键技术洞察是引入了一个基于轨迹的驾驶世界模型（TA-DWM），该模型在生成未来场景时以轨迹词汇为条件，确保生成的场景与运动意图一致，从而实现更准确和可靠的规划。</p>
+<p><strong>技术贡献</strong>: 该框架由三个主要组件组成：（1）TA-DWM利用3D因果变分自编码器处理历史观测，生成视觉潜在表示f ∈ RC×H′×W′；（2）多模态轨迹编码器构建轨迹词汇V ∈ RN×F×3，从驾驶日志中聚类运动锚点，计算运动嵌入c = E_a(V) + E_o(Y - V)；（3）多模态轨迹规划器采用基于查询的注意力机制融合视觉上下文和自我状态，基于模仿和仿真奖励模型生成前K个轨迹Yˆ1:K。</p>
+<p><strong>结果与影响</strong>: WorldDrive在nuScenes验证集上的规划性能为68.5 NDS，超过了视觉仅方法5.2%。此外，在轨迹评估过程中，延迟从200毫秒降低到50毫秒，证明其在实时应用中的有效性。</p>
+<p><strong>技术精髓</strong>: 通过整合将视觉动态与运动意图耦合的轨迹感知表示，WorldDrive实现了实时轨迹规划，将延迟从200毫秒降低到50毫秒，同时在nuScenes数据集上实现了5.2%的规划精度提升。</p>
+
+<hr>
+
+<h3>10. Human-like Semantic Navigation for Autonomous Driving using Knowledge Representation and Large Language Models</h3>
+
+<p><strong>作者</strong>: Augusto Luis Ballardini, Miguel Ángel Sotelo  |  <strong>机构</strong>: University of Alcala</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2505.16498v2" target="_blank">2505.16498v2</a> | <a href="https://arxiv.org/pdf/2505.16498v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-05-22  |  <strong>更新</strong>: 2026-11-17</p>
+<p><strong>核心洞察</strong>: 本文解决了在动态城市环境中，预定义地图不足导致的刚性导航问题。关键技术洞察是使用大型语言模型（LLMs）将非正式导航指令转换为答案集编程（ASP）规则，使车辆能够实时适应道路施工或绕行等变化，而无需依赖静态地图。</p>
+<p><strong>技术贡献</strong>: 作者实现了一个系统，主要由两个组件组成：（1）包含交通法规衍生的内在规则的知识库（KB）；（2）根据LLM输出动态生成的外在KB。LLM将自然语言指令转换为DLV约束，然后由ASP处理以生成所有可能的导航解决方案。例如，指令'在第一个交叉口右转'被转换为特定的计数约束，以指导车辆的操作。</p>
+<p><strong>结果与影响</strong>: 在实验中，该系统在各种场景中生成正确ASP规则的成功率达到90%。与传统基于地图的系统相比，在动态环境中导航错误减少了30%。评估使用了1000个驾驶场景的自定义数据集，显示出相较于仅依赖预定义地图的基线方法的显著改进。</p>
+<p><strong>技术精髓</strong>: 通过利用LLM自动生成ASP规则，系统实现了导航的动态适应性，使车辆能够在不依赖过时地图的情况下响应实时变化。</p>
+
+<hr>
+
+
+
+        <div class="footer">
+            <p>自动生成 | 数据来源: arXiv | 由 LLM 分析总结</p>
+            <p>2026-11-21 15:59</p>
+        </div>
+    </div>
+</body>
+</html>
