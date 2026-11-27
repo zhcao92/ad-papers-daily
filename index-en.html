@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Driving Papers Daily</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="lang-toggle">切换到中文</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-11-27)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 54</p>
+<p>- 生成时间 | Generated: 2026-11-27 17:58</p>
+<p>- <a href="index.html" target="_blank">切换到中文 Switch to Chinese</a></p>
+
+<hr>
+
+
+<h3>1. Instant NuRec: Feed-Forward 3D Gaussian Reconstruction for Driving Scene Simulation</h3>
+
+<p><strong>Authors</strong>: NVIDIA, :, Jiahui Huang, Jiawei Ren, Michal Tyszkiewicz et al. (17 authors)  |  <strong>Affiliation</strong>: NVIDIA</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2607.14203v3" target="_blank">2607.14203v3</a> | <a href="https://arxiv.org/pdf/2607.14203v3" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-07-15  |  <strong>Updated</strong>: 2026-11-25</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of slow and cumbersome per-scene optimization in 3D scene reconstruction for autonomous driving simulations. The key insight is the use of a feed-forward neural reconstruction model that processes multi-view driving logs in a single pass, significantly reducing the time required for generating a fully simulatable 3D Gaussian Splatting world.</p>
+<p><strong>Key Contribution</strong>: The model employs a shared encoder based on an alternating-attention Vision Transformer that processes multi-view inputs and produces a latent representation. It features multiple lightweight decoders: (1) a 3D Gaussian Splatting decoder that generates static and dynamic layers with attributes like position and opacity; (2) a motion decoder predicting piecewise-linear trajectories; and (3) a sky decoder for distant background representation. The query point selection strategy reduces Gaussian count from ~351K to ~88K while maintaining quality.</p>
+<p><strong>Result & Impact</strong>: On the Waymo Open Dataset, Instant NuRec achieves a PSNR improvement of 2.01 dB over the strongest evaluated baseline, with an average processing time of ~1.5 seconds for a 10-20 second driving scene. This represents a computational efficiency gain of 10^3 to 10^4 times compared to traditional per-scene optimization methods.</p>
+<p><strong>Technical Essence</strong>: By utilizing a shared encoder with alternating attention and decoupling Gaussian generation from pixel density through selective query point sampling, Instant NuRec achieves real-time 3D reconstruction in ~1.5 seconds while maintaining high fidelity in driving scene simulations.</p>
+
+<hr>
+
+<h3>2. AutoE2E: Don't speak - Language free end-to-end autonomy for L2++ ADAS and L4 Robotaxis</h3>
+
+<p><strong>Authors</strong>: Muhammad Zain Khawaja, Zaynab El Mawas, Ryota Yamada, Gabriela Cordova, Arseni Lysak et al. (15 authors)  |  <strong>Affiliation</strong>: Technical University of Munich, Karlsruhe Institute of Technology</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.22374v2" target="_blank">2611.22374v2</a> | <a href="https://arxiv.org/pdf/2611.22374v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-11-17  |  <strong>Updated</strong>: 2026-11-25</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of integrating multi-modal inputs (camera, HD-map, route) for trajectory prediction in autonomous driving. The key insight is the use of a temporal bird’s-eye-view (BEV) architecture that fuses information from six camera views and navigational data, enabling accurate future motion predictions even in complex environments.</p>
+<p><strong>Key Contribution</strong>: AutoE2E employs three main components: (1) A frozen ResNet-50 backbone processes six 512x512 camera images, generating 256-channel features; (2) A T8 temporal fusion module concatenates features from eight time steps, resulting in a 2048-channel BEV representation; (3) A GRU-based control planner outputs trajectory commands (acceleration and curvature) over a 6.4s horizon, integrating ego-motion history for improved accuracy.</p>
+<p><strong>Result & Impact</strong>: On the KITScenes validation benchmark, AutoE2E achieves an average displacement error (ADE) of 0.745m and a final displacement error (FDE) of 2.020m at a three-second prediction horizon. This performance is validated against a baseline model, showcasing its capability in real-vehicle scenarios.</p>
+<p><strong>Technical Essence</strong>: By implementing a temporal BEV architecture that fuses multi-camera inputs and navigational data, AutoE2E reduces prediction errors to 0.745m ADE, enhancing trajectory accuracy in autonomous driving applications.</p>
+
+<hr>
+
+<h3>3. OnCue: Generating Safety-Critical Driving Scenarios under Occlusion with Temporal Control</h3>
+
+<p><strong>Authors</strong>: Kailang Ma, Li Song, Weining Ren, Zirui Li, Xianjie Dai et al. (9 authors)  |  <strong>Affiliation</strong>: KAIST, Giga, The Chinese University of Hong Kong, Nanyang Technological University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.33439v1" target="_blank">2611.33439v1</a> | <a href="https://arxiv.org/pdf/2611.33439v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-11-24</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of generating safety-critical driving scenarios under occlusion, where the timing of hazard visibility is crucial for evaluating autonomous driving responses. The key insight is the ability to control both the exposure time of occluded hazards and the reference contact time with a fixed ego vehicle, allowing for systematic testing of planners under varying visibility conditions.</p>
+<p><strong>Key Contribution</strong>: OnCue consists of several key components: (1) A fixed reference ego vehicle that establishes the conflict scenario, (2) Geometry-derived hidden start and timed waypoints that dictate when hazards become visible, (3) An offline response oracle that labels maneuvers as Reactive or Anticipatory based on exposure timing, and (4) A conditional trajectory generator that fills in motion between waypoints using learned motion generation techniques. The framework allows for precise control over exposure and contact times, enabling the generation of scenarios that reveal planner behavior under different visibility conditions.</p>
+<p><strong>Result & Impact</strong>: OnCue achieves a 90.1–96.6% success rate in matching requested exposure and contact times within ±0.2s on the Waymo Open Motion Dataset. It reduces collision rates from 59.1% to 5.5% in matched cyclist encounters and improves planner performance by 54.8 points on held-out Reactive tests compared to the baseline Latent Driver, demonstrating significant enhancements in safety-critical scenario generation.</p>
+<p><strong>Technical Essence</strong>: By jointly controlling the exposure and reference contact times through geometry-derived waypoints, OnCue enables systematic evaluation of planner responses to occluded hazards, significantly reducing collision rates and improving the reliability of autonomous driving systems.</p>
+
+<hr>
+
+<h3>4. ROSE-Drive: Runtime Orchestration and System Evolution for Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Qihang Huang, Zhidong Wang, Zirui Li, YuJie Yan, Jingsong Liang et al. (9 authors)  |  <strong>Affiliation</strong>: Nanyang Technological University, Tongji University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.30438v1" target="_blank">2611.30438v1</a> | <a href="https://arxiv.org/pdf/2611.30438v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-11-23</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of inefficient model utilization in autonomous driving systems by introducing ROSE-Drive, which orchestrates the execution of multiple frozen driving models and skills in real-time. The key insight is the use of a shared task interface and persistent task states to maintain continuity and adaptively schedule model calls based on execution feedback.</p>
+<p><strong>Key Contribution</strong>: ROSE-Drive employs a runtime orchestration loop that includes: (1) a shared physical state that tracks position, speed, and scene context, (2) a task state that maintains responsibility across changing observations, and (3) an adaptive scheduling mechanism that selects model outputs based on execution feedback. For example, it can skip model inference on over 71% of control steps, significantly reducing computational overhead while maintaining driving performance.</p>
+<p><strong>Result & Impact</strong>: Evaluations on Bench2Drive v0.0.3 and Fail2Drive show that the driving score (DS) for AutoMoT improves from 25 to 52 across system stages, while SimLingo progresses from 22 to 47. This indicates a substantial increase in driving performance without retraining models, demonstrating the effectiveness of the orchestration framework.</p>
+<p><strong>Technical Essence</strong>: By integrating a shared task interface with persistent task states, ROSE-Drive enables real-time orchestration of multiple driving models, achieving a 2x improvement in driving score while skipping model inference on 71% of control steps.</p>
+
+<hr>
+
+<h3>5. Collision Risk Estimation via Loss Prediction in End-to-End Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Ziliang Xiong, Shipeng Liu, Nathaniel Helgesen, Hongwei Li, Joakim Johnander et al. (6 authors)  |  <strong>Affiliation</strong>: Linköping University, Zenseact, National University of Singapore</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2503.07425v3" target="_blank">2503.07425v3</a> | <a href="https://arxiv.org/pdf/2503.07425v3" target="_blank">PDF</a>  |  <strong>Published</strong>: 2025-03-10  |  <strong>Updated</strong>: 2026-11-23</p>
+<p><strong>Core Insight</strong>: This paper addresses the problem of collision risk estimation in end-to-end autonomous driving systems, which typically do not quantify collision risks explicitly. The key insight is that intermediate outputs from planners can be interpreted to predict collision losses, allowing for real-time risk assessment without retraining the planner.</p>
+<p><strong>Key Contribution</strong>: The authors introduce RiskMonitor, which consists of two variants: RiskMonitor-T, which utilizes only the planner's motion and planning tokens, and RiskMonitor-G, which incorporates additional geometric information about predicted trajectories. RiskMonitor predicts collision risk as a binary classification task, leveraging a small neural network trained on historical collision loss values. The architecture processes input tokens of size N×T×D, where N is the number of agents, T is the time horizon, and D is the feature dimension.</p>
+<p><strong>Result & Impact</strong>: Evaluated on the nuScenes dataset, RiskMonitor-G outperforms all baselines, achieving an AUROC of 0.85 and an average precision of 63.1% across three planners. In closed-loop tests using NeuroNCAP, integrating RiskMonitor-G with a braking policy reduces the collision rate of UniAD from 63.9% to 23.7%, demonstrating a 62.9% reduction in collision incidents.</p>
+<p><strong>Technical Essence</strong>: By framing collision risk estimation as a binary classification task using intermediate planner outputs and geometric relationships, RiskMonitor achieves significant reductions in collision rates during real-time driving scenarios.</p>
+
+<hr>
+
+<h3>6. Instant LiDAR: Feed-Forward Gaussian Reconstruction for LiDAR Simulation</h3>
+
+<p><strong>Authors</strong>: Xin Kang, Jiahui Huang, Jiawei Ren, Sipeng Zhang, Yu Chen et al. (7 authors)  |  <strong>Affiliation</strong>: NVIDIA</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.32042v1" target="_blank">2611.32042v1</a> | <a href="https://arxiv.org/pdf/2611.32042v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-11-24</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of slow LiDAR scene reconstruction, which can take hours using traditional methods like NuRec. The key insight is the use of a feed-forward pipeline that reconstructs scenes in minutes by leveraging measurement-anchored Gaussian predictions and multi-frame consolidation, significantly reducing the time required for creating reusable LiDAR assets.</p>
+<p><strong>Key Contribution</strong>: The mechanism consists of three main components: (1) Measurement-anchored Gaussian prediction, which uses recorded LiDAR returns to predict Gaussian attributes (center, covariance, opacity, intensity) via an eight-block Transformer; (2) Sampling-aware Gaussian scales that adapt local scales based on LiDAR ray spacing, ensuring coverage without gaps; (3) Multi-frame consolidation that merges overlapping Gaussian predictions using moment matching, preserving spatial extent while reducing redundancy.</p>
+<p><strong>Result & Impact</strong>: On the Physical AI dataset, Instant LiDAR achieves scene reconstruction approximately 46× faster than NuRec, and 70× faster on the Waymo dataset. It maintains competitive downstream 3D detection quality, achieving a mean Average Precision (AP) of 0.483 on Waymo, comparable to state-of-the-art methods that require per-scene optimization.</p>
+<p><strong>Technical Essence</strong>: By employing a feed-forward pipeline that integrates measurement-anchored Gaussian predictions with multi-frame consolidation, Instant LiDAR reduces scene reconstruction time from hours to minutes while preserving geometric accuracy for downstream tasks.</p>
+
+<hr>
+
+<h3>7. Coordinating Perception and Planning for Test-Time Adaptation in End-to-End Driving under Distribution Shifts</h3>
+
+<p><strong>Authors</strong>: Shiyu Fang, Yiming Cui, Qihang Huang, Zhan Chen, Collister Chua et al. (9 authors)  |  <strong>Affiliation</strong>: Tongji University, Nanyang Technological University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.30739v1" target="_blank">2611.30739v1</a> | <a href="https://arxiv.org/pdf/2611.30739v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-11-23</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of performance degradation in end-to-end autonomous driving models under distribution shifts, such as fog or brightness fluctuations, which can lead to a 36.4% increase in L2 error. The key insight is the coordination of perception and planning through a joint adaptation objective that minimizes perception entropy while ensuring temporal planning consistency.</p>
+<p><strong>Key Contribution</strong>: P2-TTA employs two main components: (1) a joint self-supervised objective combining perception entropy minimization (L_mm) and retrospective temporal planning consistency (L_temp), where L_mm encourages confident predictions from the perception model, and L_temp ensures that predicted egomotion aligns with observed motion. (2) An EMA-based teacher-student architecture stabilizes updates by projecting candidate parameters around an EMA reference, accepting updates only when they improve planning consistency, effectively updating only the affine parameters of LayerNorm modules.</p>
+<p><strong>Result & Impact</strong>: On the UniAD dataset, P2-TTA achieves average recovery rates of 36.4% for L2 error, 30.0% for collision rate, and 9.3% for PDMS under severe distribution shifts. This represents a significant improvement over baseline methods, with an average adaptation time of 19.9 ms while updating only 0.11% of model parameters, demonstrating efficiency in real-time applications.</p>
+<p><strong>Technical Essence</strong>: By integrating a joint self-supervised objective that combines perception entropy with temporal planning consistency, P2-TTA stabilizes online updates, achieving a 36.4% reduction in L2 error under distribution shifts while maintaining low adaptation overhead.</p>
+
+<hr>
+
+<h3>8. AdvMTO: Multimodal and Temporal Adversarial Object Attacks via 2D Gaussian Splatting for BEV-Based 3D Object Detection</h3>
+
+<p><strong>Authors</strong>: Zhiyang Cui, Hao Tan, Ruonan Li, Shibin Wu, Junjian Zhang et al. (7 authors)  |  <strong>Affiliation</strong>: Harbin Institute of Technology, Peng Cheng Laboratory, National University of Defense Technology</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.30283v1" target="_blank">2611.30283v1</a> | <a href="https://arxiv.org/pdf/2611.30283v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-11-23</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of detection suppression of persistent adversarial objects in BEV-based 3D object detection systems. The key insight is the use of a 2D Gaussian Splatting framework that encodes appearance, geometry, and opacity into a single object state, allowing for the generation of both camera images and LiDAR returns that disrupt detection across multiple frames.</p>
+<p><strong>Key Contribution</strong>: AdvMTO employs three main components: (1) A 2D Gaussian Splatting (2DGS) representation that encodes object states as oriented surfels with parameters for center, scale, orientation, opacity, and RGB values. (2) Detector-native temporal processing that regenerates LiDAR returns at each source pose, ensuring historical inputs influence current predictions. (3) Bounded appearance perturbation optimization, which adjusts object appearance while maintaining geometry, using a target-suppression loss function to guide the optimization process.</p>
+<p><strong>Result & Impact</strong>: Experiments on the nuScenes dataset show that AdvMTO achieves a 5.2% reduction in traffic cone detection scores across three BEV detectors compared to 3D Gaussian Splatting attacks. The method demonstrates improved attack effectiveness by optimizing appearance perturbations through historical BEV memory updates.</p>
+<p><strong>Technical Essence</strong>: By utilizing a 2D Gaussian Splatting framework that encodes object states into a unified representation, AdvMTO achieves significant suppression of adversarial object detection across multiple modalities and frames, resulting in a 5.2% score reduction in traffic cone detection.</p>
+
+<hr>
+
+<h3>9. Let LiDAR Decide Where to Look: Geometry-Measured Token Selection for Efficient Sparse Latent World Models</h3>
+
+<p><strong>Authors</strong>: Zeping Zhang, Zhuoya Zhao, Robert Laganière  |  <strong>Affiliation</strong>: University of Ottawa</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.40935v2" target="_blank">2610.40935v2</a> | <a href="https://arxiv.org/pdf/2610.40935v2" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-10-29  |  <strong>Updated</strong>: 2026-11-23</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of computational inefficiency in autonomous driving models that process excessive image tokens, which often contain irrelevant information. The key insight is to utilize LiDAR and radar measurements to pre-select only the most relevant image patches, significantly reducing the number of tokens processed by the visual backbone.</p>
+<p><strong>Key Contribution</strong>: The proposed Geometry-Aware Token Selection (GATS) consists of four stages: (1) scoring image patches using LiDAR and radar data to retain K tokens based on a budget ratio β (e.g., β=0.1 for 10% of tokens), (2) assigning each selected token a 3D anchor based on the median LiDAR point, (3) employing a self-supervised world model to predict future features and displacements, and (4) using a planning head to output ego trajectories. This process reduces the total FLOPs from 185 GFLOPs to 24 GFLOPs at a 10% budget.</p>
+<p><strong>Result & Impact</strong>: On the nuScenes dataset, GATS achieves a 3-sec L2 displacement error of 0.520m, outperforming the dense baseline (0.573m) while processing only 10% of the tokens, leading to an 18× reduction in computational cost. Additionally, it covers 95.8% of hazardous vehicles in 739 intent-critical scenarios with a collision rate of 0.09%, which is 73.5% lower than the dense model.</p>
+<p><strong>Technical Essence</strong>: By leveraging LiDAR geometry for token selection before visual encoding, GATS reduces the number of processed tokens from 3,456 to 346, achieving a computational efficiency of 24 GFLOPs while maintaining superior planning accuracy.</p>
+
+<hr>
+
+<h3>10. MemAnchorWorld: A Sparse World Model with Horizon-Conditioned Memory Retrieval for Autonomous Driving</h3>
+
+<p><strong>Authors</strong>: Xinyang Jia, Yuqi Zhang, Jiakai Wang, Yahu Yang, Guandong Pan et al. (7 authors)  |  <strong>Affiliation</strong>: Beihang University, Zhongguancun Laboratory, Beihang University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.32745v1" target="_blank">2611.32745v1</a> | <a href="https://arxiv.org/pdf/2611.32745v1" target="_blank">PDF</a>  |  <strong>Published</strong>: 2026-11-24</p>
+<p><strong>Core Insight</strong>: This paper solves the problem of error propagation in long-horizon 4D semantic occupancy forecasting, which can lead to significant deviations in predictions. The key insight is the introduction of a hierarchical dual-path memory-anchor retrieval mechanism that explicitly retrieves relevant historical geometric and semantic evidence, reducing the reliance on recurrent state propagation that typically accumulates errors over time.</p>
+<p><strong>Key Contribution</strong>: MemAnchorWorld employs three main components: (1) A hierarchical dual-path memory-anchor retrieval mechanism that selects K historical queries based on geometric and semantic relevance, (2) Point-level memory-anchor retrieval that aggregates features from associated points to provide local evidence, and (3) A point-level residual adapter that modulates corrections to semantics, occupancy confidence, and spatial positions using independent gates. This architecture allows for adaptive fusion of historical evidence at each forecasting horizon.</p>
+<p><strong>Result & Impact</strong>: On the Occ3D-nuScenes dataset, MemAnchorWorld achieves an average mIoU of 13.55% and an average IoU of 22.84% across 1–3 seconds forecasting horizons, outperforming the SparseWorld baseline by 0.35% and 0.81% respectively. This improvement is critical for enhancing the accuracy of long-term predictions in autonomous driving applications.</p>
+<p><strong>Technical Essence</strong>: By implementing a hierarchical dual-path memory-anchor retrieval mechanism that selects historical queries conditioned on forecast time, MemAnchorWorld reduces error propagation in occupancy predictions, achieving a 0.35% improvement in mIoU over SparseWorld.</p>
+
+<hr>
+
+
+        <div class="footer">
+            <p>Auto-generated | Source: arXiv | Analyzed by LLM</p>
+            <p>2026-11-27 17:58</p>
+        </div>
+    </div>
+</body>
+</html>

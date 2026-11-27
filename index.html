@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自动驾驶论文每日速览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2563EB;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #1F2937;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #10B981;
+        }
+
+        h3 {
+            color: #1F2937;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #4B5563;
+        }
+
+        .point {
+            padding: 8px 0;
+            color: #1F2937;
+        }
+
+        .number {
+            color: #2563EB;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E5E7EB;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index-en.html" class="lang-toggle">Switch to English</a>
+
+    <div class="container">
+        <h1>自动驾驶论文每日速览 | Autonomous Driving Papers Daily (2026-11-27)</h1>
+
+<p>- 精选论文 | Selected Papers: 10</p>
+<p>- 过去7天相关论文总数 | Total Papers in Past 7 Days: 54</p>
+<p>- 生成时间 | Generated: 2026-11-27 17:58</p>
+<p>- <a href="index-en.html" target="_blank">Switch to English 切换到英文</a></p>
+
+<hr>
+
+
+<h3>1. Instant NuRec: Feed-Forward 3D Gaussian Reconstruction for Driving Scene Simulation</h3>
+
+<p><strong>作者</strong>: NVIDIA, :, Jiahui Huang, Jiawei Ren, Michal Tyszkiewicz et al. (17 authors)  |  <strong>机构</strong>: NVIDIA</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2607.14203v3" target="_blank">2607.14203v3</a> | <a href="https://arxiv.org/pdf/2607.14203v3" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-07-15  |  <strong>更新</strong>: 2026-11-25</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自主驾驶仿真中3D场景重建的慢速和繁琐的逐场优化问题。关键技术洞察是使用前馈神经重建模型在单次传递中处理多视角驾驶日志，从而显著减少生成完全可模拟的3D高斯点云世界所需的时间。</p>
+<p><strong>技术贡献</strong>: 该模型采用基于交替注意力视觉变换器的共享编码器，处理多视角输入并生成潜在表示。它具有多个轻量级解码器：（1）3D高斯点云解码器生成具有位置和不透明度等属性的静态和动态层；（2）运动解码器预测分段线性轨迹；（3）天空解码器表示远处背景。查询点选择策略将高斯数量从约351K减少到约88K，同时保持质量。</p>
+<p><strong>结果与影响</strong>: 在Waymo开放数据集上，Instant NuRec在最强基线的基础上实现了2.01 dB的PSNR提升，平均处理时间约为1.5秒，适用于10-20秒的驾驶场景。这相较于传统逐场优化方法实现了10^3到10^4倍的计算效率提升。</p>
+<p><strong>技术精髓</strong>: 通过利用具有交替注意力的共享编码器，并通过选择性查询点采样将高斯生成与像素密度解耦，Instant NuRec在约1.5秒内实现了实时3D重建，同时保持了驾驶场景仿真的高保真度。</p>
+
+<hr>
+
+<h3>2. AutoE2E: Don't speak - Language free end-to-end autonomy for L2++ ADAS and L4 Robotaxis</h3>
+
+<p><strong>作者</strong>: Muhammad Zain Khawaja, Zaynab El Mawas, Ryota Yamada, Gabriela Cordova, Arseni Lysak et al. (15 authors)  |  <strong>机构</strong>: Technical University of Munich, Karlsruhe Institute of Technology</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.22374v2" target="_blank">2611.22374v2</a> | <a href="https://arxiv.org/pdf/2611.22374v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-11-17  |  <strong>更新</strong>: 2026-11-25</p>
+<p><strong>核心洞察</strong>: 该论文解决了将多模态输入（相机、高清地图、路线）集成用于自动驾驶轨迹预测的问题。关键技术洞察是使用时间鸟瞰图（BEV）架构融合来自六个相机视图和导航数据的信息，即使在复杂环境中也能实现准确的未来运动预测。</p>
+<p><strong>技术贡献</strong>: AutoE2E采用三个主要组件：（1）一个冻结的ResNet-50主干处理六个512x512的相机图像，生成256通道特征；（2）一个T8时间融合模块将来自八个时间步的特征连接，形成2048通道的BEV表示；（3）一个基于GRU的控制规划器输出6.4秒内的轨迹命令（加速度和曲率），整合自我运动历史以提高准确性。</p>
+<p><strong>结果与影响</strong>: 在KITScenes验证基准上，AutoE2E实现了平均位移误差（ADE）为0.745m，最终位移误差（FDE）为2.020m，预测时间为三秒。这一性能经过基线模型验证，展示了其在真实车辆场景中的能力。</p>
+<p><strong>技术精髓</strong>: 通过实现融合多相机输入和导航数据的时间BEV架构，AutoE2E将预测误差降低到0.745m ADE，从而提高了自动驾驶应用中的轨迹准确性。</p>
+
+<hr>
+
+<h3>3. OnCue: Generating Safety-Critical Driving Scenarios under Occlusion with Temporal Control</h3>
+
+<p><strong>作者</strong>: Kailang Ma, Li Song, Weining Ren, Zirui Li, Xianjie Dai et al. (9 authors)  |  <strong>机构</strong>: KAIST, Giga, The Chinese University of Hong Kong, Nanyang Technological University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.33439v1" target="_blank">2611.33439v1</a> | <a href="https://arxiv.org/pdf/2611.33439v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-11-24</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了在遮挡情况下生成安全关键驾驶场景的问题，其中危险可见性的时机对评估自动驾驶反应至关重要。关键洞察在于能够控制遮挡危险的曝光时间和与固定自我车辆的参考接触时间，从而允许在不同可见性条件下系统地测试规划器。</p>
+<p><strong>技术贡献</strong>: OnCue由几个关键组件组成：（1）固定的参考自我车辆，建立冲突场景；（2）几何导出的隐藏起始点和定时路标，决定危险何时变得可见；（3）离线响应oracle，根据曝光时机将机动标记为反应性或预期性；（4）条件轨迹生成器，使用学习的运动生成技术填补路标之间的运动。该框架允许对曝光和接触时间的精确控制，从而生成揭示规划者在不同可见性条件下行为的场景。</p>
+<p><strong>结果与影响</strong>: OnCue在Waymo开放运动数据集上实现了90.1%至96.6%的成功率，匹配请求的曝光和接触时间在±0.2秒内。它将匹配的骑自行车者遭遇的碰撞率从59.1%降低到5.5%，并在持出反应性测试中相比基线Latent Driver提高了54.8分，展示了在安全关键场景生成方面的显著增强。</p>
+<p><strong>技术精髓</strong>: 通过通过几何导出的路标共同控制曝光和参考接触时间，OnCue实现了对遮挡危险的规划者反应的系统评估，显著降低了碰撞率，提高了自动驾驶系统的可靠性。</p>
+
+<hr>
+
+<h3>4. ROSE-Drive: Runtime Orchestration and System Evolution for Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Qihang Huang, Zhidong Wang, Zirui Li, YuJie Yan, Jingsong Liang et al. (9 authors)  |  <strong>机构</strong>: Nanyang Technological University, Tongji University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.30438v1" target="_blank">2611.30438v1</a> | <a href="https://arxiv.org/pdf/2611.30438v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-11-23</p>
+<p><strong>核心洞察</strong>: 本论文解决了自主驾驶系统中模型利用效率低下的问题，通过引入ROSE-Drive实时协调多个冻结驾驶模型和技能的执行。关键技术洞察是使用共享任务接口和持久任务状态来保持连续性，并根据执行反馈自适应调度模型调用。</p>
+<p><strong>技术贡献</strong>: ROSE-Drive采用运行时协调循环，包括：（1）跟踪位置、速度和场景上下文的共享物理状态，（2）在变化观察中保持责任的任务状态，以及（3）基于执行反馈选择模型输出的自适应调度机制。例如，它可以在超过71%的控制步骤中跳过模型推理，显著减少计算开销，同时保持驾驶性能。</p>
+<p><strong>结果与影响</strong>: 在Bench2Drive v0.0.3和Fail2Drive上的评估表明，AutoMoT的驾驶得分（DS）从25提高到52，而SimLingo从22提高到47。这表明在不重新训练模型的情况下，驾驶性能有了显著提高，证明了协调框架的有效性。</p>
+<p><strong>技术精髓</strong>: 通过将共享任务接口与持久任务状态集成，ROSE-Drive实现了多个驾驶模型的实时协调，在跳过71%的控制步骤的同时，驾驶得分提高了2倍。</p>
+
+<hr>
+
+<h3>5. Collision Risk Estimation via Loss Prediction in End-to-End Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Ziliang Xiong, Shipeng Liu, Nathaniel Helgesen, Hongwei Li, Joakim Johnander et al. (6 authors)  |  <strong>机构</strong>: Linköping University, Zenseact, National University of Singapore</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2503.07425v3" target="_blank">2503.07425v3</a> | <a href="https://arxiv.org/pdf/2503.07425v3" target="_blank">PDF</a>  |  <strong>发表</strong>: 2025-03-10  |  <strong>更新</strong>: 2026-11-23</p>
+<p><strong>核心洞察</strong>: 本论文解决了端到端自动驾驶系统中碰撞风险估计的问题，这些系统通常不明确量化碰撞风险。关键技术洞察是，规划器的中间输出可以被解释为预测碰撞损失，从而实现实时风险评估，而无需重新训练规划器。</p>
+<p><strong>技术贡献</strong>: 作者提出了RiskMonitor，包括两个变体：RiskMonitor-T仅利用规划器的运动和规划令牌，而RiskMonitor-G则结合了关于预测轨迹的额外几何信息。RiskMonitor将碰撞风险预测为二元分类任务，利用一个小型神经网络，训练于历史碰撞损失值。该架构处理大小为N×T×D的输入令牌，其中N是代理数量，T是时间范围，D是特征维度。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上评估，RiskMonitor-G超越所有基线，AUROC达到0.85，三个规划器的平均精度为63.1%。在使用NeuroNCAP的闭环测试中，将RiskMonitor-G与制动策略结合，UniAD的碰撞率从63.9%降低到23.7%，实现了62.9%的碰撞事件减少。</p>
+<p><strong>技术精髓</strong>: 通过将碰撞风险估计框架作为二元分类任务，利用规划器输出和几何关系，RiskMonitor在实时驾驶场景中实现了显著的碰撞率降低。</p>
+
+<hr>
+
+<h3>6. Instant LiDAR: Feed-Forward Gaussian Reconstruction for LiDAR Simulation</h3>
+
+<p><strong>作者</strong>: Xin Kang, Jiahui Huang, Jiawei Ren, Sipeng Zhang, Yu Chen et al. (7 authors)  |  <strong>机构</strong>: NVIDIA</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.32042v1" target="_blank">2611.32042v1</a> | <a href="https://arxiv.org/pdf/2611.32042v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-11-24</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了传统方法（如NuRec）下LiDAR场景重建缓慢的问题，重建可能需要数小时。关键技术洞察是利用前馈管道，通过测量锚定的高斯预测和多帧整合在几分钟内重建场景，从而显著减少创建可重用LiDAR资产所需的时间。</p>
+<p><strong>技术贡献</strong>: 该机制由三个主要组件组成：（1）测量锚定的高斯预测，利用记录的LiDAR返回预测高斯属性（中心、协方差、不透明度、强度），通过八块Transformer实现；（2）采样感知的高斯尺度，根据LiDAR光线间距调整局部尺度，确保覆盖而不留间隙；（3）多帧整合，通过矩匹配合并重叠的高斯预测，保留空间范围的同时减少冗余。</p>
+<p><strong>结果与影响</strong>: 在Physical AI数据集上，Instant LiDAR的场景重建速度比NuRec快约46倍，在Waymo数据集上快70倍。它保持了竞争性的下游3D检测质量，在Waymo上实现了0.483的平均精度（AP），与需要每场景优化的最先进方法相当。</p>
+<p><strong>技术精髓</strong>: 通过采用集成测量锚定高斯预测与多帧整合的前馈管道，Instant LiDAR将场景重建时间从数小时减少到几分钟，同时保持下游任务的几何精度。</p>
+
+<hr>
+
+<h3>7. Coordinating Perception and Planning for Test-Time Adaptation in End-to-End Driving under Distribution Shifts</h3>
+
+<p><strong>作者</strong>: Shiyu Fang, Yiming Cui, Qihang Huang, Zhan Chen, Collister Chua et al. (9 authors)  |  <strong>机构</strong>: Tongji University, Nanyang Technological University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.30739v1" target="_blank">2611.30739v1</a> | <a href="https://arxiv.org/pdf/2611.30739v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-11-23</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了在分布转变下，端到端自主驾驶模型性能下降的问题，例如在雾天或亮度波动下，L2误差可增加36.4%。关键洞察是通过联合适应目标协调感知和规划，最小化感知熵，同时确保时间规划一致性。</p>
+<p><strong>技术贡献</strong>: P2-TTA采用两个主要组件：（1）结合感知熵最小化（L_mm）和回顾性时间规划一致性（L_temp）的联合自监督目标，其中L_mm鼓励感知模型的自信预测，L_temp确保预测的自我运动与观察到的运动一致。（2）基于EMA的教师-学生架构通过围绕EMA参考投影候选参数来稳定更新，仅在提高规划一致性时接受更新，有效更新LayerNorm模块的仿射参数。</p>
+<p><strong>结果与影响</strong>: 在UniAD数据集上，P2-TTA在严重分布转变下实现了L2误差平均恢复率36.4%、碰撞率30.0%和PDMS 9.3%。这相较于基线方法有显著提升，平均适应时间为19.9毫秒，同时仅更新0.11%的模型参数，展示了在实时应用中的效率。</p>
+<p><strong>技术精髓</strong>: 通过整合结合感知熵与时间规划一致性的联合自监督目标，P2-TTA稳定了在线更新，在分布转变下实现了L2误差减少36.4%，同时保持低适应开销。</p>
+
+<hr>
+
+<h3>8. AdvMTO: Multimodal and Temporal Adversarial Object Attacks via 2D Gaussian Splatting for BEV-Based 3D Object Detection</h3>
+
+<p><strong>作者</strong>: Zhiyang Cui, Hao Tan, Ruonan Li, Shibin Wu, Junjian Zhang et al. (7 authors)  |  <strong>机构</strong>: Harbin Institute of Technology, Peng Cheng Laboratory, National University of Defense Technology</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.30283v1" target="_blank">2611.30283v1</a> | <a href="https://arxiv.org/pdf/2611.30283v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-11-23</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了在BEV基础的3D物体检测系统中对持续性对抗物体的检测抑制问题。关键技术洞察是使用2D高斯点云框架，将外观、几何和不透明度编码到单一对象状态中，从而生成相机图像和激光雷达返回，干扰多个帧的检测。</p>
+<p><strong>技术贡献</strong>: AdvMTO采用三个主要组件：（1）2D高斯点云（2DGS）表示，将对象状态编码为具有中心、尺度、方向、不透明度和RGB值参数的定向表面；（2）检测器原生的时间处理，在每个源姿态下重新生成激光雷达返回，确保历史输入影响当前预测；（3）有界外观扰动优化，调整对象外观同时保持几何形状，使用目标抑制损失函数指导优化过程。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上的实验表明，AdvMTO在三个BEV检测器上实现了交通锥检测分数减少5.2%的效果，相比于3D高斯点云攻击，该方法通过历史BEV记忆更新优化外观扰动，显示出更好的攻击效果。</p>
+<p><strong>技术精髓</strong>: 通过利用将对象状态编码为统一表示的2D高斯点云框架，AdvMTO在多个模态和帧中实现了对抗物体检测的显著抑制，导致交通锥检测分数减少5.2%。</p>
+
+<hr>
+
+<h3>9. Let LiDAR Decide Where to Look: Geometry-Measured Token Selection for Efficient Sparse Latent World Models</h3>
+
+<p><strong>作者</strong>: Zeping Zhang, Zhuoya Zhao, Robert Laganière  |  <strong>机构</strong>: University of Ottawa</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2610.40935v2" target="_blank">2610.40935v2</a> | <a href="https://arxiv.org/pdf/2610.40935v2" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-10-29  |  <strong>更新</strong>: 2026-11-23</p>
+<p><strong>核心洞察</strong>: 这篇论文解决了自主驾驶模型处理过多图像标记而导致的计算效率低下问题，这些标记往往包含无关信息。关键技术洞察是利用LiDAR和雷达测量预先选择最相关的图像补丁，从而显著减少视觉主干处理的标记数量。</p>
+<p><strong>技术贡献</strong>: 提出的几何感知标记选择（GATS）由四个阶段组成：（1）使用LiDAR和雷达数据对图像补丁进行评分，以根据预算比例β（例如，β=0.1表示10%的标记）保留K个标记；（2）根据中位LiDAR点为每个选定标记分配3D锚点；（3）采用自监督世界模型预测未来特征和位移；（4）使用规划头输出自我轨迹。此过程将总FLOPs从185 GFLOPs降低到10%预算下的24 GFLOPs。</p>
+<p><strong>结果与影响</strong>: 在nuScenes数据集上，GATS实现了3秒L2位移误差为0.520m，优于密集基线（0.573m），同时仅处理10%的标记，导致计算成本降低18倍。此外，在739个意图关键场景中，它覆盖了95.8%的危险车辆，碰撞率为0.09%，比密集模型低73.5%。</p>
+<p><strong>技术精髓</strong>: 通过利用LiDAR几何信息在视觉编码之前进行标记选择，GATS将处理的标记数量从3,456减少到346，实现了24 GFLOPs的计算效率，同时保持了更高的规划精度。</p>
+
+<hr>
+
+<h3>10. MemAnchorWorld: A Sparse World Model with Horizon-Conditioned Memory Retrieval for Autonomous Driving</h3>
+
+<p><strong>作者</strong>: Xinyang Jia, Yuqi Zhang, Jiakai Wang, Yahu Yang, Guandong Pan et al. (7 authors)  |  <strong>机构</strong>: Beihang University, Zhongguancun Laboratory, Beihang University</p>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2611.32745v1" target="_blank">2611.32745v1</a> | <a href="https://arxiv.org/pdf/2611.32745v1" target="_blank">PDF</a>  |  <strong>发表</strong>: 2026-11-24</p>
+<p><strong>核心洞察</strong>: 该论文解决了在长时间范围内4D语义占用预测中错误传播的问题，这可能导致预测的显著偏差。关键技术洞察是引入了一种分层双路径记忆锚检索机制，明确检索相关的历史几何和语义证据，从而减少对通常会随着时间累积错误的递归状态传播的依赖。</p>
+<p><strong>技术贡献</strong>: MemAnchorWorld采用三个主要组件：（1）分层双路径记忆锚检索机制，根据几何和语义相关性选择K个历史查询；（2）点级记忆锚检索，聚合来自关联点的特征以提供局部证据；（3）点级残差适配器，使用独立门控调节对语义、占用置信度和空间位置的修正。该架构允许在每个预测时间范围内自适应融合历史证据。</p>
+<p><strong>结果与影响</strong>: 在Occ3D-nuScenes数据集上，MemAnchorWorld在1-3秒预测范围内实现了平均mIoU为13.55%，平均IoU为22.84%，分别比SparseWorld基线提高了0.35%和0.81%。这一改进对增强自动驾驶应用中的长期预测准确性至关重要。</p>
+<p><strong>技术精髓</strong>: 通过实现一种分层双路径记忆锚检索机制，该机制根据预测时间选择历史查询，MemAnchorWorld减少了占用预测中的错误传播，实现了比SparseWorld高出0.35%的mIoU改进。</p>
+
+<hr>
+
+
+
+        <div class="footer">
+            <p>自动生成 | 数据来源: arXiv | 由 LLM 分析总结</p>
+            <p>2026-11-27 17:58</p>
+        </div>
+    </div>
+</body>
+</html>
